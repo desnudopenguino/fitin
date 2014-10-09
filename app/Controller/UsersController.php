@@ -3,23 +3,25 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add');
+        $this->Auth->allow('add', 'logout');
     }
 
-
+//index
     public function index() {
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
     }
 
+//view
 	public function view($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
         $this->set('user', $this->User->read(null, $id));
-    }
+	}
 
+//add
     public function add() {
         if ($this->request->is('post')) {
             $this->User->create();
@@ -33,6 +35,7 @@ class UsersController extends AppController {
         }
     }
 
+//edit
     public function edit($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
@@ -52,6 +55,7 @@ class UsersController extends AppController {
         }
     }
 
+//delete
     public function delete($id = null) {
         $this->request->onlyAllow('post');
 
@@ -66,4 +70,19 @@ class UsersController extends AppController {
         $this->Session->setFlash(__('User was not deleted'));
         return $this->redirect(array('action' => 'index'));
     }
+
+//login
+	public function login() {
+		if ($this->request->is('post')) {
+    		if ($this->Auth->login()) {
+            	return $this->redirect($this->Auth->redirect());
+	        }
+    	    $this->Session->setFlash(__('Invalid username or password, try again'));
+	    }
+	}
+
+//logout
+	public function logout() {
+		return $this->redirect($this->Auth->logout());
+	}
 }

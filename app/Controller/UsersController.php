@@ -1,3 +1,4 @@
+<?
 App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
@@ -86,3 +87,4 @@ class UsersController extends AppController {
 		return $this->redirect($this->Auth->logout());
 	}
 }
+?>

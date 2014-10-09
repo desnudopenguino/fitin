@@ -8,6 +8,8 @@ Class User extends AppModel {
 			'required' => array(
 				'rule' => array('notEmpty'),
 				'message' => "Email is blank" 
+			)
+		),
 
 		'password' => array(
 			'required' => array(
@@ -20,9 +22,8 @@ Class User extends AppModel {
 			'required' => array(
 				'rule' => array('naturalNumber', true),
 				'message' => "Role is not valid"
-
+			)
 		)
-
 	);	
 
 	public function beforeSave($options = array()) {

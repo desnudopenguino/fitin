@@ -27,8 +27,9 @@ class UsersController extends AppController {
     public function register() {
         if ($this->request->is('post')) {
             $this->User->create();
+						$this->request->data['User']['url'] = md5($this->request->data['User']['email']);
 						debug($this->request->data);
-						debug($this->request->data['User']['email']);
+
 //            if ($this->User->save($this->request->data)) {
 //                $this->Session->setFlash(__('The user has been saved'));
 

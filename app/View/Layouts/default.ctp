@@ -39,7 +39,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-			<p>Login/Logout: <?php echo $this->Html->link("login", "/login"); ?> <?php echo $this->Html->link("logout", "/logout"); ?></p>
+			<p> <?php echo $this->Html->link("register", "/register"); ?> <?php echo $this->Html->link("login", "/login"); ?> <?php echo $this->Html->link("logout", "/logout"); ?></p>
 		</div>
 		<div id="content">
 

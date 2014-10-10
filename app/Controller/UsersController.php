@@ -29,8 +29,8 @@ class UsersController extends AppController {
             $this->User->create();
 						debug($this->User);
 						debug(md5($this->User->email));
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
+//            if ($this->User->save($this->request->data)) {
+//                $this->Session->setFlash(__('The user has been saved'));
 
 /*								//send user an email
 								$Email = new CakeEmail();
@@ -41,9 +41,9 @@ class UsersController extends AppController {
  */
 //								return $this->redirect(array('controller' => 'users', 'action' => 'index'));
             }
-            $this->Session->setFlash(
-                __('The user could not be saved. Please, try again.')
-            );
+//            $this->Session->setFlash(
+//                __('The user could not be saved. Please, try again.')
+//            );
         }
     }
 

@@ -29,16 +29,15 @@ class UsersController extends AppController {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
+
 								//send user an email
-								var_dump($this->request->data);
-/*
 								$Email = new CakeEmail();
 								$Email->from(array('webmaster@fitin.today' => 'FitIn'));
-								$Email->to($this->User->get('email'));
+								$Email->to('claxbucky@yahoo.com'); //change this to the real email, just testing right now
 								$Email->subject('FitIn Confirmation Email');
 								$Email->send('Thank you for joining. Here is your confirmation link:');
- */
-								return $this->redirect(array('action' => 'dashboard'));
+
+								return $this->redirect(array('controller' => 'pages', 'action' => 'display','dashboard'));
             }
             $this->Session->setFlash(
                 __('The user could not be saved. Please, try again.')

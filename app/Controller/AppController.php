@@ -56,9 +56,10 @@ class AppController extends Controller {
 	public function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 		$this->Security->blackHoleCallback = 'forceSSL';
-		$this->Security->requireSecure(); //requice ssl 
+		$this->Security->requireSecure(); 
 	}
 
+	//force SSL connection
 	public function forceSSL() {
 		return $this->redirect('https://' . env('SERVER_NAME') . $this->here);
 	}

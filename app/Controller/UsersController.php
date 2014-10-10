@@ -22,7 +22,7 @@ class UsersController extends AppController {
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-        $this->set('user', $this->User->read(null, $url));
+        $this->set('user', $this->User->findByUrl($url));//read(null, $url));
 	}
 
 //register replaces add

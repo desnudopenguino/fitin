@@ -54,6 +54,8 @@ class AppController extends Controller {
 		)
 	);
 
+	debug($this->Auth->user());
+
 	public function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 		$this->Security->blackHoleCallback = 'forceSSL';

@@ -37,7 +37,7 @@ class UsersController extends AppController {
 								$Email->subject('FitIn Confirmation Email');
 								$Email->send('Thank you for joining. Here is your confirmation link:');
  */
-								return $this->redirect(array('controller' => 'pages', 'action' => 'display','dashboard'));
+								return $this->redirect(array('controller' => 'users', 'action' => 'index'));
             }
             $this->Session->setFlash(
                 __('The user could not be saved. Please, try again.')

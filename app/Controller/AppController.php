@@ -32,6 +32,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	public $components = array(
+		'Security',
 		'Session',
 		'Auth' => array(
 			'loginRedirect' => array(
@@ -54,6 +55,11 @@ class AppController extends Controller {
 
 	public function beforeFilter() {
 		$this->Auth->allow('index', 'view');
+		$this->Security->blackHoleCallback = 'forceSSL';
 		$this->Security->requireSecure(); //requice ssl 
+	}
+
+	public function forceSSL() {
+		return $this->redirect('https://' . env('SERVER_NAME') . $this->here);
 	}
 }

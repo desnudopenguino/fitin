@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 class UsersController extends AppController {
     public function beforeFilter() {
@@ -28,7 +29,14 @@ class UsersController extends AppController {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
+								//send user an email
+								$Email = new CakeEmail();
+								$Email->from(array('webmaster@fitin.today' => 'FitIn'));
+								$Email->to($this->User->email);
+								$Email->subject('FitIn Confirmation Email');
+								$Email->send('Thank you for joining. Here is your confirmation link:');
+
+								return $this->redirect(array('action' => 'dashboard'));
             }
             $this->Session->setFlash(
                 __('The user could not be saved. Please, try again.')

@@ -26,7 +26,9 @@ class UsersController extends AppController {
 //register replaces add
     public function register() {
         if ($this->request->is('post')) {
-            $this->User->create();
+						$this->User->create();
+
+						//request takes the request in and adds the url md5 hash
 						$request = $this->request->data;
 						$request['User']['url'] = md5($request['User']['email']);
 
@@ -46,7 +48,6 @@ class UsersController extends AppController {
   	              __('The user could not be saved. Please, try again.')
     	        );
 						}
-						debug($this->User->validationErrors);
         }
     }
 

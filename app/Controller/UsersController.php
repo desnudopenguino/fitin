@@ -32,7 +32,7 @@ class UsersController extends AppController {
 								//send user an email
 								$Email = new CakeEmail();
 								$Email->from(array('webmaster@fitin.today' => 'FitIn'));
-								$Email->to($this->User->email);
+								$Email->to($this->User->get('email'));
 								$Email->subject('FitIn Confirmation Email');
 								$Email->send('Thank you for joining. Here is your confirmation link:');
 

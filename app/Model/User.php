@@ -6,9 +6,17 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 Class User extends AppModel {
 	public $validate = array(
 		'email' => array(
-			'required' => array(
+			'blankEmail' => array(
 				'rule' => array('notEmpty'),
 				'message' => "Email is blank" 
+			),
+			'isEmail' => array(
+							'rule' => array('email'),
+							'message' => "Not a valid email"
+			),
+			'isUnique' => array(
+							'rule' => array('isUnique'),
+							'message' => "An account with that email already exists"
 			)
 		),
 

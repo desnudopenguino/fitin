@@ -15,12 +15,12 @@ class UsersController extends AppController {
     }
 
 //view
-	public function view($id = null) {
-        $this->User->id = $id;
+	public function view($url = null) {
+        $this->User->url = $url;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-        $this->set('user', $this->User->read(null, $id));
+        $this->set('user', $this->User->read(null, $url));
 	}
 
 //register replaces add

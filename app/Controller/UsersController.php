@@ -41,10 +41,11 @@ class UsersController extends AppController {
 								$Email->send('Thank you for joining. Here is your confirmation link:');
  */
 //								return $this->redirect(array('controller' => 'users', 'action' => 'index'));
-            }
-            $this->Session->setFlash(
-                __('The user could not be saved. Please, try again.')
-            );
+            } else {
+	            $this->Session->setFlash(
+  	              __('The user could not be saved. Please, try again.')
+    	        );
+						}
 						debug($this->User->validationErrors);
         }
     }

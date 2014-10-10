@@ -33,8 +33,8 @@
 	//Main site routes: hashboard, profile, culture, search
 	Router::connect('/dashboard', array('controller' => 'pages', 'action' => 'display', 'dashboard'));
 	Router::connect('/profile', array('controller' => 'pages', 'action' => 'display', 'profile'));
-	Router::connect('/culture', array('controller' => 'pages', 'action' => 'display', 'dashboard'));
-	Router::connect('/search', array('controller' => 'pages', 'action' => 'display', 'dashboard'));
+	Router::connect('/culture', array('controller' => 'pages', 'action' => 'display', 'culture'));
+	Router::connect('/search', array('controller' => 'pages', 'action' => 'display', 'search'));
 
 	//user login/register/whatever moved to root
 	Router::connect('/register', array('controller' => 'users', 'action' => 'register'));

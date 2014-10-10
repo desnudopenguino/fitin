@@ -30,7 +30,7 @@ class UsersController extends AppController {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
 								//send user an email
-								var_dump($this->User);
+								var_dump($this->request->data);
 /*
 								$Email = new CakeEmail();
 								$Email->from(array('webmaster@fitin.today' => 'FitIn'));

@@ -28,10 +28,9 @@ class UsersController extends AppController {
         if ($this->request->is('post')) {
             $this->User->create();
 						$this->request->data['User']['url'] = md5($this->request->data['User']['email']);
-						debug($this->request->data);
 
-//            if ($this->User->save($this->request->data)) {
-//                $this->Session->setFlash(__('The user has been saved'));
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('The user has been saved'));
 
 /*								//send user an email
 								$Email = new CakeEmail();
@@ -41,10 +40,10 @@ class UsersController extends AppController {
 								$Email->send('Thank you for joining. Here is your confirmation link:');
  */
 //								return $this->redirect(array('controller' => 'users', 'action' => 'index'));
-//            }
-//            $this->Session->setFlash(
-//                __('The user could not be saved. Please, try again.')
-//            );
+            }
+            $this->Session->setFlash(
+                __('The user could not be saved. Please, try again.')
+            );
         }
     }
 

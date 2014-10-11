@@ -42,7 +42,8 @@
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 
 	//change the url for users to "with" so fitin.today/with/<userhash> and the userhash can be personalized for a price
-	Router::connect('/with/:url', array('controller' => 'users', 'action' => 'view'));
+	Router::connectNamed(array('url'));
+	Router::connect('/with/:url', array('controller' => 'users', 'action' => 'view'), array('pass' => ("url"));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

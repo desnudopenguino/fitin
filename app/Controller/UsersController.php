@@ -23,9 +23,6 @@ class UsersController extends AppController {
 //view
 	public function view($url = null) {
 				$user = $this->User->findByUrl($url);
-//        if (!$user->exists()) {
-//  	     throw new NotFoundException(__('Invalid user'));
-//        }
 				if(empty($user)) {
   	    	throw new NotFoundException(__('Invalid user'));
 				}
@@ -38,11 +35,12 @@ class UsersController extends AppController {
 						$this->User->create();
 
 						//request takes the request in and adds the url md5 hash move to beforeSave
-//						$request = $this->request->data;
-//						$request['User']['url'] = md5($request['User']['email']);
+						$request = $this->request->data;
+						$request['User']['url'] = md5($request['User']['email']);
 						//beforeSave
 
-            if ($this->User->save($this->request->data)) {
+//            if ($this->User->save($this->request->data)) {
+            if ($this->User->save($request)) {
                 $this->Session->setFlash(__('The user has been saved'));
 
 /*								//send user an email

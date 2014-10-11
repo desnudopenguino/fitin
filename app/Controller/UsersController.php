@@ -8,6 +8,12 @@ class UsersController extends AppController {
         $this->Auth->allow('logout','register');
     }
 
+		public function beforeSave() {
+				parent::beforeSave();
+				$this->data['User']['url'] = md5($this->data['User']['email']);
+				return true;
+		}
+
 //index
     public function index() {
         $this->User->recursive = 0;
@@ -16,12 +22,11 @@ class UsersController extends AppController {
 
 //view
 	public function view($url = null) {
-					$user = $this->User->findByUrl($url);
-					$this->set('user',$user);
-//        if (!$this->User->exists()) {
-//            throw new NotFoundException(__('Invalid user'));
-//        }
-//        $this->set('user', $this->User->findByUrl($url));
+				$user = $this->User->findByUrl($url);
+        if (!$this->User->exists()) {
+  	      throw new NotFoundException(__('Invalid user'));
+        }
+				$this->set('user',$user);
 	}
 
 //register replaces add
@@ -29,9 +34,10 @@ class UsersController extends AppController {
         if ($this->request->is('post')) {
 						$this->User->create();
 
-						//request takes the request in and adds the url md5 hash
-						$request = $this->request->data;
-						$request['User']['url'] = md5($request['User']['email']);
+						//request takes the request in and adds the url md5 hash move to beforeSave
+//						$request = $this->request->data;
+//						$request['User']['url'] = md5($request['User']['email']);
+						//beforeSave
 
             if ($this->User->save($request)) {
                 $this->Session->setFlash(__('The user has been saved'));

@@ -23,9 +23,9 @@ class UsersController extends AppController {
 //view
 	public function view($url = null) {
 				$user = $this->User->findByUrl($url);
-        if (!$user->exists()) {
-  	      throw new NotFoundException(__('Invalid user'));
-        }
+//        if (!$user->exists()) {
+//  	      throw new NotFoundException(__('Invalid user'));
+//        }
 				$this->set('user',$user);
 	}
 

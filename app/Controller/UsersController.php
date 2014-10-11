@@ -16,7 +16,7 @@ class UsersController extends AppController {
 
 //view
 	public function view($url = null) {
-					debug($url)
+					debug($url);
 					debug($this->User->findByUrl($url));
         //$this->User->url = $url;
         $this->User->findByUrl($url);

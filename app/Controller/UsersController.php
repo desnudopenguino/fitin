@@ -42,7 +42,7 @@ class UsersController extends AppController {
 //						$request['User']['url'] = md5($request['User']['email']);
 						//beforeSave
 
-            if ($this->User->save($this->request->data) {
+            if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
 
 /*								//send user an email

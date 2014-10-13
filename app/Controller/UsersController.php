@@ -53,7 +53,12 @@ class UsersController extends AppController {
 													$Employer->add($employerData);
 													break;
 									case 2: //Applicant
-//													App::import('Controller', 'Applicants');
+													App::import('Controller', 'Applicants');
+													$Applicant = new ApplicantsController;
+													$Applicant->constructClasses();
+													$applicantData = array('Applicant'=> array(
+																	'userId' => $userId));
+													$Applicant->add($applicantData);
 													break;
 									case 3: //Recruiter
 //													App::import('Controller', 'Recruiter');													

@@ -6,6 +6,7 @@ class EmployersController extends AppController {
 		$this->Employer->create();
 		if ($this->Employer->save($userArray)) {
 			debug($userArray);
+		}
 	}
  }
 ?>

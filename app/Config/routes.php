@@ -30,11 +30,11 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-	//Main site routes: dashboard, profile, culture, search could also point to /users (probably a better idea)
-	Router::connect('/dashboard', array('controller' => 'pages', 'action' => 'display', 'dashboard'));
-	Router::connect('/profile', array('controller' => 'pages', 'action' => 'display', 'profile'));
-	Router::connect('/culture', array('controller' => 'pages', 'action' => 'display', 'culture'));
-	Router::connect('/search', array('controller' => 'pages', 'action' => 'display', 'search'));
+	//Main site routes: dashboard, profile, culture, search
+	Router::connect('/dashboard', array('controller' => 'users', 'action' => 'dashboard'));
+	Router::connect('/profile', array('controller' => 'users', 'action' => 'profile'));
+	Router::connect('/culture', array('controller' => 'users', 'action' => 'culture'));
+	Router::connect('/search', array('controller' => 'users', 'action' => 'search'));
 
 	//user login/register/logout moved to root
 	Router::connect('/register', array('controller' => 'users', 'action' => 'register'));

@@ -2,9 +2,10 @@
  App::uses('AppController', 'Controller');
 
 class EmployersController extends AppController {
-	function creat($userArray) {
+	function add($userArray) {
 		$this->Employer->create();
-		debug($userArray);
+		if ($this->Employer->save($userArray)) {
+			debug($userArray);
 	}
  }
 ?>

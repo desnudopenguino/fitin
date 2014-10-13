@@ -50,7 +50,7 @@ class UsersController extends AppController {
 													$Employer->constructClasses();
 													$employerData = array('Employer'=> array(
 																	'userId' => $userId));
-													$Employer->add($empolyerData);
+													$Employer->add($employerData);
 													break;
 									case 2: //Applicant
 //													App::import('Controller', 'Applicants');

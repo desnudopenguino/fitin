@@ -40,7 +40,25 @@ class UsersController extends AppController {
 						//beforeSave
 
 //            if ($this->User->save($this->request->data)) {
-            if ($this->User->save($request)) {
+						if ($this->User->save($request)) {
+								$userId = $this->User->getLastInsertId();
+								//create usertype in case here
+								switch($request['User']['roleId']) {
+									case 1: //Employer
+//													App::import('Controller', 'Employers');
+//													$Employer = new EmployersController;
+//													$Employer->constructClasses();
+//													$Employer->create($userId);
+													break;
+									case 2: //Applicant
+//													App::import('Controller', 'Applicants');
+													break;
+									case 3: //Recruiter
+//													App::import('Controller', 'Recruiter');													
+													break;
+									default://default, other action (if someone tries to hack it)
+													break;
+								}
                 $this->Session->setFlash(__('The user has been saved'));
 
 /*								//send user an email

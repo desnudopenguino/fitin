@@ -39,11 +39,9 @@ class UsersController extends AppController {
 						$request['User']['url'] = md5($request['User']['email']);
 						//beforeSave
 
-//            if ($this->User->save($this->request->data)) {
 						if ($this->User->save($request)) {
 								$userId = $this->User->getLastInsertId();
-								//create usertype in case here
-								switch($request['User']['roleId']) {
+								switch($request['User']['roleId']) { //create usertype in case here
 									case 1: //Employer
 													App::import('Controller', 'Employers');
 													$Employer = new EmployersController;
@@ -61,9 +59,9 @@ class UsersController extends AppController {
 													$Applicant->add($applicantData);
 													break;
 									case 3: //Recruiter
-//													App::import('Controller', 'Recruiter');													
 													break;
 									default://default, other action (if someone tries to hack it)
+													$this->delete($userId);
 													break;
 								}
                 $this->Session->setFlash(__('The user has been saved'));

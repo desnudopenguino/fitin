@@ -136,6 +136,8 @@ class UsersController extends AppController {
 //dashboard
 	//doesn't do much, just redirects to dash depending on user role
 	public function dashboard() {
+		$User = $this->getCurrentUser();
+debug($User);
 
 	}
 }

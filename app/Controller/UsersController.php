@@ -45,9 +45,9 @@ class UsersController extends AppController {
 								//create usertype in case here
 								switch($request['User']['roleId']) {
 									case 1: //Employer
-//													App::import('Controller', 'Employers');
-//													$Employer = new EmployersController;
-//													$Employer->constructClasses();
+													App::import('Controller', 'Employers');
+													$Employer = new EmployersController;
+													$Employer->constructClasses();
 //													$Employer->create($userId);
 													break;
 									case 2: //Applicant

@@ -109,5 +109,11 @@ class UsersController extends AppController {
 	public function logout() {
 		return $this->redirect($this->Auth->logout());
 	}
+
+//dashboard
+	//doesn't do much, just redirects to dash depending on user role
+	public function dashboard() {
+
+	}
 }
 ?>

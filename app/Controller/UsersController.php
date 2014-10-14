@@ -142,18 +142,17 @@ class UsersController extends AppController {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
 					"action" => "index",));
-							break;
+				break;
+
 			case 1: //Employer
 				$this->redirect(array("controller" => "employers", 
 					"action" => "dashboard",));
-							break;
+				break;
+
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
 					"action" => "dashboard",));
-							break;
-			case 3: //recruiter
-							break;
-
+				break;
 		}
 	}
 }

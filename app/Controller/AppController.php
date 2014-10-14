@@ -49,6 +49,7 @@ class AppController extends Controller {
 		$this->Auth->allow('index', 'view');
 		$this->Security->blackHoleCallback = 'forceSSL';
 		$this->Security->requireSecure(); 
+		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');
 	}
 
 	//force SSL connection

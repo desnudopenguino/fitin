@@ -8,5 +8,9 @@ class ApplicantsController extends AppController {
 			debug($userArray);
 		}
 	}
+
+	function dashboard() {
+
+	}
  }
 ?>

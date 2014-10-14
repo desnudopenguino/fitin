@@ -140,6 +140,8 @@ class UsersController extends AppController {
 		debug($User);
 		switch($User['roleId']) {
 			case 0: //Admin
+				$this->redirect(array("controller" => "users", 
+					"action" => "index",));
 							break;
 			case 1: //Employer
 				$this->redirect(array("controller" => "employers", 

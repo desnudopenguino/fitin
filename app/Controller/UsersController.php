@@ -136,11 +136,23 @@ class UsersController extends AppController {
 //dashboard
 	//doesn't do much, just redirects to dash depending on user role
 	public function dashboard() {
-		$this->User->id = $this->Auth->user('id');
 		$User = $this->Auth->user();
-debug($this->User);
-debug($User);
+		debug($User);
+		switch($User['roleId']) {
+			case 0: //Admin
+							break;
+			case 1: //Employer
+				$this->redirect(array("controller" => "employers", 
+					"action" => "dashboard",));
+							break;
+			case 2: //Applicant
+				$this->redirect(array("controller" => "applicants", 
+					"action" => "dashboard",));
+							break;
+			case 3: //recruiter
+							break;
 
+		}
 	}
 }
 ?>

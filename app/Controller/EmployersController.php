@@ -8,5 +8,9 @@ class EmployersController extends AppController {
 			debug($userArray);
 		}
 	}
+
+	function dashboard() {
+
+	}
  }
 ?>

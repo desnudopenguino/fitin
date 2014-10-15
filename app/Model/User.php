@@ -24,6 +24,10 @@ Class User extends AppModel {
 			'required' => array(
 				'rule' => array('notEmpty'),
 				'message' => "Password is blank"
+			),
+			'minLength' => array(
+				'rule' => array('minLength',8),
+				'message' => "Password minimum length is 8 characters"
 			)
 		),
 

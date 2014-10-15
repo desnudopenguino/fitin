@@ -11,12 +11,12 @@ Class User extends AppModel {
 				'message' => "Email is blank" 
 			),
 			'isEmail' => array(
-							'rule' => array('email'),
-							'message' => "Not a valid email"
+				'rule' => array('email'),
+				'message' => "Not a valid email"
 			),
 			'isUnique' => array(
-							'rule' => array('isUnique'),
-							'message' => "An account with that email already exists"
+				'rule' => array('isUnique'),
+				'message' => "An account with that email already exists"
 			)
 		),
 

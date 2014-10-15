@@ -5,7 +5,7 @@ App::uses('CakeEmail', 'Network/Email');
 class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('logout','register');
+        $this->Auth->allow('home','logout','register');
     }
 
 		public function beforeSave() {
@@ -41,6 +41,7 @@ class UsersController extends AppController {
 
 						if ($this->User->save($request)) {
 								$userId = $this->User->getLastInsertId();
+								$validUser = true;
 								switch($request['User']['roleId']) { //create usertype in case here
 									case 1: //Employer
 													App::import('Controller', 'Employers');
@@ -62,9 +63,11 @@ class UsersController extends AppController {
 													break;
 									default://default, other action (if someone tries to hack it)
 													$this->delete($userId);
+													$validUser = false;
 													break;
 								}
-                $this->Session->setFlash(__('The user has been saved'));
+								$this->Session->setFlash(__('The user has been saved'));
+								$this->Auth->login($request['User']); //auto login user
 
 /*								//send user an email
 								$Email = new CakeEmail();

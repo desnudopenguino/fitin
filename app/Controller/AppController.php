@@ -46,7 +46,8 @@ class AppController extends Controller {
 
 
 	public function beforeFilter() {
-		$this->Auth->allow('index', 'view');
+//		$this->Auth->allow('index', 'view', 'home');
+		$this->Auth->allow('home');
 		$this->Security->blackHoleCallback = 'forceSSL';
 		$this->Security->requireSecure(); 
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');

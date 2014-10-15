@@ -10,14 +10,18 @@ class UsersController extends AppController {
 
 		public function beforeSave() {
 				parent::beforeSave();
-				$this->data['User']['url'] = md5($this->data['User']['email']);
+				$this->request->data['User']['url'] = md5($this->data['User']['email']);
 				return true;
 		}
 
 //index
     public function index() {
+			if($this->Auth->user('roleId') == 0) {
         $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
+				$this->set('users', $this->paginate());
+			} else {
+				throw new NotFoundException("Not Found");
+			}
     }
 
 //view
@@ -39,7 +43,8 @@ class UsersController extends AppController {
 						$request['User']['url'] = md5($request['User']['email']);
 						//beforeSave
 
-						if ($this->User->save($request)) {
+//						if ($this->User->save($request)) {
+						if ($this->User->save($this->request->data)) {
 								$userId = $this->User->getLastInsertId();
 								$validUser = true;
 								switch($request['User']['roleId']) { //create usertype in case here

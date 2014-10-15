@@ -5,7 +5,7 @@ App::uses('CakeEmail', 'Network/Email');
 class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('home','logout','register');
+        $this->Auth->allow('logout','register','view');
     }
 
 		public function beforeSave() {

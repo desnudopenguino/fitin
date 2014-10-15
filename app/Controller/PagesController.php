@@ -74,4 +74,8 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+
+	function beforeFilter() {
+		$this->Auth->allow('*'); // allow all pages in pages controller. These are the basic pages (home, about, contact, ToS, Privacy, etc) that anyone should be able to view 
+	}
 }

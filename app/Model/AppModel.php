@@ -30,11 +30,5 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
-	//function to get logged in user in multiple models
-	public function getCurrentUser() {
-		App::uses('CakeSession', 'Model/Datasource');
-	  $Session = new CakeSession();
-	  $user = $Session->read('Auth.User');
-	  return $user;
 	}
 }

@@ -1,11 +1,10 @@
 <?php
 App::uses('AppController', 'Controller');
-App::uses('CakeEmail', 'Network/Email');
 
 class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('logout','register','view');
+        $this->Auth->allow('login','register','view');
     }
 
 		public function beforeSave() {
@@ -74,14 +73,7 @@ class UsersController extends AppController {
 								$this->Session->setFlash(__('The user has been saved'));
 								$this->Auth->login($request['User']); //auto login user
 
-/*								//send user an email
-								$Email = new CakeEmail();
-								$Email->from(array('webmaster@fitin.today' => 'FitIn'));
-								$Email->to('claxbucky@yahoo.com'); //change this to the real email, just testing right now
-								$Email->subject('FitIn Confirmation Email');
-								$Email->send('Thank you for joining. Here is your confirmation link:');
- */
-//								return $this->redirect(array('controller' => 'users', 'action' => 'index'));
+								return $this->redirect(array('controller' => 'users', 'action' => 'dashboard')); //redirect after login
             } else {
 	            $this->Session->setFlash(
   	              __('The user could not be saved. Please, try again.')

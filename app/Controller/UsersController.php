@@ -114,8 +114,8 @@ class UsersController extends AppController {
 
 //login
 	public function login() {
+		debug($this->request);
 		if ($this->request->is('post')) {
-						debug($this->request);
     		if ($this->Auth->login()) {
             	return $this->redirect($this->Auth->redirect());
 	        }
@@ -132,7 +132,6 @@ class UsersController extends AppController {
 	//doesn't do much, just redirects to dash depending on user role
 	public function dashboard() {
 		$User = $this->Auth->user();
-		debug($User);
 		switch($User['roleId']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 

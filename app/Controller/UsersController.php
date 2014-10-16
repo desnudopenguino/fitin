@@ -114,6 +114,7 @@ class UsersController extends AppController {
 
 //login
 	public function login() {
+		debug($_POST);
 		debug($this->request);
 		if ($this->request->is('post')) {
     		if ($this->Auth->login()) {

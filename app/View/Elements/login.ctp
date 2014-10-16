@@ -6,4 +6,5 @@
 	echo $this->form->input('password',
 					array('label' => 'Password')
 	);
+	echo $this->form->end('Login');
 ?>

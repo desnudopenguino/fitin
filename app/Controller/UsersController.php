@@ -37,12 +37,6 @@ class UsersController extends AppController {
         if ($this->request->is('post')) {
 						$this->User->create();
 
-						//request takes the request in and adds the url md5 hash move to beforeSave
-						$request = $this->request->data;
-						$request['User']['url'] = md5($request['User']['email']);
-						//beforeSave
-
-//						if ($this->User->save($request)) {
 						if ($this->User->save($this->request->data)) {
 								$userId = $this->User->getLastInsertId();
 								$validUser = true;

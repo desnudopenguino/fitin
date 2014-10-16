@@ -7,6 +7,6 @@ echo $this->Form->create('User',
 		'options' => array('1' => 'Employer','2' => 'Applicant'),
 		'label' => "Role"
 		));
-	echo $this->form->end('Login');
+	echo $this->form->end(__('Submit'));
 ?>
 

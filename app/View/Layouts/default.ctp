@@ -19,7 +19,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -62,16 +62,13 @@
 				<?php echo $this->element('login'); ?>
 			</div>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  </div><!-- /.container -->
 </nav>
 	<div id="container">
-		<div id="content">
-
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
-		</div>
-		<?php echo $this->element('footer'); //footer code ?>
 	</div>
+		<?php echo $this->element('footer'); //footer code ?>
 </body>
 </html>

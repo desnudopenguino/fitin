@@ -2,9 +2,13 @@
 App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('login','register','view');
+
+				$this->Security->csrfCheck = false;
+				$this->Security->validatePost = false;
     }
 
 		public function beforeSave() {

@@ -11,6 +11,6 @@
 		)
 	));
 	echo $this->Form->input('User.email');
-	echo $this->form->input('User.password');
-	echo $this->form->end('Login');
+	echo $this->Form->input('User.password');
+	echo $this->Form->end('Login');
 ?>

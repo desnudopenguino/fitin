@@ -78,6 +78,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
           </ul>
         </li>
       </ul>
+			<?php echo $this->element('login'); ?>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">

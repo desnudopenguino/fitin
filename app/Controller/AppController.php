@@ -40,6 +40,14 @@ class AppController extends Controller {
 					'passwordHasher' => 'Blowfish',
 					'fields' => array('username' => 'email')//to authenticate via email
 				)
+			),
+			'flash' => array(
+				'element' => 'alert',
+				'key' => 'auth',
+				'params' => array(
+					'plugin' => 'BoostCake',
+					'class' => 'alert-danger'
+				)
 			)
 		)
 	);

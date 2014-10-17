@@ -7,8 +7,8 @@ class UsersController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow('login','register','view');
 
-				$this->Security->csrfCheck = false;
-//				$this->Security->validatePost = false;
+//				$this->Security->csrfCheck = false;
+				$this->Security->validatePost = false;
 //				$this->Security->enabled = false; //works while commented out
     }
 

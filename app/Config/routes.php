@@ -38,7 +38,7 @@
 
 	//user login/register/logout moved to root
 	Router::connect('/register', array('controller' => 'users', 'action' => 'register'));
-//	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 
 	//change the url for users to "with" so fitin.today/with/<userhash> and the userhash can be personalized for a price

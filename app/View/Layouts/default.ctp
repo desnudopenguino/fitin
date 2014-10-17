@@ -54,7 +54,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 					'url' => array(
 						'controller' => 'pages',
 						'action' => 'display', 'home'
-					)
+					),
+					'width' => '100px'
 				)
 			); ?>
     </div>

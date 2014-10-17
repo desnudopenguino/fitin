@@ -47,13 +47,13 @@ class AppController extends Controller {
 
 	public function beforeFilter() {
 //		$this->Auth->allow('index', 'view',); //commented out to prevent all indexes and views from being viewable
-		$this->Security->blackHoleCallback = 'forceSSL';
-		$this->Security->requireSecure(); 
+//		$this->Security->blackHoleCallback = 'forceSSL'; // commented out because hopefully apache redirects now
+//		$this->Security->requireSecure(); 
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 	}
 
 	//force SSL connection
-	public function forceSSL() {
-		return $this->redirect('https://' . env('SERVER_NAME') . $this->here);
-	}
+//	public function forceSSL() {
+//		return $this->redirect('https://' . env('SERVER_NAME') . $this->here);
+//	}
 }

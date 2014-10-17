@@ -47,8 +47,16 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
+			</button>
+
+			<?php echo $this->Html->image('header.png',
+				array('alt' => 'FitIn.Today',
+					'url' => array(
+						'controller' => 'pages',
+						'action' => 'display', 'home'
+					)
+				)
+			); ?>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

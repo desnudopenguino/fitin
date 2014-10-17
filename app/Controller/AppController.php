@@ -51,7 +51,7 @@ class AppController extends Controller {
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 	}
 
-	force SSL connection
+	//force SSL connection
 	public function forceSSL() {
 		return $this->redirect('https://' . env('SERVER_NAME') . $this->here);
 	}

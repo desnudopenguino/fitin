@@ -7,7 +7,7 @@
 				echo $this->Html->link(
 					$image,
 					"https://www.linkedin.com/company/5220722",
-					array('target' => '_blank'
+					array('target' => '_blank',
 						'escape' => 'false')
       	); ?> 
 

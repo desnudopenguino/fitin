@@ -1,8 +1,8 @@
-<div class="row" id="footer">
+<div class="row" id="footer" style="text-align: center;">
 	<div>
      <?php echo $this->Html->image('linkedin.png',
         array('alt' => 'FitIn on LinkedIn',
-          'url' => array("https://www.linkedin.com/company/5220722"),    
+          'url' => "https://www.linkedin.com/company/5220722",    
           'width' => '35'
         )     
       ); ?> 

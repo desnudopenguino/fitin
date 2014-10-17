@@ -6,10 +6,6 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 Class User extends AppModel {
 	public $validate = array(
 		'email' => array(
-			'blankEmail' => array(
-				'rule' => array('notEmpty'),
-				'message' => "Email is blank" 
-			),
 			'isEmail' => array(
 				'rule' => array('email'),
 				'message' => "Not a valid email"
@@ -21,10 +17,6 @@ Class User extends AppModel {
 		),
 
 		'password' => array(
-			'required' => array(
-				'rule' => array('notEmpty'),
-				'message' => "Password is blank"
-			),
 			'minLength' => array(
 				'rule' => array('minLength',8),
 				'message' => "Password minimum length is 8 characters"
@@ -33,7 +25,7 @@ Class User extends AppModel {
 
 		'roleId' => array(
 			'required' => array(
-				'rule' => array('naturalNumber', true),
+				'rule' => array('naturalNumber'),
 				'message' => "Role is not valid"
 			)
 		)

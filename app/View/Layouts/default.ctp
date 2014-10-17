@@ -30,6 +30,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 //		echo $this->Html->css('cake.generic');
 		echo $this->Html->css(array("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"));
+		echo $this->Html->script(array("https://code.jquery.com/jquery-2.1.1.min.js"));
 		echo $this->Html->script(array("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"));
 
 		echo $this->fetch('meta');

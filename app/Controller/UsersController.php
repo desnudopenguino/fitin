@@ -70,7 +70,7 @@ class UsersController extends AppController {
 													break;
 								}
 								$this->Session->setFlash(__('The user has been saved'));
-								$this->Auth->login($request['User']); //auto login user
+								$this->Auth->login($this->request->data['User']); //auto login user
 
 								return $this->redirect(array('controller' => 'users', 'action' => 'dashboard')); //redirect after login
             } else {

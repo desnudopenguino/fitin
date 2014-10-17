@@ -71,8 +71,7 @@
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
-		</div>
+		<?php echo $this->element('footer'); //footer code ?>
 	</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<h1 style="font-size: 40px; margin-top: -9em; padding-bottom: .3em; text-align: left;"><strong>Job matching <br />With personality.</strong></h1>
+<h1 style="font-size: 40px; text-align: left; font-weight: bold;">Job matching <br />With personality.</h1>
 <p>FitIn is a pre-screening culture match tool for employers to find the right candidates the first time.</p>
 <h3 style="font-size: 20px;"><strong>Currently in Beta Testing.</strong></h3>
 <h3 style="font-size: 20px;"><strong>Origin Story:</strong></h3>

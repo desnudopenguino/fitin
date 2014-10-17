@@ -3,12 +3,14 @@
 		<?php $image = $this->Html->image('linkedin.png',
         array('alt' => 'FitIn on LinkedIn',
           'width' => '35'
-				));
-				echo $this->Html->link(
+				)
+			);
+			echo $this->Html->link(
 					$image,
-					"https://www.linkedin.com/company/5220722",
+					'https://www.linkedin.com/company/5220722',
 					array('target' => '_blank',
-						'escape' => 'false')
+						'escape' => false
+					)
       	); ?> 
 
      <?php echo $this->Html->image('twitter.png',

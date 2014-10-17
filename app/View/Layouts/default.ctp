@@ -28,7 +28,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-//		echo $this->Html->css('cake.generic');
 		echo $this->Html->css(array("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"));
 		echo $this->Html->script(array("https://code.jquery.com/jquery-2.1.1.min.js"));
 		echo $this->Html->script(array("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"));
@@ -102,10 +101,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
   </div><!-- /.container-fluid -->
 </nav>
 	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-			<p> <?php echo $this->Html->link("register", "/register"); ?> <?php echo $this->Html->link("login", "/login"); ?> <?php echo $this->Html->link("logout", "/logout"); ?></p>
-		</div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
@@ -113,17 +108,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

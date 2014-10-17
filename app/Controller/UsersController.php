@@ -7,7 +7,7 @@ class UsersController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow('login','register','view');
 
-				$this->Security->validatePost = false;
+//				$this->Security->validatePost = false;
     }
 
 		public function beforeSave() {

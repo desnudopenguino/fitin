@@ -1,3 +1,5 @@
-<?php
-	echo $this->element('register');
-?>
+<div class="row">
+	<div class="col-md-4 col-md-offset-8"> 
+		<?php echo $this->element('register'); ?>
+	</div>
+</div>

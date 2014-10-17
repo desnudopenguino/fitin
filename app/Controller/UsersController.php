@@ -4,10 +4,11 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 
     public function beforeFilter() {
-        parent::beforeFilter();
-        $this->Auth->allow('login','register','view');
-
-//				$this->Security->validatePost = false;
+      parent::beforeFilter();
+      $this->Auth->allow('login','register','view');
+    	if (isset($this->Security) && in_array($this->action,array('login','register'))) {
+        $this->Security->validatePost = false;
+    	}
     }
 
 		public function beforeSave() {

@@ -40,7 +40,8 @@ class UsersController extends AppController {
     public function register() {
         if ($this->request->is('post')) {
 						$this->User->create();
-
+						//below line should work in beforesave, but isn't.
+						$this->request->data['User']['url'] = md5($this->data['User']['email']);
 						if ($this->User->save($this->request->data)) {
 								$userId = $this->User->getLastInsertId();
 								$validUser = true;

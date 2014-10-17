@@ -1,11 +1,15 @@
 <div class="row" id="footer" style="text-align: center;">
 	<div>
-     <?php echo $this->Html->image('linkedin.png',
+		<?php $image = $this->Html->image('linkedin.png',
         array('alt' => 'FitIn on LinkedIn',
-          'url' => "https://www.linkedin.com/company/5220722",    
           'width' => '35'
-        )     
-      ); ?> 
+				));
+				echo $this->Html->link(
+					$image,
+					"https://www.linkedin.com/company/5220722",
+					array('target' => '_blank'
+						'escape' => 'false')
+      	); ?> 
 
      <?php echo $this->Html->image('twitter.png',
         array('alt' => 'FitIn on Twitter',

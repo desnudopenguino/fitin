@@ -9,6 +9,7 @@ class UsersController extends AppController {
 
 				$this->Security->csrfCheck = false;
 				$this->Security->validatePost = false;
+				$this->Security->enabled = false;
     }
 
 		public function beforeSave() {

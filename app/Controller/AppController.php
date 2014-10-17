@@ -44,6 +44,14 @@ class AppController extends Controller {
 		)
 	);
 
+	//helpers for boostcake
+	public $helpers = array(
+		'Session',
+		'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
+		'Form' => array('className' => 'BoostCake.BoostCakeForm'),
+		'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
+	);
+
 
 	public function beforeFilter() {
 		$this->Security->blackHoleCallback = 'forceSSL'; // commented out because hopefully apache redirects now

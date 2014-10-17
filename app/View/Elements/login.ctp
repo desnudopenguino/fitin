@@ -10,7 +10,7 @@
 			'class' => 'form-control'
 		)
 	));
-	echo $this->Form->input('User.email');
-	echo $this->Form->input('User.password');
-	echo $this->Form->end('Login');
+	echo $this->Form->input('User.email', array('placeholder' => 'Email'));
+	echo $this->Form->input('User.password', array('placeholder' => 'Password'));
+	echo $this->Form->end('Login', array('div' => 'form-group', 'class' => 'btn btn-default'));
 ?>

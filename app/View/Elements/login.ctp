@@ -12,5 +12,9 @@
 	));
 	echo $this->Form->input('User.email', array('placeholder' => 'Email'));
 	echo $this->Form->input('User.password', array('placeholder' => 'Password'));
-	echo $this->Form->end('Login', array('div' => 'form-group', 'class' => 'btn btn-default'));
+	echo $this->Form->submit('Login', array(
+		'div' => 'form-group',
+		'class' => 'btn btn-default')
+	);
+	echo $this->Form->end();
 ?>

@@ -45,7 +45,7 @@ class UsersController extends AppController {
 						if ($this->User->save($this->request->data)) {
 								$userId = $this->User->getLastInsertId();
 								$validUser = true;
-								switch($request['User']['roleId']) { //create usertype in case here
+								switch($this->request->data['User']['roleId']) { //create usertype in case here
 									case 1: //Employer
 													App::import('Controller', 'Employers');
 													$Employer = new EmployersController;

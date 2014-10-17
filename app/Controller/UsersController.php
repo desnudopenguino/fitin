@@ -7,7 +7,7 @@ class UsersController extends AppController {
       parent::beforeFilter();
       $this->Auth->allow('login','register','view');
     	if (isset($this->Security) && in_array($this->action,array('login','register'))) {
-        $this->Security->validatePost = false;
+        //$this->Security->validatePost = false;
     	}
     }
 

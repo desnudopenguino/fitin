@@ -47,13 +47,11 @@
         <li><a href="#">Culture</a></li>
         <li><a href="#">Search</a></li>
       </ul>
-			<div class="navbar-right">
 				<?php if($userData) {
 						echo $this->element('loggedIn');
 					} else {
 						echo $this->element('login');
 					} ?>
-			</div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>

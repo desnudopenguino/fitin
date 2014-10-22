@@ -15,7 +15,7 @@
 		<td><?php echo $user['User']['email']; ?></th>
 		<td><?php echo $user['User']['roleId']; ?></th>
 		<td><?php echo $user['User']['created']; ?></th>
-		<td><?php echo $user['User']['status']; ?></th>
+		<td><?php echo $user['User']['statusId']; ?></th>
 		<td><?php echo $user['User']['url']; ?></th>
 	</tr>
 <?php } ?>

@@ -31,7 +31,7 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	//Main site routes: dashboard, profile, culture, search
-//	Router::connect('/dashboard', array('controller' => 'users', 'action' => 'dashboard'));
+//	Router::connect('/dashboard', array('controller' => 'users', 'action' => 'dashboard')); //not needed any longer
 	Router::connect('/dashboard', array('controller' => 'employers', 'action' => 'dashboard'));
 	Router::connect('/dashboard', array('controller' => 'applicants', 'action' => 'dashboard'));
 	Router::connect('/profile', array('controller' => 'users', 'action' => 'profile'));

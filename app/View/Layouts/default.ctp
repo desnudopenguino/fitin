@@ -56,7 +56,6 @@
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
-			<?php debug($userData) ?>
 	</div>
 		<?php echo $this->element('footer'); //footer code ?>
 </body>

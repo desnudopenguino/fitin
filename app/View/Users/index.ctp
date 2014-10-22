@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12 well">
 		<h1>Admin Panel</h1>
-		<table class="table-striped">
+		<table class="table table-striped">
 			<tr>
 				<th>#</th>
 				<th>email</th>

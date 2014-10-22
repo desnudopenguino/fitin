@@ -46,18 +46,13 @@
         <li><a href="#">Profile</a></li>
         <li><a href="#">Culture</a></li>
         <li><a href="#">Search</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">(username)<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Settings</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
       </ul>
 			<div class="navbar-right">
-				<?php echo $this->element('login'); ?>
+				<?php if($userData) {
+						echo $this->element('login');
+					} else {
+						echo $this->element('loggedIn');
+					} ?>
 			</div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

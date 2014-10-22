@@ -1,21 +1,25 @@
-<h1>Admin Panel</h1>
-<table class="table-striped">
-	<tr>
-		<th>#</th>
-		<th>email</th>
-		<th>Role</th>
-		<th>Status</th>
-		<th>url</th>
-		<th>Joined Date</th>
-	</tr>
-<?php foreach($users as $user) { ?>
-	<tr>
-		<td><?php echo $user['User']['id']; ?></th>
-		<td><?php echo $user['User']['email']; ?></th>
-		<td><?php echo $user['User']['roleId']; ?></th>
-		<td><?php echo $user['User']['statusId']; ?></th>
-		<td><?php echo $user['User']['url']; ?></th>
-		<td><?php echo $user['User']['created']; ?></th>
-	</tr>
-<?php } ?>
-</table>
+<div class="row">
+	<div class="col-md-12 well">
+		<h1>Admin Panel</h1>
+		<table class="table-striped">
+			<tr>
+				<th>#</th>
+				<th>email</th>
+				<th>Role</th>
+				<th>Status</th>
+				<th>url</th>
+				<th>Joined Date</th>
+			</tr>
+		<?php foreach($users as $user) { ?>
+			<tr>
+				<td><?php echo $user['User']['id']; ?></th>
+				<td><?php echo $user['User']['email']; ?></th>
+				<td><?php echo $user['User']['roleId']; ?></th>
+				<td><?php echo $user['User']['statusId']; ?></th>
+				<td><?php echo $user['User']['url']; ?></th>
+				<td><?php echo $user['User']['created']; ?></th>
+			</tr>
+		<?php } ?>
+		</table>
+	</div>
+</div>

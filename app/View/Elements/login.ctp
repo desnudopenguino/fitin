@@ -2,7 +2,7 @@
 	echo $this->Form->create('User',array(
 		'action' => 'login',
 		'method' => 'post',
-		'class' => 'form-inline',
+		'class' => 'navbar-form navbar-right',
 		'inputDefaults' => array(
 			'div' => 'form-group',
 			'label' => false,

@@ -5,9 +5,9 @@
 		<th>#</th>
 		<th>email</th>
 		<th>Role</th>
-		<th>Joined Date</th>
 		<th>Status</th>
 		<th>url</th>
+		<th>Joined Date</th>
 	</tr>
 <?php foreach($users as $user) { ?>
 	<tr>

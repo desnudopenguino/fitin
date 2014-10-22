@@ -5,6 +5,5 @@
     <li><a href="#">Settings</a></li>
     <li class="divider"></li>
 		<li><?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?>
-    <li><a href="#">Logout</a></li>
   </ul>
 </li>

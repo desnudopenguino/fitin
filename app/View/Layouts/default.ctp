@@ -49,9 +49,9 @@
       </ul>
 			<div class="navbar-right">
 				<?php if($userData) {
-						echo $this->element('login');
-					} else {
 						echo $this->element('loggedIn');
+					} else {
+						echo $this->element('login');
 					} ?>
 			</div>
     </div><!-- /.navbar-collapse -->

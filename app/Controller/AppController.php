@@ -66,6 +66,9 @@ class AppController extends Controller {
 		$this->Security->requireSecure(); 
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 	}
+	public function beforeRender() { 
+		$this->set('userData', $this->Auth->user());
+	}
 
 	//force SSL connection
 	public function forceSSL() {

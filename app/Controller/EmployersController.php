@@ -12,5 +12,17 @@ class EmployersController extends AppController {
 	function dashboard() {
 
 	}
+
+	function profile() {
+
+	}
+
+	function culture() {
+
+	}
+
+	function search() {
+
+	}
  }
 ?>

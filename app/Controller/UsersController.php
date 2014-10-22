@@ -174,7 +174,6 @@ class UsersController extends AppController {
 					"action" => "profile",));
 				break;
 		}
-
 	}
 
 //culture
@@ -195,6 +194,7 @@ class UsersController extends AppController {
 				$this->redirect(array("controller" => "applicants", 
 					"action" => "culture",));
 				break;
+		}
 	}
 
 //search
@@ -215,6 +215,7 @@ class UsersController extends AppController {
 				$this->redirect(array("controller" => "applicants", 
 					"action" => "search",));
 				break;
+		}
 	}
 
 //settings

@@ -41,17 +41,14 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Culture</a></li>
-        <li><a href="#">Search</a></li>
-      </ul>
-				<?php if($userData) {
-						echo $this->element('loggedIn');
-					} else {
-						echo $this->element('login');
-					} ?>
+			<?php if($userData) {
+					echo $this->element('nav');
+				} ?>
+			<?php if($userData) {
+					echo $this->element('loggedIn');
+				} else {
+					echo $this->element('login');
+				} ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>

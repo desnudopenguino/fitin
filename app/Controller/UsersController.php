@@ -157,17 +157,64 @@ class UsersController extends AppController {
 
 //profile
 	public function profile() {
+		$User = $this->Auth->user();
+		switch($User['roleId']) {
+			case 0: //Admin
+				$this->redirect(array("controller" => "users", 
+					"action" => "index",));
+				break;
+
+			case 1: //Employer
+				$this->redirect(array("controller" => "employers", 
+					"action" => "profile",));
+				break;
+
+			case 2: //Applicant
+				$this->redirect(array("controller" => "applicants", 
+					"action" => "profile",));
+				break;
+		}
 
 	}
 
 //culture
 	public function culture() {
+		$User = $this->Auth->user();
+		switch($User['roleId']) {
+			case 0: //Admin
+				$this->redirect(array("controller" => "users", 
+					"action" => "index",));
+				break;
 
+			case 1: //Employer
+				$this->redirect(array("controller" => "employers", 
+					"action" => "culture",));
+				break;
+
+			case 2: //Applicant
+				$this->redirect(array("controller" => "applicants", 
+					"action" => "culture",));
+				bre
 	}
 
 //search
 	public function search() {
+		$User = $this->Auth->user();
+		switch($User['roleId']) {
+			case 0: //Admin
+				$this->redirect(array("controller" => "users", 
+					"action" => "index",));
+				break;
 
+			case 1: //Employer
+				$this->redirect(array("controller" => "employers", 
+					"action" => "search",));
+				break;
+
+			case 2: //Applicant
+				$this->redirect(array("controller" => "applicants", 
+					"action" => "search",));
+				bre
 	}
 
 //settings

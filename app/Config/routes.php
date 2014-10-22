@@ -35,6 +35,8 @@
 	Router::connect('/profile', array('controller' => 'users', 'action' => 'profile'));
 	Router::connect('/culture', array('controller' => 'users', 'action' => 'culture'));
 	Router::connect('/search', array('controller' => 'users', 'action' => 'search'));
+	Router::connect('/privacy', array('controller' => 'users', 'action' => 'privacy'));
+	Router::connect('/settings', array('controller' => 'users', 'action' => 'settings'));
 
 	//user login/register/logout moved to root
 	Router::connect('/register', array('controller' => 'users', 'action' => 'register'));

@@ -194,7 +194,7 @@ class UsersController extends AppController {
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
 					"action" => "culture",));
-				bre
+				break;
 	}
 
 //search
@@ -214,7 +214,7 @@ class UsersController extends AppController {
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
 					"action" => "search",));
-				bre
+				break;
 	}
 
 //settings

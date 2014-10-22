@@ -1,6 +1,6 @@
 <ul class="nav navbar-nav">
-	<li><a href="#">Dashboard</a></li>
-	<li><a href="#">Profile</a></li>
-	<li><a href="#">Culture</a></li>
-	<li><a href="#">Search</a></li>
+	<li><?php echo $this->Html->link('Dashboard', array('controller' => 'users', 'action' => 'dashboard'));
+	<li><?php echo $this->Html->link('Profile', array('controller' => 'users', 'action' => 'profile'));
+	<li><?php echo $this->Html->link('Culture', array('controller' => 'users', 'action' => 'culture'));
+	<li><?php echo $this->Html->link('Search', array('controller' => 'users', 'action' => 'search'));
 </ul>

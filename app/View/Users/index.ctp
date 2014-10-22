@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-12 well">
+	<div class="col-md-10 col-md-offset-1 well">
 		<h1>Admin Panel</h1>
 		<table class="table table-striped">
 			<tr>

@@ -154,5 +154,30 @@ class UsersController extends AppController {
 				break;
 		}
 	}
+
+//profile
+	public function profile() {
+
+	}
+
+//culture
+	public function culture() {
+
+	}
+
+//search
+	public function search() {
+
+	}
+
+//settings
+	public function settings() {
+
+	}
+
+//privacy
+	public function privacy() {
+
+	}
 }
 ?>

@@ -31,12 +31,18 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	//Main site routes: dashboard, profile, culture, search
-//	Router::connect('/dashboard', array('controller' => 'users', 'action' => 'dashboard')); //not needed any longer
 	Router::connect('/dashboard', array('controller' => 'employers', 'action' => 'dashboard'));
 	Router::connect('/dashboard', array('controller' => 'applicants', 'action' => 'dashboard'));
-	Router::connect('/profile', array('controller' => 'users', 'action' => 'profile'));
-	Router::connect('/culture', array('controller' => 'users', 'action' => 'culture'));
-	Router::connect('/search', array('controller' => 'users', 'action' => 'search'));
+
+	Router::connect('/profile', array('controller' => 'employers', 'action' => 'profile'));
+	Router::connect('/profile', array('controller' => 'applicants', 'action' => 'profile'));
+
+	Router::connect('/culture', array('controller' => 'employers', 'action' => 'culture'));
+	Router::connect('/culture', array('controller' => 'applicants', 'action' => 'culture'));
+
+	Router::connect('/search', array('controller' => 'employers', 'action' => 'search'));
+	Router::connect('/search', array('controller' => 'applicants', 'action' => 'search'));
+
 	Router::connect('/privacy', array('controller' => 'users', 'action' => 'privacy'));
 	Router::connect('/settings', array('controller' => 'users', 'action' => 'settings'));
 

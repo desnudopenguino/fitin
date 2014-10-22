@@ -1,4 +1,3 @@
-<?php debug($users); ?>
 <h1>Admin Panel</h1>
 <table class="table striped">
 	<tr>

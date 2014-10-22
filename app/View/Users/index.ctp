@@ -18,5 +18,5 @@
 		<td><?php echo $user['status']; ?></th>
 		<td><?php echo $user['url']; ?></th>
 	</tr>
-<php } ?>
+<?php } ?>
 </table>

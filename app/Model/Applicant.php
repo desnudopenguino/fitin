@@ -10,5 +10,9 @@ Class Applicant extends AppModel {
 	);
 
 	public $primaryKey = 'userId';
+
+	public $virtualFields = array(
+		'displayName' => "CONCAT(Applicant.firstName, ' ' , Applicant.lastName)"
+	);
 }
 ?>

@@ -9,9 +9,8 @@ class ApplicantsController extends AppController {
 	}
 
 	function dashboard() {
-		$this->Applicant->id = $this->Auth->user('id');
-debug($this->Applicant);
-
+		$applicant = $this->Applicant->id = $this->Auth->user('id');
+debug($applicant);
 	}
 
 	function profile() {

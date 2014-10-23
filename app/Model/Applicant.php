@@ -14,5 +14,9 @@ Class Applicant extends AppModel {
 	public $virtualFields = array(
 		'displayName' => "CONCAT(Applicant.firstName, ' ', Applicant.mi, '. ' , Applicant.lastName)"
 	);
+
+	public function checkName() {
+
+	}
 }
 ?>

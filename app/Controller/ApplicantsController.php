@@ -9,6 +9,7 @@ class ApplicantsController extends AppController {
 	}
 
 	function dashboard() {
+debug($this);
 
 	}
 

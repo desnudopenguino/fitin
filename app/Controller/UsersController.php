@@ -140,17 +140,17 @@ class UsersController extends AppController {
 		switch($User['roleId']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
-					"action" => "index",));
+					"action" => "index"));
 				break;
 
 			case 1: //Employer
 				$this->redirect(array("controller" => "employers", 
-					"action" => "dashboard",));
+					"action" => "dashboard"));
 				break;
 
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
-					"action" => "dashboard",));
+					"action" => "dashboard"));
 				break;
 		}
 	}
@@ -161,17 +161,17 @@ class UsersController extends AppController {
 		switch($User['roleId']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
-					"action" => "index",));
+					"action" => "index"));
 				break;
 
 			case 1: //Employer
 				$this->redirect(array("controller" => "employers", 
-					"action" => "profile",));
+					"action" => "profile"));
 				break;
 
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
-					"action" => "profile",));
+					"action" => "profile"));
 				break;
 		}
 	}
@@ -182,17 +182,17 @@ class UsersController extends AppController {
 		switch($User['roleId']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
-					"action" => "index",));
+					"action" => "index"));
 				break;
 
 			case 1: //Employer
 				$this->redirect(array("controller" => "employers", 
-					"action" => "culture",));
+					"action" => "culture"));
 				break;
 
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
-					"action" => "culture",));
+					"action" => "culture"));
 				break;
 		}
 	}
@@ -203,17 +203,17 @@ class UsersController extends AppController {
 		switch($User['roleId']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
-					"action" => "index",));
+					"action" => "index"));
 				break;
 
 			case 1: //Employer
 				$this->redirect(array("controller" => "employers", 
-					"action" => "search",));
+					"action" => "search"));
 				break;
 
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
-					"action" => "search",));
+					"action" => "search"));
 				break;
 		}
 	}

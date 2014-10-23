@@ -25,14 +25,13 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-/**
- * ...and connect the rest of 'Pages' controller's URLs.
- */
+
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	//Main site routes: dashboard, profile, culture, search
-	Router::connect('/dashboard', array('controller' => 'employers', 'action' => 'dashboard'));
-	Router::connect('/dashboard', array('controller' => 'applicants', 'action' => 'dashboard'));
+//	Router::connect('/dashboard', array('controller' => 'employers', 'action' => 'dashboard'));
+//	Router::connect('/dashboard', array('controller' => 'applicants', 'action' => 'dashboard'));
+	Router::connect('/dashboard', array('controller' => 'user', 'action' => 'dashboard'));
 
 	Router::connect('/profile', array('controller' => 'employers', 'action' => 'profile'));
 	Router::connect('/profile', array('controller' => 'applicants', 'action' => 'profile'));

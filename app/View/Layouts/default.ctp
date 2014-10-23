@@ -18,46 +18,44 @@
 	?>
 </head>
 <body style="padding-top: 70px;">
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-			</button>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+				</button>
+	
+				<?php echo $this->Html->image('header.png',
+					array('alt' => 'FitIn.Today',
+						'url' => array(
+							'controller' => 'pages',
+							'action' => 'display', 'home'
+						),
+						'width' => '100px'
+					)
+				); ?>
+	    </div>
 
-			<?php echo $this->Html->image('header.png',
-				array('alt' => 'FitIn.Today',
-					'url' => array(
-						'controller' => 'pages',
-						'action' => 'display', 'home'
-					),
-					'width' => '100px'
-				)
-			); ?>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<?php if($userData) {
-					echo $this->element('nav');
-				} ?>
-			<?php if($userData) {
-					echo $this->element('loggedIn');
-				} else {
-					echo $this->element('login');
-				} ?>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
-</nav>
-	<div id="container">
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-			<?php debug($this->request->params['action']); ?>
-	</div>
-		<?php echo $this->element('footer'); //footer code ?>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<?php if($userData) {
+						echo $this->element('nav');
+					} ?>
+				<?php if($userData) {
+						echo $this->element('loggedIn');
+					} else {
+						echo $this->element('login');
+					} ?>
+	    </div>
+	  </div>
+	</nav>
+		<div id="container">
+				<?php echo $this->Session->flash(); ?>
+	
+				<?php echo $this->fetch('content'); ?>
+		</div>
+	<?php echo $this->element('footer'); //footer code ?>
 </body>
 </html>

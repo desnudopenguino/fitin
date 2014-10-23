@@ -10,7 +10,7 @@ class ApplicantsController extends AppController {
 
 	function dashboard() {
 		$this->Applicant->read(null,$this->Auth->user('id'));
-debug($this->Applicant);
+debug($this->Applicant->data);
 	}
 
 	function profile() {

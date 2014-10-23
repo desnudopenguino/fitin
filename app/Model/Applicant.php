@@ -8,5 +8,7 @@ Class Applicant extends AppModel {
 			'foreignKey' => 'userId'
 		)
 	);
+
+	public $primaryKey = 'userId';
 }
 ?>

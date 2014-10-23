@@ -19,33 +19,17 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-/**
- * Here, we are connecting '/' (base path) to controller called 'Pages',
- * its action called 'display', and we pass a param to select the view file
- * to use (in this case, /app/View/Pages/home.ctp)...
- */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	//Main site routes: dashboard, profile, culture, search
-//	Router::connect('/dashboard', array('controller' => 'employers', 'action' => 'dashboard'));
-//	Router::connect('/dashboard', array('controller' => 'applicants', 'action' => 'dashboard'));
-	Router::connect('/dashboard', array('controller' => 'user', 'action' => 'dashboard'));
-
-	Router::connect('/profile', array('controller' => 'employers', 'action' => 'profile'));
-	Router::connect('/profile', array('controller' => 'applicants', 'action' => 'profile'));
-
-	Router::connect('/culture', array('controller' => 'employers', 'action' => 'culture'));
-	Router::connect('/culture', array('controller' => 'applicants', 'action' => 'culture'));
-
-	Router::connect('/search', array('controller' => 'employers', 'action' => 'search'));
-	Router::connect('/search', array('controller' => 'applicants', 'action' => 'search'));
-
+	Router::connect('/dashboard', array('controller' => 'users', 'action' => 'dashboard'));
+	Router::connect('/profile', array('controller' => 'users', 'action' => 'profile'));
+	Router::connect('/culture', array('controller' => 'users', 'action' => 'culture'));
+	Router::connect('/search', array('controller' => 'users', 'action' => 'search'));
 	Router::connect('/privacy', array('controller' => 'users', 'action' => 'privacy'));
 	Router::connect('/settings', array('controller' => 'users', 'action' => 'settings'));
-
-	//user login/register/logout moved to root
 	Router::connect('/register', array('controller' => 'users', 'action' => 'register'));
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));

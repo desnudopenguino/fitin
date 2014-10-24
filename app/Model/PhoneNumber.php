@@ -23,7 +23,7 @@ Class PhoneNumber extends AppModel {
 	public function beforeSave($options = array()) {
 //filter the phone number down to just digits
 		if(isset($this->data[$this->alias]['phone_number'])) {
-			$this->data[$this->alias]['phone_number'] = str_replace(' ','', $this->data[$this->alias]['phone_number']);
+			$this->data[$this->alias]['phone_number'] = (int) str_replace(' ','', $this->data[$this->alias]['phone_number']);
 			$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
 		}
 		return true;

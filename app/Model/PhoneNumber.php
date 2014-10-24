@@ -19,5 +19,9 @@ Class PhoneNumber extends AppModel {
 			)
 		)	
 	);
+
+	public function beforeSave($options = array()) {
+	}
+
 }
 ?>

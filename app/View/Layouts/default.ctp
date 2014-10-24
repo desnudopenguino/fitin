@@ -57,5 +57,6 @@
 				<?php echo $this->fetch('content'); ?>
 		</div>
 	<?php echo $this->element('footer'); //footer code ?>
+	<?php debug($userData); ?>
 </body>
 </html>

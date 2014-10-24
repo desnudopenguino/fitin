@@ -15,7 +15,7 @@
 		'options' => $phone_types
 		));
 	echo $this->Form->input('phone_number', array(
-		'type' => 'text');
+		'type' => 'text'));
 	echo $this->Form->submit('Submit', array(
 		'div' => 'form-group',
 		'class' => 'btn btn-default')

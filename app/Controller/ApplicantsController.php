@@ -23,7 +23,6 @@ class ApplicantsController extends AppController {
 		$this->set('phone_numbers',
 			$this->Applicant->User->PhoneNumber->find('all',array(
 				'fields' => array(
-					'PhoneNumber.id',
 					'PhoneType.phone_type',
 					'PhoneNumber.phone_number'
 				)

@@ -9,8 +9,6 @@ class PhoneNumbersController extends AppController {
 		//then it is all saved
 		if($this->request->is('post')) {
 			$this->PhoneNumber->create();
-			$this->PhoneNumber->User->id = $this->Auth->user('id');
-debug($this->PhoneNumber);
 			if($this->PhoneNumber->save($this->request->data)) {
 				$this->Session->setFlash(__('The phone number has been saved'));
 			}

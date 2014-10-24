@@ -24,6 +24,11 @@ Class PhoneNumber extends AppModel {
 //filter the phone number down to just digits
 		if(isset($this->data[$this->alias]['phone_number'])) {
 			$this->data[$this->alias]['phone_number'] = str_replace(' ','', $this->data[$this->alias]['phone_number']);
+			App::import('Component', 'Session');
+			$Session = new SessionComponent();
+			$User = $Session->read('Auth.User');
+			$this->data[$this->alias]['user_id'] = $User['id'];
+debug($User);
 		}
 		return true;
 	}

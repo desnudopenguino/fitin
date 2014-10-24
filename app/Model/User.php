@@ -12,6 +12,13 @@ Class User extends AppModel {
 		)
 	);
 
+	public $hasMany = array(
+		'PhoneNumber' => array(
+			'className' => 'PhoneNumber',
+			'dependent' => true
+		)
+	);
+
 	public $validate = array(
 		'email' => array(
 			'isEmail' => array(

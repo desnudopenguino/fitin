@@ -8,7 +8,7 @@ Class User extends AppModel {
 		'Applicant' => array(
 			'className' => 'Applicant',
 			'dependent' => true,
-			'foreignKey' => 'userId'
+			'foreignKey' => 'user_id'
 		)
 	);
 

@@ -48,6 +48,12 @@ Class User extends AppModel {
     }
     return true;
 	}
+
+	public function beforeSave() {
+		parent::beforeSave();
+		$this->data['User']['url'] = md5($this->data['User']['email']);
+		return true;
+	}
 }
 
 ?>

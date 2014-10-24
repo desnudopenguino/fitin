@@ -7,4 +7,3 @@
 		</ul>
 	</div>
 </div>
-<?php debug($userData); ?>

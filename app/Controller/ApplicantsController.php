@@ -22,9 +22,11 @@ class ApplicantsController extends AppController {
 		//get phone number(s)
 		$this->set('phone_numbers',
 			$this->Applicant->User->PhoneNumber->find('list',array(
-				'PhoneNumber.id',
-				'PhoneType.phone_type',
-				'PhoneNumber.phone_number'
+				'fields' => array(
+					'PhoneNumber.id',
+					'PhoneType.phone_type',
+					'PhoneNumber.phone_number'
+				)
 			)
 		));
 

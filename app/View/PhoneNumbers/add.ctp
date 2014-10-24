@@ -11,7 +11,9 @@
 	)); ?>
 <fieldset>
 	<legend>Add Phone Number</legend>
-	<?php echo $this->Form->input('select', array(
+	<?php echo $this->Form->input('phone_type_id', array(
+		'type' => 'select',
+		'label' => 'Phone Type',
 		'options' => $phone_types
 		));
 	echo $this->Form->input('phone_number', array(

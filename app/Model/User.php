@@ -7,7 +7,8 @@ Class User extends AppModel {
 	public $hasOne = array( 
 		'Applicant' => array(
 			'className' => 'Applicant',
-			'dependent' => true
+			'dependent' => true,
+			'foreignKey' => 'userId'
 		)
 	);
 

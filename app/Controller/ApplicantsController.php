@@ -10,7 +10,8 @@ class ApplicantsController extends AppController {
 
 	function dashboard() {
 		$this->Applicant->read(null,$this->Auth->user('id'));
-		$this->Applicant->checkDisplayName($this);	//check the display name for the applicant
+		$this->Applicant->checkDisplayName();	//check the display name for the applicant
+debug($this->Applicant);
 		$this->set('applicant',$this->Applicant->data);
 	}
 

@@ -34,39 +34,38 @@ class UsersController extends AppController {
     public function register() {
         if ($this->request->is('post')) {
 						$this->User->create();
-						//below line should work in beforesave, but isn't.
-//						$this->request->data['User']['url'] = md5($this->data['User']['email']);
 						if ($this->User->save($this->request->data)) {
-								$userId = $this->User->getLastInsertId();
-								$validUser = true;
-								switch($this->request->data['User']['roleId']) { //create usertype in case here
-									case 1: //Employer
-													App::import('Controller', 'Employers');
-													$Employer = new EmployersController;
-													$Employer->constructClasses();
-													$employerData = array('Employer'=> array(
-																	'userId' => $userId));
-													$Employer->add($employerData);
-													break;
-									case 2: //Applicant
-													App::import('Controller', 'Applicants');
-													$Applicant = new ApplicantsController;
-													$Applicant->constructClasses();
-													$applicantData = array('Applicant'=> array(
-																	'userId' => $userId));
-													$Applicant->add($applicantData);
-													break;
-									case 3: //Recruiter
-													break;
-									default://default, other action (if someone tries to hack it)
-													$this->delete($userId);
-													$validUser = false;
-													break;
-								}
+							$userId = $this->User->getLastInsertId();
+							$validUser = true;
+							switch($this->request->data['User']['roleId']) { //create usertype in case here
+								case 1: //Employer
+												App::import('Controller', 'Employers');
+												$Employer = new EmployersController;
+												$Employer->constructClasses();
+												$employerData = array('Employer'=> array(
+																'userId' => $userId));
+												$Employer->add($employerData);
+												break;
+								case 2: //Applicant
+												App::import('Controller', 'Applicants');
+												$Applicant = new ApplicantsController;
+												$Applicant->constructClasses();
+												$applicantData = array('Applicant'=> array(
+																'userId' => $userId));
+												$Applicant->add($applicantData);
+												break;
+								case 3: //Recruiter
+												break;
+								default://default, other action (if someone tries to hack it)
+												$this->delete($userId);
+												$validUser = false;
+												break;
+							}
+							if($validUser) {
 								$this->Session->setFlash(__('The user has been saved'));
-								$this->Auth->login($this->request->data['User']); //auto login user
-
+								$this->Auth->login($this->User->id); //auto login user
 								return $this->redirect(array('controller' => 'users', 'action' => 'dashboard')); //redirect after login
+							}
             } else {
 	            $this->Session->setFlash(
   	              __('The user could not be saved. Please, try again.')

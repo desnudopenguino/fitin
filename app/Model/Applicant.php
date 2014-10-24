@@ -5,19 +5,19 @@ Class Applicant extends AppModel {
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
-			'foreignKey' => 'userId'
+			'foreignKey' => 'user_id'
 		)
 	);
 
-	public $primaryKey = 'userId';
+	public $primaryKey = 'user_id';
 
 	public $virtualFields = array(
-		'displayName' => "CONCAT(Applicant.firstName, ' ', Applicant.mi, '. ' , Applicant.lastName)"
+		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"
 	);
 
 	public function checkDisplayName() {
-		if(empty($this->data['Applicant']['displayName'])) {
-			$this->data['Applicant']['displayName'] = $this->data['User']['email'];
+		if(empty($this->data['Applicant']['display_name'])) {
+			$this->data['Applicant']['display_name'] = $this->data['User']['email'];
 		}
 	}
 }

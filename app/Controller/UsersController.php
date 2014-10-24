@@ -6,9 +6,6 @@ class UsersController extends AppController {
     public function beforeFilter() {
       parent::beforeFilter();
       $this->Auth->allow('login','register','view');
-    	if (isset($this->Security) && in_array($this->action,array('login','register'))) {
-        //$this->Security->validatePost = false;
-    	}
     }
 
 //index
@@ -63,8 +60,8 @@ class UsersController extends AppController {
 							}
 							if($validUser) {
 								$this->Session->setFlash(__('The user has been saved'));
-								$this->Auth->login(); //auto login user
-								return $this->redirect(array('controller' => 'users', 'action' => 'dashboard')); //redirect after login
+								$this->Auth->login();
+								return $this->redirect(array('controller' => 'users', 'action' => 'dashboard'));
 							}
             } else {
 	            $this->Session->setFlash(

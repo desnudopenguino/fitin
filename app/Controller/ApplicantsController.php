@@ -20,7 +20,7 @@ class ApplicantsController extends AppController {
 		//get address
 
 		//get phone number(s)
-		$this->applicant->User->PhoneNumber->find('all');
+		$this->Applicant->User->PhoneNumber->find('all');
 
 		//get projects
 

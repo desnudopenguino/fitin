@@ -46,14 +46,10 @@ Class User extends AppModel {
 				$this->data[$this->alias]['password']
 			);
     }
+		if(isset($this->data[$this->alias]['email'])) {
+			$this->data[$this->alias]['url'] = md5($this->data[$this->alias]['email']);
+		}
     return true;
 	}
-
-	public function beforeSave() {
-		parent::beforeSave();
-		$this->data['User']['url'] = md5($this->data['User']['email']);
-		return true;
-	}
 }
-
 ?>

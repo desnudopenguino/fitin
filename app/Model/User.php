@@ -40,12 +40,14 @@ Class User extends AppModel {
 	);	
 
 	public function beforeSave($options = array()) {
+// hash the password
 		if (isset($this->data[$this->alias]['password'])) {
 			$passwordHasher = new BlowfishPasswordHasher();
 			$this->data[$this->alias]['password'] = $passwordHasher->hash(
 				$this->data[$this->alias]['password']
 			);
-    }
+   }
+// generate the url
 		if(isset($this->data[$this->alias]['email'])) {
 			$this->data[$this->alias]['url'] = md5($this->data[$this->alias]['email']);
 		}

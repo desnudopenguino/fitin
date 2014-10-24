@@ -16,7 +16,8 @@
 		));
 	echo $this->Form->input('phone_number', array(
 		'options' => array(
-			'label' => "Phone Number"
+			'label' => "Phone Number",
+			'type' => 'text'
 		)
 	)); 
 	echo $this->Form->submit('Submit', array(

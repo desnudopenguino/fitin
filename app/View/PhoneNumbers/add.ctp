@@ -1,7 +1,7 @@
 <?php 
 	echo $this->Form->create('PhoneNumber',array(
 		'action' => 'add',
-		'method' => 'post'
+		'method' => 'post',
 		'inputDefaults' => array(
 			'div' => 'form-group',
 			'wrapInput' => false,

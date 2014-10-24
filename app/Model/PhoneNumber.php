@@ -12,8 +12,8 @@ Class PhoneNumber extends AppModel {
 	);
 
 	public $validate = array(
-		'tel' => array(
-			'telephone' => array(
+		'phone_number' => array(
+			'isPhoneNumber' => array(
 				'rule' => array('tel'),
 				'message' => "Not a valid telephone number"
 			)

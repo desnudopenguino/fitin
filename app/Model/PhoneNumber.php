@@ -25,7 +25,7 @@ Class PhoneNumber extends AppModel {
 		if(isset($this->data[$this->alias]['phone_number'])) {
 			filter_var($this->data[$this->alias]['phone_number'], FILTER_SANITIZE_NUMBER_INT);
 			$tempPhoneNumber = explode('+',$this->data[$this->alias]['phone_number']);
-			$this->data[$this->alias]['phone_number'] = implode('',$tempPhoneNumber);
+			
 		}
 		return true;
 	}

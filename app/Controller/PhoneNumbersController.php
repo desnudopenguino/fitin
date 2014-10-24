@@ -5,7 +5,7 @@ class PhoneNumbersController extends AppController {
 
 	public function add() {
 
-		$this->set('phone_types',$this->PhoneNumber->PhoneType->find('list'));
+		$this->set('phone_types',$this->PhoneNumber->PhoneType->find('all'));
 
 	}
 

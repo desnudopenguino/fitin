@@ -17,16 +17,17 @@ class ApplicantsController extends AppController {
 	function profile() {
 		$this->Applicant->read(null,$this->Auth->user('id'));
 		$this->Applicant->checkDisplayName();
-		$this->set('applicant', $this->Applicant->data);
 		//get address
 
 		//get phone number(s)
+		$this->applicant->User->PhoneNumber->find('all');
 
 		//get projects
 
 		//get educations
 
 		//get certifications
+		$this->set('applicant', $this->Applicant->data);
 
 	}
 

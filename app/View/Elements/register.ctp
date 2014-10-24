@@ -18,7 +18,7 @@
 			'label' => "Role"
 			)
 		);
-		echo $this->form->submit('Submit',array(
+		echo $this->Form->submit('Submit',array(
 			'div' => 'form-group',
 			'class' => 'btn btn-default')
 		); ?>

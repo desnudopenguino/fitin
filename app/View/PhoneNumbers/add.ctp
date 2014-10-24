@@ -13,7 +13,7 @@
 	<legend>Add Phone Number</legend>
 	<?php echo $this->Form->input('select', array(
 		'options' => $phone_types
-		); ?>
+		)); ?>
 </fieldset>
 <?php echo $this->Form->end(); ?>
 		

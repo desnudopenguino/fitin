@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2><?php echo $display_name; ?></h2>
-		<?php foreach($applicant['PhoneNumber' as $phone_number) { ?>
+		<?php foreach($applicant['PhoneNumber'] as $phone_number) { ?>
 			<p><?php echo $phone_number['PhoneType']['phone_type']; ?> Phone:
 				<?php echo $phone_number['PhoneNumber']['phone_number']; ?>
 			</p>

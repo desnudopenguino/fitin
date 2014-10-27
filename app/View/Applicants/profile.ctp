@@ -6,6 +6,7 @@
 		<?php foreach($phone_numbers as $phone_number) { ?>
 			<p><?php echo $phone_number['PhoneType']['phone_type']; ?> Phone:
 				<?php echo $phone_number['PhoneNumber']['phone_number']; ?>
+				<?php echo debug($address); ?>
 			</p>
 		<?php } ?>
 	</div>

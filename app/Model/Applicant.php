@@ -2,8 +2,6 @@
 App::uses('AppModel', 'Model');
 
 Class Applicant extends AppModel {
-	public $recursive = 2;
-
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',

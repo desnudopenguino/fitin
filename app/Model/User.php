@@ -14,10 +14,7 @@ Class User extends AppModel {
 			'className' => 'Address',
 			'dependent' => true,
 			'foreignKey' => 'user_id'
-		)
-	);
-
-	public $hasMany = array(
+		),
 		'PhoneNumber' => array(
 			'className' => 'PhoneNumber',
 			'dependent' => true

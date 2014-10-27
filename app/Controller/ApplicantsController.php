@@ -39,6 +39,9 @@ class ApplicantsController extends AppController {
 		//get educations
 
 		//get certifications
+		$this->set('user', $this->Applicant->User->find('first', array(
+			'conditions' =>array(
+				'User.id' => $this->Auth->user('id');
 		$this->set('applicant', $this->Applicant->data);
 
 	}

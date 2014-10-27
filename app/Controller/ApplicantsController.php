@@ -2,19 +2,19 @@
  App::uses('AppController', 'Controller');
 
 class ApplicantsController extends AppController {
-	function add($userArray) {
+	public function add($userArray) {
 		$this->Applicant->create();
 		if ($this->Applicant->save($userArray)) {
 		}
 	}
 
-	function dashboard() {
+	public function dashboard() {
 		$this->Applicant->read(null,$this->Auth->user('id'));
 		$this->Applicant->checkDisplayName();	//check the display name for the applicant
 		$this->set('applicant', $this->Applicant->data);
 	}
 
-	function profile() {
+	public function profile() {
 		$userId = $this->Auth->user('id');
 		$this->Applicant->read(null, $userId);
 		$this->Applicant->checkDisplayName();	
@@ -34,22 +34,22 @@ class ApplicantsController extends AppController {
 
 	}
 
-	function culture() {
+	public function culture() {
 
 	}
 
-	function search() {
+	public function search() {
 
 	}
 
-	function edit($id = null) {
+	public function edit($id = null) {
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid Applicant'));
 		}
 		if($this->request->is('post') || $this->request->is('put')) { 
 debug($this->request->data);
-		{
+		}
 	}
  }
 ?>

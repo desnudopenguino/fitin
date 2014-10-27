@@ -30,7 +30,7 @@ class ApplicantsController extends AppController {
 		));
 
 		//get address
-		$this->set('address', $this->Applicant->User->Address->find('first');
+		$this->set('address', $this->Applicant->User->Address->find('first'));
 
 		//get projects
 

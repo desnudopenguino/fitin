@@ -28,7 +28,7 @@ class ApplicantsController extends AppController {
 					'Address.user_id' => $userId))));
 
 		$this->set('phone',
-			$this->Applicant->User->Address->find('first', array(
+			$this->Applicant->User->PhoneNumber->find('first', array(
 				'conditions' => array(
 					'PhoneNumber.user_id' => $userId))));
 

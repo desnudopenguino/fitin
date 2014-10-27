@@ -29,6 +29,9 @@ class ApplicantsController extends AppController {
 			)
 		));
 
+		//get address
+		$this->set('address', $this->Applicant->User->Address->find('first');
+
 		//get projects
 
 		//get educations

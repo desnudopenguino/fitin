@@ -43,6 +43,11 @@ class ApplicantsController extends AppController {
 	}
 
 	public function edit($id = null) {
+		$this->set('phone_types',
+			$this->Applicant->User->PhoneNumber->PhoneType->find('list', array(
+				'fields' => array(
+					'PhoneType.id','PhoneType.phone_type'))));
+
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid Applicant'));

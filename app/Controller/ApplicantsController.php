@@ -19,7 +19,7 @@ class ApplicantsController extends AppController {
 		$applicant = $this->Applicant->find('first', array(
 			'conditions' => array(
 				'Applicant.user_id' => $this->Auth->user('id')
-		))));
+		)));
 		$applicant->checkDisplayName();
 
 		$this->set('applicant', $applicant);

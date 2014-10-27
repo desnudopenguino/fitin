@@ -10,6 +10,7 @@
 			<p><?php echo $address['Address']['street']; ?><br>
 				<?php echo $address['Address']['city']; ?>, <?php echo $address['State']['short_name']; ?> <?php echo $address['Address']['zip']; ?>
 			</p>
+			<p><?php echo $address['User']['email']; ?></p>
 		<?php } ?>
 	</div>
 </div>

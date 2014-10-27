@@ -41,5 +41,15 @@ class ApplicantsController extends AppController {
 	function search() {
 
 	}
+
+	function edit($id = null) {
+		$this->Applicant->id = $id;
+		if(!$this->Applicant->exists()) {
+			throw new NotFoundException(__('Invalid Applicant'));
+		}
+		if($this->request->is('post') || $this->request->is('put')) (
+debug($this->request->data);
+		{
+	}
  }
 ?>

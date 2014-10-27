@@ -15,36 +15,14 @@ class ApplicantsController extends AppController {
 	}
 
 	function profile() {
-		$this->Applicant->read(null,$this->Auth->user('id'));
-		$this->Applicant->checkDisplayName();
-		//get address
-
-		//get phone number(s)
-		$this->set('phone_numbers',
-			$this->Applicant->User->PhoneNumber->find('all',array(
-				'fields' => array(
-					'PhoneType.phone_type',
-					'PhoneNumber.phone_number'
+		//$this->Applicant->read(null,$this->Auth->user('id'));
+		$applicant = $this->Applicant->find('first', array(
+			'conditions' => array(
+				'Applicant.user_id' => $this->Auth->user('id')
 		))));
+		$applicant->checkDisplayName();
 
-		//get address
-		$this->set('address',
-			$this->Applicant->User->Address->find('first', array(
-				'conditions' => array(
-					'Address.user_id' => $this->Auth->user('id')
-		))));
-
-		//get projects
-
-		//get educations
-
-		//get certifications
-		$this->set('user', $this->Applicant->User->find('first', array(
-			'conditions' =>array(
-				'User.id' => $this->Auth->user('id')
-		))));
-		$this->set('applicant', $this->Applicant->data);
-
+		$this->set('applicant', $applicant);
 	}
 
 	function culture() {

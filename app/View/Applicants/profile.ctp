@@ -10,5 +10,7 @@
 		<p><?php echo $applicant['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",
 			"/with/".$applicant['User']['url']); ?></p>
+		<p><?php echo $this->Html->link("edit", array(
+			'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id'])); ?></p>
 	</div>
 </div>

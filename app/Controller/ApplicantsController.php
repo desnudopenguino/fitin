@@ -22,7 +22,7 @@ class ApplicantsController extends AppController {
 
 debug($this->Applicant->find('first', array(
 	'conditions' => array(
-		'Applicant.id' => $this->Auth->user('id')))));
+		'Applicant.user_id' => $this->Auth->user('id')))));
 
 	}
 

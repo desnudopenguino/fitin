@@ -25,12 +25,14 @@ class ApplicantsController extends AppController {
 				'fields' => array(
 					'PhoneType.phone_type',
 					'PhoneNumber.phone_number'
-				)
-			)
-		));
+		))));
 
 		//get address
-		$this->set('address', $this->Applicant->User->Address->find('first'));
+		$this->set('address',
+			$this->Applicant->User->Address->find('first', array(
+				'conditions' => array(
+					'Address.user_id' => $this->Auth->user('id')
+		))));
 
 		//get projects
 

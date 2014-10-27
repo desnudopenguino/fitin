@@ -9,6 +9,6 @@
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>
 		<p>My URL: <?php echo $this->Html->link("My Link",
-			"/with/".$applicant['User']['url'])); ?></p>
+			"/with/".$applicant['User']['url']); ?></p>
 	</div>
 </div>

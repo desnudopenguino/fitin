@@ -16,7 +16,7 @@ class ApplicantsController extends AppController {
 
 	function profile() {
 		$this->Applicant->read(null,$this->Auth->user('id'));
-		$this->Applicant->getDisplayName();	
+		$this->Applicant->checkDisplayName();	
 
 		$this->set('applicant', $this->Applicant->data);
 

@@ -20,7 +20,7 @@ class ApplicantsController extends AppController {
 		$this->set('display_name', $this->Applicant->getDisplayName());	
 		$this->set('applicant',$this->Applicant->find('first', array(
 			'conditions' => array(
-				'Applicant.user_id' => $this->Auth->user('id')
+				'User.id' => $this->Auth->user('id')
 		))));
 
 	}

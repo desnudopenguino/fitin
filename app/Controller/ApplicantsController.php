@@ -47,7 +47,7 @@ class ApplicantsController extends AppController {
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid Applicant'));
 		}
-		if($this->request->is('post') || $this->request->is('put')) (
+		if($this->request->is('post') || $this->request->is('put')) { 
 debug($this->request->data);
 		{
 	}

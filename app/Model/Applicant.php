@@ -2,6 +2,8 @@
 App::uses('AppModel', 'Model');
 
 Class Applicant extends AppModel {
+	public $recursive = 2;
+
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
@@ -15,12 +17,10 @@ Class Applicant extends AppModel {
 		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"
 	);
 
-	public function getDisplayName() {
+	public function checkDisplayName() {
 		if(empty($this->data['Applicant']['display_name'])) {
-			return $this->data['User']['email'];
-		} else {
-			return $this->data['Applicant']['display_name'];
-		}
+			$this->data['Applicant']['display_name'] = $this->data['User']['email'];
+		} 
 	}
 }
 ?>

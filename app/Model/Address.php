@@ -12,7 +12,7 @@ Class Address extends AppModel {
 	);
 
 	public function beforeSave($options = array()) {
-		$this->data[$this->alias['user_id'] = AuthComponent::user('id');
+		$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
 		return true;
 	}
 }

@@ -22,9 +22,5 @@ Class Applicant extends AppModel {
 			$this->data['Applicant']['display_name'] = $this->data['User']['email'];
 		} 
 	}
-
-	public function afterFind() {
-		$this->checkDisplayName();
-	}
 }
 ?>

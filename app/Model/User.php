@@ -9,6 +9,11 @@ Class User extends AppModel {
 			'className' => 'Applicant',
 			'dependent' => true,
 			'foreignKey' => 'user_id'
+		),
+		'Address' => array(
+			'className' => 'Address',
+			'dependent' => true,
+			'foreignKey' => 'user_id'
 		)
 	);
 

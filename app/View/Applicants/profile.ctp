@@ -8,5 +8,7 @@
 			<?php echo $address['Address']['city']; ?>, <?php echo $address['State']['short_name']; ?> <?php echo $address['Address']['zip']; ?>
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>
+		<p>My URL: <?php echo $this->Html->link("My Link", array(
+			'controller' => 'users', 'action' => 'view', $applicant['User']['url']			)); ?></p>
 	</div>
 </div>

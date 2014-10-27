@@ -1,5 +1,3 @@
-<?php debug($applicant); ?>
-<?php debug($phone_numbers); ?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2><?php echo $applicant['Applicant']['display_name']; ?></h2>
@@ -10,7 +8,7 @@
 			<p><?php echo $address['Address']['street']; ?><br>
 				<?php echo $address['Address']['city']; ?>, <?php echo $address['State']['short_name']; ?> <?php echo $address['Address']['zip']; ?>
 			</p>
-			<p><?php echo $address['User']['email']; ?></p>
+			<p><?php echo $applicant['User']['email']; ?></p>
 		<?php } ?>
 	</div>
 </div>

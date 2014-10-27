@@ -18,7 +18,7 @@ class ApplicantsController extends AppController {
 		
 		$this->Applicant->read(null,$this->Auth->user('id'));
 		$this->set('display_name', $this->Applicant->getDisplayName());	
-		$this->set('applicant',$this->Applicant->User->find('all', array(
+		$this->set('applicant',$this->Applicant->User->find('first', array(
 			'conditions' => array(
 				'User.id' => $this->Auth->user('id')
 		))));

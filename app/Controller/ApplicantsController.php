@@ -15,14 +15,14 @@ class ApplicantsController extends AppController {
 	}
 
 	function profile() {
-		//$this->Applicant->read(null,$this->Auth->user('id'));
-		$applicant = $this->Applicant->find('first', array(
+		
+		$this->Applicant->read(null,$this->Auth->user('id'));
+		$this->set('display_name', $this->Applicant->getDisplayName());	
+		$this->set('applicant',$this->Applicant->find('first', array(
 			'conditions' => array(
 				'Applicant.user_id' => $this->Auth->user('id')
-		)));
-		$applicant->checkDisplayName();
+		))));
 
-		$this->set('applicant', $applicant);
 	}
 
 	function culture() {

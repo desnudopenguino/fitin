@@ -15,9 +15,11 @@ Class Applicant extends AppModel {
 		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"
 	);
 
-	public function checkDisplayName() {
+	public function getDisplayName() {
 		if(empty($this->data['Applicant']['display_name'])) {
-			$this->data['Applicant']['display_name'] = $this->data['User']['email'];
+			return $this->data['User']['email'];
+		} else {
+			return $this->data['Applicant']['display_name'];
 		}
 	}
 }

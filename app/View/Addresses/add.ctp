@@ -17,7 +17,7 @@
 	echo $this->Form->input('city', array(
 		'type' => 'text'));
 
-	echo $this->Form->input('state', array(
+	echo $this->Form->input('state_id', array(
 		'type' => 'select',
 		'label' => 'State',
 		'options' => $states

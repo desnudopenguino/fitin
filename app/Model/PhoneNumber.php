@@ -21,9 +21,7 @@ Class PhoneNumber extends AppModel {
 	);
 
 	public function beforeSave($options = array()) {
-		if(isset($this->data[$this->alias]['phone_number'])) {
-			$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
-		}
+		$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
 		return true;
 	}
 

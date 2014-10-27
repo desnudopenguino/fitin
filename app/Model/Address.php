@@ -10,5 +10,10 @@ Class Address extends AppModel {
 			'className' => 'State'
 		)
 	);
+
+	public function beforeSave($options = array()) {
+		$this->data[$this->alias['user_id'] = AuthComponent::user('id');
+		return true;
+	}
 }
 ?>

@@ -57,8 +57,13 @@ class ApplicantsController extends AppController {
 				'fields' => array(
 					'PhoneType.id','PhoneType.phone_type'))));
 
+//		$this->set('states',
+//			$this->Applicant->User->Address->State->find('list', array(
+//				'fields' => array(
+//					'State.id','State.long_name'))));
+
 		$this->set('states',
-			$this->Applicant->User->Address->State->find('list', array(
+			$this->State->find('list', array(
 				'fields' => array(
 					'State.id','State.long_name'))));
 

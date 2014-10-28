@@ -61,7 +61,7 @@ class ApplicantsController extends AppController {
 debug($this->request->data);
 			$this->Applicant->save($this->request->data['User']['Applicant']);
 			$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
-			$this->Applicant->User->Address->sawe($this->request->data['User']['Address']);
+			$this->Applicant->User->Address->save($this->request->data['User']['Address']);
 		}
 	}
  }

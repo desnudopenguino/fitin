@@ -92,12 +92,12 @@ class ApplicantsController extends AppController {
 // View - publice view of applicant data
 	public function view($url = null) {
 		$applicant = $this->Applicant->User->findByUrl($url);
+		$this->Applicant->id = $applicant['Applicant']['user_id'];
 		if(empty($applicant)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
 		debug($applicant);
-		$this->set('states',
-			$this->Applicant->User->Address->State->find('all'));
+		$this->Applicant->User->Address->State->find('all');
 		$this->set('applicant', $applicant);
 	}
  }

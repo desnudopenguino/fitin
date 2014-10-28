@@ -55,8 +55,8 @@ class ApplicantsController extends AppController {
 					'State.id','State.long_name'))));
 
 		// set the id of the applicant
-		$this->Applicant->id = $id;
-debug($this->Applicant);
+		$this->Applicant->read(null,$id);
+debug($this->Applicant->data);
 
 		// read the PhoneNumber for the Applicant
 		$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(

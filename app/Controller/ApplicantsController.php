@@ -48,6 +48,11 @@ class ApplicantsController extends AppController {
 				'fields' => array(
 					'PhoneType.id','PhoneType.phone_type'))));
 
+		$this->set('states',
+			$this->Applicant->User->Address->State->find('list', array(
+				'fields' => array(
+					'State.id','State.state_name'))));
+
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid Applicant'));

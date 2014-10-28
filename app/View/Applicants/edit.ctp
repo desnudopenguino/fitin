@@ -1,6 +1,3 @@
-<?php debug($applicant);
-	debug($phone_number);
-	debug($address); ?>
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
 		<?php 

@@ -61,8 +61,9 @@ class ApplicantsController extends AppController {
 			$this->Applicant->save($this->request->data['User']['Applicant']);
 			$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(
 				'conditions' => array(
-					'user_id' => $this->Auth->user('id')
-			)));
+					'user_id' => $this->Auth->user('id')),
+				'fields' => 'id'
+			));
 debug($phoneNumber);
 //			$this->Applicant->User->PhoneNumber->read(null,$phoneNumber[');
 			$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);

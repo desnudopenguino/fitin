@@ -2,18 +2,22 @@
  App::uses('AppController', 'Controller');
 
 class ApplicantsController extends AppController {
+
+// Add saves new applicant, called from user/register
 	public function add($userArray) {
 		$this->Applicant->create();
 		if ($this->Applicant->save($userArray)) {
 		}
 	}
 
+// Dashboard - logged in page
 	public function dashboard() {
 		$this->Applicant->read(null,$this->Auth->user('id'));
 		$this->Applicant->checkDisplayName();	//check the display name for the applicant
 		$this->set('applicant', $this->Applicant->data);
 	}
 
+// Profile - contains profile data for user, logged in page
 	public function profile() {
 		$userId = $this->Auth->user('id');
 		$this->Applicant->read(null, $userId);
@@ -34,16 +38,18 @@ class ApplicantsController extends AppController {
 
 	}
 
+// Culture - allows user to answer corporate culture questions
 	public function culture() {
 
 	}
 
+// Search - search page, applicant gets matched up with open positions based on skills & culture match
 	public function search() {
 
 	}
 
+// Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
-		// get the look-up data for the select fields
 		$this->set('phone_types',
 			$this->Applicant->User->PhoneNumber->PhoneType->find('list', array(
 				'fields' => array(
@@ -54,11 +60,9 @@ class ApplicantsController extends AppController {
 				'fields' => array(
 					'State.id','State.long_name'))));
 
-		// set the id of the applicant
 		$this->Applicant->read(null,$id);
 		$this->set('applicant', $this->Applicant->data['Applicant']);
 
-		// read the PhoneNumber for the Applicant
 		$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(
 			'conditions' => array(
 				'user_id' => $this->Auth->user('id')),
@@ -67,7 +71,6 @@ class ApplicantsController extends AppController {
 		$this->Applicant->User->PhoneNumber->read(null,$phoneNumber['PhoneNumber']['id']);
 		$this->set('phone_number',$this->Applicant->User->PhoneNumber->data['PhoneNumber']);
 
-		// read the address for the Applicant
 		$address = $this->Applicant->User->Address->find('first', array(
 			'conditions' => array(
 				'user_id' => $this->Auth->user('id')),
@@ -84,6 +87,15 @@ class ApplicantsController extends AppController {
 			$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 			$this->Applicant->User->Address->save($this->request->data['User']['Address']);
 		}
+	}
+
+// View - publice view of applicant data
+	public function view($url = null) {
+		$applicant = $this->Applicant->User->findByUrl($url);
+		if(empty($user)) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+		debug($user);
 	}
  }
 ?>

@@ -58,7 +58,6 @@ class ApplicantsController extends AppController {
 			throw new NotFoundException(__('Invalid Applicant'));
 		}
 		if($this->request->is('post') || $this->request->is('put')) { 
-debug($this->request->data);
 			$this->Applicant->save($this->request->data['User']['Applicant']);
 			$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 			$this->Applicant->User->Address->save($this->request->data['User']['Address']);

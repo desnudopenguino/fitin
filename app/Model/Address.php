@@ -2,6 +2,8 @@
 App::uses('AppModel', 'Model');
 
 Class Address extends AppModel {
+
+	public $useTable = 'addresses';// for some reason it's trying to access addersses
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User'

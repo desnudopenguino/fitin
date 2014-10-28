@@ -56,6 +56,7 @@ class ApplicantsController extends AppController {
 
 		// set the id of the applicant
 		$this->Applicant->read(null,$id);
+		$this->set('applicant', $this->Applicant->data);
 
 		// read the PhoneNumber for the Applicant
 		$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(
@@ -63,8 +64,8 @@ class ApplicantsController extends AppController {
 				'user_id' => $this->Auth->user('id')),
 			'fields' => 'id'
 		));
-debug($phoneNumber);
-		$this->Applicant->User->PhoneNumber->read(null,$phoneNumber);
+		$this->Applicant->User->PhoneNumber->read(null,$phoneNumber['PhoneNumber']['id']);
+		$this->set('phone_number',$this->Applicant->User->PhoneNumber->data);
 
 		// read the address for the Applicant
 		$address = $this->Applicant->User->Address->find('first', array(
@@ -72,9 +73,8 @@ debug($phoneNumber);
 				'user_id' => $this->Auth->user('id')),
 			'fields' => 'id'
 		));
-debug($address);
-		$this->Applicant->User->Address->read(null,$address);
-
+		$this->Applicant->User->Address->read(null,$address['Address']['id']);
+		$this->set('address',$this->Applicant->User->Address->data);
 
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid Applicant'));

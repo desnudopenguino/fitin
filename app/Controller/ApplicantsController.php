@@ -101,11 +101,12 @@ class ApplicantsController extends AppController {
 			throw new NotFoundException(__('Invalid User'));
 		}
 
-		$applicant['Address']['state'] = $this->State->find('first', array(
+		$state = $this->State->find('first', array(
 			'conditions' => array(
 				'State.id' => $applicant['Address']['state_id']),
 			'fields' => 'State.short_name' 
 		));
+		$applicant['Address']['state'] = $state['State']['short_name'];
 		$this->set('applicant', $applicant);
 	}
  }

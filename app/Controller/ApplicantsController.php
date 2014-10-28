@@ -51,7 +51,7 @@ class ApplicantsController extends AppController {
 		$this->set('states',
 			$this->Applicant->User->Address->State->find('list', array(
 				'fields' => array(
-					'State.id','State.short_name'))));
+					'State.id','State.long_name'))));
 
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
@@ -59,6 +59,12 @@ class ApplicantsController extends AppController {
 		}
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->Applicant->save($this->request->data['User']['Applicant']);
+			$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(
+				'conditions' => array(
+					'user_id' => $this->Auth->user('id')
+			)));
+debug($phoneNumber);
+//			$this->Applicant->User->PhoneNumber->read(null,$phoneNumber[');
 			$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 			$this->Applicant->User->Address->save($this->request->data['User']['Address']);
 		}

@@ -98,8 +98,7 @@ class ApplicantsController extends AppController {
 			throw new NotFoundException(__('Invalid User'));
 		}
 		debug($applicant);
-//		$this->Applicant->User->Address->State->find('all');
-		debug($this->State->find('all'));
+		//debug($this->State->find('all'));
 		$this->set('applicant', $applicant);
 	}
  }

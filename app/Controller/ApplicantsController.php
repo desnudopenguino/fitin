@@ -52,6 +52,10 @@ class ApplicantsController extends AppController {
 
 // Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
+		$this->Applicant->read(null,$id);
+		if(empty($this->Applicant->data)) {
+			throw new NotFoundException(__('Invalid User'));
+		}
 		$this->set('phone_types',
 			$this->PhoneType->find('list', array(
 				'fields' => array(
@@ -62,7 +66,6 @@ class ApplicantsController extends AppController {
 				'fields' => array(
 					'State.id','State.long_name'))));
 
-		$this->Applicant->read(null,$id);
 		$this->set('applicant', $this->Applicant->data['Applicant']);
 
 		$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(
@@ -97,8 +100,8 @@ class ApplicantsController extends AppController {
 		if(empty($applicant)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		debug($applicant);
 		//debug($this->State->find('all'));
+		debug($this->State);
 		$this->set('applicant', $applicant);
 	}
  }

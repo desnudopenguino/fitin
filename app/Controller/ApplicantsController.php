@@ -53,14 +53,9 @@ class ApplicantsController extends AppController {
 // Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
 		$this->set('phone_types',
-			$this->Applicant->User->PhoneNumber->PhoneType->find('list', array(
+			$this->PhoneType->find('list', array(
 				'fields' => array(
 					'PhoneType.id','PhoneType.phone_type'))));
-
-//		$this->set('states',
-//			$this->Applicant->User->Address->State->find('list', array(
-//				'fields' => array(
-//					'State.id','State.long_name'))));
 
 		$this->set('states',
 			$this->State->find('list', array(

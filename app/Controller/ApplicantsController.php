@@ -102,6 +102,7 @@ class ApplicantsController extends AppController {
 		}
 		//debug($this->State->find('all'));
 		debug($this->State->data);
+		debug($this->State->find());
 		$this->set('applicant', $applicant);
 	}
  }

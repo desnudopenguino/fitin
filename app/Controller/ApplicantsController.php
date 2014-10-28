@@ -97,7 +97,7 @@ class ApplicantsController extends AppController {
 		}
 		debug($applicant);
 		$this->set('states',
-			$this->Applicant->User->Address->State->find('list', array(
+			$this->Applicant->User->Address->State->find('first', array(
 				'fields' => array(
 					'State.id','State.long_name'))));
 		$this->set('applicant',$applicant);

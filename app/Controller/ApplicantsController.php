@@ -3,7 +3,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('State', 'PhoneType');
+	public $uses = array('Applicant', 'State', 'PhoneType');
 
 // Add saves new applicant, called from user/register
 	public function add($userArray) {
@@ -99,7 +99,7 @@ class ApplicantsController extends AppController {
 		}
 		debug($applicant);
 //		$this->Applicant->User->Address->State->find('all');
-		debug($this->Applicant->User->Address->State->find('all'));
+		debug($this->State->find('all'));
 		$this->set('applicant', $applicant);
 	}
  }

@@ -59,6 +59,9 @@ class ApplicantsController extends AppController {
 		}
 		if($this->request->is('post') || $this->request->is('put')) { 
 debug($this->request->data);
+			$this->Applicant->save($this->request->data['User']['Applicant']);
+			$this->Applicant->User->PhoneNumber->save($this->request->['User']['PhoneNumber']);
+			$this->Applicant->User->Address->sawe($this->request->['User']['Address']);
 		}
 	}
  }

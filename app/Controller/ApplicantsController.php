@@ -96,7 +96,7 @@ class ApplicantsController extends AppController {
 			throw new NotFoundException(__('Invalid User'));
 		}
 		debug($applicant);
-		$state = $this->Applicant->User->Address->State->findById($applicant['Address']['state_id']);
+		$state = $this->Applicant->User->Address->State->find('first',array('conditions' => array('id' => $applicant['Address']['state_id'])));
 		$applicant['Address']['state'] = $state['State']['short_name'];
 		$this->set('applicant',$applicant);
 	}

@@ -43,6 +43,7 @@ class ApplicantsController extends AppController {
 	}
 
 	public function edit($id = null) {
+		// get the look-up data for the select fields
 		$this->set('phone_types',
 			$this->Applicant->User->PhoneNumber->PhoneType->find('list', array(
 				'fields' => array(
@@ -53,19 +54,33 @@ class ApplicantsController extends AppController {
 				'fields' => array(
 					'State.id','State.long_name'))));
 
+		// set the id of the applicant
 		$this->Applicant->id = $id;
+debug($this->Applicant->data);
+
+		// read the PhoneNumber for the Applicant
+		$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(
+			'conditions' => array(
+				'user_id' => $this->Auth->user('id')),
+			'fields' => 'id'
+		));
+		$this->Applicant->User->PhoneNumber->read(null,$phoneNumber);
+debug($this->Applicant->User->PhoneNumber->data);
+
+		// read the address for the Applicant
+		$address = $this->Applicant->User->Address->find('first', array(
+			'conditions' => array(
+				'user_id' => $this->Auth->user('id')),
+			'fields' => 'id'
+		));
+		$this->Applicant->User->Address->read(null,$address);
+debug($this->Applicant->User->Address->data);
+
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid Applicant'));
 		}
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->Applicant->save($this->request->data['User']['Applicant']);
-			$phoneNumber = $this->Applicant->User->PhoneNumber->find('first', array(
-				'conditions' => array(
-					'user_id' => $this->Auth->user('id')),
-				'fields' => 'id'
-			));
-debug($phoneNumber);
-//			$this->Applicant->User->PhoneNumber->read(null,$phoneNumber[');
 			$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 			$this->Applicant->User->Address->save($this->request->data['User']['Address']);
 		}

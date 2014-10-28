@@ -24,12 +24,11 @@ class UsersController extends AppController {
 				if(empty($user)) {
   	    	throw new NotFoundException(__('Invalid user'));
 				}
-debug($user);
-				switch($user['User']['role_id']) {
+				switch($user['User']['roleId']) {
 					case 1: // Employer
 						break;
 					case 2: // Applicant
-						//$this->redirect(array('controller' => 'applicants', 'action' => 'view',$url));
+						$this->redirect(array('controller' => 'applicants', 'action' => 'view',$url));
 						break;
 					case 3: // Recruiter
 						break;

@@ -45,7 +45,7 @@
 			'label' => 'State',
 			'options' => $states));
 		echo $this->Form->input('Address.zip', array(
-			'type' => 'text');
+			'type' => 'text'));
 	?>
 </fieldset>
 <?php 

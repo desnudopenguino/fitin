@@ -3,6 +3,8 @@
 
 class ApplicantsController extends AppController {
 
+	public $uses = array('State', 'PhoneType');
+
 // Add saves new applicant, called from user/register
 	public function add($userArray) {
 		$this->Applicant->create();
@@ -92,7 +94,6 @@ class ApplicantsController extends AppController {
 // View - publice view of applicant data
 	public function view($url = null) {
 		$applicant = $this->Applicant->User->findByUrl($url);
-		$this->Applicant->id = $applicant['Applicant']['user_id'];
 		if(empty($applicant)) {
 			throw new NotFoundException(__('Invalid User'));
 		}

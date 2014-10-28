@@ -92,10 +92,10 @@ class ApplicantsController extends AppController {
 // View - publice view of applicant data
 	public function view($url = null) {
 		$applicant = $this->Applicant->User->findByUrl($url);
-		if(empty($user)) {
+		if(empty($applicant)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		debug($user);
+		debug($applicant);
 	}
  }
 ?>

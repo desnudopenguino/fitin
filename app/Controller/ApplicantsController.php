@@ -96,6 +96,7 @@ class ApplicantsController extends AppController {
 			throw new NotFoundException(__('Invalid User'));
 		}
 		debug($applicant);
+		$this->set('applicant',$applicant);
 	}
  }
 ?>

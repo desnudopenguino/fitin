@@ -1,3 +1,4 @@
+<?php debug($states); ?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2><?php echo $applicant['Applicant']['display_name']; ?></h2>

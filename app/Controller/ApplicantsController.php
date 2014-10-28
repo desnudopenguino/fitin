@@ -98,7 +98,7 @@ class ApplicantsController extends AppController {
 		}
 		debug($applicant);
 //		$this->Applicant->User->Address->State->find('all');
-		debug($this->Applicant->User->Address->States);
+		debug($this->Applicant->User->Address->State->find('first'));
 		$this->set('applicant', $applicant);
 	}
  }

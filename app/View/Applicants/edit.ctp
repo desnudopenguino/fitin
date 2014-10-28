@@ -10,23 +10,23 @@
 <fieldset>
 	<legend>Name</legend>
 	<?php 
-		echo $this->Form->Input('Applicant.first_name', array(
+		echo $this->Form->Input('User.Applicant.first_name', array(
 			'label' => 'First Name')); 
-		echo $this->Form->Input('Applicant.mi', array(
+		echo $this->Form->Input('User.Applicant.mi', array(
 			'label' => 'Middle Initial')); 
-		echo $this->Form->Input('Applicant.last_name', array(
+		echo $this->Form->Input('User.Applicant.last_name', array(
 			'label' => 'Last Name')); ?>
 </fieldset>
 <fieldset>
 	<legend>Phone Number</legend>
 	<?php 
-		echo $this->Form->input('PhoneNumber.phone_type_id', array(
+		echo $this->Form->input('User.PhoneNumber.phone_type_id', array(
 			'type' => 'select',
 			'label' => 'Phone Type',
 			'options' => $phone_types
 		));
 
-		echo $this->Form->Input('PhoneNumber.phone_number', array(
+		echo $this->Form->Input('User.PhoneNumber.phone_number', array(
 			'type' => 'text',
 			'label' => 'Phone Number')); 
 	?>
@@ -34,17 +34,17 @@
 <fieldset>
 	<legend>Address</legend>
 	<?php
-		echo $this->Form->input('Address.street', array(
+		echo $this->Form->input('User.Address.street', array(
 			'type' => 'text',
 			'label' => 'Street'));
-		echo $this->Form->input('Address.city', array(
+		echo $this->Form->input('User.Address.city', array(
 			'type' => 'text',
 			'label' => 'City'));
-		echo $this->Form->input('Address.state_id', array(
+		echo $this->Form->input('User.Address.state_id', array(
 			'type' => 'select',
 			'label' => 'State',
 			'options' => $states));
-		echo $this->Form->input('Address.zip', array(
+		echo $this->Form->input('User.Address.zip', array(
 			'type' => 'text'));
 	?>
 </fieldset>

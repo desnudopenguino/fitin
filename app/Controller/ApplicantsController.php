@@ -51,7 +51,7 @@ class ApplicantsController extends AppController {
 		$this->set('states',
 			$this->Applicant->User->Address->State->find('list', array(
 				'fields' => array(
-					'State.id','State.state_name'))));
+					'State.id','State.short_name'))));
 
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {

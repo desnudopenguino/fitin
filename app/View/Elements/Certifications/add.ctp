@@ -18,7 +18,6 @@
 				)); ?>
       <div class="modal-body">
 				<fieldset>
-					<legend>Add Certification</legend>
 					<?php 
 						echo $this->Form->input('certification_name', array(
 							'type' => 'text',

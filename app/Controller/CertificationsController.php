@@ -3,6 +3,8 @@
 
 class CertificationsController extends AppController {
 
+	public $helpers = array('Js');
+
 	public function add() {
 		if($this->request->is('post')) {
 			$this->Certification->create();

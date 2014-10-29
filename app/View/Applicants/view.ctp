@@ -9,9 +9,7 @@
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>
 	</div>
-	<div class="col-md-6 col-md-offset1 well">
-		<div class="container">
-			<?php echo $this->element('Certifications/index'); ?>
-		</div>
+	<div class="col-md-6 col-md-offset1">
+		<?php echo $this->element('Certifications/index'); ?>
 	</div>
 </div>

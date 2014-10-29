@@ -15,6 +15,5 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 			<?php echo $this->element('Certifications/index'); ?>	
-			<?php echo $this->element('Certifications/index'); ?>	
 	</div>
 </div>

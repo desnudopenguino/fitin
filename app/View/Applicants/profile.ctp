@@ -13,4 +13,7 @@
 		<p><?php echo $this->Html->link("edit", array(
 			'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id'])); ?></p>
 	</div>
+	<div class="col-md-6 col-md-offset-' well">
+		<?php echo $this->element('Certifications/index'); ?>	
+	</div>
 </div>

@@ -9,7 +9,7 @@
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>
 	</div>
-	<div class="col-md-6 col-md-offset1">
+	<div class="col-md-6 col-md-offset-1">
 		<?php echo $this->element('Certifications/index'); ?>
 	</div>
 </div>

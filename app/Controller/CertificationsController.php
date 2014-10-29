@@ -16,8 +16,7 @@ class CertificationsController extends AppController {
 			}
 		}
 		if ($this->request->is('ajax')) {
-			$this->render('certification-ajax-response', 'ajax');
-debug($this->request->data);
+			$this->render();
 		}
 
 	}

@@ -12,7 +12,10 @@ class CertificationsController extends AppController {
 			else {
 				$this->Session->setFlash(__('The certification could not be saved, please try again'));
 			}
+		} else if ($this->request->is('ajax')) {
+			$this->render('certification-ajax-response', 'ajax');
 		}
+
 	}
 
 	public function index() {

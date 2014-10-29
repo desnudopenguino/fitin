@@ -37,7 +37,6 @@
 						'div' => 'form-group',
 						'class' => 'btn btn-primary')
 						); ?>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
 			<?php echo $this->Form->end(); ?>
     </div>

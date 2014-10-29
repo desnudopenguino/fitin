@@ -12,8 +12,8 @@ Class Applicant extends AppModel {
 	public $primaryKey = 'user_id';
 
 	public $hasMany = array(
-		'Certificate' => array(
-			'className' => 'Certificate'
+		'Certification' => array(
+			'className' => 'Certification'
 	));
 
 	public $virtualFields = array(

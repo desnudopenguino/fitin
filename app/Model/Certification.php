@@ -1,7 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 
-Class Certificate extends AppModel {
+Class Certification extends AppModel {
 
 	public $belongsTo = array(
 		'Applicant' => array(

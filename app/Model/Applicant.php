@@ -8,8 +8,13 @@ Class Applicant extends AppModel {
 			'foreignKey' => 'user_id'
 		)
 	);
-
+	
 	public $primaryKey = 'user_id';
+
+	public $hasMany = array(
+		'Certificate' => array(
+			'className' => 'Certificate'
+	));
 
 	public $virtualFields = array(
 		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"

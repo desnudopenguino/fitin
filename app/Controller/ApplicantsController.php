@@ -112,6 +112,11 @@ class ApplicantsController extends AppController {
 		));
 		$applicant['Address']['state'] = $state['State']['short_name'];
 		$this->set('applicant', $applicant);
+
+		$this->set('certifications',
+			$this->Applicant->Certification->find('all', array(
+				'conditions' => array(
+					'Certification.applicant_id' => $userId))));
 	}
  }
 ?>

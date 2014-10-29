@@ -57,6 +57,6 @@
 				<?php echo $this->fetch('content'); ?>
 		</div>
 	<?php echo $this->element('footer'); //footer code ?>
-	<?php echo $this->Js->writeBuffer();
+	<?php echo $this->Js->writeBuffer(); ?>
 </body>
 </html>

@@ -14,6 +14,6 @@
 			'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id'])); ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
-			<?php echo $this->element('Certifications/index'); ?>	
+			<?php echo $this->element('Certifications/owner_index'); ?>	
 	</div>
 </div>

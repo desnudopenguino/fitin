@@ -16,7 +16,7 @@ class CertificationsController extends AppController {
 	}
 
 	public function index() {
-
+		$this->set('certifications', $this->Certification->find('all'));
 	}
  }
 ?>

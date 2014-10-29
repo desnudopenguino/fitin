@@ -38,6 +38,10 @@ class ApplicantsController extends AppController {
 				'conditions' => array(
 					'PhoneNumber.user_id' => $userId))));
 
+		$this->set('certifications',
+			$this->Applicant->Certification->find('all', array(
+				'conditions' => array(
+					'Certification.applicant_id' => $userId))));
 	}
 
 // Culture - allows user to answer corporate culture questions

@@ -7,7 +7,7 @@
 				<th>Earned</th>
 				<th>Expires</th>
 			</tr>
-			<?php foreach($certifications as $certification) { debug($certification); ?>
+			<?php foreach($certifications as $certification) { ?>
 			<tr>
 				<td><?php echo $certification['Certification']['certification_name']; ?></td>
 				<td><?php echo $certification['Certification']['organization']; ?></td>

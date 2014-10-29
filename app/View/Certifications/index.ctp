@@ -9,6 +9,10 @@
 			</tr>
 			<?php foreach($certifications as $certification) { debug($certification); ?>
 			<tr>
+				<td><?php echo $certification['Certification']['certification_name']; ?></td>
+				<td><?php echo $certification['Certification']['organization']; ?></td>
+				<td><?php echo $certification['Certification']['earned_date']; ?></td>
+				<td><?php echo $certification['Certification']['expiration_date']; ?></td>
 			</tr> 
 			<?php } ?>
 		</table>

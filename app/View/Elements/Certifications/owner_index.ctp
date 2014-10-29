@@ -3,7 +3,7 @@
 		<h2>Certifications
 			<?php echo $this->Html->link('Create Certification', array(
 				'controller' => 'certifications', 'action' => 'add'),
-				array( 'class' => 'btn btn-primary', 'role' => 'button')); ?>
+				array( 'class' => 'btn btn-primary pull-right', 'role' => 'button')); ?>
 				
 			</h2>
 		<table class="table table-striped">

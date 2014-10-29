@@ -14,7 +14,8 @@
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'class' => 'well'
+					'class' => 'well',
+					'id' => 'create-certification'
 				)); ?>
       <div class="modal-body">
 				<fieldset>
@@ -41,3 +42,16 @@
     </div>
   </div>
 </div>
+<?php
+	$data = $this->Js->get('#create-certification')->serializeForm(
+		array('isForm' => true,
+			'inline' => true));
+	$this->Js->get('#create-certification')->event(
+		'submit', $this->Js->request(
+			array('action' => 'add', 'controller' => 'certifications'),
+			array('update' => '#status',
+				'data' => $data,
+				'async' => true,
+				'dataExpression' => true,
+				'method' => 'POST' )));
+?>

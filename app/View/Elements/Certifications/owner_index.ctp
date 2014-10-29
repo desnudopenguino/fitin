@@ -1,10 +1,7 @@
 <div class="row well">
 	<div class="col-md-10 col-md-offset-1">
 		<h2>Certifications
-			<?php echo $this->Html->link('Create Certification', array(
-				'controller' => 'certifications', 'action' => 'add'),
-				array( 'class' => 'btn btn-primary pull-right', 'role' => 'button')); ?>
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createCertification">Create Certification</button>				
+			<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#createCertification">Create Certification</button>				
 			</h2>
 		<table class="table table-striped">
 			<tr>

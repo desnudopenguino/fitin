@@ -116,7 +116,7 @@ class ApplicantsController extends AppController {
 		$this->set('certifications',
 			$this->Applicant->Certification->find('all', array(
 				'conditions' => array(
-					'Certification.applicant_id' => $userId))));
+					'Certification.applicant_id' => $applicant['Applicant']['user_id']))));
 	}
  }
 ?>

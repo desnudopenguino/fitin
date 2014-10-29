@@ -13,7 +13,7 @@
 		<p><?php echo $this->Html->link("edit", array(
 			'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id'])); ?></p>
 	</div>
-	<div class="col-md-6 col-md-offset-1 well">
+	<div class="col-md-6 col-md-offset-1">
 			<?php echo $this->element('Certifications/index'); ?>	
 			<?php echo $this->element('Certifications/index'); ?>	
 	</div>

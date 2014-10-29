@@ -14,5 +14,9 @@ class CertificationsController extends AppController {
 			}
 		}
 	}
+
+	public function index() {
+
+	}
  }
 ?>

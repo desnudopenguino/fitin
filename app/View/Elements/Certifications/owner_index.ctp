@@ -24,3 +24,4 @@
 		</table>
 	</div>
 </div>
+<?php echo $this->element('Certifications/add'); ?>

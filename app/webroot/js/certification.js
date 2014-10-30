@@ -6,4 +6,5 @@ $('#create-certification').submit(function( event ) {
 		success: function(result) {
 			alert(result);
 		}
+	return false;
 });

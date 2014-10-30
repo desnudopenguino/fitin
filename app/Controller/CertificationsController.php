@@ -9,14 +9,23 @@ class CertificationsController extends AppController {
 		if($this->request->is('post')) {
 			$this->Certification->create();
 			if($this->Certification->save($this->request->data)) {
-				$this->Session->setFlash(__('The certification has been saved'));
+				$this->Session->setFlash(__('The certification has been saved'),
+					'alert',
+					array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-success'
+				));
 			}
 			else {
-				$this->Session->setFlash(__('The certification could not be saved, please try again'));
+				$this->Session->setFlash(__('The certification could not be saved, please try again',
+					'alert',
+					array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-warning'
+				)));
 			}
 		}
 		if ($this->request->is('ajax')) {
-			$this->Session->setFlash();
 			$this->set('certifications', $this->Certification->find('all',array(
 				'conditions' => array(
 					'applicant_id' => $this->Auth->user('id')))));

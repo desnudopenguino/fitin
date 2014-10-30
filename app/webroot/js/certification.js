@@ -7,6 +7,7 @@ $('#create-certification').submit(function( event ) {
 		data: $('#create-certification').serialize(),
 		success: function(result) {
 			alert(result);
-		}
+		}	
+	});
 	return false;
 });

@@ -18,3 +18,4 @@
 			<div id="status"></div>
 	</div>
 </div>
+<?php echo $this->Html->script('certification'); ?>

@@ -5,6 +5,10 @@ class ApplicantsController extends AppController {
 
 	public $uses = array('Applicant', 'State', 'PhoneType');
 
+	public function beforeFilter() {
+		$this->Auth->allow('view');
+	}
+
 // Add saves new applicant, called from user/register
 	public function add($userArray) {
 		$this->Applicant->create();

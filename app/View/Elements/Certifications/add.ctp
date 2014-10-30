@@ -49,7 +49,7 @@
 	$this->Js->get('#create-certification')->event(
 		'submit', $this->Js->request(
 			array('action' => 'add', 'controller' => 'certifications'),
-			array('update' => '#status',
+			array('update' => '#certifications',
 				'data' => $data,
 				'async' => true,
 				'dataExpression' => true,

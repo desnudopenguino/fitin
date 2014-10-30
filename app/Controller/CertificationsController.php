@@ -16,6 +16,7 @@ class CertificationsController extends AppController {
 			}
 		}
 		if ($this->request->is('ajax')) {
+			$this->Session->setFlash();
 			$this->set('certifications', $this->Certification->find('all',array(
 				'conditions' => array(
 					'applicant_id' => $this->Auth->user('id')))));

@@ -18,7 +18,7 @@ class CertificationsController extends AppController {
 		if ($this->request->is('ajax')) {
 			$this->set('cercifications', $this->Certificion->find('all',array(
 				'conditions' => array(
-					'applicant_id' => $this->Auth->user('id');
+					'applicant_id' => $this->Auth->user('id'))));
 			$this->render('index');
 		}
 

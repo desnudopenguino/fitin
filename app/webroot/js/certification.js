@@ -23,7 +23,7 @@ console.log("form id "+ $(this).attr('id')+" clicked");
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-			$(this).parent('tr').fadeOut(1000).remove();
+			$(this).parent().parent().fadeOut(1000).remove();
 		}
 	});
 	return false;

@@ -57,13 +57,13 @@ class UsersController extends AppController {
 //												$Employer->add($employerData);
 												break;
 								case 2: //Applicant
+												$applicantData = array('Applicant'=> array(
+																'userId' => $userId));
 												$this->User->Applicant->create();
-												$this->User->Applicant->save();
+												$this->User->Applicant->save($applicantData);
 //											App::import('Controller', 'Applicants');
 //												$Applicant = new ApplicantsController;
 //												$Applicant->constructClasses();
-//												$applicantData = array('Applicant'=> array(
-//																'userId' => $userId));
 //												$Applicant->add($applicantData);
 												break;
 								case 3: //Recruiter

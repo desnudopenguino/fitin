@@ -16,8 +16,10 @@ $('#createCertificationForm').submit(function( event ) {
 
 //call to delete certification
 $("form[id^='deleteCertification_']").submit(function( event ) {
-	alert($this);
 	return false;
 });
 
+$("form[id^='deleteCertification_'] > input[type='submit']").click(function( event ) {
+	return false;
+});
 console.log($("form[id^='deleteCertification_']"));

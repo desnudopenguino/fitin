@@ -7,21 +7,9 @@
 			<th>Expires</th>
 			<th>Delete</th>
 		</tr>
-		<?php foreach($certifications as $certification) { ?>
-		<?php $this->set('certification', $certification); 
-			echo $this->element('Certifications/row'); ?>
-		<tr>
-			<td><?php echo $certification['Certification']['certification_name']; ?></td>
-			<td><?php echo $certification['Certification']['organization']; ?></td>
-			<td><?php echo $certification['Certification']['earned_date']; ?></td>
-			<td><?php echo $certification['Certification']['expiration_date']; ?></td>
-			<td><?php echo $this->Form->postLink('X', 
-				array(
-					'controller' => 'certifications',
-					'action' => 'delete', $certification['Certification']['id']),
-				array('confirm' => 'Are you sure?')); ?>
-			</td>
-		</tr> 
-		<?php } ?>
+		<?php foreach($certifications as $certification) { 
+			$this->set('certification', $certification);
+			echo $this->element('Certifications/row');
+		} ?>
 	</tbody>
 </table>

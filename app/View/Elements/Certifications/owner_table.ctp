@@ -7,7 +7,8 @@
 			<th>Expires</th>
 			<th>Delete</th>
 		</tr>
-		<?php foreach($certifications as $certification) { ?>
+		<?php foreach($certifications as $certification) {  $certification = $certification['Certification']?>
+		<?php echo $this->element('elements/Certifications/row'); ?>
 		<tr>
 			<td><?php echo $certification['Certification']['certification_name']; ?></td>
 			<td><?php echo $certification['Certification']['organization']; ?></td>

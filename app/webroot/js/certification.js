@@ -15,3 +15,6 @@ $('#createCertificationForm').submit(function( event ) {
 	});
 	return false;
 });
+
+//call to delete certification
+

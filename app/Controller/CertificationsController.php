@@ -29,7 +29,7 @@ class CertificationsController extends AppController {
 			$this->disableCache();		
 			echo json_encode($this->Certification->find('first',
 				$this->Certification->getLastInsertID()));
-			
+			$this->autorender = false;
 			$this->layout = false;
 		}
 	}

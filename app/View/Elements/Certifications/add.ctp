@@ -42,7 +42,7 @@
     </div>
   </div>
 </div>
-<?php $data = $this->Js->get('#create-certifications')->serializeForm(array('isForm' => true, 'inline' => true));
+<?php /* $data = $this->Js->get('#create-certifications')->serializeForm(array('isForm' => true, 'inline' => true));
 $this->Js->get('#create-certifications')->event(
    'submit',
    $this->Js->request(
@@ -57,5 +57,4 @@ $this->Js->get('#create-certifications')->event(
   )
 );
 echo $this->Js->writeBuffer();
- ?>
-
+*/ ?>

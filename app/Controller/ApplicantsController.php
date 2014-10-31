@@ -19,6 +19,8 @@ class ApplicantsController extends AppController {
 // Dashboard - logged in page
 	public function dashboard() {
 		$this->Applicant->read(null,$this->Auth->user('id'));
+		debug($this->Auth->user('id'));
+		debug($this->Applicant->data);
 		$this->Applicant->checkDisplayName();	//check the display name for the applicant
 		$this->set('applicant', $this->Applicant->data);
 	}

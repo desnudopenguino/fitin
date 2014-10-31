@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped" id="certificationsTable">
 	<tr>
 		<th>Certification</th>
 		<th>Organization</th>

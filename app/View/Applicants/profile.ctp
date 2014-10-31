@@ -15,7 +15,6 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 			<?php echo $this->element('Certifications/owner_index'); ?>	
-			<div id="status"></div>
 	</div>
 </div>
 <?php echo $this->Html->script('certification'); ?>

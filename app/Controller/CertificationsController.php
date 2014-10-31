@@ -28,7 +28,7 @@ class CertificationsController extends AppController {
 		if ($this->request->is('ajax')) {
 			$this->disableCache();		
 			$certification = $this->Certification->read(null, $this->Certification->id);
-			$this->set('certification', $certification['Certification']);
+			$this->set('certification', $certification);
 			$this->layout = false;
 			$this->render('/Elements/Certifications/row');
 		}

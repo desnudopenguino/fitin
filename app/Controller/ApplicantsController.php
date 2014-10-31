@@ -21,7 +21,7 @@ class ApplicantsController extends AppController {
 		$this->Applicant->read(null,$this->Auth->user('id'));
 		debug($this->Auth->user('id'));
 		debug($this->Applicant->data);
-		$this->Applicant->checkDisplayName();	//check the display name for the applicant
+		$this->Applicant->checkDisplayName();
 		$this->set('applicant', $this->Applicant->data);
 	}
 

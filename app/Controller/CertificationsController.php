@@ -37,12 +37,12 @@ class CertificationsController extends AppController {
 	public function delete($id = null) {
 		$this->request->onlyAllow('post');
 		
-		$this->Certification->id = $id;
+		$this->Certification->read(null,$id);
+debug($this->Certification->data);
 
 		if(!$this->Certification->exists()) {
 			throw new NotFoundException(__('Invalid Certification'));
 		}
-debug($this->Certification->data);
 		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->Certification->delete()) {
 				if($this->request->is('ajax')) {

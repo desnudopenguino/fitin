@@ -24,7 +24,7 @@ console.log("form id "+ $(this).attr('id')+" clicked");
 		data: $(this).serialize(),
 		success: function(result) {
 console.log("success deleting this cert");
-			$(this).parent().remove();
+			$('#'+$(this).attr('id').parent().remove();
 		}
 	});
 	return false;

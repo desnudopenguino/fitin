@@ -23,6 +23,7 @@ $("form[id^='deleteCertification_']").submit(function( event ) {
 		data: $(this).serialize(),
 		success: function(result) {
 alert(result);
+			$(this).parent('tr').fadeOut(1000).remove();
 		}
 	});
 	return false;

@@ -20,6 +20,6 @@ $("form[id^='deleteCertification_']").submit(function( event ) {
 });
 
 $("form[id^='deleteCertification_'] > input[type='submit']").click(function( event ) {
+console.log($(this).parents('form:first')); // get the form
 	return false;
 });
-console.log($("form[id^='deleteCertification_']"));

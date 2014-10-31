@@ -29,9 +29,10 @@ class CertificationsController extends AppController {
 			$this->disableCache();		
 			$certification = $this->Certification->find('first',
 				$this->Certification->getLastInsertID()));
-			$this->set('certification', $certification['Certification']);
+//			$this->set('certification', $certification['Certification']);
 			$this->autorender = false;
 			$this->layout = false;
+			echo json_encode($certification['Certification']);
 		}
 	}
 

@@ -15,7 +15,9 @@ $('#createCertificationForm').submit(function( event ) {
 });
 
 //call to delete certification
-$("form[id^='deleteCertification']").submit(function( event ) {
+$("form[id^='deleteCertification_']").submit(function( event ) {
 	alert($this);
 	return false;
 });
+
+console.log($("form[id^='deleteCertification_']"));

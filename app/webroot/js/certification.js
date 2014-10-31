@@ -5,6 +5,7 @@ $('#create-certification').submit(function( event ) {
 		url: '/certifications/add',
 		method: 'POST',
 		data: $('#create-certification').serialize(),
+		contentType: 'application/json',
 		success: function(result) {
 			alert(result);
 		}	

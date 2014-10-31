@@ -9,4 +9,12 @@
 			'action' => 'delete', $certification['Certification']['id']),
 		array('confirm' => 'Are you sure?')); ?>
 	</td>
+	<td><?php echo $this->Form->create('Certification', array(
+		'action' => 'delete', $certification['Certification']['id'],
+		'method' => 'post',
+		));
+		echo $this->Form->submit('X', array(
+			'class' => 'btn btn-warning'));
+		echo $this->Form->end(); ?>
+	</td>
 </tr>

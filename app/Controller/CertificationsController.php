@@ -38,7 +38,6 @@ class CertificationsController extends AppController {
 		$this->request->onlyAllow('post');
 		
 		$this->Certification->read(null,$id);
-debug($this->Certification->data);
 
 		if(!$this->Certification->exists()) {
 			throw new NotFoundException(__('Invalid Certification'));

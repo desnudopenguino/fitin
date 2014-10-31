@@ -42,3 +42,17 @@
     </div>
   </div>
 </div>
+<?php $data = $this->Js->get('#create-certifications')->serializeForm(array('isForm' => true, 'inline' => true));
+$this->Js->get('#create-certifications')->event(
+   'submit',
+   $this->Js->request(
+    array('action' => 'add', 'controller' => 'certifications'),
+    array(
+        'update' => '#certifications',
+        'data' => $data,
+        'async' => true,    
+        'dataExpression'=>true,
+        'method' => 'POST'
+    )
+  )
+); ?>

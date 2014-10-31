@@ -3,9 +3,10 @@ $('#create-certification').submit(function( event ) {
 	alert("submitted the form!");
 	$.ajax({
 		url: '/certifications/add',
-		method: 'POST',
+		type: 'POST',
+		async: true,
+		dataType: 'html',
 		data: $('#create-certification').serialize(),
-		contentType: 'application/json',
 		success: function(result) {
 			alert(result);
 		}	

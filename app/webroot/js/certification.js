@@ -1,6 +1,5 @@
 // call to save new certification
 $('#createCertificationForm').submit(function( event ) {
-	alert("submitted the form!");
 	$.ajax({
 		url: '/certifications/add',
 		type: 'POST',
@@ -10,7 +9,6 @@ $('#createCertificationForm').submit(function( event ) {
 		success: function(result) {
 			$('#createCertificationModal').modal('hide');
 			$('#certificationsTable > tbody').append($(result).hide().fadeIn(1000));
-			alert(result);
 		}	
 	});
 	return false;

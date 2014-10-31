@@ -48,23 +48,11 @@ class UsersController extends AppController {
 							switch($this->request->data['User']['roleId']) { //create usertype in case here
 								case 1: //Employer
 												$this->User->Employer->create();
-												$this->User->Employer->save();
-//												App::import('Controller', 'Employers');
-//												$Employer = new EmployersController;
-//												$Employer->constructClasses();
-//												$employerData = array('Employer'=> array(
-//																'userId' => $userId));
-//												$Employer->add($employerData);
+												$this->User->Employer->save(array('Employer' => array('userId' => $userId)));
 												break;
 								case 2: //Applicant
-												$applicantData = array('Applicant'=> array(
-																'userId' => $userId));
 												$this->User->Applicant->create();
 												$this->User->Applicant->save(array('Applicant' => array( 'user_id' => $userId)));
-//											App::import('Controller', 'Applicants');
-//												$Applicant = new ApplicantsController;
-//												$Applicant->constructClasses();
-//												$Applicant->add($applicantData);
 												break;
 								case 3: //Recruiter
 												break;

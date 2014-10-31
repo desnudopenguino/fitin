@@ -1,4 +1,4 @@
-<div class="modal fade" id="createCertification" tabindex="-1" role="dialog" arial-labelledby="createCertificationLabel" aria-hidden="true">
+<div class="modal fade" id="createCertificationModal" tabindex="-1" role="dialog" arial-labelledby="createCertificationLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,7 +15,7 @@
 						'class' => 'form-control'
 					),
 					'class' => 'well',
-					'id' => 'create-certification'
+					'id' => 'createCertificationForm'
 				)); ?>
       <div class="modal-body">
 				<fieldset>

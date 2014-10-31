@@ -44,7 +44,7 @@ class CertificationsController extends AppController {
 		}
 		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->Certification->delete()) {
-				if($this->request->is('ajax') {
+				if($this->request->is('ajax')) {
 					$this->disableCache();
 					$this->layout = false;
 					echo "true";

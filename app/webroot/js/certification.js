@@ -15,7 +15,7 @@ $('#createCertificationForm').submit(function( event ) {
 });
 
 //call to delete certification
-$("form[id^='deleteCertification_']").submit(function( event ) {
+$("form[id^='deleteCertification_']").on('submit', function( event ) {
 console.log("form id "+ $(this).attr('id')+" clicked");
 	$.ajax({
 		url: $(this).attr('action'),
@@ -24,7 +24,8 @@ console.log("form id "+ $(this).attr('id')+" clicked");
 		data: $(this).serialize(),
 		success: function(result) {
 console.log("success deleting this cert");
-			$('#'+$(this).attr('id')).parent().remove();
+			$(this).parent().remove();
+console.log("done");
 		}
 	});
 	return false;

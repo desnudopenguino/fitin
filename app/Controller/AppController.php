@@ -32,7 +32,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	public $components = array(
-		'Security',
+		'Security' => array(
+			'csrfUseOnce' => false),
 		'Session',
 		'Auth' => array(
 			'authenticate' => array(

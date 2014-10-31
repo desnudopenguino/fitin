@@ -34,6 +34,27 @@ class CertificationsController extends AppController {
 		}
 	}
 
+	public function delete($id = null) {
+		$this->request->onlyAllow('post');
+		
+		$this->Certification->id = $id;
+
+		if(!$this->Certification->exists()) {
+			throw new NotFoundException(__('Invalid Certification'));
+		}
+		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
+			if($this->Certification->delete()) {
+				if($this->request->is('ajax') {
+					$this->disableCache();
+					$this->layout = false;
+					echo "true";
+				} else {
+					//return $this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
+				}
+			}
+		}
+	}
+
 	public function index() {
 		$this->set('certifications', $this->Certification->find('all'));
 	}

@@ -8,6 +8,7 @@ $('#createCertificationForm').submit(function( event ) {
 		dataType: 'html',
 		data: $('#createCertificationForm').serialize(),
 		success: function(result) {
+			alert(result);
 			$('#createCertificationModal').modal('hide');
 			$('#certificationsTabel > tbody').append($(result).hide().fadeIn(1000));
 		}	

@@ -6,6 +6,7 @@
 	<td><?php echo $this->Form->create('Certification', array(
 		'url' => '/certifications/delete/'. $certification['Certification']['id'],
 		'method' => 'post',
+		'id' => 'deleteCertification_'. $certification['Certification']['id']
 		));
 		echo $this->Form->submit('X', array(
 			'class' => 'btn btn-warning'));

@@ -24,6 +24,6 @@ $("form[id^='deleteCertification_']").submit(function( event ) {
 		success: function(result) {
 alert(result);
 		}
-	}),
+	});
 	return false;
 });

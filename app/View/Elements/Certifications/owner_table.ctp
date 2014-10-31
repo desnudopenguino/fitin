@@ -8,7 +8,7 @@
 			<th>Delete</th>
 		</tr>
 		<?php foreach($certifications as $certification) {  $certification = $certification['Certification']?>
-		<?php echo $this->element('elements/Certifications/row'); ?>
+		<?php echo $this->element('Certifications/row'); ?>
 		<tr>
 			<td><?php echo $certification['Certification']['certification_name']; ?></td>
 			<td><?php echo $certification['Certification']['organization']; ?></td>

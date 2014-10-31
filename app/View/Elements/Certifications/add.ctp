@@ -55,4 +55,7 @@ $this->Js->get('#create-certifications')->event(
         'method' => 'POST'
     )
   )
-); ?>
+);
+echo $this->Js->writeBuffer();
+ ?>
+

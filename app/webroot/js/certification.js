@@ -26,7 +26,7 @@ console.log("form id "+ $(this).attr('id')+" clicked");
 console.log("success deleting this cert");
 console.log($(this));
 console.log(this.parents('tr'));
-			$(this).parents('tr').fadeOut(1000).remove();
+			$(this).parents('tr').remove();
 		}
 	});
 	return false;

@@ -60,7 +60,7 @@ class UsersController extends AppController {
 												$applicantData = array('Applicant'=> array(
 																'userId' => $userId));
 												$this->User->Applicant->create();
-												$this->User->Applicant->save($applicantData);
+												$this->User->Applicant->save(array('Applicant' => array( 'user_id' => $userId)));
 //											App::import('Controller', 'Applicants');
 //												$Applicant = new ApplicantsController;
 //												$Applicant->constructClasses();

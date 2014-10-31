@@ -16,9 +16,14 @@ $('#createCertificationForm').submit(function( event ) {
 
 //call to delete certification
 $("form[id^='deleteCertification_']").submit(function( event ) {
-console.log(this);
+	$.ajax({
+		url: $(this).attr('action'),
+		type: $(this).attr('method'),
+		async: true,
+		data: $(this).serialize(),
+		success: function(result) {
+alert(result);
+		}
+	}),
 	return false;
-});
-
-$("form[id^='deleteCertification_'] > input[type='submit']").click(function( event ) {
 });

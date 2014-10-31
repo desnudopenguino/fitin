@@ -1,7 +1,7 @@
 <div class="row well">
 	<div class="col-md-10 col-md-offset-1">
 		<h2>Certifications
-			<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#createCertification">Create Certification</button>				
+			<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#createCertificationModal">Create Certification</button>
 		</h2>
 		<div id="certifications">
 			<?php echo $this->element('Certifications/owner_table'); ?>

@@ -29,8 +29,9 @@ class CertificationsController extends AppController {
 			$this->disableCache();		
 			$certification = $this->Certification->read(null, $this->Certification->id);
 			$this->set('certification', $certification['Certification']);
-			$this->autorender = false;
+//			$this->autorender = false;
 			$this->layout = false;
+			$this->render('/Elements/Certifications/row');
 		}
 	}
 

@@ -9,7 +9,7 @@ $('#createCertificationForm').submit(function( event ) {
 		data: $('#createCertificationForm').serialize(),
 		success: function(result) {
 			$('#createCertificationModal').modal('hide');
-			$('#certificationsTabel').append($(result).hide().fadeIn(1000));
+			$('#certificationsTabel tbody').append($(result).hide().fadeIn(1000));
 		}	
 	});
 	return false;

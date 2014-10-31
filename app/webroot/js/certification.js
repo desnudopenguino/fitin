@@ -25,7 +25,7 @@ $("form[id^='deleteCertification_']").on('submit', function( event ) {
 		success: function(result) {
 console.log("success deleting");
 console.log(id);
-			$('#'+id).remove();
+			$('#'+id).parent().parent().remove();
 		}
 	});
 	return false;

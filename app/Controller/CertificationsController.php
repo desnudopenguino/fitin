@@ -42,6 +42,7 @@ class CertificationsController extends AppController {
 		if(!$this->Certification->exists()) {
 			throw new NotFoundException(__('Invalid Certification'));
 		}
+debug($this->Certification->data);
 		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->Certification->delete()) {
 				if($this->request->is('ajax')) {

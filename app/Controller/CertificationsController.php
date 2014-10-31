@@ -26,7 +26,8 @@ class CertificationsController extends AppController {
 			}
 		}
 		if ($this->request->is('ajax')) {
-			return json_encode($this->Certification->find('first',
+			
+			echo json_encode($this->Certification->find('first',
 				$this->Certification->getLastInsertID()));
 		}
 	}

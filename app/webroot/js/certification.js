@@ -1,14 +1,15 @@
 // call to save new certification
-$('#create-certification').submit(function( event ) {
+$('#createCertificationForm').submit(function( event ) {
 	alert("submitted the form!");
 	$.ajax({
 		url: '/certifications/add',
 		type: 'POST',
 		async: true,
 		dataType: 'html',
-		data: $('#create-certification').serialize(),
+		data: $('#createCertificationForm').serialize(),
 		success: function(result) {
-			alert(result);
+			$('#createCertificationModal').modal('hide');
+			$('#certifications').append($(result).hide().fadeIn(1000));
 		}	
 	});
 	return false;

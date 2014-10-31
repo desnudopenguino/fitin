@@ -23,6 +23,7 @@ console.log("form id "+ $(this).attr('id')+" clicked");
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
+console.log("success deleting this cert");
 			$(this).parent().parent().fadeOut(1000).remove();
 		}
 	});

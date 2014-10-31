@@ -10,7 +10,7 @@
 		array('confirm' => 'Are you sure?')); ?>
 	</td>
 	<td><?php echo $this->Form->create('Certification', array(
-		'action' => 'delete', $certification['Certification']['id'],
+		'url' => '/certifications/delete/'. $certification['Certification']['id'],
 		'method' => 'post',
 		));
 		echo $this->Form->submit('X', array(

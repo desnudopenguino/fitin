@@ -27,7 +27,7 @@ console.log("success deleting this cert");
 console.log($(this).parent());
 console.log($(this).parent().parent());
 console.log($(this).parent().parent().parent());
-			$(this).parent().parent().fadeOut(1000).remove();
+			$(this).parents('tr').fadeOut(1000).remove();
 		}
 	});
 	return false;

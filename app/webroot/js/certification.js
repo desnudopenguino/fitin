@@ -1,5 +1,5 @@
 // call to save new certification
-$('#createCertificationForm').submit(function( event ) {
+$('#createCertificationForm').submit(function() {
 	$.ajax({
 		url: '/certifications/add',
 		type: 'POST',
@@ -15,7 +15,7 @@ $('#createCertificationForm').submit(function( event ) {
 });
 
 //call to delete certification
-$("form[id^='deleteCertification_']").on('submit', function( event ) {
+$("form[id^='deleteCertification_']").on('submit', function() {
 	var id = $(this).attr('id');
 	$.ajax({
 		url: $(this).attr('action'),
@@ -23,8 +23,6 @@ $("form[id^='deleteCertification_']").on('submit', function( event ) {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-console.log("success deleting");
-console.log(id);
 			$('#'+id).parent().parent().fadeOut(1000, function() { $(this).remove(); });
 		}
 	});

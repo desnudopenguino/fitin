@@ -5,6 +5,7 @@
 			<th>Organization</th>
 			<th>Earned</th>
 			<th>Expires</th>
+			<th>Delete</th>
 		</tr>
 		<?php foreach($certifications as $certification) { ?>
 		<tr>
@@ -12,6 +13,10 @@
 			<td><?php echo $certification['Certification']['organization']; ?></td>
 			<td><?php echo $certification['Certification']['earned_date']; ?></td>
 			<td><?php echo $certification['Certification']['expiration_date']; ?></td>
+			<td><?php echo $this->Html->link('X', array(
+					'controller' => 'certifications',
+					'action' => 'delete', $certification['Certification']['id'])); ?>
+			</td>
 		</tr> 
 		<?php } ?>
 	</tbody>

@@ -52,7 +52,7 @@ class ApplicantsController extends AppController {
 				'Degree.id', 'Degree.degree_type'))));
 		$this->set('concentrations', $this->Concentration->find('list', array(
 			'fields' => array(
-				'Concentration.id','Concentration.concentration_type'));
+				'Concentration.id','Concentration.concentration_type'))));
 
 		$this->set('educations',
 			$this->Applicant->Education->find('all', array(

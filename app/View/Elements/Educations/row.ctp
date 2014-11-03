@@ -1,4 +1,3 @@
-<?php debug($education); ?>
 <tr>
 	<td><?php echo $education['Degree']['degree_type']; ?></td>
 	<td><?php echo $education['Concentration']['concentration_type']; ?></td>

@@ -1,6 +1,6 @@
 <div class="row well">
 	<div class="col-md-10 col-md-offset-1">
-		<h2>Educations</h2>
+		<h2>Education</h2>
 		<table class="table table-striped">
 			<tr>
 				<th>Degree</th>

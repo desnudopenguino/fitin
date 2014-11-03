@@ -7,11 +7,11 @@ $('#createCertificationForm').submit(function() {
 		dataType: 'html',
 		data: $('#createCertificationForm').serialize(),
 		success: function(result) {
+			$('#createCertificationModal').modal('hide');
 			$('#certificationsTable > tbody').append($(result).hide().fadeIn(1000));
+			$('#createCertificationForm').get(0).reset();
 		}	
 	});
-			$('#createCertificationModal').modal('hide');
-//	$('#createCertificationForm').get(0).reset();
 	return false;
 });
 

@@ -46,6 +46,11 @@ class ApplicantsController extends AppController {
 			$this->Applicant->Certification->find('all', array(
 				'conditions' => array(
 					'Certification.applicant_id' => $userId))));
+
+		$this->set('educations',
+			$this->Applicant->Education->find('all', array(
+				'conditions' => array(
+					'Education.applicant_id' => $userId))));
 	}
 
 // Culture - allows user to answer corporate culture questions
@@ -121,6 +126,11 @@ class ApplicantsController extends AppController {
 			$this->Applicant->Certification->find('all', array(
 				'conditions' => array(
 					'Certification.applicant_id' => $applicant['Applicant']['user_id']))));
+
+		$this->set('educations',
+			$this->Applicant->Education->find('all', array(
+				'conditions' => array(
+					'Education.applicant_id' => $applicant['Applicant']['user_id']))));
 	}
  }
 ?>

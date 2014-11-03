@@ -14,7 +14,8 @@ Class Applicant extends AppModel {
 	public $hasMany = array(
 		'Certification' => array(
 			'className' => 'Certification'
-	));
+		),
+		'Education');
 
 	public $virtualFields = array(
 		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"

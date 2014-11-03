@@ -1,12 +1,12 @@
-<div class="modal fade" id="createCertificationModal" tabindex="-1" role="dialog" arial-labelledby="createCertificationLabel" aria-hidden="true">
+<div class="modal fade" id="createEducationModal" tabindex="-1" role="dialog" arial-labelledby="createEducationLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Create Certification</h4>
+        <h4 class="modal-title">Create Education</h4>
       </div>
 			<?php 
-				echo $this->Form->create('Certification',array(
+				echo $this->Form->create('Education',array(
 					'action' => 'add',
 					'method' => 'post',
 					'inputDefaults' => array(
@@ -15,12 +15,12 @@
 						'class' => 'form-control'
 					),
 					'class' => 'well',
-					'id' => 'createCertificationForm'
+					'id' => 'createEducationForm'
 				)); ?>
       <div class="modal-body">
 				<fieldset>
 					<?php 
-						echo $this->Form->input('certification_name', array(
+						echo $this->Form->input('education_name', array(
 							'type' => 'text',
 							'label' => 'Name'));
 						echo $this->Form->input('organization', array(

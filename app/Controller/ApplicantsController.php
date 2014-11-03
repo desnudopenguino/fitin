@@ -3,7 +3,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Concentration');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -46,6 +46,9 @@ class ApplicantsController extends AppController {
 			$this->Applicant->Certification->find('all', array(
 				'conditions' => array(
 					'Certification.applicant_id' => $userId))));
+
+		$this->set('degrees' $this->Degree->find('all');
+		$this->set('concentrations' $this->Concentration->find('all');
 
 		$this->set('educations',
 			$this->Applicant->Education->find('all', array(

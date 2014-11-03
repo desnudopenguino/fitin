@@ -1,11 +1,11 @@
 <table class="table table-striped" id="educationsTable">
 	<tbody>
 		<tr>
-			<th>Certification</th>
-			<th>Organization</th>
-			<th>Earned</th>
-			<th>Expires</th>
-			<th>Delete</th>
+			<th>Degree</th>
+			<th>Concentration</th>
+			<th>School</th>
+			<th>Graduation</th>
+			<th>GPA</th>
 		</tr>
 		<?php foreach($educations as $education) { 
 			$this->set('education', $education);

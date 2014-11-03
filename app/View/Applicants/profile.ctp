@@ -15,6 +15,8 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 			<?php echo $this->element('Certifications/owner_index'); ?>	
+			<?php echo $this->element('Educations/owner_index'); ?>	
 	</div>
 </div>
 <?php echo $this->Html->script('certification'); ?>
+<?php echo $this->Html->script('education'); ?>

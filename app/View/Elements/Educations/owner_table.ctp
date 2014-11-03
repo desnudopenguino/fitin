@@ -1,4 +1,4 @@
-<table class="table table-striped" id="certificationsTable">
+<table class="table table-striped" id="educationsTable">
 	<tbody>
 		<tr>
 			<th>Certification</th>
@@ -7,9 +7,9 @@
 			<th>Expires</th>
 			<th>Delete</th>
 		</tr>
-		<?php foreach($certifications as $certification) { 
-			$this->set('certification', $certification);
-			echo $this->element('Certifications/row');
+		<?php foreach($educations as $education) { 
+			$this->set('education', $education);
+			echo $this->element('Educations/row');
 		} ?>
 	</tbody>
 </table>

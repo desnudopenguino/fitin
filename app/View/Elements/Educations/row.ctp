@@ -1,13 +1,14 @@
 <?php debug($education); ?>
 <tr>
-	<td><?php echo $education['Certification']['education_name']; ?></td>
-	<td><?php echo $education['Certification']['organization']; ?></td>
-	<td><?php echo $education['Certification']['earned_date']; ?></td>
-	<td><?php echo $education['Certification']['expiration_date']; ?></td>
-	<td><?php echo $this->Form->create('Certification', array(
-		'url' => '/educations/delete/'. $education['Certification']['id'],
+	<td><?php echo $education['Degree']['degree_type']; ?></td>
+	<td><?php echo $education['Concentration']['concentration_type']; ?></td>
+	<td><?php echo $education['School']['school_name']; ?></td>
+	<td><?php echo $education['Education']['graduation_date']; ?></td>
+	<td><?php echo $education['Education']['gpa']; ?></td>
+	<td><?php echo $this->Form->create('Education', array(
+		'url' => '/educations/delete/'. $education['Education']['id'],
 		'method' => 'post',
-		'id' => 'deleteCertification_'. $education['Certification']['id']
+		'id' => 'deleteEducation_'. $education['Education']['id']
 		));
 		echo $this->Form->submit('X', array(
 			'class' => 'btn btn-warning'));

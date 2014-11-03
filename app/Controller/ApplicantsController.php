@@ -47,8 +47,12 @@ class ApplicantsController extends AppController {
 				'conditions' => array(
 					'Certification.applicant_id' => $userId))));
 
-		$this->set('degrees', $this->Degree->find('all'));
-		$this->set('concentrations', $this->Concentration->find('all'));
+		$this->set('degrees', $this->Degree->find('list',array(
+			'fields' => array(
+				'Degree.id', 'Degree.degree_type'))));
+		$this->set('concentrations', $this->Concentration->find('list', array(
+			'fields' => array(
+				'Concentration.id','Concentration.concentration_type'));
 
 		$this->set('educations',
 			$this->Applicant->Education->find('all', array(

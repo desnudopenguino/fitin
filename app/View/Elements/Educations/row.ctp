@@ -1,3 +1,4 @@
+<?php debug($education); ?>
 <tr>
 	<td><?php echo $education['Certification']['education_name']; ?></td>
 	<td><?php echo $education['Certification']['organization']; ?></td>

@@ -40,7 +40,7 @@ $(document).on('submit',"form[id^='editCertificationForm_']", function() {
 		data: $(this).serialize(),
 		success: function(result) {
 			$('#editCertificationModal_'+id.match(/\d+/g, '')).modal('hide');
-			$('#'+id).parent().parent().replaceWith(result); });
+			$('#'+id).parent().parent().replaceWith(result);
 			$('#'+id).get(0).reset();
 		}
 	});

@@ -15,7 +15,7 @@
 						'class' => 'form-control'
 					),
 					'class' => 'well',
-					'id' => 'editEducationForm'
+					'id' => 'editEducationForm:'. $education['Education']['id']
 				)); ?>
       <div class="modal-body">
 				<fieldset>

@@ -6,6 +6,8 @@
 			<th>School</th>
 			<th>Graduation</th>
 			<th>GPA</th>
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
 		<?php foreach($educations as $education) { 
 			$this->set('education', $education);

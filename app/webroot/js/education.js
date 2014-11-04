@@ -30,3 +30,24 @@ $(document).on('submit',"form[id^='deleteEducation_']", function() {
 	});
 	return false;
 });
+
+//call to update certification
+$(document).on('submit',"form[id^='editEducationForm_']", function() {
+	var formId = '#'+$(this).attr('id');
+	var modalId = '#editEducationModal_'+formId.match(/\d+/g,'');
+console.log(formId);
+console.log(modalId);
+	$.ajax({
+		url: $(this).attr('action'),
+		type: $(this).attr('method'),
+		async: true,
+		data: $(this).serialize(),
+		success: function(result) {
+			$(modalId).modal('hide');
+			setTimeout(function() {
+				$(formId).closest('tr').replaceWith(result);
+			}, 500);
+		}
+	});
+	return false;
+

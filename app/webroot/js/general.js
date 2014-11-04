@@ -5,5 +5,9 @@ $('.modal').on('shown.bs.modal', function () {
 })
 
 $( function() { 
-	$('input[name*="date"]').datepicker();
+	$('input[name*="date"]').datepicker({
+		changeMonth: true,
+		changeYear: true,
+		dateFormat: 'yyyy-mm-dd'
+	});
 });

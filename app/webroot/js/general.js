@@ -1,5 +1,6 @@
 
 $( function() { 
+	//use datepicker on any input that has date in the name
 	$('input[name*="date"]').datepicker({
 		changeMonth: true,
 		changeYear: true,

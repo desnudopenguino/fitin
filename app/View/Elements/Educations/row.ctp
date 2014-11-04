@@ -5,7 +5,7 @@
 	<td><?php echo $education['Education']['graduation_date']; ?></td>
 	<td><?php echo $education['Education']['gpa']; ?></td>
 	<td>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEducationModal_<?php echo $education['Education']['id']; ?>">Edit</button>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEducationModal_<?php echo $education['Education']['id']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
 		<?php
 			$this->set('concentrations',$concentrations);
 			$this->set('degrees',$degrees);

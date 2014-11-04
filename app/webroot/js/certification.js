@@ -39,7 +39,9 @@ $(document).on('submit',"form[id^='editCertificationForm_']", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-			$('#'+id).parent().parent().fadeOut(300, function() { $(this).replaceWith(result); });
+			$('#editCertificationModal_'+id.match(/\d+/g, '')).modal('hide');
+			$('#'+id).parent().parent().replaceWith(result); });
+			$('#'+id).get(0).reset();
 		}
 	});
 	return false;

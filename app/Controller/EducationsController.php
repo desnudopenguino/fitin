@@ -6,8 +6,6 @@ class EducationsController extends AppController {
 	public $uses = array('Education','School','Degree','Concentration');
 
 	public function add() {
-debug($this->request->data);
-
 		$this->set('degrees',$this->Degree->find('list',array(
 			'fields' => array('Degree.id','Degree.degree_type'))));
 		$this->set('concentrations',$this->Concentration->find('list', array(
@@ -23,7 +21,6 @@ debug($this->request->data);
 				'conditions' => array(
 					'School.id' => $this->School->getLastInsertID())));
 			}
-debug($school);
 			$this->Education->create();
 			$this->request->data['Education']['school_id'] = $school['School']['id'];
 			if($this->Education->save($this->request->data)) {

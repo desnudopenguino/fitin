@@ -1,12 +1,5 @@
 
 $( function() { 
-	//use datepicker on any input that has date in the name
-	$('input[name*="date"]').datepicker({
-		changeMonth: true,
-		changeYear: true,
-		dateFormat: 'yy-mm-dd'
-	});
-
 	//attempt to keep modal focus while using datepicker.
 	var enforceModalFocusFn = $.fn.modal.Constructor.prototype.enforceFocus;
 	$.fn.modal.Constructor.prototype.enforceFocus = function() {};
@@ -18,4 +11,11 @@ $( function() {
 	});
 });
 
-
+//on focus on a date input, load date picker
+$(document).on('focus',"input[name*='date']", function() {
+	$(this).datepicker({
+		changeMonth: true,
+		changeYear: true,
+		dateFormat: 'yy-mm-dd'
+	});
+});

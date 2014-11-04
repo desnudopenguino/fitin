@@ -69,6 +69,10 @@ class EducationsController extends AppController {
 	}
 
 	public function edit($id = null) {
+		$this->set('degrees',$this->Degree->find('list',array(
+			'fields' => array('Degree.id','Degree.degree_type'))));
+		$this->set('concentrations',$this->Concentration->find('list', array(
+			'fields' => array('Concentration.id','Concentration.concentration_type'))));
 		$this->Education->read(null,$id);
 
 		if(!$this->Education->exists()) {

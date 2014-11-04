@@ -47,10 +47,31 @@ class CertificationsController extends AppController {
 				if($this->request->is('ajax')) {
 					$this->disableCache();
 					$this->layout = false;
-					echo "true";
 				}
 			}
 		}
+	}
+
+	public function edit($id = null) {
+		$this->Certification->read(null,$id);
+
+		if(!$this->Certification->exists()) {
+			throw new NotFoundException(__('Invalid Certification'));
+		}
+
+		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
+			if($this->request->is('post') || $this->request->is('put')) {
+				if($this->Certification->save($this->request->data['Certification'])) {
+					if($this->request->is('ajax')) {
+						$this->disableCache();
+						$this->layout= false;
+						$this->set('certification', $this->Certification->read(nul, $this->Certification->id));	
+						$this->render('/Elements/Certifications/row');
+					}
+				}
+			}			
+		}
+
 	}
 
 	public function index() {

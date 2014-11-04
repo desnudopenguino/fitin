@@ -7,6 +7,12 @@ class EducationsController extends AppController {
 
 	public function add() {
 debug($this->request->data);
+		if($this->School->checkUniqueName($this->request->data['School']['school_name'])) {
+			$this->School->create();
+			$this->School->save($this->request->data['School']);
+debug($this->School);
+		} else {
+		}
 
 		$this->set('degrees',$this->Degree->find('list',array(
 			'fields' => array('Degree.id','Degree.degree_type'))));

@@ -4,7 +4,7 @@
 	<td><?php echo $certification['Certification']['earned_date']; ?></td>
 	<td><?php echo $certification['Certification']['expiration_date']; ?></td>
 	<td>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editCertificationModal_<?php echo $certification['Certification']['id']; ?>">Edit</button>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editCertificationModal_<?php echo $certification['Certification']['id']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
 		<?php echo $this->element('Certifications/edit'); ?>
 	</td>
 	<td><?php echo $this->Form->create('Certification', array(

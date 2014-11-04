@@ -43,7 +43,7 @@ console.log(modalId);
 		data: $(this).serialize(),
 		success: function(result) {
 			$(modalId).modal('hide');
-			$(formId).closelt('tr').replaceWith(result);
+			$(formId).closest('tr').replaceWith(result);
 			$(formId).get(0).reset();
 		}
 	});

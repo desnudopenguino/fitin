@@ -23,6 +23,7 @@ debug($this->request->data);
 				'conditions' => array(
 					'School.school_name' => $this->School->getLastInsertID())));
 			}
+debug($school);
 			$this->Education->create();
 			$this->request->data['Education']['school_id'] = $school['School']['id'];
 			if($this->Education->save($this->request->data)) {

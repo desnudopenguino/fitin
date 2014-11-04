@@ -8,6 +8,6 @@ $( function() {
 	$('input[name*="date"]').datepicker({
 		changeMonth: true,
 		changeYear: true,
-		dateFormat: 'yyyy-mm-dd'
+		dateFormat: 'yy-mm-dd'
 	});
 });

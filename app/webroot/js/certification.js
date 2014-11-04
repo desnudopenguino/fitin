@@ -8,7 +8,7 @@ $('#createCertificationForm').submit(function() {
 		data: $('#createCertificationForm').serialize(),
 		success: function(result) {
 			$('#createCertificationModal').modal('hide');
-			$('#certificationsTable > tbody').append($(result).hide().fadeIn(1000));
+			$('#certificationsTable > tbody').append($(result).hide().fadeIn(400));
 			$('#createCertificationForm').get(0).reset();
 		}	
 	});
@@ -24,7 +24,7 @@ $(document).on('submit',"form[id^='deleteCertification_']", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-			$('#'+id).parent().parent().fadeOut(1000, function() { $(this).remove(); });
+			$('#'+id).parent().parent().fadeOut(300, function() { $(this).remove(); });
 		}
 	});
 	return false;
@@ -43,8 +43,9 @@ console.log(modalId);
 		data: $(this).serialize(),
 		success: function(result) {
 			$(modalId).modal('hide');
-			$(formId).closest('tr').replaceWith(result);
-			$(formId).get(0).reset();
+			setTimeout(function() {
+				$(formId).closest('tr').replaceWith(result);
+			}, 500);
 		}
 	});
 	return false;

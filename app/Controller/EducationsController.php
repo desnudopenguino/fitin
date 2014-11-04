@@ -16,11 +16,14 @@ debug($this->request->data);
 			if($school = $this->School->find('first', array(
 				'conditions' => array(
 					'School.school_name' => $this->request->data['School']['school_name'])))) {
-debug($school);
 			} else {
 				$this->School->create();
 				$this->School->save($this->request->data['School']);
+				$school = $this->School->find('first', array(
+				'conditions' => array(
+					'School.school_name' => $this->School->getLastInsertID())));
 			}
+debug($school);
 			$this->Education->create();
 			if($this->Education->save($this->request->data)) {
 				$this->Session->setFlash(__('The education has been saved'),

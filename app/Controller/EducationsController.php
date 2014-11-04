@@ -7,9 +7,9 @@ class EducationsController extends AppController {
 
 	public function add() {
 
-		$this->set('degrees',$this->Degree->find('all',array(
+		$this->set('degrees',$this->Degree->find('list',array(
 			'fields' => array('Degree.id','Degree.degree_type'))));
-		$this->set('concentrations',$this->Concentration->find('all', array(
+		$this->set('concentrations',$this->Concentration->find('list', array(
 			'fields' => array('Concentration.id','Concentration.concentration_type'))));
 		if($this->request->is('post')) {
 			$this->Education->create();

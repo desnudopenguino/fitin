@@ -48,8 +48,6 @@ class CertificationsController extends AppController {
 					$this->disableCache();
 					$this->layout = false;
 					echo "true";
-				} else {
-					//return $this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 				}
 			}
 		}

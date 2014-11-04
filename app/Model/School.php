@@ -7,14 +7,5 @@ Class School extends AppModel {
 			'className' => 'Education'
 		)
 	);
-
-// function to check if the school already exists, returns true if the school is unique, or false if it already exists
-	public function checkUniqueName($school_name) {
-		if($this->hasAny(array('School.school_name' => $this->request->data['School']['school_name']))) {
-			return false;
-		} else {
-			return true;
-		}
-	}
 }
 ?>

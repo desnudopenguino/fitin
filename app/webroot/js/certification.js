@@ -29,3 +29,18 @@ $(document).on('submit',"form[id^='deleteCertification_']", function() {
 	});
 	return false;
 });
+
+//call to update certification
+$(document).on('submit',"form[id^='editCertification_']", function() {
+	var id = $(this).attr('id');
+	$.ajax({
+		url: $(this).attr('action'),
+		type: $(this).attr('method'),
+		async: true,
+		data: $(this).serialize(),
+		success: function(result) {
+			$('#'+id).parent().parent().fadeOut(300, function() { $(this).replaceWith(result); });
+		}
+	});
+	return false;
+});

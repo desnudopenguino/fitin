@@ -14,6 +14,7 @@ class EducationsController extends AppController {
 		if($this->request->is('post')) {
 			$this->Education->create();
 			if($this->Education->save($this->request->data)) {
+debug($this->request->data);
 				$this->Session->setFlash(__('The education has been saved'),
 					'alert',
 					array(

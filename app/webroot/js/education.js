@@ -16,7 +16,8 @@ $('#createEducationForm').submit(function() {
 });
 
 //call to delete education
-$("form[id^='deleteEducation_']").on('submit', function() {
+//$("form[id^='deleteEducation_']").on('submit', function() {
+$(document).on('submit',"form[id^='deleteEducation_']", function() {
 	var id = $(this).attr('id');
 	$.ajax({
 		url: $(this).attr('action'),

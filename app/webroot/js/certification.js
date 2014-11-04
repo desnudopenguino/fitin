@@ -32,16 +32,19 @@ $(document).on('submit',"form[id^='deleteCertification_']", function() {
 
 //call to update certification
 $(document).on('submit',"form[id^='editCertificationForm_']", function() {
-	var id = $(this).attr('id');
+	var formId = '#'+$(this).attr('id');
+	var modalId = '#editCertificationModal_'.id.match(/\d+/g,'');
+console.log(formId);
+console.log(modalId);
 	$.ajax({
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-			$('#editCertificationModal_'+id.match(/\d+/g, '')).modal('hide');
-			$('#'+id).parent().parent().replaceWith(result);
-			$('#'+id).get(0).reset();
+			$(modalId).modal('hide');
+			$(formId).parent().parent().replaceWith(result);
+			$(formId).get(0).reset();
 		}
 	});
 	return false;

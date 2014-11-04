@@ -4,6 +4,6 @@ $('.modal').on('shown.bs.modal', function () {
   $(this).find('input[type!=hidden],select').filter(':first').focus();
 })
 
-$(document).ready( 
+$( function() { 
 	$('input[name*="date"]').datepicker();
-);
+});

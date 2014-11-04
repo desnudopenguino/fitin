@@ -7,18 +7,18 @@ class EducationsController extends AppController {
 
 	public function add() {
 debug($this->request->data);
-		if($this->School->checkUniqueName($this->request->data['School']['school_name'])) {
-			$this->School->create();
-			$this->School->save($this->request->data['School']);
-debug($this->School);
-		} else {
-		}
 
 		$this->set('degrees',$this->Degree->find('list',array(
 			'fields' => array('Degree.id','Degree.degree_type'))));
 		$this->set('concentrations',$this->Concentration->find('list', array(
 			'fields' => array('Concentration.id','Concentration.concentration_type'))));
 		if($this->request->is('post')) {
+			if($this->School->checkUniqueName($this->request->data['School']['school_name'])) {
+				$this->School->create();
+				$this->School->save($this->request->data['School']);
+	debug($this->School);
+			} else {
+			}
 			$this->Education->create();
 			if($this->Education->save($this->request->data)) {
 				$this->Session->setFlash(__('The education has been saved'),

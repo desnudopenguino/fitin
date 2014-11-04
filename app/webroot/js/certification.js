@@ -31,7 +31,7 @@ $(document).on('submit',"form[id^='deleteCertification_']", function() {
 });
 
 //call to update certification
-$(document).on('submit',"form[id^='editCertification_']", function() {
+$(document).on('submit',"form[id^='editCertificationForm_']", function() {
 	var id = $(this).attr('id');
 	$.ajax({
 		url: $(this).attr('action'),

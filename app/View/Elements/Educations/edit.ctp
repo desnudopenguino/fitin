@@ -6,7 +6,7 @@
         <h4 class="modal-title">Edit Education</h4>
       </div>
 			<?php 
-				echo $this->Form->edit('Education',array(
+				echo $this->Form->create('Education',array(
 					'url' => '/educations/edit/'. $education['Education']['id'],
 					'method' => 'post',
 					'inputDefaults' => array(

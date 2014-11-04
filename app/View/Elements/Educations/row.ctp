@@ -17,7 +17,7 @@
 		'method' => 'post',
 		'id' => 'deleteEducation_'. $education['Education']['id']
 		));
-		echo $this->Form->submit('X', array(
+		echo $this->Form->submit('<i class="glyphicon glyphicon-trash"></i>', array(
 			'class' => 'btn btn-warning'));
 		echo $this->Form->end(); ?>
 	</td>

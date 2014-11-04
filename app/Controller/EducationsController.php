@@ -6,6 +6,7 @@ class EducationsController extends AppController {
 	public $uses = array('Education','School','Degree','Concentration');
 
 	public function add() {
+debug($this->request->data);
 
 		$this->set('degrees',$this->Degree->find('list',array(
 			'fields' => array('Degree.id','Degree.degree_type'))));
@@ -14,7 +15,6 @@ class EducationsController extends AppController {
 		if($this->request->is('post')) {
 			$this->Education->create();
 			if($this->Education->save($this->request->data)) {
-debug($this->request->data);
 				$this->Session->setFlash(__('The education has been saved'),
 					'alert',
 					array(

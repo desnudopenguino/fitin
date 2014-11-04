@@ -33,7 +33,7 @@ $(document).on('submit',"form[id^='deleteCertification_']", function() {
 //call to update certification
 $(document).on('submit',"form[id^='editCertificationForm_']", function() {
 	var formId = '#'+$(this).attr('id');
-	var modalId = '#editCertificationModal_'+id.match(/\d+/g,'');
+	var modalId = '#editCertificationModal_'+formId.match(/\d+/g,'');
 console.log(formId);
 console.log(modalId);
 	$.ajax({

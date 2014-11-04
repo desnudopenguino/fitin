@@ -50,4 +50,4 @@ console.log(modalId);
 		}
 	});
 	return false;
-
+});

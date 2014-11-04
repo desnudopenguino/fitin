@@ -12,8 +12,9 @@
 		'method' => 'post',
 		'id' => 'deleteCertification_'. $certification['Certification']['id']
 		));
-		echo $this->Form->submit('X', array(
-			'class' => 'btn btn-warning'));
+		echo $this->Form->button('<i class="glyphicon glyphicon-trash"></i>', array(
+			'class' => 'btn btn-warning',
+			'type' => 'submit'));
 		echo $this->Form->end(); ?>
 	</td>
 </tr>

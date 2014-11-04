@@ -50,5 +50,26 @@ class EducationsController extends AppController {
 			}
 		}
 	}
+
+	public function edit($id = null) {
+		$this->Education->read(null,$id);
+
+		if(!$this->Education->exists()) {
+			throw new NotFoundException(__('Invalid Education'));
+		}
+
+		if($this->Education->data['Education']['applicant_id'] == $this->Auth->user('id')) {
+			if($this->request->is('post') || $this->request->is('put')) {
+				if($this->Education->save($this->request->data['Education'])) {
+					if($this->request->is('ajax')) {
+						$this->disableCache();
+						$this->layout= false;
+						$this->set('education', $this->Education->read(null, $this->Education->id));	
+						$this->render('/Elements/Educations/row');
+					}
+				}
+			}			
+		}
+	}
  }
 ?>

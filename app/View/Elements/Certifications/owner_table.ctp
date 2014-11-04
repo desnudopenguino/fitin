@@ -5,6 +5,7 @@
 			<th>Organization</th>
 			<th>Earned</th>
 			<th>Expires</th>
+			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
 		<?php foreach($certifications as $certification) { 

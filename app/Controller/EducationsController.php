@@ -21,7 +21,7 @@ debug($this->request->data);
 				$this->School->save($this->request->data['School']);
 				$school = $this->School->find('first', array(
 				'conditions' => array(
-					'School.school_name' => $this->School->getLastInsertID())));
+					'School.id' => $this->School->getLastInsertID())));
 			}
 debug($school);
 			$this->Education->create();

@@ -13,11 +13,13 @@ debug($this->request->data);
 		$this->set('concentrations',$this->Concentration->find('list', array(
 			'fields' => array('Concentration.id','Concentration.concentration_type'))));
 		if($this->request->is('post')) {
-			if($this->School->checkUniqueName($this->request->data['School']['school_name'])) {
+			if($school = $this->School->find('first', array(
+				'conditions' => array(
+					'School.school_name' => $this->request->data['School']['school_name'])))) {
+debug($school);
+			} else {
 				$this->School->create();
 				$this->School->save($this->request->data['School']);
-	debug($this->School);
-			} else {
 			}
 			$this->Education->create();
 			if($this->Education->save($this->request->data)) {

@@ -30,7 +30,7 @@
 							'label' => 'Concentration',
 							'options' => $concentrations,
 							'value' => $education['Education']['concentration_id']));
-						echo $this->Form->input('Education.School.school_name', array(
+						echo $this->Form->input('School.school_name', array(
 							'type' => 'text',
 							'label' => 'School',
 							'value' => $education['School']['school_name']));

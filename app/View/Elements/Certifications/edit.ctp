@@ -7,7 +7,7 @@
       </div>
 			<?php 
 				echo $this->Form->create('Certification',array(
-					'action' => 'edit',
+					'url' => '/certifications/edit/'. $certification['Certification']['id'],
 					'method' => 'post',
 					'inputDefaults' => array(
 						'div' => 'form-group',
@@ -15,7 +15,7 @@
 						'class' => 'form-control'
 					),
 					'class' => 'well',
-					'id' => 'editCertificationForm'
+					'id' => 'editCertificationForm_'. $certification['Certification']['id']
 				)); ?>
       <div class="modal-body">
 				<fieldset>

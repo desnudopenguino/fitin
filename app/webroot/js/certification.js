@@ -16,7 +16,9 @@ $('#createCertificationForm').submit(function() {
 });
 
 //call to delete certification
-$("form[id^='deleteCertification_']").on('submit', function() {
+//$("form[id^='deleteCertification_']").on('submit', function() {
+$(document).on('submit',"form[id^='deleteCertification_']", function() {
+console.log("it works yay");
 	var id = $(this).attr('id');
 	$.ajax({
 		url: $(this).attr('action'),

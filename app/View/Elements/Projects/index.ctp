@@ -3,7 +3,6 @@
 		<a data-toggle="collapse" data-parent="#resume" href="#collapseProjects" aria-expanded="true" aria-controls="collapseProjects">Projects</a>
 	</div>
 	<div id="collapseProjects" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingProjects">
-
 		<div class="panel-body">
 			<?php foreach($projects as $project) { 
 				$this->set('project', $project); ?>

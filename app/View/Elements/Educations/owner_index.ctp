@@ -7,3 +7,4 @@
 	</div>
 </div>
 <?php echo $this->element('Educations/add'); ?>
+<?php echo $this->Html->script('education'); ?>

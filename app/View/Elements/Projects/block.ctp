@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div id="project_<?php echo $project['Project']['id']; ?>" class="panel panel-default">
 	<div class="panel-heading">
 		<div class="panel-title">
 			<?php echo $project['Project']['title']; ?> at

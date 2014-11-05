@@ -10,7 +10,8 @@
 				<?php echo $this->Form->create('Project', array(
 						'url' => '/projects/delete/'. $project['Project']['id'],
 						'method' => 'post',
-						'id' => 'deleteProject_'. $project['Project']['id']
+						'id' => 'deleteProject_'. $project['Project']['id'],
+						'style' => 'display: inline;'
 					));
 					echo $this->Form->button('<i class="glyphicon glyphicon-trash"></i>', array(
 						'class' => 'btn btn-warning btn-sm',

@@ -14,7 +14,6 @@
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'class' => 'well',
 					'id' => 'editCertificationForm_'. $certification['Certification']['id']
 				)); ?>
       <div class="modal-body">

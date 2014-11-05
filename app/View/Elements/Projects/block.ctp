@@ -6,6 +6,16 @@
 			<span class="smaller pull-right">
 				<?php echo $project['Project']['start_date']; ?> - 
 				<?php echo $project['Project']['end_date']; ?>
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProjectModal_<?php echo $project['Project']['id']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
+				<?php echo $this->Form->create('Project', array(
+						'url' => '/projects/delete/'. $project['Project']['id'],
+						'method' => 'post',
+						'id' => 'deleteProject_'. $project['Project']['id']
+					));
+					echo $this->Form->button('<i class="glyphicon glyphicon-trash"></i>', array(
+						'class' => 'btn btn-warning btn-sm',
+						'type' => 'submit'));
+					echo $this->Form->end(); ?>
 			</span>
 		</div>
 	</div>

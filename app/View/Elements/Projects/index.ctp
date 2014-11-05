@@ -1,7 +1,9 @@
 <div class="row panel panel-default">
-	<div class="panel-body col-md-10 col-md-offset-1">
+	<div class="panel-heading">
 		<h2>Projects
 		</h2>
+	</div>
+	<div class="panel-body">
 		<?php foreach($projects as $project) { 
 			$this->set('project', $project); ?>
 		<div class="panel panel-default">

@@ -33,5 +33,5 @@
 			</div>
 		</div>
 	</div>
+	<?php echo $this->element('Projects/edit'); ?>
 </div>
-<?php echo $this->element('Projects/edit'); ?>

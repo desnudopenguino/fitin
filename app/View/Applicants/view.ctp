@@ -10,8 +10,10 @@
 		<p><?php echo $applicant['User']['email']; ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
-		<?php echo $this->element('Projects/index'); ?>
-		<?php echo $this->element('Educations/index'); ?>
-		<?php echo $this->element('Certifications/index'); ?>
+		<div class="panel-group" id="resume" role="tablist" aria-multiselectable="true">
+			<?php echo $this->element('Projects/index'); ?>
+			<?php echo $this->element('Educations/index'); ?>
+			<?php echo $this->element('Certifications/index'); ?>
+		</div>
 	</div>
 </div>

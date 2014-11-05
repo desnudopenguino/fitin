@@ -11,7 +11,7 @@
 	</div>
 	<div class="panel-body">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-5 col-md-offset-1">
 				<h3>Responsibilities</h3>
 				<p><?php echo $project['Project']['responsibilities']; ?></p>
 			</div>

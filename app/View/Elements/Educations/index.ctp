@@ -1,4 +1,4 @@
-<div class="panel panel-defualt">
+<div class="panel panel-default">
 	<div class="panel-heading">
 		<h2>Education</h2>
 	</div>

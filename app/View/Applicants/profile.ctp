@@ -21,6 +21,4 @@
 			<?php echo $this->element('Certifications/owner_index'); ?>	
 	</div>
 </div>
-<?php echo $this->Html->script('certification'); ?>
-<?php echo $this->Html->script('education'); ?>
 <?php echo $this->Html->script('general'); ?>

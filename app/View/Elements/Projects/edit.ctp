@@ -20,19 +20,23 @@
 				<fieldset>
 					<?php 
 						echo $this->Form->input('title', array(
-							'type' => 'text'));
+							'type' => 'text',
+							'value' => $project['Project']['title']));
 					
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text'));
 		
 						echo $this->Form->input('start_date', array(
-							'type' => 'text'));
+							'type' => 'text',
+							'value' => $project['Project']['start_date']));
 
 						echo $this->Form->input('end_date', array(
-							'type' => 'text'));
+							'type' => 'text',
+							'value' => $project['Project']['end_date']));
 
 						echo $this->Form->input('responsibilities', array(
-							'type' => 'textarea'));
+							'type' => 'textarea',
+							'value' => $project['Project']['end_date']));
 						?>
 				</fieldset>
       </div>

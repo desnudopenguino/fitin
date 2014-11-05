@@ -24,7 +24,9 @@ $(document).on('submit',"form[id^='deleteProject_']", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
+console.log(id + ' deleted');
 			$('#'+id).closest('.panel').fadeOut(300, function() { $(this).remove(); });
+console.log(id + ' removed');
 		}
 	});
 	return false;

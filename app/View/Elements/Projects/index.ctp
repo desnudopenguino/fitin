@@ -1,23 +1,35 @@
-<div class="row well">
-	<div class="col-md-10 col-md-offset-1">
-		<h2>Education</h2>
-		<table class="table table-striped">
-			<tr>
-				<th>Degree</th>
-				<th>Concentration</th>
-				<th>School</th>
-				<th>Graduation</th>
-				<th>GPA</th>
-			</tr>
-			<?php foreach($educations as $education) { ?>
-			<tr>
-				<td><?php echo $education['Degree']['degree_type']; ?></td>
-				<td><?php echo $education['Concentration']['concentration_type']; ?></td>
-				<td><?php echo $education['School']['school_name']; ?></td>
-				<td><?php echo $education['Education']['graduation_date']; ?></td>
-				<td><?php echo $education['Education']['gpa']; ?></td>
-			</tr> 
-			<?php } ?>
-		</table>
+<div class="row panel panel-default">
+	<div class="panel-body col-md-10 col-md-offset-1">
+		<h2>Projects
+			<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createProjectsModal"><i class="glyphicon glyphicon-plus"></i> Create Project</button>
+		</h2>
+		<?php foreach($projects as $project) { 
+			$this->set('project', $project);
+			} ?>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<?php echo $project['Project']['title']; ?> at
+					<?php echo $project['Organization']['organization_name']; ?>
+					<span class="smaller pull-right">
+						<?php echo $project['Project']['start_date']; ?> - 
+						<?php echo $project['Project']['end_date']; ?>
+					</span>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-5 col-md-offset-1">
+						<h3>Responsibilities</h3>
+						<p><?php echo $project['Project']['responsibilities']; ?></p>
+				</div>
+					<div class="col-md-5 col-md-offset-1">
+						<h3>Industry</h3>
+						<h3>Functions</h3>
+						<h3>Skills</h3>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

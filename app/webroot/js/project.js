@@ -35,7 +35,10 @@ console.log(id + ' removed');
 //call to update project
 $(document).on('submit',"form[id^='editProjectForm_']", function() {
 	var formId = '#'+$(this).attr('id');
-	var modalId = '#editProjectModal_'+formId.match(/\d+/g,'');
+	var id = formId.match(/\d+/g,'');
+	var modalId = '#editProjectModal_'+id;
+	var blockId = '#project_'+id;
+
 console.log(formId);
 console.log(modalId);
 	$.ajax({
@@ -46,7 +49,7 @@ console.log(modalId);
 		success: function(result) {
 			$(modalId).modal('hide');
 			setTimeout(function() {
-				$(formId).closest('.panel').replaceWith(result);
+				$(blockId).replaceWith(result);
 			}, 500);
 		}
 	});

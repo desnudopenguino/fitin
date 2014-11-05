@@ -24,7 +24,7 @@ $(document).on('submit',"form[id^='deleteProject_']", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-			$('#'+id).parent().parent().fadeOut(300, function() { $(this).remove(); });
+			$('#'+id).closest('.panel').fadeOut(300, function() { $(this).remove(); });
 		}
 	});
 	return false;
@@ -44,7 +44,7 @@ console.log(modalId);
 		success: function(result) {
 			$(modalId).modal('hide');
 			setTimeout(function() {
-				$(formId).closest('tr').replaceWith(result);
+				$(formId).closest('.panel').replaceWith(result);
 			}, 500);
 		}
 	});

@@ -15,6 +15,9 @@
 	echo $this->Form->input('title', array(
 		'type' => 'text'));
 
+	echo $this->Form->input('Organization.organization_name', array(
+		'type' => 'text'));
+
 	echo $this->Form->input('start_date', array(
 		'type' => 'text'));
 

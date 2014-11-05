@@ -1,6 +1,10 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
-		<h2><?php echo $applicant['Applicant']['display_name']; ?></h2>
+		<h2><?php 
+				echo $applicant['Applicant']['display_name']; ?><?php echo $this->Html->link('<i class="glyphicon glyphicon-edit pull-right"></i>', array(
+					'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id']),
+					array( 'class' => 'btn btn-primary'));
+		</h2>
 		<p>Phone:
 			<?php echo $phone['PhoneNumber']['phone_number']; ?>
 		</p>
@@ -10,8 +14,6 @@
 		<p><?php echo $applicant['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",
 			"/with/".$applicant['User']['url']); ?></p>
-		<p><?php echo $this->Html->link("edit", array(
-			'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id'])); ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 			<?php echo $this->element('Certifications/owner_index'); ?>	

@@ -5,7 +5,7 @@
 		</h2>
 			<?php foreach($projects as $project) { 
 				$this->set('project', $project);
- 				echo $this->element('Projects/owner_block'); 
+ 				echo $this->element('Projects/block'); 
 				} ?>
 	</div>
 </div>

@@ -24,5 +24,8 @@
 	echo $this->Form->input('responsibilities', array(
 		'type' => 'textarea'));
 
+	echo $this->Form->button('Submit', array(
+		'type' => 'submit'));
+
 	echo $this->Form->end();
 

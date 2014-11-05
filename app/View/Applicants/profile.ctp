@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2><?php 
-				echo $applicant['Applicant']['display_name']; ?><?php echo $this->Html->link('<i class="glyphicon glyphicon-edit pull-right"></i>', array(
+				echo $applicant['Applicant']['display_name']; ?><?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', array(
 					'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id']),
-					array('class' => 'btn btn-primary', 'escape' => false)); ?>
+					array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
 		</h2>
 		<p>Phone:
 			<?php echo $phone['PhoneNumber']['phone_number']; ?>

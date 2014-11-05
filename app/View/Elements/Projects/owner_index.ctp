@@ -10,4 +10,4 @@
 	</div>
 </div>
 <?php echo $this->element('Projects/add'); ?>
-<?php echo $this->Html->script('projects'); ?>
+<?php echo $this->Html->script('project'); ?>

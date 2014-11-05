@@ -30,7 +30,7 @@ class ProjectsController extends AppController {
 			$project = $this->Project->read(null, $this->Project->id);
 			$this->set('project', $project);
 			$this->layout = false;
-			$this->render('/Elements/Projects/row');
+			$this->render('/Elements/Projects/block');
 		}
 	}
 

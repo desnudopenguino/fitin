@@ -14,7 +14,6 @@
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'class' => 'well',
 					'id' => 'editEducationForm_'. $education['Education']['id']
 				)); ?>
       <div class="modal-body">

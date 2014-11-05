@@ -66,7 +66,7 @@ class ProjectsController extends AppController {
 						$this->disableCache();
 						$this->layout= false;
 						$this->set('project', $this->Project->read(null, $this->Project->id));	
-						$this->render('/Elements/Projects/row');
+						$this->render('/Elements/Projects/block');
 					}
 				}
 			}			

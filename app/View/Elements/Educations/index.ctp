@@ -1,6 +1,8 @@
-<div class="row well">
-	<div class="col-md-10 col-md-offset-1">
+<div class="panel panel-defualt">
+	<div class="panel-heading">
 		<h2>Education</h2>
+	</div>
+	<div class="panel-body">
 		<table class="table table-striped">
 			<tr>
 				<th>Degree</th>

@@ -8,7 +8,7 @@ $('#createProjectForm').submit(function() {
 		data: $('#createProjectForm').serialize(),
 		success: function(result) {
 			$('#createProjectModal').modal('hide');
-			$('#projectsTable > tbody').append($(result).hide().fadeIn(400));
+			$('#projects').append($(result).hide().fadeIn(400));
 			$('#createProjectForm').get(0).reset();
 		}	
 	});

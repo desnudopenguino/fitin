@@ -1,4 +1,4 @@
-<div class="row panel panel-default">
+<div class="panel panel-default">
 	<div class="panel-heading">
 		<h2>Projects
 		</h2>

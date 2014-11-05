@@ -23,4 +23,3 @@
 		</div>
 	</div>
 </div>
-	<?php debug($project); ?>

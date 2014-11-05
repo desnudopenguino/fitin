@@ -14,7 +14,6 @@
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'class' => 'well',
 					'id' => 'createProjectForm'
 				)); ?>
       <div class="modal-body">

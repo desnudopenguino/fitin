@@ -3,8 +3,7 @@
 		<h2>Projects
 		</h2>
 		<?php foreach($projects as $project) { 
-			$this->set('project', $project);
-			} ?>
+			$this->set('project', $project); ?>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="panel-title">
@@ -30,5 +29,6 @@
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 	</div>
 </div>

@@ -7,3 +7,4 @@
 	</div>
 </div>
 <?php echo $this->element('Certifications/add'); ?>
+<?php echo $this->Html->script('certification'); ?>

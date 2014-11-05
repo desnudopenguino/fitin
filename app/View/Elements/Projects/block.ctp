@@ -1,17 +1,3 @@
-<table class="table table-striped" id="educationsTable">
-	<tbody>
-		<tr>
-			<th>Degree</th>
-			<th>Concentration</th>
-			<th>School</th>
-			<th>Graduation</th>
-			<th>GPA</th>
-			<th>Edit</th>
-			<th>Delete</th>
-		</tr>
-		<?php foreach($educations as $education) { 
-			$this->set('education', $education);
-			echo $this->element('Educations/row');
-		} ?>
-	</tbody>
-</table>
+<div class="well">
+<?php debug($project); ?>
+</div>

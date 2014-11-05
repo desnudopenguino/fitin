@@ -12,8 +12,9 @@
 	));
 	echo $this->Form->input('User.email', array('placeholder' => 'Email'));
 	echo $this->Form->input('User.password', array('placeholder' => 'Password'));
-	echo $this->Form->submit('Login', array(
+	echo $this->Form->button('<i class="glyphicon glyphicon-log-in"></i> Login', array(
 		'div' => 'form-group',
+		'type' => 'submit',
 		'class' => 'btn btn-default')
 	);
 	echo $this->Form->end();

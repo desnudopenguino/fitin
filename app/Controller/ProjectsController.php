@@ -1,15 +1,15 @@
 <?php
  App::uses('AppController', 'Controller');
 
-class CertificationsController extends AppController {
+class ProjectsController extends AppController {
 
 	public $helpers = array('Js');
 
 	public function add() {
 		if($this->request->is('post')) {
-			$this->Certification->create();
-			if($this->Certification->save($this->request->data)) {
-				$this->Session->setFlash(__('The certification has been saved'),
+			$this->Project->create();
+			if($this->Project->save($this->request->data)) {
+				$this->Session->setFlash(__('The project has been saved'),
 					'alert',
 					array(
 						'plugin' => 'BoostCake',
@@ -17,7 +17,7 @@ class CertificationsController extends AppController {
 				));
 			}
 			else {
-				$this->Session->setFlash(__('The certification could not be saved, please try again',
+				$this->Session->setFlash(__('The project could not be saved, please try again',
 					'alert',
 					array(
 						'plugin' => 'BoostCake',
@@ -27,23 +27,23 @@ class CertificationsController extends AppController {
 		}
 		if ($this->request->is('ajax')) {
 			$this->disableCache();		
-			$certification = $this->Certification->read(null, $this->Certification->id);
-			$this->set('certification', $certification);
+			$project = $this->Project->read(null, $this->Project->id);
+			$this->set('project', $project);
 			$this->layout = false;
-			$this->render('/Elements/Certifications/row');
+			$this->render('/Elements/Projects/row');
 		}
 	}
 
 	public function delete($id = null) {
 		$this->request->onlyAllow('post');
 		
-		$this->Certification->read(null,$id);
+		$this->Project->read(null,$id);
 
-		if(!$this->Certification->exists()) {
-			throw new NotFoundException(__('Invalid Certification'));
+		if(!$this->Project->exists()) {
+			throw new NotFoundException(__('Invalid Project'));
 		}
-		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
-			if($this->Certification->delete()) {
+		if($this->Project->data['Project']['applicant_id'] == $this->Auth->user('id')) {
+			if($this->Project->delete()) {
 				if($this->request->is('ajax')) {
 					$this->disableCache();
 					$this->layout = false;
@@ -53,20 +53,20 @@ class CertificationsController extends AppController {
 	}
 
 	public function edit($id = null) {
-		$this->Certification->read(null,$id);
+		$this->Project->read(null,$id);
 
-		if(!$this->Certification->exists()) {
-			throw new NotFoundException(__('Invalid Certification'));
+		if(!$this->Project->exists()) {
+			throw new NotFoundException(__('Invalid Project'));
 		}
 
-		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
+		if($this->Project->data['Project']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->request->is('post') || $this->request->is('put')) {
-				if($this->Certification->save($this->request->data['Certification'])) {
+				if($this->Project->save($this->request->data['Project'])) {
 					if($this->request->is('ajax')) {
 						$this->disableCache();
 						$this->layout= false;
-						$this->set('certification', $this->Certification->read(null, $this->Certification->id));	
-						$this->render('/Elements/Certifications/row');
+						$this->set('project', $this->Project->read(null, $this->Project->id));	
+						$this->render('/Elements/Projects/row');
 					}
 				}
 			}			
@@ -75,7 +75,7 @@ class CertificationsController extends AppController {
 	}
 
 	public function index() {
-		$this->set('certifications', $this->Certification->find('all'));
+		$this->set('projects', $this->Project->find('all'));
 	}
  }
 ?>

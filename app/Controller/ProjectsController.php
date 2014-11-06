@@ -3,11 +3,23 @@
 
 class ProjectsController extends AppController {
 
-	public $helpers = array('Js');
+	public $uses = array('Project','Organization');
 
 	public function add() {
 		if($this->request->is('post')) {
+			if($organization = $this->Organization->find('first', array(
+				'conditions' => array(
+					'Organization.organization_name' => $this->request->data['Organization']['organization_name'])))) {
+			} else {
+				$this->Organization->create();
+				$this->request->data['Organization']['organization_type_id'] = 1;
+				$this->Organization->save($this->request->data['Organization']);
+				$organization = $this->Organization->find('first'), array(
+					'conditions' => array(
+						'Organization.id' => $this->Organization->getLastInsertId()));
+			}
 			$this->Project->create();
+			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			if($this->Project->save($this->request->data)) {
 				$this->Session->setFlash(__('The project has been saved'),
 					'alert',

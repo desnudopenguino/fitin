@@ -36,7 +36,7 @@
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
-							'value' => $project['Project']['end_date']));
+							'value' => $project['Project']['responsibilities']));
 						?>
 				</fieldset>
       </div>

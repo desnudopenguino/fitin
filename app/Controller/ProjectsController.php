@@ -14,9 +14,9 @@ class ProjectsController extends AppController {
 				$this->Organization->create();
 				$this->request->data['Organization']['organization_type_id'] = 1;
 				$this->Organization->save($this->request->data['Organization']);
-				$organization = $this->Organization->find('first'), array(
+				$organization = $this->Organization->find('first', array(
 					'conditions' => array(
-						'Organization.id' => $this->Organization->getLastInsertId()));
+						'Organization.id' => $this->Organization->getLastInsertId())));
 			}
 			$this->Project->create();
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];

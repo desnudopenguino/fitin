@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 
 Class Education extends AppModel {
 	public $belongsTo = array(
-		'Applicant','Degree','School','Concentration'
+		'Applicant','Degree','School','Industry'
 	);
 
 	public function beforeSave($options = array()) {

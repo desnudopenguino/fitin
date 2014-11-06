@@ -24,7 +24,8 @@
 							'value' => $project['Project']['title']));
 					
 						echo $this->Form->input('Organization.organization_name', array(
-							'type' => 'text'));
+							'type' => 'text',
+							'value' => $project['Organization']['organization_name']));
 		
 						echo $this->Form->input('start_date', array(
 							'type' => 'text',

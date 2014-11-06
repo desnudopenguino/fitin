@@ -21,8 +21,8 @@ class EducationsController extends AppController {
 				'conditions' => array(
 					'School.id' => $this->School->getLastInsertID())));
 			}
-			$this->Education->create();
 			$this->request->data['Education']['school_id'] = $school['School']['id'];
+			$this->Education->create();
 			if($this->Education->save($this->request->data)) {
 				$this->Session->setFlash(__('The education has been saved'),
 					'alert',
@@ -81,6 +81,17 @@ class EducationsController extends AppController {
 
 		if($this->Education->data['Education']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->request->is('post') || $this->request->is('put')) {
+				if($school = $this->School->find('first', array(
+					'conditions' => array(
+						'School.school_name' => $this->request->data['School']['school_name'])))) {
+				} else {
+					$this->School->create();
+					$this->School->save($this->request->data['School']);
+					$school = $this->School->find('first', array(
+					'conditions' => array(
+						'School.id' => $this->School->getLastInsertID())));
+				}
+				$this->request->data['Education']['school_id'] = $school['School']['id'];
 				if($this->Education->save($this->request->data['Education'])) {
 					if($this->request->is('ajax')) {
 						$this->disableCache();

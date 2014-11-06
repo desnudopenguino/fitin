@@ -18,8 +18,8 @@ class ProjectsController extends AppController {
 					'conditions' => array(
 						'Organization.id' => $this->Organization->getLastInsertId())));
 			}
-			$this->Project->create();
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
+			$this->Project->create();
 			if($this->Project->save($this->request->data)) {
 				$this->Session->setFlash(__('The project has been saved'),
 					'alert',
@@ -73,6 +73,18 @@ class ProjectsController extends AppController {
 
 		if($this->Project->data['Project']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->request->is('post') || $this->request->is('put')) {
+				if($organization = $this->Organization->find('first', array(
+					'conditions' => array(
+						'Organization.organization_name' => $this->request->data['Organization']['organization_name'])))) {
+				} else {
+					$this->Organization->create();
+					$this->request->data['Organization']['organization_type_id'] = 1;
+					$this->Organization->save($this->request->data['Organization']);
+					$organization = $this->Organization->find('first', array(
+						'conditions' => array(
+							'Organization.id' => $this->Organization->getLastInsertId())));
+				}
+				$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 				if($this->Project->save($this->request->data['Project'])) {
 					if($this->request->is('ajax')) {
 						$this->disableCache();

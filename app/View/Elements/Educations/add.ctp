@@ -23,7 +23,7 @@
 							'type' => 'select',
 							'label' => 'Degree',
 							'options' => $degrees));
-						echo $this->Form->input('concentration_id', array(
+						echo $this->Form->input('industry_id', array(
 							'type' => 'select',
 							'label' => 'Concentration',
 							'options' => $concentrations));

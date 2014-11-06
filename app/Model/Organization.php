@@ -2,11 +2,8 @@
 App::uses('AppModel', 'Model');
 
 Class Organization extends AppModel {
-	public $belongsTo = array(
-		'OrganizationType' => array(
-			'className' => 'OrganizationType'
-		),
-		'Project'
-	);
+	public $belongsTo = array('OrganizationType');
+
+	public $hasMany = array('Project');
 }
 ?>

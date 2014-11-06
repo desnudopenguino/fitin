@@ -24,11 +24,11 @@
 							'label' => 'Degree',
 							'options' => $degrees,
 							'value' => $education['Education']['degree_id']));
-						echo $this->Form->input('concentration_id', array(
+						echo $this->Form->input('industry_id', array(
 							'type' => 'select',
 							'label' => 'Concentration',
 							'options' => $concentrations,
-							'value' => $education['Education']['concentration_id']));
+							'value' => $education['Education']['industry_id']));
 						echo $this->Form->input('School.school_name', array(
 							'type' => 'text',
 							'label' => 'School',

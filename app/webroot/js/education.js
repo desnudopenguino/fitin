@@ -1,7 +1,7 @@
 // call to save new education
 $('#createEducationForm').submit(function() {
 	$.ajax({
-		url: '/educations/add',
+		url: $(this).attr('action'),
 		type: 'POST',
 		async: true,
 		dataType: 'html',

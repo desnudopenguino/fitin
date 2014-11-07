@@ -29,6 +29,7 @@
 			</div>
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Industry</h3>
+				<?php echo $project['ProjectIndustry']['Industry']['industry_type']; ?>
 				<h3>Functions</h3>
 				<h3>Skills</h3>
 			</div>

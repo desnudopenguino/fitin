@@ -20,7 +20,8 @@
 				<fieldset>
 					<?php 
 						echo $this->Form->input('title', array(
-							'type' => 'text'));
+							'type' => 'text',
+							'label' => 'Title of Position'));
 					
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',

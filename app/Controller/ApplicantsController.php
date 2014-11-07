@@ -63,6 +63,8 @@ class ApplicantsController extends AppController {
 			$this->Applicant->Project->find('all', array(
 				'conditions' => array(
 					'Project.applicant_id' => $userId))));
+
+		$this->set('industries', $this->Industry->find('all'));
 	}
 
 // Culture - allows user to answer corporate culture questions

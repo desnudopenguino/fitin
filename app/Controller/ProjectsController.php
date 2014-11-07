@@ -7,6 +7,7 @@ class ProjectsController extends AppController {
 
 	public function add() {
 		if($this->request->is('post')) {
+//create/get organization
 			if($organization = $this->Organization->find('first', array(
 				'conditions' => array(
 					'Organization.organization_name' => $this->request->data['Organization']['organization_name'])))) {
@@ -18,6 +19,7 @@ class ProjectsController extends AppController {
 					'conditions' => array(
 						'Organization.id' => $this->Organization->getLastInsertId())));
 			}
+//add organization id to the project data
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			$this->Project->create();
 			if($this->Project->save($this->request->data)) {
@@ -38,6 +40,8 @@ class ProjectsController extends AppController {
 			}
 		}
 		if ($this->request->is('ajax')) {
+//remove the flash message if it is ajax. 
+			$this->Session->delet('Message.flash');
 			$this->disableCache();		
 			$project = $this->Project->read(null, $this->Project->id);
 			$this->set('project', $project);

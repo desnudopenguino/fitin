@@ -1,3 +1,4 @@
+<?php debug($project); ?>
 <div id="project_<?php echo $project['Project']['id']; ?>" class="panel panel-default">
 	<div class="panel-heading">
 		<div class="panel-title">

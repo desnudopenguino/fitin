@@ -1,7 +1,7 @@
 // call to save new project
 $('#createProjectForm').submit(function() {
 	$.ajax({
-		url: '/projects/add',
+		url: $(this).attr('action'),
 		type: 'POST',
 		async: true,
 		dataType: 'html',

@@ -19,7 +19,6 @@
 	},
 	"require": {
 		"php": ">=5.2.8",
-		"ext-mcrypt": "*",
 		"slywalker/boost_cake": "*"
 	},
 	"require-dev": {

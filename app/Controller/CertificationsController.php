@@ -26,6 +26,7 @@ class CertificationsController extends AppController {
 			}
 		}
 		if ($this->request->is('ajax')) {
+			$this->Session->delete('Message.flash');
 			$this->disableCache();		
 			$certification = $this->Certification->read(null, $this->Certification->id);
 			$this->set('certification', $certification);

@@ -41,7 +41,7 @@ class ProjectsController extends AppController {
 		}
 		if ($this->request->is('ajax')) {
 //remove the flash message if it is ajax. 
-			$this->Session->delet('Message.flash');
+			$this->Session->delete('Message.flash');
 			$this->disableCache();		
 			$project = $this->Project->read(null, $this->Project->id);
 			$this->set('project', $project);

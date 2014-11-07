@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 
 Class Project extends AppModel {
 
-	public $recursive = 2;
+	public $recursive = 1;
 	public $belongsTo = array(
 		'Applicant',
 		'Organization'

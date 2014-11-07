@@ -23,13 +23,19 @@
 							'type' => 'text'));
 					
 						echo $this->Form->input('Organization.organization_name', array(
-							'type' => 'text'));
+							'type' => 'text',
+							'label' => 'Company'));
 		
 						echo $this->Form->input('start_date', array(
 							'type' => 'text'));
 
 						echo $this->Form->input('end_date', array(
 							'type' => 'text'));
+
+						echo $this->Form->input('ProjectIndustry.industry_id', array(
+							'type' => 'select',
+							'label' => 'Industry',
+							'options' => $industries));
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea'));

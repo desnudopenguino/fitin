@@ -10,7 +10,8 @@ Class Project extends AppModel {
 	);
 
 	public $hasMany = array(
-		'ProjectIndustry'
+		'ProjectIndustry',
+		'ProjectFunction'
 	);
 
 	public function beforeSave($options = array()) {

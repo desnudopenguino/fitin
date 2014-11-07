@@ -1,7 +1,7 @@
 // call to save new certification
 $('#createCertificationForm').submit(function() {
 	$.ajax({
-		url: '/certifications/add',
+		url: $(this).attr('action'),
 		type: 'POST',
 		async: true,
 		dataType: 'html',

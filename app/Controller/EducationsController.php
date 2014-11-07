@@ -41,6 +41,7 @@ class EducationsController extends AppController {
 			}
 		}
 		if ($this->request->is('ajax')) {
+			$this->Session->delete('Message.flash');
 			$this->disableCache();		
 			$education = $this->Education->read(null, $this->Education->id);
 			$this->set('education', $education);

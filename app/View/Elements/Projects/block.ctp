@@ -33,7 +33,13 @@
 					 echo $projectIndustry['Industry']['industry_type']; 
 				} ?>
 				<h3>Functions</h3>
+				<?php foreach($project['ProjectFunction'] as $projectFunction) {
+					 echo $projectFunction['WorkFunction']['function_type']; 
+				} ?>
 				<h3>Skills</h3>
+				<?php foreach($project['ProjectSkill'] as $projectSkill) {
+					 echo $projectSkill['Skill']['skill_type']; 
+				} ?>
 			</div>
 		</div>
 	</div>

@@ -25,11 +25,11 @@ class ProjectsController extends AppController {
 			if($this->Project->save($this->request->data)) {
 				$projectId = $this->Project->getLastInsertId();
 				$this->Project->ProjectIndustry->create();
-				$this->request->data['ProjectIndustry']['project_id'] = $projectId();
+				$this->request->data['ProjectIndustry']['project_id'] = $projectId;
 				$this->Project->ProjectIndustry->save($this->request->data);
 
 				$this->Project->ProjectFunction->create();
-				$this->request->data['ProjectFunction']['project_id'] = $projectId();
+				$this->request->data['ProjectFunction']['project_id'] = $projectId;
 				$this->Project->ProjectFunction->save($this->request->data);
 				$this->Session->setFlash(__('The project has been saved'),
 					'alert',

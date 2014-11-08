@@ -1,7 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 
-Class 'Function' extends AppModel {
+Class WorkFunction extends AppModel {
 	public $hasMany = array(
 		'ProjectFunction'
 	);

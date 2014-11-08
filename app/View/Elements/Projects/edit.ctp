@@ -35,6 +35,18 @@
 							'type' => 'text',
 							'value' => $project['Project']['end_date']));
 
+						echo $this->Form->input('ProjectIndustry.industry_id', array(
+							'type' => 'select',
+							'label' => 'Industry',
+							'options' => $industries,
+							'value' => $project['ProjectIndustry'][0]['industry_id']));
+
+						echo $this->Form->input('ProjectFunction.function_id', array(
+							'type' => 'select',
+							'label' => 'Function',
+							'options' => $functions
+							'value' => $project['ProjectFunction'][0]['work_function_id']));
+
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $project['Project']['responsibilities']));

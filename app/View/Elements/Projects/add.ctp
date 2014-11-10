@@ -35,7 +35,7 @@
 
 						echo $this->Form->input('ProjectIndustry.0.industry_id', array(
 							'type' => 'select',
-							'label' => 'Industry <button class="btn btn-success btn-sm addProjectIndustry"><i class="glyphicon glyphicon-plus"></i></button>',
+							'label' => 'Industry <button type="button" class="btn btn-success btn-sm addProjectIndustry"><i class="glyphicon glyphicon-plus"></i></button>',
 							'options' => $industries));
 
 						echo $this->Form->input('ProjectFunction.0.work_function_id', array(

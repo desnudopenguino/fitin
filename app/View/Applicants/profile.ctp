@@ -16,9 +16,6 @@
 			"/with/".$applicant['User']['url']); ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
-			<?php echo $this->element('Projects/owner_index'); ?>	
-			<?php echo $this->element('Educations/owner_index'); ?>	
-			<?php echo $this->element('Certifications/owner_index'); ?>	
 	</div>
 </div>
 <?php echo $this->Html->script('general'); ?>

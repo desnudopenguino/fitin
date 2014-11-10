@@ -87,6 +87,12 @@ class EmployersController extends AppController {
 		}
 	}
 
-
- }
+// View - publice view of employer data
+	public function view($url = null) {
+		$employer = $this->Employer->User->findByUrl($url);
+		if(empty($employer)) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+	}
+}
 ?>

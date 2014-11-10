@@ -19,7 +19,7 @@ Class Project extends AppModel {
 
 debug($this->data);
 		foreach($this->data['ProjectIndustry'] as $key => $industry) {
-			if($industry['industry_id'] == '' || $industry['industry_id'] == NULL) {
+			if($industry['ProjectIndustry']['industry_id'] == '' || $industry['ProjectIndustry']['industry_id'] == NULL) {
 				unset($this->data['ProjectIndustry'][$key]);
 			}
 		}

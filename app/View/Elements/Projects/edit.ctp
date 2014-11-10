@@ -37,11 +37,17 @@
 							'type' => 'text',
 							'value' => $project['Project']['end_date']));
 
+						echo $this->Form->input('ProjectIndustry.0.id', array(
+							'value' => $project['ProjectIndustry'][0]['id']));
+
 						echo $this->Form->input('ProjectIndustry.0.industry_id', array(
 							'type' => 'select',
 							'label' => 'Industry',
 							'options' => $industries,
 							'value' => $project['ProjectIndustry'][0]['industry_id']));
+
+						echo $this->Form->input('ProjectFunction.0.id', array(
+							'value' => $project['ProjectFunction'][0]['id']));
 
 						echo $this->Form->input('ProjectFunction.0.work_function_id', array(
 							'type' => 'select',

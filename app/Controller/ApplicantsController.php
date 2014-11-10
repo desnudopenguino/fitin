@@ -3,7 +3,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -71,6 +71,10 @@ class ApplicantsController extends AppController {
 		$this->set('functions', $this->WorkFunction->find('list', array(
 			'fields' => array(
 				'WorkFunction.id','WorkFunction.function_type'))));
+
+		$this->set('skills', $this->Skill->find('list', array(
+			'fields' => array(
+				'Skill.id','Skill.skill_type'))));
 	}
 
 // Culture - allows user to answer corporate culture questions

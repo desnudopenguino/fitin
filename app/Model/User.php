@@ -10,6 +10,7 @@ Class User extends AppModel {
 			'dependent' => true,
 			'foreignKey' => 'user_id'
 		),
+		'Employer',
 		'Address' => array(
 			'className' => 'Address',
 			'dependent' => true,

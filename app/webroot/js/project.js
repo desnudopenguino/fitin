@@ -1,7 +1,7 @@
 // call to save new project
 $('#createProjectForm').submit(function() {
-	$('#createProjectForm').find('#ProjecnIndustry1IndustryId').is(':hidden').remove();
-	$('#createProjectForm').find('#ProjecnIndustry2IndustryId').is(':hidden').remove();
+console.log(	$('#createProjectForm').find('#ProjecnIndustry1IndustryId').is(':hidden'));
+console.log(	$('#createProjectForm').find('#ProjecnIndustry2IndustryId').is(':hidden'));
 	$.ajax({
 		url: $(this).attr('action'),
 		type: 'POST',

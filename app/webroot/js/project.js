@@ -39,8 +39,6 @@ $(document).on('submit',"form[id^='editProjectForm_']", function() {
 	var modalId = '#editProjectModal_'+id;
 	var blockId = '#project_'+id;
 
-console.log(formId);
-console.log(modalId);
 	$.ajax({
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),
@@ -54,4 +52,10 @@ console.log(modalId);
 		}
 	});
 	return false;
+});
+
+//call to add item to industries
+$(document).on('click','.addProjectIndustry', function() {
+	var input = $('#ProjectIndustry0IndustryId').clone();
+	$('#ProjectIndustries0IndustryId').after(input);
 });

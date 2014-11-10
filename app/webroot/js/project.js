@@ -59,6 +59,5 @@ var industry_counter = 1;
 $(document).on('click','.addProjectIndustry', function() {
 console.log("add project industry");
 	$('#ProjectIndustry'+industry_counter+'IndustryId').show();
-		industry_counter++;
-	}
+	industry_counter++;
 });

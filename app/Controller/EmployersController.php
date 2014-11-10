@@ -10,7 +10,8 @@ class EmployersController extends AppController {
 	}
 
 	function dashboard() {
-
+		$this->Employer->read(null,$this->Auth->user('id'));
+		$this->set('employer', $this->Employer->data);
 	}
 
 	function profile() {

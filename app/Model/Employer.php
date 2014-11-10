@@ -15,7 +15,7 @@ Class Employer extends AppModel {
 		);
 
 	public $virtualFields = array(
-		'display_name' => 'Employer.Organization.organization_name');
+		'display_name' => 'Organization.organization_name');
 
 	public function checkDisplayName() {
 		if(empty($this->data[$this->alias]['display_name'])) {

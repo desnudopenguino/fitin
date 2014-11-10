@@ -42,12 +42,14 @@
 							'type' => 'select',
 							'label' => false,
 							'style' => 'display: none;',
+							'value' => NULL,
 							'options' => $industries));
 
 						echo $this->Form->input('ProjectIndustry.2.industry_id', array(
 							'type' => 'select',
 							'label' => false,
 							'style' => 'display: none;',
+							'value' => NULL,
 							'options' => $industries));
 
 						echo $this->Form->input('ProjectFunction.0.work_function_id', array(

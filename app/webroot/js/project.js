@@ -59,5 +59,5 @@ $(document).on('click','.addProjectIndustry', function() {
 console.log("add project industry");
 //	var input = $('#ProjectIndustry0IndustryId').clone();
 //console.log(input.attr('id'));
-	$('#ProjectIndustry0IndustryId').after('<p>New Industry</p>');
+	$(this).parent().parent().append('<p>New Industry</p>');
 });

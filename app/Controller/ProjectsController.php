@@ -22,6 +22,7 @@ class ProjectsController extends AppController {
 //add organization id to the project data
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			$this->Project->create();
+debug($this->request->data);
 			if($this->Project->saveAll($this->request->data)) {
 //				$projectId = $this->Project->getLastInsertId();
 //				$this->Project->ProjectIndustry->create();

@@ -22,8 +22,8 @@ Class Applicant extends AppModel {
 	);
 
 	public function checkDisplayName() {
-		if(empty($this->data['Applicant']['display_name'])) {
-			$this->data['Applicant']['display_name'] = $this->data['User']['email'];
+		if(empty($this->data[$this->alias]['display_name'])) {
+			$this->data[$this->alias]['display_name'] = $this->data['User']['email'];
 		} 
 	}
 }

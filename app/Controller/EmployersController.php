@@ -11,7 +11,6 @@ class EmployersController extends AppController {
 
 	function dashboard() {
 		$this->Employer->read(null,$this->Auth->user('id'));
-debug($this->Employer->data);
 		$this->set('employer', $this->Employer->data);
 	}
 

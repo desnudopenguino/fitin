@@ -22,4 +22,5 @@
 		<?php } ?>
 		</table>
 	</div>
+	<?php echo debug($users); ?>
 </div>

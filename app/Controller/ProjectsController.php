@@ -89,6 +89,7 @@ class ProjectsController extends AppController {
 							'Organization.id' => $this->Organization->getLastInsertId())));
 				}
 				$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
+debug($this->request->data);
 				if($this->Project->saveAll($this->request->data)) {
 					if($this->request->is('ajax')) {
 						$this->disableCache();

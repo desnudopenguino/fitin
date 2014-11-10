@@ -1,4 +1,3 @@
-<?php echo debug($employer); ?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2>Welcome, <?php echo $employer['User']['email']; ?></h2>

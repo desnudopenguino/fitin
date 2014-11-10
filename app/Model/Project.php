@@ -16,6 +16,12 @@ Class Project extends AppModel {
 	);
 
 	public function beforeSave($options = array()) {
+
+		foreach($this->data[$this->alias]['ProjectIndustry'] as $key => $industry) {
+			if($industry['industry_id'] == '' || $industry['industry_id'] == NULL) {
+				unset($this->data[$this->alias]['ProjectIndustry'][$key]);
+			}
+		}
 		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
 		return true;
 	}

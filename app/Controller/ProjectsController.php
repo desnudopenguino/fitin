@@ -22,8 +22,7 @@ class ProjectsController extends AppController {
 //add organization id to the project data
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			$this->Project->create();
-			if($this->Project->saveAll($this->request->data, array(
-				'atomic' => false, 'validate' => 'first'))) {
+			if($this->Project->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The project has been saved'),
 					'alert',
 					array(

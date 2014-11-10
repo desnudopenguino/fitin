@@ -48,7 +48,7 @@ class UsersController extends AppController {
 							switch($this->request->data['User']['roleId']) { //create usertype in case here
 								case 1: //Employer
 												$this->User->Employer->create();
-												$this->User->Employer->save(array('Employer' => array('userId' => $userId)));
+												$this->User->Employer->save(array('Employer' => array('user_id' => $userId)));
 												break;
 								case 2: //Applicant
 												$this->User->Applicant->create();

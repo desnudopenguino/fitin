@@ -70,6 +70,7 @@ class ProjectsController extends AppController {
 
 	public function edit($id = null) {
 		$this->Project->read(null,$id);
+debug($this->Project->data);
 
 		if(!$this->Project->exists()) {
 			throw new NotFoundException(__('Invalid Project'));

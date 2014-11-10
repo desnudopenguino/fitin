@@ -19,6 +19,7 @@
       <div class="modal-body">
 				<fieldset>
 					<?php 
+						echo $this->Form->input('Project.id');
 						echo $this->Form->input('title', array(
 							'type' => 'text',
 							'value' => $project['Project']['title']));

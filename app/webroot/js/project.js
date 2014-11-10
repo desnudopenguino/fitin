@@ -55,9 +55,13 @@ $(document).on('submit',"form[id^='editProjectForm_']", function() {
 });
 
 //call to add item to industries
+var industry_counter = 1;
 $(document).on('click','.addProjectIndustry', function() {
 console.log("add project industry");
 	var input = $('#ProjectIndustry0IndustryId').clone();
 //console.log(input.attr('id'));
-	$(this).parent().parent().append(input);
+	if(counter <= 3) {
+		$(this).parent().parent().append(input);
+		industry_counter++;
+	}
 });

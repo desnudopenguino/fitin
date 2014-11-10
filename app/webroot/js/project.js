@@ -57,7 +57,7 @@ $(document).on('submit',"form[id^='editProjectForm_']", function() {
 //call to add item to industries
 $(document).on('click','.addProjectIndustry', function() {
 console.log("add project industry");
-//	var input = $('#ProjectIndustry0IndustryId').clone();
+	var input = $('#ProjectIndustry0IndustryId').clone();
 //console.log(input.attr('id'));
-	$(this).parent().parent().append('<p>New Industry</p>');
+	$(this).parent().parent().append(input);
 });

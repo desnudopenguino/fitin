@@ -23,6 +23,7 @@ debug($this->data);
 				unset($this->data['ProjectIndustry'][$key]);
 			}
 		}
+debug($this->data);
 		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
 		return true;
 	}

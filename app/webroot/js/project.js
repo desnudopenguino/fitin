@@ -60,7 +60,7 @@ $(document).on('click','.addProjectIndustry', function() {
 console.log("add project industry");
 	var input = $('#ProjectIndustry0IndustryId').clone();
 //console.log(input.attr('id'));
-	if(industry_counter <= 3) {
+	if(industry_counter <= 2) {
 		$(this).parent().parent().append(input);
 		industry_counter++;
 	}

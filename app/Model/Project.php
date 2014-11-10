@@ -18,6 +18,7 @@ Class Project extends AppModel {
 	public function beforeSave($options = array()) {
 
 debug($this->data);
+debug($this->request->data);
 		foreach($this->data['ProjectIndustry'] as $key => $industry) {
 			if($industry['ProjectIndustry']['industry_id'] == '' || $industry['ProjectIndustry']['industry_id'] == NULL) {
 				unset($this->data['ProjectIndustry'][$key]);

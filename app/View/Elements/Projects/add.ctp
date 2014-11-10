@@ -1,3 +1,4 @@
+<?php echo debug($industries);
 <div class="modal fade" id="createProjectModal" tabindex="-1" role="dialog" arial-labelledby="createProjectLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -33,12 +33,12 @@
 						echo $this->Form->input('end_date', array(
 							'type' => 'text'));
 
-						echo $this->Form->input('ProjectIndustry.industry_id', array(
+						echo $this->Form->input('ProjectIndustry.0.industry_id', array(
 							'type' => 'select',
 							'label' => 'Industry',
 							'options' => $industries));
 
-						echo $this->Form->input('ProjectFunction.function_id', array(
+						echo $this->Form->input('ProjectFunction.0.work_function_id', array(
 							'type' => 'select',
 							'label' => 'Function',
 							'options' => $functions));

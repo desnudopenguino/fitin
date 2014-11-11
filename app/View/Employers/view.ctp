@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
-		<h2><?php echo $employer['Employer']['display_name']; ?></h2>
+		<h2><?php echo $employer['User']['email']; ?></h2>
 		<p>Phone:
 			<?php echo $employer['PhoneNumber']['phone_number']; ?>
 		</p>

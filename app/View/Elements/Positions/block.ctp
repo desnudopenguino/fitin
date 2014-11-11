@@ -1,11 +1,8 @@
 <div id="position_<?php echo $position['Position']['id']; ?>" class="panel panel-default">
 	<div class="panel-heading">
 		<div class="panel-title">
-			<?php echo $position['Position']['title']; ?> at
-			<?php echo $position['Organization']['organization_name']; ?>
+			<?php echo $position['Position']['title']; ?>
 			<span class="smaller pull-right">
-				<?php echo $position['Position']['start_date']; ?> - 
-				<?php echo $position['Position']['end_date']; ?>
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editPositionModal_<?php echo $position['Position']['id']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
 				<?php echo $this->Form->create('Position', array(
 						'url' => '/positions/delete/'. $position['Position']['id'],
@@ -28,16 +25,16 @@
 			</div>
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Industry</h3>
-				<?php foreach($position['PositionIndustry'] as $positionIndustry) {
-					 echo $positionIndustry['Industry']['industry_type']; 
+				<?php // foreach($position['PositionIndustry'] as $positionIndustry) {
+					 //echo $positionIndustry['Industry']['industry_type']; 
 				} ?>
 				<h3>Functions</h3>
-				<?php foreach($position['PositionFunction'] as $positionFunction) {
-					 echo $positionFunction['WorkFunction']['function_type']; 
+				<?php // foreach($position['PositionFunction'] as $positionFunction) {
+					 //echo $positionFunction['WorkFunction']['function_type']; 
 				} ?>
 				<h3>Skills</h3>
-				<?php foreach($position['PositionSkill'] as $positionSkill) {
-					 echo $positionSkill['Skill']['skill_type']; 
+				<?php //foreach($position['PositionSkill'] as $positionSkill) {
+					 //echo $positionSkill['Skill']['skill_type']; 
 				} ?>
 			</div>
 		</div>

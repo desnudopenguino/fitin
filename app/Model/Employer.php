@@ -12,6 +12,7 @@ Class Employer extends AppModel {
 		);
 
 	public $hasMany = array(
+		'Position'
 		);
 
 }

@@ -97,6 +97,13 @@ class EmployersController extends AppController {
 		if(empty($employer)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
+
+		$state = $this->State->find('first', array(
+			'conditions' => array(
+				'State.id' => $employer['Address']['state_id']),
+			'fields' => 'State.short_name' ));
+		$employer['Address']['state'] = $state['State']['short_name'];
+		$this->set('employer', $employer);
 	}
 }
 ?>

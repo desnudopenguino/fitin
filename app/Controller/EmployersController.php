@@ -44,9 +44,9 @@ class EmployersController extends AppController {
 			'fields' => array(
 				'Industry.id','Industry.industry_type'))));
 
-		$this->set('functions', $this->Function->find('list', array(
+		$this->set('functions', $this->WorkFunction->find('list', array(
 			'fields' => array(
-				'Function.id','Function.function_type'))));
+				'WorkFunction.id','WorkFunction.function_type'))));
 	}
 
 	function culture() {

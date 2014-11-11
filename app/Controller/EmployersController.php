@@ -36,6 +36,9 @@ class EmployersController extends AppController {
 				'conditions' => array(
 					'PhoneNumber.user_id' => $userId))));
 
+		$this->set('positions', $this->Employer->Position->find('all', array(
+			'conditions' => array(
+				'Position.employer_id' => $this->Auth->user('id')))));
 
 	}
 

@@ -105,9 +105,9 @@ class EmployersController extends AppController {
 		$employer['Address']['state'] = $state['State']['short_name'];
 		$this->set('employer', $employer);
 
-		$this->set('projects', $this->Employer->Project->find('all', array(
+		$this->set('positions', $this->Employer->Position->find('all', array(
 			'conditions' => array(
-				'Project.employer_id' => $this->Auth->user('id')))));
+				'Position.employer_id' => $this->Auth->user('id')))));
 	}
 }
 ?>

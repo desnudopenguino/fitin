@@ -26,6 +26,7 @@ class UsersController extends AppController {
 				}
 				switch($user['User']['roleId']) {
 					case 1: // Employer
+						$this->redirect(array('controller' => 'employers', 'action' => 'view',$url));
 						break;
 					case 2: // Applicant
 						$this->redirect(array('controller' => 'applicants', 'action' => 'view',$url));

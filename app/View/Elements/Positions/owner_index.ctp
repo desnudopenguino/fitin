@@ -7,6 +7,8 @@
 	<div class="panel-body" id="positions">
 			<?php foreach($positions as $position) { 
 				$this->set('position', $position);
+				$this->set('industries', $industries);
+				$this->set('functions', $functions);
  				echo $this->element('Positions/block'); 
 				} ?>
 	</div>

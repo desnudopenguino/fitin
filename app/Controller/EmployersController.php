@@ -46,6 +46,7 @@ class EmployersController extends AppController {
 // Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
 		$this->Employer->read(null,$id);
+debug($this->Employer->data);
 		if(empty($this->Employer->data)) {
 			throw new NotFoundException(__('Invalid User'));
 		}

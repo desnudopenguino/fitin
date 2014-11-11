@@ -44,7 +44,7 @@
 							'label' => 'Industry',
 							'options' => $industries,
 							'value' => $position['PositionIndustry'][0]['industry_id']));
-/*
+
 						echo $this->Form->input('PositionFunction.0.id', array(
 							'value' => $position['PositionFunction'][0]['id']));
 
@@ -53,7 +53,7 @@
 							'label' => 'Function',
 							'options' => $functions,
 							'value' => $position['PositionFunction'][0]['work_function_id']));
-*/
+
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $position['Position']['responsibilities']));

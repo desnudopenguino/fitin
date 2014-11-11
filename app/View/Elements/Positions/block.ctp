@@ -34,13 +34,13 @@
 					 echo $positionIndustry['Industry']['industry_type']; 
 				} ?>
 				<h3>Functions</h3>
-				<?php /* foreach($position['PositionFunction'] as $positionFunction) {
+				<?php  foreach($position['PositionFunction'] as $positionFunction) {
 					 echo $positionFunction['WorkFunction']['function_type']; 
-				}*/ ?>
+				} ?>
 				<h3>Skills</h3>
-				<?php /*foreach($position['PositionSkill'] as $positionSkill) {
+				<?php foreach($position['PositionSkill'] as $positionSkill) {
 					 echo $positionSkill['Skill']['skill_type']; 
-				}*/ ?>
+				} ?>
 			</div>
 		</div>
 	</div>

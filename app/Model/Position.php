@@ -10,7 +10,7 @@ Class Position extends AppModel {
 
 	public $hasMany = array(
 		'PositionIndustry'
-//		'PositionFunction',
+		'PositionFunction',
 //		'PositionSkill'
 	);
 

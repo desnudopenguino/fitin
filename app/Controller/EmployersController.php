@@ -5,6 +5,10 @@ class EmployersController extends AppController {
 
 	public $uses = array('Employer','State','PhoneType');
 
+	public function beforeFilter() {
+		$this->Auth->allow('view');
+	}
+
 	function add($userArray) {
 		$this->Employer->create();
 		if ($this->Employer->save($userArray)) {

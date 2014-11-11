@@ -28,10 +28,12 @@
 
 						echo $this->Form->input('min_work_experience', array(
 							'type' => 'text',
+							'value' => $position['Position']['min_work_experience'],
 							'label' => 'Minimum years of experience'));
 
 						echo $this->Form->input('max_work_experience', array(
 							'type' => 'text',
+							'value' => $position['Position']['max_work_experience'],
 							'label' => 'Maximum years of experience'));
 
 					

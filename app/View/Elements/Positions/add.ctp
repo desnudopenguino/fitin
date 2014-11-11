@@ -23,6 +23,14 @@
 							'type' => 'text',
 							'label' => 'Title of Position'));
 					
+						echo $this->Form->input('min_work_experience', array(
+							'type' => 'text',
+							'label' => 'Minimum years of experience'));
+
+						echo $this->Form->input('max_work_experience', array(
+							'type' => 'text',
+							'label' => 'Maximum years of experience'));
+
 /*						echo $this->Form->input('PositionIndustry.0.industry_id', array(
 							'type' => 'select',
 							'label' => 'Industry <button type="button" class="btn btn-success btn-sm addPositionIndustry"><i class="glyphicon glyphicon-plus"></i></button>',

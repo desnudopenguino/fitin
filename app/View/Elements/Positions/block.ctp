@@ -30,9 +30,9 @@
 						<?php echo $position['Position']['max_work_experience']; ?> years of experience
 					</p>
 				<h3>Industry</h3>
-				<?php /* foreach($position['PositionIndustry'] as $positionIndustry) {
+				<?php  foreach($position['PositionIndustry'] as $positionIndustry) {
 					 echo $positionIndustry['Industry']['industry_type']; 
-				}*/ ?>
+				} ?>
 				<h3>Functions</h3>
 				<?php /* foreach($position['PositionFunction'] as $positionFunction) {
 					 echo $positionFunction['WorkFunction']['function_type']; 

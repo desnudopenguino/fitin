@@ -91,7 +91,7 @@ class EmployersController extends AppController {
 		}
 	}
 
-// View - publice view of employer data
+// View - public view of employer data
 	public function view($url = null) {
 		$employer = $this->Employer->User->findByUrl($url);
 		if(empty($employer)) {
@@ -104,6 +104,10 @@ class EmployersController extends AppController {
 			'fields' => 'State.short_name' ));
 		$employer['Address']['state'] = $state['State']['short_name'];
 		$this->set('employer', $employer);
+
+		$this->set('projects', $this->Employer->Project->find('all', array(
+			'conditions' => array(
+				'Project.employer_id' => $this->Auth->user('id')))));
 	}
 }
 ?>

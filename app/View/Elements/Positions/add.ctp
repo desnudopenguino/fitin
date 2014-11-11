@@ -23,17 +23,7 @@
 							'type' => 'text',
 							'label' => 'Title of Position'));
 					
-						echo $this->Form->input('Organization.organization_name', array(
-							'type' => 'text',
-							'label' => 'Company'));
-		
-						echo $this->Form->input('start_date', array(
-							'type' => 'text'));
-
-						echo $this->Form->input('end_date', array(
-							'type' => 'text'));
-
-						echo $this->Form->input('PositionIndustry.0.industry_id', array(
+/*						echo $this->Form->input('PositionIndustry.0.industry_id', array(
 							'type' => 'select',
 							'label' => 'Industry <button type="button" class="btn btn-success btn-sm addPositionIndustry"><i class="glyphicon glyphicon-plus"></i></button>',
 							'options' => $industries));
@@ -51,12 +41,13 @@
 							'style' => 'display: none;',
 							'empty' => 'Select an Industry',
 							'options' => $industries));
-
+*/
+/*
 						echo $this->Form->input('PositionFunction.0.work_function_id', array(
 							'type' => 'select',
 							'label' => 'Function',
 							'options' => $functions));
-
+*/
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea'));
 						?>

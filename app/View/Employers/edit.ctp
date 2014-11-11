@@ -12,15 +12,9 @@
 		<fieldset>
 			<legend>Name</legend>
 			<?php 
-				echo $this->Form->Input('User.Applicant.first_name', array(
-					'label' => 'First Name',
-					'value' => $employer['first_name'])); 
-				echo $this->Form->Input('User.Applicant.mi', array(
-					'label' => 'Middle Initial',
-					'value' => $employer['mi'])); 
-				echo $this->Form->Input('User.Applicant.last_name', array(
-					'label' => 'Last Name',
-					'value' => $employer['last_name'])); ?>
+				echo $this->Form->Input('Organization.organization_name', array(
+					'label' => 'Company Name',
+					'value' => $employer['Organization']['organization_name'])); ?> 
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>

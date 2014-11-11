@@ -9,9 +9,9 @@ Class Position extends AppModel {
 	);
 
 	public $hasMany = array(
-		'PositionIndustry',
-		'PositionFunction',
-		'PositionSkill'
+//		'PositionIndustry',
+//		'PositionFunction',
+//		'PositionSkill'
 	);
 
 	public function beforeSave($options = array()) {

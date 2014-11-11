@@ -40,6 +40,10 @@ class EmployersController extends AppController {
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')))));
 
+		$this->set('industries', $this->Industry->find('list', array(
+			'fields' => array(
+				'Industry.id','Industry.industry_type'))));
+
 	}
 
 	function culture() {

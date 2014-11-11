@@ -50,12 +50,11 @@
 							'empty' => 'Select an Industry',
 							'options' => $industries));
 
-/*
 						echo $this->Form->input('PositionFunction.0.work_function_id', array(
 							'type' => 'select',
 							'label' => 'Function',
 							'options' => $functions));
-*/
+
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea'));
 						?>

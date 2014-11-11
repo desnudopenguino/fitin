@@ -36,8 +36,6 @@
 							'value' => $position['Position']['max_work_experience'],
 							'label' => 'Maximum years of experience'));
 
-					
-/*
 						echo $this->Form->input('PositionIndustry.0.id', array(
 							'value' => $position['PositionIndustry'][0]['id']));
 
@@ -46,7 +44,7 @@
 							'label' => 'Industry',
 							'options' => $industries,
 							'value' => $position['PositionIndustry'][0]['industry_id']));
-
+/*
 						echo $this->Form->input('PositionFunction.0.id', array(
 							'value' => $position['PositionFunction'][0]['id']));
 

@@ -31,7 +31,7 @@
 							'type' => 'text',
 							'label' => 'Maximum years of experience'));
 
-/*						echo $this->Form->input('PositionIndustry.0.industry_id', array(
+						echo $this->Form->input('PositionIndustry.0.industry_id', array(
 							'type' => 'select',
 							'label' => 'Industry <button type="button" class="btn btn-success btn-sm addPositionIndustry"><i class="glyphicon glyphicon-plus"></i></button>',
 							'options' => $industries));
@@ -49,7 +49,7 @@
 							'style' => 'display: none;',
 							'empty' => 'Select an Industry',
 							'options' => $industries));
-*/
+
 /*
 						echo $this->Form->input('PositionFunction.0.work_function_id', array(
 							'type' => 'select',

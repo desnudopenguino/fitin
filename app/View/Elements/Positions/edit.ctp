@@ -21,22 +21,21 @@
 					<?php 
 						echo $this->Form->input('Position.id', array(
 							'value' => $position['Position']['id']));
+
 						echo $this->Form->input('title', array(
 							'type' => 'text',
 							'value' => $position['Position']['title']));
+
+						echo $this->Form->input('min_work_experience', array(
+							'type' => 'text',
+							'label' => 'Minimum years of experience'));
+
+						echo $this->Form->input('max_work_experience', array(
+							'type' => 'text',
+							'label' => 'Maximum years of experience'));
+
 					
-						echo $this->Form->input('Organization.organization_name', array(
-							'type' => 'text',
-							'value' => $position['Organization']['organization_name']));
-		
-						echo $this->Form->input('start_date', array(
-							'type' => 'text',
-							'value' => $position['Position']['start_date']));
-
-						echo $this->Form->input('end_date', array(
-							'type' => 'text',
-							'value' => $position['Position']['end_date']));
-
+/*
 						echo $this->Form->input('PositionIndustry.0.id', array(
 							'value' => $position['PositionIndustry'][0]['id']));
 
@@ -54,7 +53,7 @@
 							'label' => 'Function',
 							'options' => $functions,
 							'value' => $position['PositionFunction'][0]['work_function_id']));
-
+*/
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $position['Position']['responsibilities']));

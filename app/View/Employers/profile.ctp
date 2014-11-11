@@ -16,6 +16,7 @@
 			"/with/".$employer['User']['url']); ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
+		<?php echo $this->element('Positions/owner_index'); ?>
 	</div>
 </div>
 <?php echo $this->Html->script('general'); ?>

@@ -3,7 +3,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','Function');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');

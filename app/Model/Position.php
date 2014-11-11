@@ -5,8 +5,7 @@ Class Position extends AppModel {
 
 	public $recursive = 2;
 	public $belongsTo = array(
-		'Employer',
-		'Degree'
+		'Employer'
 	);
 
 	public $hasMany = array(

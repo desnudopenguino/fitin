@@ -11,3 +11,4 @@
 		<p>Choose a set of questions to answer on the left</p>
 	</div>
 </div>
+<?php echo $this->Html->scritp('culture_question'); ?>

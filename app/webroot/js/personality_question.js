@@ -7,7 +7,6 @@ function loadRandomPersonalityQuestion() {
 			$('#cultureContent').html(result);
 		}
 	});
-
 }
 //call to load personality question 
 $(document).on('click',"#personalityQuestions", function() {
@@ -19,7 +18,7 @@ $(document).on('click','.personality-choice', function() {
 	$('#answer').val($(this).attr('value'));
 });
 
-$(document).on('submit','#saveUserPersonalityAnswerForm', function() {
+$(document).on('submit','#saveApplicantPersonalityAnswerForm', function() {
 	$.ajax({
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),

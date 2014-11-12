@@ -23,7 +23,7 @@ console.log("form submitting!");
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),
 		async: true,
-		data: $(this).serialise(),
+		data: $(this).serialize(),
 		success: function(result) {
 console.log("form success!");
 			$('#cultureContent').append(result);

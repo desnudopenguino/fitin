@@ -15,8 +15,8 @@
 		'value' => $question['PersonalityQuestion']['id'],
 		'type' => 'hidden'));
 
-		$this->Form->unlockField('ApplicantPersonalityAnswer.personality_question_answer_id');
-	echo $this->Form->input('ApplicantPersonalityAnswer.personality_question_answer_id', array(
+		$this->Form->unlockField('ApplicantPersonalityAnswer.answer');
+	echo $this->Form->input('ApplicantPersonalityAnswer.answer', array(
 		'value' => 0,
 		'type' => 'hidden',
 		'id' => 'answer'));

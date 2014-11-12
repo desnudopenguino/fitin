@@ -11,6 +11,11 @@
 <fieldset>
 <h2><?php echo $question['CultureQuestion']['question_text']; ?></h2>
 
+<?php
+	foreach($question['CultureQuestionAnswer'] as $answer) {
+		echo $this->Form->button($answer['answer_text'], array(
+			'value' => $answer['id']));
+	} ?>
 </fieldset>
 <?php
 	echo $this->Form->submit('submit', array(

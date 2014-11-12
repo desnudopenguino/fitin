@@ -4,7 +4,7 @@
 		<button type="button" class="btn btn-primary" id="cultureQuestions">Answer Culture Questions</button>
 		<p>Culture Stats</p>
 	</div>
-	<div class="col-md-7 col-md-offset-1" id="cultureContent">
+	<div class="col-md-6 col-md-offset-1" id="cultureContent">
 		<p>Choose a set of questions to answer on the left</p>
 	</div>
 </div>

@@ -1,5 +1,4 @@
-//call to load culture question 
-$(document).on('click',"#cultureQuestions", function() {
+function loadRandomCultureQuestion() {
 	$.ajax({
 		url: '../culture_questions/random',
 		type: 'POST',
@@ -9,6 +8,20 @@ console.log("Load the culture question!");
 			$('#cultureContent').html(result);
 		}
 	});
+
+}
+//call to load culture question 
+$(document).on('click',"#cultureQuestions", function() {
+/*	$.ajax({
+		url: '../culture_questions/random',
+		type: 'POST',
+		async: true,
+		success: function(result) {
+console.log("Load the culture question!");
+			$('#cultureContent').html(result);
+		}
+	});*/
+loadRandomCultureQuestion();
 	return false;
 });
 

@@ -1,7 +1,7 @@
 //call to load culture question 
 $(document).on('click',"#cultureQuestions", function() {
 	$.ajax({
-		url: '../../culture_questions/random',
+		url: '../culture_questions/random',
 		type: 'POST',
 		async: true,
 		success: function(result) {

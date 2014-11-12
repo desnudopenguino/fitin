@@ -17,10 +17,6 @@
 			'value' => $answer['id']));
 	} ?>
 </fieldset>
-<?php
-	echo $this->Form->submit('submit', array(
-		'div' => 'form-group',
-		'class' => 'btn btn-primary'));
-	echo $this->Form->end(); ?>
+<?php	echo $this->Form->end(); ?>
 </div>
 

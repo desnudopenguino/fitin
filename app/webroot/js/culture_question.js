@@ -6,7 +6,7 @@ $(document).on('click',"#cultureQuestions", function() {
 		async: true,
 		success: function(result) {
 console.log("Load the culture question!");
-			$('#cultureContent').replace(result);
+			$('#cultureContent').html(result);
 		}
 	});
 	return false;

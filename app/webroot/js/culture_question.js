@@ -12,7 +12,7 @@ console.log("Load the culture question!");
 	return false;
 });
 
-$(document.on('submit','#saveUserCultureAnswerForm', function(event) {
+$(document).on('submit','#saveUserCultureAnswerForm', function(event) {
 console.log(event.target.id);
 	return false;	
 });

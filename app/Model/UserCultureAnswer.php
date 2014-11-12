@@ -6,5 +6,10 @@ Class UserCultureAnswer extends AppModel {
 		'CultureQuestion',
 		'User',
 		'CultureQuestionAnswer');
+
+	public function beforeSave($options - array()) {
+		$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
+		return true;	
+	}
 }
 ?>

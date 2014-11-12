@@ -16,7 +16,7 @@ $(document).on('click','.culture-choice', function() {
 	$('#answer').val($(this).attr('value'));
 console.log($(this) + " has been clicked");
 });
-/*
+
 $(document).on('submit','#saveUserCultureAnswerForm', function() {
 console.log("form submitting!");
 	$.ajax({
@@ -30,4 +30,4 @@ console.log("form success!");
 		}
 	});
 	return false;	
-});*/
+});

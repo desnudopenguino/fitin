@@ -16,6 +16,11 @@
 		'value' => $question['CultureQuestion']['id'],
 		'type' => 'hidden'));
 
+	echo $this->Form->input('UserCultureAnswer.culture_question_answer_id', array(
+		'value' => 0,
+		'type' => 'hidden',
+		'id' => 'answer'));
+
 	foreach($question['CultureQuestionAnswer'] as $answer) {
 		echo $this->Form->button('UserCultureAnswer.culture_question_answer_id', array(
 			'value' => $answer['id'],

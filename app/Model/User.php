@@ -22,6 +22,9 @@ Class User extends AppModel {
 		)
 	);
 
+	public $hasMany = array(
+		'UserCultureAnswer' );
+
 	public $validate = array(
 		'email' => array(
 			'isEmail' => array(

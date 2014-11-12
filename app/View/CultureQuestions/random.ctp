@@ -23,9 +23,8 @@
 		'id' => 'answer'));
 
 	foreach($question['CultureQuestionAnswer'] as $answer) {
-		echo $this->Form->button('UserCultureAnswer.culture_question_answer_id', array(
+		echo $this->Form->button($answer['answer_text'], array(
 			'value' => $answer['id'],
-//			'type' => 'button',
 			'class' => 'btn btn-primary btn-block culture-choice'));
 	} ?>
 </fieldset>

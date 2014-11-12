@@ -24,9 +24,7 @@ $(document).on('submit',"form[id^='deletePosition_']", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-console.log(id + ' deleted');
 			$('#'+id).closest('.panel').fadeOut(300, function() { $(this).remove(); });
-console.log(id + ' removed');
 		}
 	});
 	return false;
@@ -57,7 +55,6 @@ $(document).on('submit',"form[id^='editPositionForm_']", function() {
 //call to add item to industries
 var industry_counter = 1;
 $(document).on('click','.addPositionIndustry', function() {
-console.log("add position industry");
 	$('#PositionIndustry'+industry_counter+'IndustryId').show();
 	industry_counter++;
 });

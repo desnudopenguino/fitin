@@ -25,7 +25,7 @@
 		echo $this->Form->button('UserCultureAnswer.culture_question_answer_id', array(
 			'value' => $answer['id'],
 //			'type' => 'button',
-			'class' => 'btn btn-primary btn-block cultureChoice'));
+			'class' => 'btn btn-primary btn-block culture-choice'));
 	} ?>
 </fieldset>
 <?php	echo $this->Form->end(); ?>

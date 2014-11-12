@@ -14,18 +14,18 @@ console.log("Load the culture question!");
 
 $(document).on('click','.culture-choice', function() {
 	$('#answer').val($(this).attr('value'));
-debug.log($(this) + " has been clicked");
+console.log($(this) + " has been clicked");
 });
 
 $(document).on('submit','#saveUserCultureAnswerForm', function() {
-debug.log("form submitting!");
+console.log("form submitting!");
 	$.ajax({
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),
 		async: true,
 		data: $(this).serialise(),
 		success: function(result) {
-debug.log("form success!");
+console.log("form success!");
 			$('#cultureContent').append(result);
 		}
 	});

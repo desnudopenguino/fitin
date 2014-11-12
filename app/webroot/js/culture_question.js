@@ -39,7 +39,7 @@ console.log("form submitting!");
 		data: $(this).serialize(),
 		success: function(result) {
 console.log("form success!");
-			$('#cultureContent').append(result);
+			loadRandomCultureQuestion();
 		}
 	});
 	return false;	

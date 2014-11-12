@@ -11,8 +11,6 @@ class UserCultureAnswersController extends AppController {
 		if($this->request->is('ajax')) {
 			$this->disableCache();
 			$this->layout = false;
-//			$this->render('../CultureQuestions/random');
-//			$this->redirect(array('controller' => 'culture_questions', 'action' => 'random'));
 		}
 	}
  }

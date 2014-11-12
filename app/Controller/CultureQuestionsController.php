@@ -10,8 +10,6 @@ class CultureQuestionsController extends AppController {
 			$this->disableCache();
 			$this->layout = false;
 		}
-
-		$this->Form->unlockField('UserCultureAnswer.culture_question_id');
 	}
  }
 ?>

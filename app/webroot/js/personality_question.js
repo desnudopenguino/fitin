@@ -4,7 +4,7 @@ function loadRandomPersonalityQuestion() {
 		type: 'POST',
 		async: true,
 		success: function(result) {
-			$('#personalityContent').html(result);
+			$('#cultureContent').html(result);
 		}
 	});
 

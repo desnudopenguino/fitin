@@ -12,11 +12,19 @@ console.log("Load the culture question!");
 	return false;
 });
 
-$(document).on('submit','#saveUserCultureAnswerForm', function(event) {
-console.log(event.target.id);
-	return false;	
+$(document).on('click','.culture-choice', function() {
+	$('#answer').val($(this).attr('value'));
 });
 
-$(document).on('click','.culture-choice', function() {
-console.log($(this).attr('value'));
+$(document).on('submit','#saveUserCultureAnswerForm', function() {
+	$.ajax({
+		url: $(this).attr('action'),
+		type: $(this).attr('method'),
+		async: true,
+		data: $(this).serialise(),
+		success: function(result) {
+			$('#cultureContent').append(result);
+		}
+	});
+	return false;	
 });

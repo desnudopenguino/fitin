@@ -21,11 +21,26 @@
 		'type' => 'hidden',
 		'id' => 'answer'));
 
-	foreach($question['PersonalityQuestionAnswer'] as $answer) {
-		echo $this->Form->button($answer['answer_text'], array(
-			'value' => $answer['id'],
+		echo $this->Form->button('Very True', array(
+			'value' => '2',
 			'class' => 'btn btn-primary btn-block personality-choice'));
-	} ?>
+
+		echo $this->Form->button('Somewhat True', array(
+			'value' => '1',
+			'class' => 'btn btn-primary btn-block personality-choice'));
+
+		echo $this->Form->button('Neutral', array(
+			'value' => '0',
+			'class' => 'btn btn-primary btn-block personality-choice'));
+
+		echo $this->Form->button('Somewhat False', array(
+			'value' => '-1',
+			'class' => 'btn btn-primary btn-block personality-choice'));
+
+		echo $this->Form->button('Very False', array(
+			'value' => '-2',
+			'class' => 'btn btn-primary btn-block personality-choice'));
+	 ?>
 </fieldset>
 <?php	echo $this->Form->end(); ?>
 </div>

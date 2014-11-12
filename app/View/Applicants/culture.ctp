@@ -12,3 +12,4 @@
 	</div>
 </div>
 <?php echo $this->Html->script('culture_question'); ?>
+<?php echo $this->Html->script('personality_question'); ?>

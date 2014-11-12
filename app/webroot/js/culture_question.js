@@ -16,3 +16,7 @@ $(document).on('submit','#saveUserCultureAnswerForm', function(event) {
 console.log(event.target.id);
 	return false;	
 });
+
+$(document).on('click','.cultureChoice', function() {
+console.log($(this).attr('value');
+});

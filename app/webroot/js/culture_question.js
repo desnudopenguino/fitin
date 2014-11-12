@@ -17,6 +17,6 @@ console.log(event.target.id);
 	return false;	
 });
 
-$(document).on('click','.cultureChoice', function() {
-console.log($(this).attr('value');
+$(document).on('click','.culture-choice', function() {
+console.log($(this).attr('value'));
 });

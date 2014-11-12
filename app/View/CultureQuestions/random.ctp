@@ -12,7 +12,7 @@
 <h2><?php echo $question['CultureQuestion']['question_text']; ?></h2>
 
 <?php
-	echo $this->form->input('UserCultureAnswer.culture_question_id', array(
+	echo $this->Form->input('UserCultureAnswer.culture_question_id', array(
 		'value' => $question['CultureQuestion']['id'],
 		'type' => 'hidden'));
 

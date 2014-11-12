@@ -12,6 +12,10 @@
 <h2><?php echo $question['CultureQuestion']['question_text']; ?></h2>
 
 <?php
+	echo $this->form->input('UserCultureAnswer.culture_question_id', array(
+		'value' => $question['CultureQuestion']['id'],
+		'type' => 'hidden'));
+
 	foreach($question['CultureQuestionAnswer'] as $answer) {
 		echo $this->Form->button('UserCultureAnswer.culture_question_answer_id', array(
 			'value' => $answer['id'],

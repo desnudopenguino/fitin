@@ -5,7 +5,7 @@ Class Application extends AppModel {
 
 	public $belongsTo = array(
 		'Applicant',
-		'Employer'
+		'Position'
 		);
 
 	public function beforeSave($options = array()) {

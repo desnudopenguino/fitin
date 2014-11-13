@@ -1,7 +1,7 @@
 //load the mail stuff if inbox button is clicked
 $(document).on('click',"#inbox-btn", function() {
 	$.ajax({
-		url: 'messages/inbox',
+		url: '../messages/inbox',
 		type: 'GET',
 		async: true,
 		success: function(result) {
@@ -12,7 +12,7 @@ $(document).on('click',"#inbox-btn", function() {
 //load the applications stuff if applications button is clicked
 $(document).on('click',"#applications-btn", function() {
 	$.ajax({
-		url: 'applications/index',
+		url: '../applications/index',
 		type: 'GET',
 		async: true,
 		success: function(result) {

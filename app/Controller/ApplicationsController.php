@@ -18,5 +18,8 @@ class ApplicationsController extends AppController {:
 	public function edit() {
 
 	}
+
+	public function index() {
+	}
  }
 ?>

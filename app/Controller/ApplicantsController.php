@@ -25,6 +25,10 @@ class ApplicantsController extends AppController {
 		$this->set('messages', $this->Applicant->User->Message->find('all', array(
 			'conditions' => array(
 				'Message.receiver_id' => $userId))));
+
+		$this->set('applications', $this->Applicant->Application->find('all', array(
+			'conditions' => array(
+				'Application.applicant_id' => $userId))));
 	}
 
 // Profile - contains profile data for user, logged in page

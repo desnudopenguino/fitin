@@ -6,7 +6,7 @@
 			<li><a href="#">Applications</a></li>
 		</ul>
 	</div>
-	<div class="col-md-6 col-md-offset-1">
+	<div class="col-md-6 col-md-offset-1" id="dashboardContent">
 		<?php echo $this->element('Messages/inbox'); ?>
 	</div>
 </div>

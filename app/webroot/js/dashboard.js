@@ -6,6 +6,7 @@ $(document).on('click',"#inbox-btn", function() {
 		async: true,
 		success: function(result) {
 			$('#dashboardContent').html(result);
+console.log('load the inbox successful');
 		}});
 });
 
@@ -17,6 +18,7 @@ $(document).on('click',"#applications-btn", function() {
 		async: true,
 		success: function(result) {
 			$('#dashboardContent').html(result);
+console.log('load the applications successful');
 		}});
 
 });

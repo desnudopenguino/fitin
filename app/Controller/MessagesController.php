@@ -17,6 +17,7 @@ class MessagesController extends AppController {
 
 //marks message as read in the db
 	public function read($id = null) {
+		
 
 	}
 

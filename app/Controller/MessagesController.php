@@ -27,6 +27,9 @@ class MessagesController extends AppController {
 
 //loads all of the messages for a user
 	public function inbox() {
+		$this->set('messages',$this->Message->find('all', array(
+			'condition' => array(
+				'Message.receiver_id' => $this->Auth->user('id')))));
 
 	}
  }

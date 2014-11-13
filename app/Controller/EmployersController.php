@@ -117,7 +117,7 @@ class EmployersController extends AppController {
 
 		$this->set('positions', $this->Employer->Position->find('all', array(
 			'conditions' => array(
-				'Position.employer_id' => $this->Auth->user('id')))));
+				'Position.employer_id' => $employer['User']['id']))));
 	}
 }
 ?>

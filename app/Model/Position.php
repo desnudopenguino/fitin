@@ -11,7 +11,8 @@ Class Position extends AppModel {
 	public $hasMany = array(
 		'PositionIndustry',
 		'PositionFunction',
-		'PositionSkill'
+		'PositionSkill',
+		'Application'
 	);
 
 	public function beforeSave($options = array()) {

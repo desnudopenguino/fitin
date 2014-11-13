@@ -15,7 +15,9 @@ Class Applicant extends AppModel {
 		'Certification' => array(
 			'className' => 'Certification'
 		),
-		'Education','Project');
+		'Education',
+		'Project',
+		'Application');
 
 	public $virtualFields = array(
 		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"

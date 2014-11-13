@@ -63,7 +63,6 @@ class UsersController extends AppController {
 												break;
 							}
 							if($validUser) {
-								$this->Session->setFlash(__('The user has been saved'));
 								$this->Auth->login();
 								return $this->redirect(array('controller' => 'users', 'action' => 'dashboard'));
 							}

@@ -23,6 +23,9 @@ class ApplicationsController extends AppController {
 		$this->set('applications', $this->Application->find('all', array(
 			'conditions' => array(
 				'Application.applicant_id' => $this->Auth->user('id')))));
+		if($this->request->is('ajax')) {
+			$this->layout = false;
+		}
 	}
 	public function employerIndex() {
 		$this->set('applications', $this->Application->find('all', array(

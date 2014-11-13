@@ -31,7 +31,9 @@ class MessagesController extends AppController {
 		$this->set('messages',$this->Message->find('all', array(
 			'condition' => array(
 				'Message.receiver_id' => $this->Auth->user('id')))));
-
+		if($this->request->is('ajax')) {
+			$this->layout = false();
+		}
 	}
  }
 ?>

@@ -32,7 +32,7 @@ class MessagesController extends AppController {
 			'condition' => array(
 				'Message.receiver_id' => $this->Auth->user('id')))));
 		if($this->request->is('ajax')) {
-			$this->layout = false();
+			$this->layout = false;
 		}
 	}
  }

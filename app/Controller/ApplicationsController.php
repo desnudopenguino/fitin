@@ -1,7 +1,7 @@
 <?php
  App::uses('AppController', 'Controller');
 
-class ApplicationsController extends AppController {:
+class ApplicationsController extends AppController {
 
 	public function add() {
 		if($this->request->is('post')) {
@@ -19,7 +19,15 @@ class ApplicationsController extends AppController {:
 
 	}
 
-	public function index() {
+	public function applicantIndex() {
+		$this->set('applications', $this->Application->find('all', array(
+			'conditions' => array(
+				'Application.applicant_id' => $this->Auth->user('id')))));
+	}
+	public function employerIndex() {
+		$this->set('applications', $this->Application->find('all', array(
+			'conditions' => array(
+				'Application.position_id' => $this->Auth->user('id')))));
 	}
  }
 ?>

@@ -10,4 +10,4 @@
 		<?php echo $this->element('Messages/inbox'); ?>
 	</div>
 </div>
-<?php echo $this->Html->script('dashboard');
+<?php echo $this->Html->script('applicant_dashboard');

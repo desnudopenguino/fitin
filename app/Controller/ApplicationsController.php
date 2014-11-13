@@ -28,9 +28,11 @@ class ApplicationsController extends AppController {
 		}
 	}
 	public function employerIndex() {
-		$this->set('applications', $this->Application->find('all', array(
+		$this->set('applications', $this->Application->Position->find('all', array(
 			'conditions' => array(
-				'Application.position_id' => $this->Auth->user('id')))));
+				'Position.employer_id' => $this->Auth->user('id')),
+			'contain' => array(
+				'Application'))));
 	}
  }
 ?>

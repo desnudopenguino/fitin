@@ -129,7 +129,7 @@ class EmployersController extends AppController {
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
 
-			$myId = $this->Employer->User->->find('first', array(
+			$myId = $this->Employer->User->find('first', array(
 				'conditions' => array(
 					'User.id' => $this->Auth->user('id'),
 				'fields' => array(

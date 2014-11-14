@@ -29,7 +29,7 @@ Class UserCultureAnswer extends AppModel {
 		foreach($employerCulture as $qkey => $question) {
 			$totalQuestions++;
 			foreach($applicantCulture as $aKey => $answer) {
-				count++;
+				$count++;
 				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && $question['UserCultureAnswer']['culture_question_answer_id'] == $answer['UserCultureAnswer']['culture_question_answer_id']) {
 					$matches ++;
 					unset($applicantCulture[$aKey]);

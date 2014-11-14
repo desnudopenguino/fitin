@@ -138,7 +138,6 @@ class EmployersController extends AppController {
 				'UserCultureAnswer.user_id' => $employer['User']['id']),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
-debug($myId);
 		}
 	}
 }

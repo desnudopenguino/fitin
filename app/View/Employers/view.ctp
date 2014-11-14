@@ -12,7 +12,7 @@
 		</div>
 		<div class="well">
 			
-			<?php if($myId) { echo $this->element('Culture/index'); } ?>
+			<?php if(isset($myId)) { echo $this->element('Culture/index'); } ?>
 		</div>	
 	</div>
 	<div class="col-md-6 col-md-offset-1">

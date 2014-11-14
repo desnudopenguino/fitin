@@ -25,7 +25,7 @@ Class UserCultureAnswer extends AppModel {
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 		$count = 0;
-		$totalQuestions = $matches = $average = 0;
+		$totalQuestions = $matches = $average = 0.0;
 		foreach($employerCulture as $qkey => $question) {
 			$totalQuestions++;
 			foreach($applicantCulture as $aKey => $answer) {
@@ -35,8 +35,9 @@ Class UserCultureAnswer extends AppModel {
 					unset($applicantCulture[$aKey]);
 				}
 			}
-			
 		}
+
+		$percent = round(($matches / $totalQuestions),2) * 100;
 
 		return array('total' => $totalQuestions, 'match' => $matches, 'percent' => $average, 'iterations' => $count);
 	}

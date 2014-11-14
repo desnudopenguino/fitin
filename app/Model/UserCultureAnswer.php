@@ -35,7 +35,13 @@ Class UserCultureAnswer extends AppModel {
 		$culture = array();
 debug($cultureTypes);
 		foreach($cultureTypes as $cultureType) {
+			$culture[$cultureType['CultureQuestionType']['question_type']] = array();
+			$culture[$cultureType['CultureQuestionType']['question_type']]['id'] = $cultureType['CultureQuestionType']['id'];
+			$culture[$cultureType['CultureQuestionType']['question_type']]['total'] = 0.0;
+			$culture[$cultureType['CultureQuestionType']['question_type']]['match'] = 0.0;
+			$culture[$cultureType['CultureQuestionType']['question_type']]['percent'] = 0.0;
 		}
+debug($culture);
 		foreach($employerCulture as $qkey => $question) {
 			$totalQuestions++;
 			foreach($applicantCulture as $aKey => $answer) {

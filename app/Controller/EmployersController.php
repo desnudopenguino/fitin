@@ -131,8 +131,8 @@ class EmployersController extends AppController {
 					'User.roleId')));
 			$myId = $myId['User']['roleId'];
 			if($myId == 2) { //i'm an applicant!
-debug($myId);
 				$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
+debug($this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
 			}
 		}
 	}

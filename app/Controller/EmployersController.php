@@ -130,8 +130,8 @@ class EmployersController extends AppController {
 				'fields' => array(
 					'User.roleId')));
 			$myId = $myId['User']['roleId'];
-debug($myId);
 			if($myId == 2) { //i'm an applicant!
+debug($myId);
 				$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
 			}
 		}

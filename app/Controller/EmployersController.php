@@ -133,7 +133,7 @@ class EmployersController extends AppController {
 	
 			if($myId == 2) { //i'm an applicant!
 				$this->set('myId', $myId);
-				$this->set('employer_culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']);
+				$this->set('employer_culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
 			}
 		}
 	}

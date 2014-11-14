@@ -130,7 +130,7 @@ class EmployersController extends AppController {
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
 
 debug($this->Auth->user);
-		$this->append('culture');
+		$this->start('culture');
 		echo $this->element('Culture/index');
 		$this->end();
 	}

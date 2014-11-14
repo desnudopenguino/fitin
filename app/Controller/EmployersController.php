@@ -127,7 +127,7 @@ class EmployersController extends AppController {
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $employer['User']['id']),
 			'field' => array(
-				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
+				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
 	}
 }
 ?>

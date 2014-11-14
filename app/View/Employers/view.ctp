@@ -11,7 +11,7 @@
 			<p><?php echo $employer['User']['email']; ?></p>
 		</div>
 		<div class="well">
-			<?php echo $this->fetch('cutlure'); ?>
+			<?php echo $this->element('Culture/index'); ?>
 		</div>	
 	</div>
 	<div class="col-md-6 col-md-offset-1">

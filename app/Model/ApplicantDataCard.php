@@ -5,9 +5,6 @@ Class ApplicantDataCard extends AppModel {
 
 	public $useTable = false;
 
-	public $belongsTo = array(
-		'Applicant');
-
 	public $education = array(); //list of educations
 
 	public $certification = array(); //list of certifications;

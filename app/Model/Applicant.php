@@ -9,9 +9,6 @@ Class Applicant extends AppModel {
 		)
 	);
 
-	public $hasOne = array(
-		'ApplicantDataCard'); 
-	
 	public $primaryKey = 'user_id';
 
 	public $hasMany = array(

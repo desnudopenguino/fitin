@@ -43,14 +43,14 @@ debug($culture);
 		foreach($employerCulture as $qkey => $question) {
 			foreach($culture as $cKey => $cval) {
 				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
-					$culture[$cKey]['total']++;
+					$culture[$cKey]['total'] = $culture[$cKey]['total'] + 1;
 				}
 			}
 			foreach($applicantCulture as $aKey => $answer) {
 				$count++;
 				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && 
 					$question['UserCultureAnswer']['culture_question_answer_id'] == $answer['UserCultureAnswer']['culture_question_answer_id']) {
-					$culture[$cKey]['match']++;
+					$culture[$cKey]['match'] = $culture[$cKey]['match'] + 1;
 					unset($applicantCulture[$aKey]);
 				}
 			}

@@ -10,10 +10,11 @@
 			</p>
 			<p><?php echo $employer['User']['email']; ?></p>
 		</div>
+		<?php if(isset($myId)) { ?>
 		<div class="well">
-			
-			<?php if(isset($myId)) { echo $this->element('Culture/index'); } ?>
+			<?php echo $this->element('Culture/index'); ?>
 		</div>	
+		<?php } ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<div class="panel-group" id="resume" role="tablist" aria-multiselectable="true">

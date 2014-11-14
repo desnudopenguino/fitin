@@ -24,7 +24,11 @@ Class User extends AppModel {
 
 	public $hasMany = array(
 		'UserCultureAnswer',
-		'Message');
+		'Message' => array(
+			'foreignKey' => 'receiver_id'),
+		'Message' => array(
+			'foreignKey' => 'sender_id')
+		);
 
 	public $validate = array(
 		'email' => array(

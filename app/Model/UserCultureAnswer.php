@@ -14,32 +14,38 @@ Class UserCultureAnswer extends AppModel {
 
 //function that compares the culture, applicant id goes first, then employer id. this will return an array with the final stats (total # questions, matched # questions, and average in %)
 	public function compareCulture($applicantId, $employerId) {
+
+		$cultureTypes = $this->CultureQuestion->CultureQuestionType->find('all'), array(
+			'fields' => array(
+				'CultureQuestionType.id','CultureQuestionType.question_type'));
+
 		$applicantCulture = $this->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $applicantId),
 			'fields' => array(
-				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
+				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id','CultureQuestion.culture_question_type_id')));
+
 		$employerCulture = $this->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $employerId),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
-		$count = 0;
-		$totalQuestions = $matches = $average = 0.0;
+
+		$totalQuestions = $totalMatches = $totalAverage = $count = 0.0;
 		foreach($employerCulture as $qkey => $question) {
 			$totalQuestions++;
 			foreach($applicantCulture as $aKey => $answer) {
 				$count++;
 				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && $question['UserCultureAnswer']['culture_question_answer_id'] == $answer['UserCultureAnswer']['culture_question_answer_id']) {
-					$matches ++;
+					$totalMatches ++;
 					unset($applicantCulture[$aKey]);
 				}
 			}
 		}
 
-		$average = round(($matches / $totalQuestions),2) * 100;
+		$totolAverage = round(($matches / $totalQuestions),2) * 100;
 
-		return array('total' => $totalQuestions, 'match' => $matches, 'percent' => $average, 'iterations' => $count);
+		return array('total' =>array('total' => $totalQuestions, 'match' => $matches, 'percent' => $average, 'iterations' => $count));
 	}
 }
 ?>

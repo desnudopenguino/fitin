@@ -131,9 +131,9 @@ class EmployersController extends AppController {
 
 			$myId = $this->Employer->User->find('first', array(
 				'conditions' => array(
-					'User.id' => $this->Auth->user('id'),
+					'User.id' => $this->Auth->user('id')),
 				'fields' => array(
-					'roleId'))));
+					'roleId')));
 debug($myId);
 	}
 }

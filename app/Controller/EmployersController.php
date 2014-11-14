@@ -123,11 +123,16 @@ class EmployersController extends AppController {
 			'conditions' => array(
 				'Position.employer_id' => $employer['User']['id']))));
 
-		$this->set('culture', $this->UserCultureAnswer->find('all', array(
+		$this->set('employer_culture', $this->UserCultureAnswer->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $employer['User']['id']),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
+
+debug($this->Auth->user);
+		$this->append('culture');
+		echo $this->element('Culture/index');
+		$this->end();
 	}
 }
 ?>

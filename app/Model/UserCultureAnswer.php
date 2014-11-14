@@ -32,6 +32,10 @@ Class UserCultureAnswer extends AppModel {
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 
 		$totalQuestions = $totalMatches = $totalAverage = $count = 0.0;
+		$culture = array();
+debug($cultureTypes);
+		foreach($cultureTypes as $cultureType) {
+		}
 		foreach($employerCulture as $qkey => $question) {
 			$totalQuestions++;
 			foreach($applicantCulture as $aKey => $answer) {

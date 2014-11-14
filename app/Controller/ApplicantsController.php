@@ -181,17 +181,7 @@ class ApplicantsController extends AppController {
 			$myId = $myId['User']['roleId'];
 
 			if($myId == 1) { //i'm an employer!
-				$this->set('myId', $myId);
-				$this->set('applicant_culture', $this->UserCultureAnswer->find('all', array(
-					'conditions' => array(
-						'UserCultureAnswer.user_id' => $applicant['User']['id']),
-					'fields' => array(
-						'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
-				$this->set('employer_culture', $this->UserCultureAnswer->find('all', array(
-					'conditions' => array(
-						'UserCultureAnswer.user_id' => $myId),
-					'fields' => array(
-						'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
+				$this->set('culture', $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$myId));
 			}
 		}
 	}

@@ -44,9 +44,9 @@ Class UserCultureAnswer extends AppModel {
 			}
 		}
 
-		$totolAverage = round(($matches / $totalQuestions),2) * 100;
+		$totolAverage = round(($totalMatches / $totalQuestions),2) * 100;
 
-		return array('total' =>array('total' => $totalQuestions, 'match' => $matches, 'percent' => $average, 'iterations' => $count));
+		return array('total' =>array('total' => $totalQuestions, 'match' => $totalMatches, 'percent' => $totalAverage, 'iterations' => $count));
 	}
 }
 ?>

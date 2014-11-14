@@ -16,5 +16,9 @@ Class ApplicantDataCard extends AppModel {
 		'functions' => array(),
 		'skills' => array()); //framework for measurable job experience
 
+	public $_schema = array(
+
+	);
+
 }
 ?>

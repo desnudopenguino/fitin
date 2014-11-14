@@ -23,13 +23,13 @@ Class UserCultureAnswer extends AppModel {
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $applicantId),
 			'fields' => array(
-				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id','CultureQuestion.culture_question_type_id')));
+				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 
 		$employerCulture = $this->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $employerId),
 			'fields' => array(
-				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
+				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id','CultureQuestion.culture_question_type_id')));
 
 		$culture = array();
 		foreach($cultureTypes as $cultureType) {
@@ -39,7 +39,6 @@ Class UserCultureAnswer extends AppModel {
 			$culture[$cultureType['CultureQuestionType']['id']]['match'] = 0.0;
 			$culture[$cultureType['CultureQuestionType']['id']]['percent'] = 0.0;
 		}
-debug($culture);
 		foreach($employerCulture as $qkey => $question) {
 			foreach($culture as $cKey => $cval) {
 				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {

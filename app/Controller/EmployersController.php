@@ -134,7 +134,7 @@ class EmployersController extends AppController {
 					'User.id' => $this->Auth->user('id')),
 				'fields' => array(
 					'User.roleId')));
-debug($myId);
+debug($myId['User']['roleId']);
 	}
 }
 ?>

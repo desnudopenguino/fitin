@@ -7,7 +7,7 @@ Class CultureQuestion extends AppModel {
 		'UserCultureAnswer'
 	);
 
-	public $belongsTo array(
+	public $belongsTo = array(
 		'CultureQuestionType');
 }
 ?>

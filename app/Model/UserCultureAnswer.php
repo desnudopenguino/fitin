@@ -15,9 +15,9 @@ Class UserCultureAnswer extends AppModel {
 //function that compares the culture, applicant id goes first, then employer id. this will return an array with the final stats (total # questions, matched # questions, and average in %)
 	public function compareCulture($applicantId, $employerId) {
 
-		$cultureTypes = $this->CultureQuestion->CultureQuestionType->find('all'), array(
+		$cultureTypes = $this->CultureQuestion->CultureQuestionType->find('all', array(
 			'fields' => array(
-				'CultureQuestionType.id','CultureQuestionType.question_type'));
+				'CultureQuestionType.id','CultureQuestionType.question_type')));
 
 		$applicantCulture = $this->find('all', array(
 			'conditions' => array(
@@ -36,7 +36,8 @@ Class UserCultureAnswer extends AppModel {
 			$totalQuestions++;
 			foreach($applicantCulture as $aKey => $answer) {
 				$count++;
-				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && $question['UserCultureAnswer']['culture_question_answer_id'] == $answer['UserCultureAnswer']['culture_question_answer_id']) {
+				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && 
+					$question['UserCultureAnswer']['culture_question_answer_id'] == $answer['UserCultureAnswer']['culture_question_answer_id']) {
 					$totalMatches ++;
 					unset($applicantCulture[$aKey]);
 				}

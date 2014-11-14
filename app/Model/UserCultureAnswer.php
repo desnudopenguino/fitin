@@ -31,9 +31,7 @@ Class UserCultureAnswer extends AppModel {
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 
-		$totalQuestions = $totalMatches = $totalAverage = $count = 0.0;
 		$culture = array();
-debug($cultureTypes);
 		foreach($cultureTypes as $cultureType) {
 			$culture[$cultureType['CultureQuestionType']['id']] = array();
 			$culture[$cultureType['CultureQuestionType']['id']]['name'] = $cultureType['CultureQuestionType']['question_type'];
@@ -43,20 +41,26 @@ debug($cultureTypes);
 		}
 debug($culture);
 		foreach($employerCulture as $qkey => $question) {
-			$totalQuestions++;
+			foreach($culture as $cKey => $cval) {
+				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
+					$culture[$cKey]['total']++;
+				}
+			}
 			foreach($applicantCulture as $aKey => $answer) {
 				$count++;
 				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && 
 					$question['UserCultureAnswer']['culture_question_answer_id'] == $answer['UserCultureAnswer']['culture_question_answer_id']) {
-					$totalMatches ++;
+					$culture[$cKey]['match']++;
 					unset($applicantCulture[$aKey]);
 				}
 			}
 		}
+		foreach($culture as $cKey => $cultureType) {
+			$culture[$cKey]['percent'] = round($culture[$cKey]['match'] / $culture[$cKey]['total'],2) * 100;
+		}
 
-		$totolAverage = round(($totalMatches / $totalQuestions),2) * 100;
 
-		return array('total' =>array('total' => $totalQuestions, 'match' => $totalMatches, 'percent' => $totalAverage, 'iterations' => $count));
+		return $culture;//array('total' =>array('total' => $totalQuestions, 'match' => $totalMatches, 'percent' => $totalAverage, 'iterations' => $count));
 	}
 }
 ?>

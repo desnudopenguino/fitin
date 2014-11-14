@@ -9,7 +9,7 @@ Class Message extends AppModel {
 			'foreignKey' => 'sender_id'
 		),
 		'User' => array(
-			'className' => 'State',
+			'className' => 'User',
 			'foreignKey' => 'receiver_id'
 		)
 	);

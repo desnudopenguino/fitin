@@ -3,7 +3,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -122,6 +122,10 @@ class EmployersController extends AppController {
 		$this->set('positions', $this->Employer->Position->find('all', array(
 			'conditions' => array(
 				'Position.employer_id' => $employer['User']['id']))));
+
+		$this->set('culture', $this->UserCultureAnswer->find('all', array(
+			'conditions' => array(
+				'UserCultureAnswer.user_id' => $employer['User']['id']))));
 	}
 }
 ?>

@@ -172,23 +172,23 @@ class ApplicantsController extends AppController {
 				'conditions' => array(
 					'Project.applicant_id' => $applicant['Applicant']['user_id']))));
 
-		$myId = $this->Applicant->User->find('first', array(
-			'conditions' => array(
-				'User.id' => $this->Auth->user('id')),
-			'fields' => array(
-				'User.roleId')));
+		if($this->Auth->loggedIn()) {
+			$myId = $this->Applicant->User->find('first', array(
+				'conditions' => array(
+					'User.id' => $this->Auth->user('id')),
+				'fields' => array(
+					'User.roleId')));
+			$myId = $myId['User']['roleId'];
 
-		$myId = $myId['User']['roleId'];
-
-		if($myId == 1) { //i'm an employer!
-		$this->set('myId', $myId);
-		$this->set('employer_culture', $this->UserCultureAnswer->find('all', array(
-			'conditions' => array(
-				'UserCultureAnswer.user_id' => $applicant['User']['id']),
-			'fields' => array(
-				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
+			if($myId == 1) { //i'm an employer!
+			$this->set('myId', $myId);
+			$this->set('employer_culture', $this->UserCultureAnswer->find('all', array(
+				'conditions' => array(
+					'UserCultureAnswer.user_id' => $applicant['User']['id']),
+				'fields' => array(
+					'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
+			}
 		}
-
 	}
  }
 ?>

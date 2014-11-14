@@ -126,7 +126,7 @@ class EmployersController extends AppController {
 		$this->set('culture', $this->UserCultureAnswer->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $employer['User']['id']),
-			'field' => array(
+			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
 	}
 }

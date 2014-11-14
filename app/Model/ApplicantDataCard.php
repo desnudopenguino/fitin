@@ -2,11 +2,11 @@
 App::uses('AppModel', 'Model');
 
 Class ApplicantDataCard extends AppModel {
+
+	public $useTable = false;
+
 	public $belongsTo = array(
 		'Applicant');
-
-	public $useTable = NULL;
-//	public $useTable = false;
 
 	public $education = array(); //list of educations
 

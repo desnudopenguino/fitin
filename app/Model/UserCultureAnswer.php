@@ -13,12 +13,12 @@ Class UserCultureAnswer extends AppModel {
 	}
 
 	public function compareCulture($applicantId, $employerId) {
-			$applicantCulture = $this->->find('all', array(
+			$applicantCulture = $this->find('all', array(
 					'conditions' => array(
 						'UserCultureAnswer.user_id' => $applicantId),
 					'fields' => array(
 						'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
-			 $employerCulture = $this->->find('all', array(
+			 $employerCulture = $this->find('all', array(
 					'conditions' => array(
 						'UserCultureAnswer.user_id' => $employerId),
 					'fields' => array(

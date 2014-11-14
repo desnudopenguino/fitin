@@ -59,8 +59,7 @@ Class UserCultureAnswer extends AppModel {
 			$culture[$cKey]['percent'] = round($culture[$cKey]['match'] / $culture[$cKey]['total'],2) * 100;
 		}
 		$culture['count'] = $count;
-
-
+debug($culture);
 		return $culture;
 	}
 }

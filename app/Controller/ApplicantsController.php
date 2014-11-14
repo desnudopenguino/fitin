@@ -3,7 +3,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');

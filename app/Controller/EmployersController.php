@@ -123,18 +123,23 @@ class EmployersController extends AppController {
 			'conditions' => array(
 				'Position.employer_id' => $employer['User']['id']))));
 
+		$myId = $this->Employer->User->find('first', array(
+			'conditions' => array(
+				'User.id' => $this->Auth->user('id')),
+			'fields' => array(
+				'User.roleId')));
+
+		$myId = $myId['User']['roleId'];
+
+		if($myId == 2) { //i'm an applicant!
+		$this->set('myId', $myId);
 		$this->set('employer_culture', $this->UserCultureAnswer->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $employer['User']['id']),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
-
-			$myId = $this->Employer->User->find('first', array(
-				'conditions' => array(
-					'User.id' => $this->Auth->user('id')),
-				'fields' => array(
-					'User.roleId')));
-debug($myId['User']['roleId']);
+debug($myId);
+		}
 	}
 }
 ?>

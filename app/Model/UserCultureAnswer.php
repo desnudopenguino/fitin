@@ -37,7 +37,7 @@ Class UserCultureAnswer extends AppModel {
 			}
 		}
 
-		$percent = round(($matches / $totalQuestions),2) * 100;
+		$average = round(($matches / $totalQuestions),2) * 100;
 
 		return array('total' => $totalQuestions, 'match' => $matches, 'percent' => $average, 'iterations' => $count);
 	}

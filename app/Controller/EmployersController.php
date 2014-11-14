@@ -133,16 +133,7 @@ class EmployersController extends AppController {
 	
 			if($myId == 2) { //i'm an applicant!
 				$this->set('myId', $myId);
-				$this->set('employer_culture', $this->UserCultureAnswer->find('all', array(
-					'conditions' => array(
-						'UserCultureAnswer.user_id' => $employer['User']['id']),
-					'fields' => array(
-						'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
-				$this->set('applicant_culture', $this->UserCultureAnswer->find('all', array(
-					'conditions' => array(
-						'UserCultureAnswer.user_id' => $this->Auth->user('id')),
-					'fields' => array(
-						'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
+				$this->set('employer_culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']);
 			}
 		}
 	}

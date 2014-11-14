@@ -11,5 +11,21 @@ Class UserCultureAnswer extends AppModel {
 		$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
 		return true;	
 	}
+
+	public function compareCulture($applicantId, $employerId) {
+			$applicantCulture = $this->UserCultureAnswer->find('all', array(
+					'conditions' => array(
+						'UserCultureAnswer.user_id' => $applicantId),
+					'fields' => array(
+						'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
+			 $employerCulture = $this->UserCultureAnswer->find('all', array(
+					'conditions' => array(
+						'UserCultureAnswer.user_id' => $employerId),
+					'fields' => array(
+						'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id'))));
+
+
+		return array($applicantCulture, $employerCulture);
+	}
 }
 ?>

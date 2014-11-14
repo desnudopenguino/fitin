@@ -33,6 +33,7 @@ Class UserCultureAnswer extends AppModel {
 				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && $question['UserCultureAnswer']['culture_question_answer_id'] == $answer['UserCultureAnswer']['culture_question_answer_id']) {
 					$matches ++;
 					unset($applicantCulture[$aKey]);
+				}
 			}
 			
 		}

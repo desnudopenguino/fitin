@@ -133,7 +133,7 @@ class EmployersController extends AppController {
 				'conditions' => array(
 					'User.id' => $this->Auth->user('id')),
 				'fields' => array(
-					'roleId')));
+					'User.roleId')));
 debug($myId);
 	}
 }

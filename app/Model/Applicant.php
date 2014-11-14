@@ -8,6 +8,9 @@ Class Applicant extends AppModel {
 			'foreignKey' => 'user_id'
 		)
 	);
+
+	public $hasOne = array(
+		'ApplicantDataCard'); 
 	
 	public $primaryKey = 'user_id';
 

@@ -1,1 +1,1 @@
-<?php debug($employer_culture); ?>
+<?php debug($culture); ?>

@@ -47,6 +47,7 @@ Class Applicant extends AppModel {
 					'Degree',
 					'Industry'),
 				'Project' => array(
+					'order' => array('Project.start_date'),
 					'Organization',
 					'ProjectIndustry' => array(
 						'Industry'),

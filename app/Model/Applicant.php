@@ -119,12 +119,13 @@ Class Applicant extends AppModel {
 		foreach($dataCard['Industry'] as $iKey => $industry) {
 			$dataCard['Industry'][$iKey]['totalDuration'] = $this->calculateDuration($industry['duration']);
 		}
+
 		return array('Data' => $data, 'DataCard' => $dataCard);	
 	}
 
 	private function calculateDuration($duration_array) {
-		$start = 0.0;
-		$end = 0.0;
+		$start = 0;
+		$end = 0;
 		$total = 0.0;
 		foreach( $duration_array as $index => $time) {
 			if($start == 0 AND $end == 0) {
@@ -141,6 +142,8 @@ Class Applicant extends AppModel {
 				$total += ($end - $start);
 			}
 		}
+
+		$total = round($total / 60 / 60 / 24 / 365, 2);
 		return $total;
 	}
 }

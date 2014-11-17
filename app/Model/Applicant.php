@@ -31,16 +31,17 @@ Class Applicant extends AppModel {
 
 	public function loadDataCard($id = null) {
 debug ($this->data);
-		$this->data['Certifications'] = $this->loadCertifications($id);
+		$this->data['Certifications'] = $this->Certification->loadActiveApplicantCertifications($id);
 		$this->data['Educations'] = $this->loadEducation($id);
 	
 debug ($this->data);
 	}
 
-	public function loadCertifications($id){
+	public function loadValidCertifications($id){
 		return $this->Certification->find('all', array(
 			'conditions' => array(
-				'Certification.applicant_id' => $id)));
+				'Certification.applicant_id' => $id,
+				'Certification.expiration_date >' => date('Y-m-d'),)));
 	}
 
 	public function loadEducation($id) {

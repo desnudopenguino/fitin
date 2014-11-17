@@ -123,9 +123,9 @@ Class Applicant extends AppModel {
 	}
 
 	private function calculateDuration($duration_array) {
-		$start = 0;
-		$end = 0;
-		$total = 0;
+		$start = 0.0;
+		$end = 0.0;
+		$total = 0.0;
 		foreach( $duration_array as $index => $time) {
 			if($start == 0 AND $end == 0) {
 				$start = $time['start'];

@@ -85,8 +85,7 @@ Class Applicant extends AppModel {
 				}
 			}
 			foreach($project['ProjectFunction'] as $function) {
-debug($function);
-				if(!empty($industry['WorkFunction'])) {
+				if(!empty($function['WorkFunction'])) {
 					$dataCard['Function'][] = array(
 						'id' => $function['work_function_id'],
 						'function' => $function['WorkFunction']['function_type']);

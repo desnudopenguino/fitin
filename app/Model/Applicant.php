@@ -81,21 +81,27 @@ Class Applicant extends AppModel {
 				if(!empty($industry['Industry'])) {
 					$dataCard['Industry'][] = array(
 						'id' => $industry['industry_id'],
-						'industry' => $industry['Industry']['industry_type']);
+						'industry' => $industry['Industry']['industry_type'],
+						'start' => $project['start_date'],
+						'end' => $project['end_date']);
 				}
 			}
 			foreach($project['ProjectFunction'] as $function) {
 				if(!empty($function['WorkFunction'])) {
 					$dataCard['Function'][] = array(
 						'id' => $function['work_function_id'],
-						'function' => $function['WorkFunction']['function_type']);
+						'function' => $function['WorkFunction']['function_type'],
+						'start' => $project['start_date'],
+						'end' => $project['end_date']);
 				}
 			}
 			foreach($project['ProjectSkill'] as $skill) {
 				if(!empty($industry['Skill'])) {
 					$dataCard['Skill'][] = array(
 						'id' => $skill['skill_id'],
-						'skill' => $skill['Skill']['skill_type']);
+						'skill' => $skill['Skill']['skill_type'],
+						'start' => $project['start_date'],
+						'end' => $project['end_date']);
 				}
 			}
 		}

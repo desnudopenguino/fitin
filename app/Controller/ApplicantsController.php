@@ -92,7 +92,7 @@ class ApplicantsController extends AppController {
 
 // Search - search page, applicant gets matched up with open positions based on skills & culture match
 	public function search() {
-		$this->set('applicant', $this->Applicant->loadDataCard());
+		$this->set('applicant', $this->Applicant->loadDataCard($this->Auth->user('id')));
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

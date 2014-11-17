@@ -31,14 +31,14 @@ Class Applicant extends AppModel {
 
 	public function loadDataCard($id = null) {
 debug ($this->data);
-		$this->data['Certifications'] = $this->loadCertifications();
+		$this->data['Certifications'] = $this->loadCertifications($id);
 debug ($this->data);
 	}
 
-	public function loadCertifications(){
+	public function loadCertifications($id){
 		return $this->Certification->find('all', array(
 			'conditions' => array(
-				'Certification.applicant_id' => $this->data->User->id)));
+				'Certification.applicant_id' => $id)));
 	}
 }
 ?>

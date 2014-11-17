@@ -30,7 +30,12 @@ Class Project extends AppModel {
 	public function findApplicantAll($applicant_id) {
 		return $this->find('all', array(
 			'conditions' => array(
-				'Project.applicant_id' => $applicant_id)));
+				'Project.applicant_id' => $applicant_id),
+			'contain' => array(
+				'Organizaiton',
+				'ProjectIndustry'
+				'ProjectFunction'
+				'ProjectSkill')));
 			
 	}
 }

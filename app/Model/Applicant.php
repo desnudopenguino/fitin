@@ -85,14 +85,14 @@ Class Applicant extends AppModel {
 				}
 			}
 			foreach($project['ProjectFunction'] as $function) {
-				if(!empty($industry['Industry'])) {
+				if(!empty($industry['WorkFunction'])) {
 				$dataCard['Function'][] = array(
 					'id' => $function['work_function_id'],
 					'function' => $function['WorkFunction']['function_type']);
 				}
 			}
 			foreach($project['ProjectSkill'] as $skill) {
-				if(!empty($industry['Industry'])) {
+				if(!empty($industry['Skill'])) {
 					$dataCard['Skill'][] = array(
 						'id' => $skill['skill_id'],
 						'skill' => $skill['Skill']['skill_type']);

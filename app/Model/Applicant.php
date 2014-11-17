@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 
 Class Applicant extends AppModel {
 
-	public $actsAs => array('Containable');
+	public $actsAs = array('Containable');
 
 	public $belongsTo = array(
 		'User' => array(

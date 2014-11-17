@@ -80,7 +80,7 @@ Class Applicant extends AppModel {
 		foreach($data['Project'] as $pKey => $project) {
 			foreach($project['ProjectIndustry'] as $industry) {
 				if(!empty($industry['Industry'])) {
-					if(empty($dataCard['Industry'][[$industry]['industry_id']])) {
+					if(empty($dataCard['Industry'][$industry['industry_id']])) {
 						$dataCard['Industry'][$industry['industry_id']] = array(
 							'id' => $industry['industry_id'],
 							'industry' => $industry['Industry']['industry_type'],
@@ -93,7 +93,7 @@ Class Applicant extends AppModel {
 			}
 			foreach($project['ProjectFunction'] as $function) {
 				if(!empty($function['WorkFunction'])) {
-					if(empty($dataCard['Industry'][[$industry]['industry_id']])) {
+					if(empty($dataCard['Function'][$function['function_id']])) {
 						$dataCard['Function'][$function['work_function_id']] = array(
 							'id' => $function['work_function_id'],
 							'function' => $function['WorkFunction']['function_type'],

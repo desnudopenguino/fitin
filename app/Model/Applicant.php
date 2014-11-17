@@ -137,7 +137,7 @@ Class Applicant extends AppModel {
 				$start = $time['start'];
 				$end = $time['end'];
 			}
-			if($index == count($array) - 1) {
+			if($index == count($duration_array) - 1) {
 				$total += ($end - $start);
 			}
 		}

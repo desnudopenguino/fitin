@@ -34,7 +34,7 @@ Class Project extends AppModel {
 			'contain' => array(
 				'Organizaiton',
 				'ProjectIndustry',
-				'ProjectFunction'
+				'ProjectFunction',
 				'ProjectSkill')));
 			
 	}

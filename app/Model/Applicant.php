@@ -50,7 +50,7 @@ Class Applicant extends AppModel {
 					'ProjectSkill' => array(
 						'Skill'))),
 			'fields' => array(
-				'Certification.certification_type',
+				'Certification.certification_name',
 				'Education.Degree.id',
 				'Education.Degree.degree_type',
 				'Education.Industry.id',

@@ -3,6 +3,8 @@ App::uses('AppModel', 'Model');
 
 Class Certification extends AppModel {
 
+public $actsAs = array('Containable');
+
 	public $belongsTo = array(
 		'Applicant'
 		);
@@ -13,7 +15,8 @@ Class Certification extends AppModel {
 				'Certification.applicant_id' => $applicant_id,
 				'OR' => array(
 					'Certification.expiration_date IS NOT NULL',
-					'Certification.expiration_date >' => date('Y-m-d')))));
+					'Certification.expiration_date >' => date('Y-m-d'))),
+			'contain' => false));
 	}
 }
 ?>

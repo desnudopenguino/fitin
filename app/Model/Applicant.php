@@ -129,7 +129,7 @@ Class Applicant extends AppModel {
 			$dataCard['Skill'][$iKey]['totalDuration'] = $this->calculateDuration($skill['duration']);
 		}
 
-		return array('Data' => $data, 'DataCard' => $dataCard);	
+		return array('DataCard' => $dataCard);	
 	}
 
 	private function calculateDuration($duration_array) {

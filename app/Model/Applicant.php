@@ -37,13 +37,6 @@ debug ($this->data);
 debug ($this->data);
 	}
 
-	public function loadValidCertifications($id){
-		return $this->Certification->find('all', array(
-			'conditions' => array(
-				'Certification.applicant_id' => $id,
-				'Certification.expiration_date >' => date('Y-m-d'),)));
-	}
-
 	public function loadEducation($id) {
 		return $this->Education->find('all', array(
 			'conditions' => array(

@@ -22,7 +22,7 @@ public $actsAs = array('Containable');
 	public function loadApplicantAll($applicant_id) {
 		return $this->find('all', array(
 			'conditions' => array(
-				'Certification.applicant_id' => $applicant_id)
+				'Certification.applicant_id' => $applicant_id),
 			'contain' => false));
 	}
 }

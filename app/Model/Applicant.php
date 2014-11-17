@@ -47,7 +47,7 @@ Class Applicant extends AppModel {
 					'ProjectIndustry' => array(
 						'Industry'),
 					'ProjectFunction' => array(
-						'Function'),
+						'WorkFunction'),
 					'ProjectSkill' => array(
 						'Skill')
 		))));

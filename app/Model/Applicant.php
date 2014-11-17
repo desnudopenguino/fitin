@@ -30,9 +30,8 @@ Class Applicant extends AppModel {
 	}
 
 	public function loadDataCard($id = null) {
-debug ($this->data);
 		$this->data['Certifications'] = $this->Certification->findApplicantActive($id);
-		$this->data['Educations'] = $this->loadEducation($id);
+		$this->data['Educations'] = $this->Education->findApplicantAll($id);
 	
 debug ($this->data);
 	}

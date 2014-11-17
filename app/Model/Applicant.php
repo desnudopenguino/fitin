@@ -33,7 +33,7 @@ Class Applicant extends AppModel {
 	}
 
 	public function loadDataCard($id = null) {
-		$this->data['Applicant'] = $this->find('first', array(
+		$dataCard = $this->find('first', array(
 			'conditions' => array(
 				'Applicant.user_id' => $id),
 			'contain' => array(
@@ -48,8 +48,7 @@ Class Applicant extends AppModel {
 					'ProjectFunction',
 					'ProjectSkill')
 		)));
-	
-debug ($this->data);
+		return $dataCard;	
 	}
 }
 ?>

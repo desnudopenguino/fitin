@@ -28,5 +28,16 @@ Class Applicant extends AppModel {
 			$this->data[$this->alias]['display_name'] = $this->data['User']['email'];
 		} 
 	}
+
+	public function loadDataCard($id = null) {
+		$this->data['Certifications'] = $this->loadCertifications();
+debug ($this->data);
+	}
+
+	public function loadCertifications(){
+		return $this->Certification->find('all', array(
+			'conditions' => array(
+				'Certification.user_id' => $this->data->User->id)));
+	}
 }
 ?>

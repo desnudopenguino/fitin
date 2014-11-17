@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 
 Class Certification extends AppModel {
 
-public $actsAs = array('Containable');
+	public $actsAs = array('Containable');
 
 	public $belongsTo = array(
 		'Applicant'

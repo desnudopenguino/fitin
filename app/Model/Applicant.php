@@ -85,7 +85,7 @@ Class Applicant extends AppModel {
 						'industry' => $industry['Industry']['industry_type'],
 						'duration' => array());
 
-					$dataCard['Industry'][$industy['industry_id']]['duration'][] = array(
+					$dataCard['Industry'][$industry['industry_id']]['duration'][] = array(
 							'start' => $project['start_date'],
 							'end' => $project['end_date']);
 				}

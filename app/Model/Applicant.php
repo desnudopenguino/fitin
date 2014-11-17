@@ -55,7 +55,7 @@ Class Applicant extends AppModel {
 				'Education.Degree.degree_type',
 				'Education.Industry.id',
 				'Education.Industry.industry_type',
-		));
+		)));
 
 //certification stuff
 		foreach($dataCard['Certification'] as $cKey => $certification) {

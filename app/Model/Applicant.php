@@ -44,9 +44,12 @@ Class Applicant extends AppModel {
 					'Industry'),
 				'Project' => array(
 					'Organization',
-					'ProjectIndustry',
-					'ProjectFunction',
-					'ProjectSkill')
+					'ProjectIndustry' => array(
+						'Industry'),
+					'ProjectFunction' => array(
+						'Function'),
+					'ProjectSkill' => array(
+						'Skill')
 		)));
 
 //certification stuff

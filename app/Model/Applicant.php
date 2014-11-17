@@ -53,6 +53,16 @@ Class Applicant extends AppModel {
 		foreach($dataCard['Certification'] as $cKey => $certification) {
 			$dataCard['Certification'][$cKey] = $certification['certification_name'];
 		}
+
+//education stuff
+		foreach($dataCard['Education'] as $eKey => $education) {
+
+		}
+
+//project stuff - split the functions and experiences into different bits. 
+		foreach($dataCard['Project'] as $pKey => $project) {
+
+		}
 		return $dataCard;	
 	}
 }

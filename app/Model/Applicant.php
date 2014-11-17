@@ -59,9 +59,9 @@ Class Applicant extends AppModel {
 
 //education stuff
 		foreach($dataCard['Education'] as $eKey => $education) {
-			$dataCard['Education']['degree'] = $education['Degree']['degree_type'];
-			$dataCard['Education']['school'] = $education['School']['school_name'];
-			$dataCard['Education']['industry'] = $education['Industry']['industry_type'];
+			$dataCard['Education'][$eKey]['degree'] = $education['Degree']['degree_type'];
+			$dataCard['Education'][$eKey]['school'] = $education['School']['school_name'];
+			$dataCard['Education'][$eKey]['industry'] = $education['Industry']['industry_type'];
 		}
 
 //project stuff - split the functions and experiences into different bits. 

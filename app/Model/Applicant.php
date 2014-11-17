@@ -40,7 +40,8 @@ Class Applicant extends AppModel {
 				'Certification' => array(
 					'fields' => array(
 						'Certification.certification_name')),
-				'Education',
+				'Education' => array(
+					'Degree',
 					'Industry'),
 				'Project' => array(
 					'Organization',

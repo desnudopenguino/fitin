@@ -12,7 +12,8 @@ Class Certification extends AppModel {
 			'conditions' => array(
 				'Certification.applicant_id' => $applicant_id,
 				'Certification.expiration_date IS NOT' => 'NULL',
-				'OR Certification.expiration_date >' => date('Y-m-d'))));
+				'OR' => array(
+					'Certification.expiration_date >' => date('Y-m-d')))));
 	}
 }
 ?>

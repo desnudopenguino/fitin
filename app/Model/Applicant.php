@@ -97,7 +97,7 @@ Class Applicant extends AppModel {
 						$dataCard['Function'][$function['work_function_id']] = array(
 							'id' => $function['work_function_id'],
 							'function' => $function['WorkFunction']['function_type'],
-							'duration' => arrray());
+							'duration' => array());
 						}
 						$dataCard['Function'][$function['work_function_id']][] = array(
 							'start' => $project['start_date'],

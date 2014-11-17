@@ -4,6 +4,7 @@ App::uses('AppModel', 'Model');
 Class Project extends AppModel {
 
 	public $recursive = 2;
+	public $actsAs = array('Containable');
 	public $belongsTo = array(
 		'Applicant',
 		'Organization'
@@ -24,6 +25,13 @@ Class Project extends AppModel {
 		}
 		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
 		return true;
+	}
+
+	public function findApplicantAll($applicant_id) {
+		return $this->find('all', array(
+			'conditions' => array(
+				'Position.applicant_id' => $applicant_id)));
+			
 	}
 }
 ?>

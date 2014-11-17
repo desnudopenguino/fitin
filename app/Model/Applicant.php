@@ -60,7 +60,6 @@ Class Applicant extends AppModel {
 //education stuff
 		foreach($dataCard['Education'] as $eKey => $education) {
 			$dataCard['Education'][$eKey]['degree'] = $education['Degree']['degree_type'];
-			$dataCard['Education'][$eKey]['school'] = $education['School']['school_name'];
 			$dataCard['Education'][$eKey]['industry'] = $education['Industry']['industry_type'];
 		}
 

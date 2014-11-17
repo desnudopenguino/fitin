@@ -119,6 +119,12 @@ Class Applicant extends AppModel {
 		foreach($dataCard['Industry'] as $iKey => $industry) {
 			$dataCard['Industry'][$iKey]['totalDuration'] = $this->calculateDuration($industry['duration']);
 		}
+		foreach($dataCard['Function'] as $fKey => $function) {
+			$dataCard['Function'][$fKey]['totalDuration'] = $this->calculateDuration($function['duration']);
+		}
+		foreach($dataCard['Skill'] as $sKey => $skill) {
+			$dataCard['Skill'][$iKey]['totalDuration'] = $this->calculateDuration($skill['duration']);
+		}
 
 		return array('Data' => $data, 'DataCard' => $dataCard);	
 	}
@@ -136,7 +142,7 @@ Class Applicant extends AppModel {
 			} elseif($time['start'] > $start AND
 				$time['start'] < $end AND 
 				$time['end'] > $end) {
-				$end = $time['end'];
+					$end = $time['end'];
 			} elseif($time['start'] > $end) {
 				$total += ($end - $start);
 				$start = $time['start'];

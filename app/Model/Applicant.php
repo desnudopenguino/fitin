@@ -40,7 +40,6 @@ Class Applicant extends AppModel {
 				'Certification',
 				'Education' => array(
 					'Degree',
-					'School',
 					'Industry'),
 				'Project' => array(
 					'Organization',
@@ -49,8 +48,14 @@ Class Applicant extends AppModel {
 					'ProjectFunction' => array(
 						'WorkFunction'),
 					'ProjectSkill' => array(
-						'Skill')
-		))));
+						'Skill'))),
+			'fields' => array(
+				'Certification.certification_type',
+				'Education.Degree.id',
+				'Education.Degree.degree_type',
+				'Education.Industry.id',
+				'Education.Industry.industry_type',
+		));
 
 //certification stuff
 		foreach($dataCard['Certification'] as $cKey => $certification) {

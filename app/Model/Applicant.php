@@ -2,6 +2,9 @@
 App::uses('AppModel', 'Model');
 
 Class Applicant extends AppModel {
+
+	public $actsAs => array('Containable');
+
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
@@ -33,6 +36,22 @@ Class Applicant extends AppModel {
 		$this->data['Certifications'] = $this->Certification->findApplicantActive($id);
 		$this->data['Educations'] = $this->Education->findApplicantAll($id);
 		$this->data['Projects'] = $this->Project->findApplicantAll($id);
+		$this->data['Applicant'] = $this->find('first', array(
+			'conditions' => array(
+				'Applicant.user_id' => $id),
+			'contain' => array(
+				'Certification' => array(
+					false),
+				'Education' => array(
+					'Degree',
+					'School',
+					'Industry'),
+				'Project' => array(
+					'Organization',
+					'ProjectIndustry',
+					'ProjectFunction',
+					'ProjectSkill')
+		)));
 	
 debug ($this->data);
 	}

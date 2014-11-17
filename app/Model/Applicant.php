@@ -38,7 +38,7 @@ debug ($this->data);
 	public function loadCertifications(){
 		return $this->Certification->find('all', array(
 			'conditions' => array(
-				'Certification.user_id' => $this->data->User->id)));
+				'Certification.applicant_id' => $this->data->User->id)));
 	}
 }
 ?>

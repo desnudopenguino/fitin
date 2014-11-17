@@ -33,7 +33,7 @@ Class Applicant extends AppModel {
 	}
 
 	public function loadDataCard($id = null) {
-		$dataCard = $this->find('first', array(
+		$data = $this->find('first', array(
 			'conditions' => array(
 				'Applicant.user_id' => $id),
 			'contain' => array(
@@ -55,6 +55,8 @@ Class Applicant extends AppModel {
 					'ProjectSkill' => array(
 						'Skill')))
 		));
+		
+		$dataCard = array();
 
 //certification stuff
 		foreach($dataCard['Certification'] as $cKey => $certification) {
@@ -74,7 +76,7 @@ Class Applicant extends AppModel {
 		foreach($dataCard['Project'] as $pKey => $project) {
 
 		}
-		return $dataCard;	
+		return array('Data' => $data, 'DataCard' => $dataCard);	
 	}
 }
 ?>

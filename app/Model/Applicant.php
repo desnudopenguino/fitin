@@ -99,16 +99,19 @@ Class Applicant extends AppModel {
 							'function' => $function['WorkFunction']['function_type'],
 							'duration' => array());
 						}
-						$dataCard['Function'][$function['work_function_id']][] = array(
+						$dataCard['Function'][$function['work_function_id']]['duration'][] = array(
 							'start' => $project['start_date'],
 							'end' => $project['end_date']);
 				}
 			}
 			foreach($project['ProjectSkill'] as $skill) {
 				if(!empty($industry['Skill'])) {
-					$dataCard['Skill'][] = array(
+					if(empty($dataCard['Skill'][$skill['skill_id']])) {
+						$dataCard['Skill'][$skill['skill_id']] = array(
 						'id' => $skill['skill_id'],
-						'skill' => $skill['Skill']['skill_type'],
+						'skill' => $skill['Skill']['skill_type']);
+					}
+					$dataCard['Skill'][$skill['skill_id']]['duration'][] = array(
 						'start' => $project['start_date'],
 						'end' => $project['end_date']);
 				}

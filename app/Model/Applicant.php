@@ -41,6 +41,9 @@ Class Applicant extends AppModel {
 					'fields' => array(
 						'Certification.certification_name')),
 				'Education' => array(
+					'fields' => array(
+						'degree_id',
+						'industry_id'),
 					'Degree',
 					'Industry'),
 				'Project' => array(
@@ -60,9 +63,7 @@ Class Applicant extends AppModel {
 
 //education stuff
 		foreach($dataCard['Education'] as $eKey => $education) {
-			$dataCard['Education'][$eKey]['degree_id'] = $education['Degree']['id'];
 			$dataCard['Education'][$eKey]['degree'] = $education['Degree']['degree_type'];
-			$dataCard['Education'][$eKey]['industry_id'] = $education['Industry']['id'];
 			$dataCard['Education'][$eKey]['industry'] = $education['Industry']['industry_type'];
 		}
 

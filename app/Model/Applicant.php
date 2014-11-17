@@ -50,7 +50,7 @@ Class Applicant extends AppModel {
 						'WorkFunction'),
 					'ProjectSkill' => array(
 						'Skill')))
-		));
+		);
 
 //certification stuff
 		foreach($dataCard['Certification'] as $cKey => $certification) {

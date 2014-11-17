@@ -57,7 +57,11 @@ Class Applicant extends AppModel {
 		));
 		
 		$dataCard = array();
-
+		$dataCard['Certification'] = array();
+		$dataCard['Education'] = array();
+		$dataCard['Function'] = array();
+		$dataCard['Industry'] = array();
+		$dataCard['Skill'] = array();
 //certification stuff
 		foreach($dataCard['Certification'] as $cKey => $certification) {
 			$dataCard['Certification'][$cKey] = $certification['certification_name'];
@@ -70,9 +74,6 @@ Class Applicant extends AppModel {
 		}
 
 //project stuff - split the functions and experiences into different bits. 
-		$dataCard['Function'] = array();
-		$dataCard['Industry'] = array();
-		$dataCard['Skill'] = array();
 		foreach($dataCard['Project'] as $pKey => $project) {
 
 		}

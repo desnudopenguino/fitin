@@ -65,6 +65,9 @@ Class Applicant extends AppModel {
 		}
 
 //project stuff - split the functions and experiences into different bits. 
+		$dataCard['Function'] = array();
+		$dataCard['Industry'] = array();
+		$dataCard['Skill'] = array();
 		foreach($dataCard['Project'] as $pKey => $project) {
 
 		}

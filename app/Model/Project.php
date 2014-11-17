@@ -32,7 +32,7 @@ Class Project extends AppModel {
 			'conditions' => array(
 				'Project.applicant_id' => $applicant_id),
 			'contain' => array(
-				'Organizaiton',
+				'Organization',
 				'ProjectIndustry',
 				'ProjectFunction',
 				'ProjectSkill')));

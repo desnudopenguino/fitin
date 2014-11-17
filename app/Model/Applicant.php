@@ -87,8 +87,8 @@ Class Applicant extends AppModel {
 							'duration' => array());
 					}
 					$dataCard['Industry'][$industry['industry_id']]['duration'][] = array(
-						'start' => strtotime($project['start_date']),
-						'end' => strtotime($project['end_date']));
+						'start' => $project['start_date'],
+						'end' => $project['end_date']);
 				}
 			}
 			foreach($project['ProjectFunction'] as $function) {
@@ -100,8 +100,8 @@ Class Applicant extends AppModel {
 							'duration' => array());
 						}
 						$dataCard['Function'][$function['work_function_id']][] = array(
-							'start' => strtotime($project['start_date']),
-							'end' => strtotime($project['end_date']));
+							'start' => $project['start_date'],
+							'end' => $project['end_date']);
 				}
 			}
 			foreach($project['ProjectSkill'] as $skill) {
@@ -109,8 +109,8 @@ Class Applicant extends AppModel {
 					$dataCard['Skill'][] = array(
 						'id' => $skill['skill_id'],
 						'skill' => $skill['Skill']['skill_type'],
-						'start' => strtotime($project['start_date']),
-						'end' => strtotime($project['end_date']));
+						'start' => $project['start_date'],
+						'end' => $project['end_date']);
 				}
 			}
 		}
@@ -128,10 +128,14 @@ Class Applicant extends AppModel {
 		$end = 0;
 		$total = 0.0;
 		foreach( $duration_array as $index => $time) {
+			$time['start'] = strtotime($time['start']);
+			$time['end'] = strtotime($time['end']);
 			if($start == 0 AND $end == 0) {
 				$start = $time['start'];
 				$end = $time['end'];
-			} elseif($time['start'] > $start AND $time['start'] < $end AND $time['end'] > $end) {
+			} elseif($time['start'] > $start AND
+				$time['start'] < $end AND 
+				$time['end'] > $end) {
 				$end = $time['end'];
 			} elseif($time['start'] > $end) {
 				$total += ($end - $start);

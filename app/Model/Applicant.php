@@ -50,7 +50,7 @@ Class Applicant extends AppModel {
 		)));
 
 //certification stuff
-		foreach($dataCard['Certification'] as $cKey $certification) {
+		foreach($dataCard['Certification'] as $cKey => $certification) {
 			$dataCard['Certification'][$cKey] = $certification['certification_name'];
 		}
 		return $dataCard;	

@@ -87,8 +87,8 @@ Class Applicant extends AppModel {
 							'duration' => array());
 					}
 					$dataCard['Industry'][$industry['industry_id']]['duration'][] = array(
-						'start' => $project['start_date'],
-						'end' => $project['end_date']);
+						'start' => strtotime($project['start_date']),
+						'end' => strtotime($project['end_date']));
 				}
 			}
 			foreach($project['ProjectFunction'] as $function) {
@@ -100,8 +100,8 @@ Class Applicant extends AppModel {
 							'duration' => array());
 						}
 						$dataCard['Function'][$function['work_function_id']][] = array(
-							'start' => $project['start_date'],
-							'end' => $project['end_date']);
+							'start' => strtotime($project['start_date']),
+							'end' => strtotime($project['end_date']));
 				}
 			}
 			foreach($project['ProjectSkill'] as $skill) {
@@ -109,8 +109,8 @@ Class Applicant extends AppModel {
 					$dataCard['Skill'][] = array(
 						'id' => $skill['skill_id'],
 						'skill' => $skill['Skill']['skill_type'],
-						'start' => $project['start_date'],
-						'end' => $project['end_date']);
+						'start' => strtotime($project['start_date']),
+						'end' => strtotime($project['end_date']));
 				}
 			}
 		}

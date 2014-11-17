@@ -51,9 +51,7 @@ class ApplicantsController extends AppController {
 					'PhoneNumber.user_id' => $userId))));
 
 		$this->set('certifications',
-			$this->Applicant->Certification->find('all', array(
-				'conditions' => array(
-					'Certification.applicant_id' => $userId))));
+			$this->Applicant->Certification->findApplicantAll($userId));
 
 		$this->set('degrees', $this->Degree->find('list',array(
 			'fields' => array(
@@ -155,9 +153,7 @@ class ApplicantsController extends AppController {
 		$this->set('applicant', $applicant);
 
 		$this->set('certifications',
-			$this->Applicant->Certification->find('all', array(
-				'conditions' => array(
-					'Certification.applicant_id' => $applicant['Applicant']['user_id']))));
+			$this->Applicant->Certification->findApplicantAll($applicant['Applicant']['user_id']));
 
 		$this->set('educations',
 			$this->Applicant->Education->find('all', array(

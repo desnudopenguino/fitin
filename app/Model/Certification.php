@@ -9,7 +9,7 @@ public $actsAs = array('Containable');
 		'Applicant'
 		);
 
-	public function loadApplicantActive($applicant_id) {
+	public function findApplicantActive($applicant_id) {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Certification.applicant_id' => $applicant_id,
@@ -19,7 +19,7 @@ public $actsAs = array('Containable');
 			'contain' => false));
 	}
 
-	public function loadApplicantAll($applicant_id) {
+	public function findApplicantAll($applicant_id) {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Certification.applicant_id' => $applicant_id),

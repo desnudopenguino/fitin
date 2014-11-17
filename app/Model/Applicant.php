@@ -37,7 +37,9 @@ Class Applicant extends AppModel {
 			'conditions' => array(
 				'Applicant.user_id' => $id),
 			'contain' => array(
-				'Certification',
+				'Certification' => array(
+					'fields' => array(
+						'Certifications.certification_name')),
 				'Education' => array(
 					'Degree',
 					'Industry'),
@@ -48,14 +50,8 @@ Class Applicant extends AppModel {
 					'ProjectFunction' => array(
 						'WorkFunction'),
 					'ProjectSkill' => array(
-						'Skill'))),
-			'fields' => array(
-				'Certification.certification_name',
-				'Education.Degree.id',
-				'Education.Degree.degree_type',
-				'Education.Industry.id',
-				'Education.Industry.industry_type',
-		)));
+						'Skill')))
+		));
 
 //certification stuff
 		foreach($dataCard['Certification'] as $cKey => $certification) {

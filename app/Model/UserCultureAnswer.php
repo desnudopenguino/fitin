@@ -29,8 +29,10 @@ Class UserCultureAnswer extends AppModel {
 				'UserCultureAnswer.user_id' => $employerId),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id','CultureQuestion.culture_question_type_id')));
+
 		$count = 0;
 		$culture = array();
+
 		foreach($cultureTypes as $cultureType) {
 			$culture[$cultureType['CultureQuestionType']['id']] = array();
 			$culture[$cultureType['CultureQuestionType']['id']]['name'] = $cultureType['CultureQuestionType']['question_type'];
@@ -38,12 +40,14 @@ Class UserCultureAnswer extends AppModel {
 			$culture[$cultureType['CultureQuestionType']['id']]['match'] = 0.0;
 			$culture[$cultureType['CultureQuestionType']['id']]['percent'] = 0.0;
 		}
+
 		foreach($employerCulture as $qkey => $question) {
 			foreach($culture as $cKey => $cval) {
 				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
 					$culture[$cKey]['total'] = $culture[$cKey]['total'] + 1;
 				}
 			}
+
 			foreach($applicantCulture as $aKey => $answer) {
 				$count++;
 				if($question['UserCultureAnswer']['culture_question_id'] == $answer['UserCultureAnswer']['culture_question_id'] && 
@@ -53,9 +57,11 @@ Class UserCultureAnswer extends AppModel {
 				}
 			}
 		}
+
 		foreach($culture as $cKey => $cultureType) {
 			$culture[$cKey]['percent'] = round($culture[$cKey]['match'] / $culture[$cKey]['total'],2) * 100;
 		}
+
 		$culture['count'] = $count;
 		return $culture;
 	}

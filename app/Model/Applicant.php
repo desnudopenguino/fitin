@@ -48,6 +48,11 @@ Class Applicant extends AppModel {
 					'ProjectFunction',
 					'ProjectSkill')
 		)));
+
+//certification stuff
+		foreach($dataCard['Certification'] as $cKey $certification) {
+			$dataCard['Certification'][$cKey] = $certification['certification_name'];
+		}
 		return $dataCard;	
 	}
 }

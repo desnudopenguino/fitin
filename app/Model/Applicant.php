@@ -114,7 +114,34 @@ Class Applicant extends AppModel {
 				}
 			}
 		}
+
+		//now calculate durations for each item
+		foreach($dataCard['Industry'] as $iKey => $industry) {
+			$dataCard['Industry'][$iKey]['totalDuration'] = $this->calculateDuration($industry['duration']);
+		}
 		return array('Data' => $data, 'DataCard' => $dataCard);	
+	}
+
+	private function calculateDuration($duration_array) {
+		$start = 0;
+		$end = 0;
+		$total = 0;
+		foreach( $duration_array as $index => $time) {
+			if($start == 0 AND $end == 0) {
+				$start = $time['start'];
+				$end = $time['end'];
+			} elseif($time['start'] > $start AND $time['start'] < $end AND $time['end'] > $end) {
+				$end = $time['end'];
+			} elseif($time['start'] > $end) {
+				$total += ($end - $start);
+				$start = $time['start'];
+				$end = $time['end'];
+			}
+			if($index == count($array) - 1) {
+				$total += ($end - $start);
+			}
+		}
+		return $total;
 	}
 }
 ?>

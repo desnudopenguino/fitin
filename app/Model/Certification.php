@@ -16,7 +16,9 @@ Class Certification extends AppModel {
 				'OR' => array(
 					'Certification.expiration_date IS NOT NULL',
 					'Certification.expiration_date >' => date('Y-m-d'))),
-			'contain' => false));
+			'fields' => array(
+				'Certification.certification_name'
+			)));
 	}
 
 	public function findApplicantAll($applicant_id) {

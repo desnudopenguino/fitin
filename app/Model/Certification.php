@@ -11,8 +11,8 @@ Class Certification extends AppModel {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Certification.applicant_id' => $applicant_id,
-				'Certification.expiration_date IS NOT' => 'NULL',
 				'OR' => array(
+					'Certification.expiration_date IS NOT' => 'NULL',
 					'Certification.expiration_date >' => date('Y-m-d')))));
 	}
 }

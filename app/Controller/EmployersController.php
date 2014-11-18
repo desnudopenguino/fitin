@@ -58,7 +58,12 @@ class EmployersController extends AppController {
 	}
 
 	function search() {
-		$this->Session->write('job_id',10);
+		$this->set('positions', $this->Employer->Position->find('list', array(
+			'conditions' => array(
+				'Position.employer_id' => $this->Auth->user('id')),
+			'fields' => array(
+				'Position.id','Position.title'))));
+
 		$positionCard = $this->Employer->Position->loadDataCard($this->Session->read('job_id'));
 		
 		$applicants = $this->Applicant->find('all', array(

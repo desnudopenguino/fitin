@@ -8,4 +8,5 @@ $(document).on('submit',"#searchPositionForm", function() {
 			$('#results').html(result).hide().fadeIn(300);
 console.log('successful search!');
 		}});
+	return false;
 });

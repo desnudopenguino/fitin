@@ -1,10 +1,31 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
-	Choose a Position
-	
-	<?php debug($position_card); ?>	
+		Choose a Position
+		<?php echo $this->Form->create('Positon', array(
+			'action' => 'search',
+			'method' => 'post',
+			'inputDefaults' => array(
+				'div' => 'form-group',
+				'wrapInput' => false,
+				'class' => 'form-control'
+			),
+			'id' => 'createPositionForm'
+			)); ?>
+		<fieldset>
+			<?php echo $this->Form->input('Position.id', array(
+				'type' => 'select',
+				'label' => 'Position',
+				'options' => $positions)); ?>
+		</fieldset>	
+		<?php echo $this->Form->submit('submit', array(
+			'div' => 'form-group',
+			'class' => 'btn btn-primary')); ?>
+		<?php echo $this->Form->end(); ?>
+		<div id="position-data">
+			<?php debug($position_card); ?>	
+		</div>
 	</div>
-	<div class="col-md-6 col-md-offset-1">
+	<div id="results" class="col-md-6 col-md-offset-1">
 	Output
 	<?php debug($applicant_cards); ?>	
 	</div>

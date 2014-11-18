@@ -93,7 +93,7 @@ class ApplicantsController extends AppController {
 		$this->set('applicant', $this->Applicant->loadDataCard($this->Auth->user('id')));
 		$applicantCard = $this->Applicant->loadDataCard($this->Auth->user('id'));
 		$positions = $this->Position->find('all', array(
-			'fields' => array('Position.id')));
+			'fields' => array('Position.id','Position.employer_id')));
 		$positionCards = array();
 		foreach($positions as $position) {
 debug($position);

@@ -5,7 +5,7 @@ Class Position extends AppModel {
 
 	public $actsAs = array('Containable');
 
-	public $recursive = 2;//this will go away soon
+//	public $recursive = 2;//this will go away soon
 
 	public $belongsTo = array(
 		'Employer'

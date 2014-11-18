@@ -3,7 +3,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -92,8 +92,12 @@ class ApplicantsController extends AppController {
 	public function search() {
 		$this->set('applicant', $this->Applicant->loadDataCard($this->Auth->user('id')));
 		$applicant = $this->Applicant->loadDataCard($this->Auth->user('id')));
-		$this->DataCard->compareDataCards($applicant, $applicant);
-		
+		$positions = $this->Position->find('all', array(
+			'fields' => array('Position.id')));
+debug($positions);
+		foreach($positions as $position) {
+			$this->DataCard->compare($applicant, $applicant);
+		}
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

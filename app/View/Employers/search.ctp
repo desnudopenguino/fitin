@@ -29,7 +29,6 @@
 	</div>
 	<div id="results" class="col-md-6 col-md-offset-1">
 		<?php if(!empty($applicant_cards)) { ?>
-		Output
 		<?php debug($applicant_cards); ?>	
 		<?php } ?>
 	</div>

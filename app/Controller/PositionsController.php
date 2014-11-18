@@ -79,5 +79,17 @@ class PositionsController extends AppController {
 	public function index() {
 		$this->set('positions', $this->Position->find('all'));
 	}
+
+	public function search() {
+		
+		$this->Position->read(null,$this->request->data['Position']['id']);
+
+		if(!$this->Position->exists()) {
+			throw new NotFoundException(__('Invalid Position'));
+		}
+	
+		$this->Session->write('position_id',$this->request->data['Position']['id']);
+		
+	}
  }
 ?>

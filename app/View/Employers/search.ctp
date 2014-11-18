@@ -33,4 +33,4 @@
 		<?php } ?>
 	</div>
 </div>
-<?php $this->Html->script('employer_search'); ?>
+<?php echo $this->Html->script('employer_search'); ?>

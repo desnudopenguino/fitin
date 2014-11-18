@@ -73,7 +73,9 @@ Class Applicant extends AppModel {
 			$dataCard['Education'][$eKey]['degree'] = $education['Degree']['degree_type'];
 			$dataCard['Education'][$eKey]['degree_id'] = $education['degree_id'];
 			$dataCard['Education'][$eKey]['industry_id'] = $education['industry_id'];
-			$dataCard['Education'][$eKey]['industry'] = $education['Industry']['industry_type'];
+			if(!empty($education['Industry'])) {
+				$dataCard['Education'][$eKey]['industry'] = $education['Industry']['industry_type'];
+			}
 		}
 
 //project stuff - split the functions and experiences into different bits. 

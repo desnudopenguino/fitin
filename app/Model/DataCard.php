@@ -9,15 +9,29 @@ Class DataCard extends AppModel {
 		//compare function stuff
 		$total = $match = $percent = 0.0;
 
-		foreach($position_card['DataCard']['Function'] as $function) {
+		foreach($position_card['DataCard']['Function'] as $position_function) {
 			$total++;
+			foreach($applicant_card['DataCard']['Function'] as $applicant_function) {
+				if($position_function['id'] == $applicant_function['id']) {
+					$match++;
+				}
+			}
 		}
-		foreach($position_card['DataCard']['Industry'] as $industry) {
+		foreach($position_card['DataCard']['Industry'] as $position_industry) {
 			$total++;
+			foreach($applicant_card['DataCard']['Industry'] as $applicant_industry) {
+				if($position_industry['id'] == $applicant_industry['id']) {
+					$match++;
+				}
+			}
 		}
-		foreach($position_card['DataCard']['Skill'] as $skill) {
+		foreach($position_card['DataCard']['Skill'] as $position_skill) {
 			$total++;
-		
+			foreach($applicant_card['DataCard']['Skill'] as $applicant_skill) {
+				if($position_skill['id'] == $applicant_skill['id']) {
+					$match++;
+				}
+			}
 		}
 
 		return array('total' => $total, 'match' => $match, 'percent' => $percent);

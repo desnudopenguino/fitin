@@ -81,13 +81,7 @@ class PositionsController extends AppController {
 	}
 
 	public function search() {
-		
 		$position_id = $this->request->data['Position']['id'];
-		$this->Position->read(null,$position_id);
-
-		if(!$this->Position->exists()) {
-			throw new NotFoundException(__('Invalid Position'));
-		}
 	
 		$this->Session->write('position_id',$position_id);
 

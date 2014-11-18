@@ -104,8 +104,11 @@ class PositionsController extends AppController {
 			$applicantCards[] = $applicantCard;
 		}
 		
-		$this->set('position_card', $positionCard);
 		$this->set('applicant_cards', $applicantCards);
+		if($this->request->is('ajax')) {
+			$this->disableCache();
+			$this->layout = false;
+		}
 	}
  }
 ?>

@@ -64,22 +64,25 @@ debug($this->Session->read(null));
 				'Position.employer_id' => $this->Auth->user('id')),
 			'fields' => array(
 				'Position.id','Position.title'))));
+		$roleId = $this->Session->read('role_id');
+		if(!empty($roleId)) {
 
-		$positionCard = $this->Employer->Position->loadDataCard($this->Session->read('job_id'));
+			$positionCard = $this->Employer->Position->loadDataCard($this->Session->read('job_id'));
 		
-		$applicants = $this->Applicant->find('all', array(
-			'fields' => array('Applicant.user_id')));
+			$applicants = $this->Applicant->find('all', array(
+				'fields' => array('Applicant.user_id')));
 
-		$applicantCards = array();
-		foreach($applicants as $applicant) {
-			$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
-			$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
-			$applicantCard['Culture'] = $this->Employer->User->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
-			$applicantCards[] = $applicantCard;
+			$applicantCards = array();
+			foreach($applicants as $applicant) {
+				$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
+				$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
+				$applicantCard['Culture'] = $this->Employer->User->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
+				$applicantCards[] = $applicantCard;
+			}
+		
+			$this->set('position_card', $positionCard);
+			$this->set('applicant_cards', $applicantCards);
 		}
-		
-		$this->set('position_card', $positionCard);
-		$this->set('applicant_cards', $applicantCards);
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

@@ -62,7 +62,7 @@ Class Position extends AppModel {
 				'skill' => $skill['Skill']['skill_type']);
 		}
 
-		return array('Data' => $data, 'DataCard' => $dataCard);
+		return array('DataCard' => $dataCard);
 	}
 }
 ?>

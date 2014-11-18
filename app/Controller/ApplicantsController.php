@@ -91,12 +91,12 @@ class ApplicantsController extends AppController {
 // Search - search page, applicant gets matched up with open positions based on skills & culture match
 	public function search() {
 		$this->set('applicant', $this->Applicant->loadDataCard($this->Auth->user('id')));
-		$applicant = $this->Applicant->loadDataCard($this->Auth->user('id'));
+		$applicantCard = $this->Applicant->loadDataCard($this->Auth->user('id'));
 		$positions = $this->Position->find('all', array(
 			'fields' => array('Position.id')));
-debug($positions);
 		foreach($positions as $position) {
-			$this->DataCard->compare($applicant, $applicant);
+			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
+			$this->DataCard->compare($applicantCard, $positionCard);
 		}
 	}
 

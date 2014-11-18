@@ -4,6 +4,7 @@ $(document).on('submit',"#searchPositionForm", function() {
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),
 		async: true,
+		data: $(this).serialize(),
 		success: function(result) {
 			$('#results').html(result).hide().fadeIn(300);
 console.log('successful search!');

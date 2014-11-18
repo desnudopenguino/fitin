@@ -58,10 +58,7 @@ class EmployersController extends AppController {
 	}
 
 	function search() {
-		$this->set('data', $this->Employer->Position->find('first', array(
-			'conditions' => array(
-				'Position.employer_id' => $this->Auth->user('id')))));
-
+		$this->set('data', $this->Employer->Position->loadDataCard(10));
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

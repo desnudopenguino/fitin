@@ -94,10 +94,15 @@ class ApplicantsController extends AppController {
 		$applicantCard = $this->Applicant->loadDataCard($this->Auth->user('id'));
 		$positions = $this->Position->find('all', array(
 			'fields' => array('Position.id')));
+		$positionCards = array();
 		foreach($positions as $position) {
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
-			$this->DataCard->compare($applicantCard, $positionCard);
+			
+			$positionCard['Results'] = $this->DataCard->compare($applicantCard, $positionCard);
+			$positionCards[] = $positionCard;
 		}
+		$this->set('applicant_card', $applicantCard);
+		$this->set('position_cards', $positionCards);
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

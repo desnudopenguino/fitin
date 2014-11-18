@@ -3,7 +3,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -59,9 +59,21 @@ class EmployersController extends AppController {
 
 	function search() {
 		$this->Session->write('job_id',10);
-		$this->set('data', $this->Employer->Position->loadDataCard($this->Session->read('job_id')));
-debug($this->Session->read(null));
+		$positionCard = $this->Employer->Position->loadDataCard($this->Session->read('job_id'));
+		
+		$applicants = $this->Applicant->find('all', array(
+			'fields' => array('Applicant.user_id')));
 
+		$applicantCards = array();
+		foreach($applicants as $applicant) {
+			$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
+			$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
+			$applicantCard['Culture'] = $this->Employer->User->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
+			$applicantCards[] = $applicantCard;
+		}
+		
+		$this->set('position_card', $positionCard);
+		$this->set('applicants_card', $applicantsCard);
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

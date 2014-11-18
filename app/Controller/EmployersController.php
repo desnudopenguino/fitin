@@ -73,7 +73,7 @@ class EmployersController extends AppController {
 		}
 		
 		$this->set('position_card', $positionCard);
-		$this->set('applicants_card', $applicantsCard);
+		$this->set('applicant_cards', $applicantCards);
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

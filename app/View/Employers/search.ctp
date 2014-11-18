@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2>Search</h2>
-		<?php echo $this->Form->create('Positon', array(
+		<?php echo $this->Form->create('Position', array(
 			'action' => 'search',
 			'method' => 'post',
 			'inputDefaults' => array(

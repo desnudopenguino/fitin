@@ -3,7 +3,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -91,6 +91,9 @@ class ApplicantsController extends AppController {
 // Search - search page, applicant gets matched up with open positions based on skills & culture match
 	public function search() {
 		$this->set('applicant', $this->Applicant->loadDataCard($this->Auth->user('id')));
+		$applicant = $this->Applicant->loadDataCard($this->Auth->user('id')));
+		$this->DataCard->compareDataCards($applicant, $applicant);
+		
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

@@ -67,7 +67,7 @@ debug($this->Session->read('position_id'));
 		$roleId = $this->Session->read('role_id');
 		if(!empty($roleId)) {
 
-			$positionCard = $this->Employer->Position->loadDataCard($this->Session->read('job_id'));
+			$positionCard = $this->Employer->Position->loadDataCard($this->Session->read('position_id'));
 		
 			$applicants = $this->Applicant->find('all', array(
 				'fields' => array('Applicant.user_id')));

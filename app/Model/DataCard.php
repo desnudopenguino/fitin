@@ -15,8 +15,8 @@ Class DataCard extends AppModel {
 				if($position_function['id'] == $applicant_function['id']) {
 					$match++;
 					$total++;
-					if($position_card['MinimumExperience'] <= $applicant_function['totalDuration'] &&
-						$position_card['MaximumExperience'] >= $applicant_function['totalDuration']) {
+					if($position_card['DataCard']['MinimumExperience'] <= $applicant_function['totalDuration'] &&
+						$position_card['DataCard']['MaximumExperience'] >= $applicant_function['totalDuration']) {
 						$match++;
 					}
 				}
@@ -28,8 +28,8 @@ Class DataCard extends AppModel {
 				if($position_industry['id'] == $applicant_industry['id']) {
 					$match++;
 					$total++;
-					if($position_card['MinimumExperience'] <= $applicant_industry['totalDuration'] &&
-						$position_card['MaximumExperience'] >= $applicant_industry['totalDuration']) {
+					if($position_card['DataCard']['MinimumExperience'] <= $applicant_industry['totalDuration'] &&
+						$position_card['DataCard']['MaximumExperience'] >= $applicant_industry['totalDuration']) {
 						$match++;
 					}
 				}
@@ -41,8 +41,8 @@ Class DataCard extends AppModel {
 				if($position_skill['id'] == $applicant_skill['id']) {
 					$match++;
 					$total++;
-					if($position_card['MinimumExperience'] <= $applicant_skill['totalDuration'] &&
-						$position_card['MaximumExperience'] >= $applicant_skill['totalDuration']) {
+					if($position_card['DataCard']['MinimumExperience'] <= $applicant_skill['totalDuration'] &&
+						$position_card['DataCard']['MaximumExperience'] >= $applicant_skill['totalDuration']) {
 						$match++;
 					}
 				}

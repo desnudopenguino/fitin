@@ -33,3 +33,4 @@
 		<?php } ?>
 	</div>
 </div>
+<?php $this->Html->script('employer_search'); ?>

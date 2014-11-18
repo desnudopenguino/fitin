@@ -58,6 +58,7 @@ class EmployersController extends AppController {
 	}
 
 	function search() {
+debug($this->Session->read(null);
 		$this->set('positions', $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),

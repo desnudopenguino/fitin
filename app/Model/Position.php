@@ -26,8 +26,12 @@ Class Position extends AppModel {
 	public function loadDataCard($id = null) {
 		$data = $this->find('first', array(
 			'conditions' => array(
-				'Position.id' => $id)
-			
+				'Position.id' => $id),
+			'contain' => array(
+				'Employer',
+				'PositionIndustry',
+				'PositionFunction',
+				'PositionSkill')
 		));
 
 		return array('Data' => $data, 'DataCard' => $dataCard);

@@ -14,6 +14,7 @@ Class DataCard extends AppModel {
 			foreach($applicant_card['DataCard']['Function'] as $applicant_function) {
 				if($position_function['id'] == $applicant_function['id']) {
 					$match++;
+					$total++;
 				}
 			}
 		}
@@ -22,6 +23,7 @@ Class DataCard extends AppModel {
 			foreach($applicant_card['DataCard']['Industry'] as $applicant_industry) {
 				if($position_industry['id'] == $applicant_industry['id']) {
 					$match++;
+					$total++;
 				}
 			}
 		}
@@ -30,6 +32,7 @@ Class DataCard extends AppModel {
 			foreach($applicant_card['DataCard']['Skill'] as $applicant_skill) {
 				if($position_skill['id'] == $applicant_skill['id']) {
 					$match++;
+					$total++;
 				}
 			}
 		}

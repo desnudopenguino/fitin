@@ -59,7 +59,9 @@ class EmployersController extends AppController {
 
 	function search() {
 		$this->set('data', $this->Employer->Position->loadDataCard(10));
+		$this->Session->write('job_id',10);
 debug($this->Session->read(null));
+
 	}
 
 // Edit - edit the contact/personal info for the user (address, phone, name)

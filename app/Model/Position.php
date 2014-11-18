@@ -3,7 +3,10 @@ App::uses('AppModel', 'Model');
 
 Class Position extends AppModel {
 
-	public $recursive = 2;
+	public $actsAs = array('Containable');
+
+	public $recursive = 2;//this will go away soon
+
 	public $belongsTo = array(
 		'Employer'
 	);
@@ -18,6 +21,16 @@ Class Position extends AppModel {
 	public function beforeSave($options = array()) {
 		$this->data[$this->alias]['employer_id'] = AuthComponent::user('id');
 		return true;
+	}
+
+	public function loadDataCard($id = null) {
+		$data = $this->find('first', array(
+			'conditions' => array(
+				'Position.id' => $id)
+			
+		));
+
+		return array('Data' => $data, 'DataCard' => $dataCard);
 	}
 }
 ?>

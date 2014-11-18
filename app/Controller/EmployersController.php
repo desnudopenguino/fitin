@@ -65,7 +65,7 @@ debug($this->Session->read('position_id'));
 			'fields' => array(
 				'Position.id','Position.title'))));
 		$position_id = $this->Session->read('position_id');
-		if(!empty($roleId)) {
+		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
 		

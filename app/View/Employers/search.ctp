@@ -21,12 +21,16 @@
 			'div' => 'form-group',
 			'class' => 'btn btn-primary')); ?>
 		<?php echo $this->Form->end(); ?>
+		<?php if(!empty($position_card)) { ?>
 		<div id="position-data">
 			<?php debug($position_card); ?>	
 		</div>
+		<?php } ?>
 	</div>
 	<div id="results" class="col-md-6 col-md-offset-1">
-	Output
-	<?php debug($applicant_cards); ?>	
+		<?php if(!empty($applicant_cards)) {
+		Output
+		<?php debug($applicant_cards); ?>	
+		<?php } ?>
 	</div>
 </div>

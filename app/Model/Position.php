@@ -29,9 +29,12 @@ Class Position extends AppModel {
 				'Position.id' => $id),
 			'contain' => array(
 				'Employer',
-				'PositionIndustry',
-				'PositionFunction',
-				'PositionSkill')
+				'PositionIndustry' => array(
+					'Industry'),
+				'PositionFunction' => array(
+					'WorkFunction'),
+				'PositionSkill' => array(
+					'Skill'))
 		));
 		
 		$dataCard = array();

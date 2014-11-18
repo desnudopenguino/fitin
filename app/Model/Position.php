@@ -33,6 +33,13 @@ Class Position extends AppModel {
 				'PositionFunction',
 				'PositionSkill')
 		));
+		
+		$dataCard = array();
+		$dataCard['Certification'] = array();
+		$dataCard['Education'] = array();
+		$dataCard['Function'] = array();
+		$dataCard['Industry'] = array();
+		$dataCard['Skill'] = array();
 
 		return array('Data' => $data, 'DataCard' => $dataCard);
 	}

@@ -82,14 +82,30 @@ class PositionsController extends AppController {
 
 	public function search() {
 		
-		$this->Position->read(null,$this->request->data['Position']['id']);
+		$position_id = $this->request->data['Position']['id'];
+		$this->Position->read(null,$position_id);
 
 		if(!$this->Position->exists()) {
 			throw new NotFoundException(__('Invalid Position'));
 		}
 	
-		$this->Session->write('position_id',$this->request->data['Position']['id']);
+		$this->Session->write('position_id',$position_id);
+
+		$positionCard = $this->Employer->Position->loadDataCard($position_id);
 		
+		$applicants = $this->Applicant->find('all', array(
+			'fields' => array('Applicant.user_id')));
+
+		$applicantCards = array();
+		foreach($applicants as $applicant) {
+			$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
+			$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
+			$applicantCard['Culture'] = $this->Employer->User->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
+			$applicantCards[] = $applicantCard;
+		}
+		
+		$this->set('position_card', $positionCard);
+		$this->set('applicant_cards', $applicantCards);
 	}
  }
 ?>

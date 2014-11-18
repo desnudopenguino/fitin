@@ -81,24 +81,27 @@ class PositionsController extends AppController {
 	}
 
 	public function search() {
-		$position_id = $this->request->data['Position']['id'];
+		if($this->request->is('post')) {
+			$position_id = $this->request->data['Position']['id'];
 	
-		$this->Session->write('position_id',$position_id);
+			$this->Session->write('position_id',$position_id);
 
-		$positionCard = $this->Position->loadDataCard($position_id);
+			$positionCard = $this->Position->loadDataCard($position_id);
 		
-		$applicants = $this->Applicant->find('all', array(
-			'fields' => array('Applicant.user_id')));
+			$applicants = $this->Applicant->find('all', array(
+				'fields' => array('Applicant.user_id')));
 
-		$applicantCards = array();
-		foreach($applicants as $applicant) {
-			$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
-			$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
-			$applicantCard['Culture'] = $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
-			$applicantCards[] = $applicantCard;
+			$applicantCards = array();
+			foreach($applicants as $applicant) {
+				$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
+				$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
+				$applicantCard['Culture'] = $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
+				$applicantCards[] = $applicantCard;
+			}
+		
+			$this->set('applicant_cards', $applicantCards);
 		}
-		
-		$this->set('applicant_cards', $applicantCards);
+
 		if($this->request->is('ajax')) {
 			$this->disableCache();
 			$this->layout = false;

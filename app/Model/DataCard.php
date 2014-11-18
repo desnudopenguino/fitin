@@ -49,6 +49,8 @@ Class DataCard extends AppModel {
 			}
 		}
 
+		$percent = round($match / $total, 2) * 100;
+
 		return array('total' => $total, 'match' => $match, 'percent' => $percent);
 	}
 }

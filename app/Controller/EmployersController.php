@@ -58,8 +58,8 @@ class EmployersController extends AppController {
 	}
 
 	function search() {
-		$this->set('data', $this->Employer->Position->loadDataCard(10));
 		$this->Session->write('job_id',10);
+		$this->set('data', $this->Employer->Position->loadDataCard($this->Session->read('job_id')));
 debug($this->Session->read(null));
 
 	}

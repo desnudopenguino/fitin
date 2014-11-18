@@ -45,21 +45,27 @@ Class Position extends AppModel {
 		$dataCard['Skill'] = array();
 
 		foreach($data['PositionFunction'] as $fKey => $function) {
-			$dataCard['Function'][] = array(
-				'id' => $function['work_function_id'],
-				'function' => $function['WorkFunction']['function_type']);
+			if(!empty($function['WorkFunction'])) {
+				$dataCard['Function'][] = array(
+					'id' => $function['work_function_id'],
+					'function' => $function['WorkFunction']['function_type']);
+			}
 		}
 
 		foreach($data['PositionIndustry'] as $iKey => $industry) {
-			$dataCard['Industry'][] = array(
-				'id' => $industry['industry_id'],
-				'industry' => $industry['Industry']['industry_type']);
+			if(!empty($industry['Industry'])) {
+				$dataCard['Industry'][] = array(
+					'id' => $industry['industry_id'],
+					'industry' => $industry['Industry']['industry_type']);
+			}
 		}
 
 		foreach($data['PositionSkill'] as $sKey => $skill) {
-			$dataCard['Skill'][] = array(
-				'id' => $skill['skill_id'],
-				'skill' => $skill['Skill']['skill_type']);
+			if(!empty($skill['Skill'])) {
+				$dataCard['Skill'][] = array(
+					'id' => $skill['skill_id'],
+					'skill' => $skill['Skill']['skill_type']);
+			}
 		}
 
 		return array('DataCard' => $dataCard);

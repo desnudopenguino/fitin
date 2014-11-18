@@ -11,7 +11,6 @@ Class DataCard extends AppModel {
 
 		foreach($position_card['DataCard']['Function'] as $function) {
 			$total++;
-			
 		}
 		foreach($position_card['DataCard']['Industry'] as $industry) {
 			$total++;

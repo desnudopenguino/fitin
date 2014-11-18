@@ -99,6 +99,7 @@ class ApplicantsController extends AppController {
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
 			
 			$positionCard['Results'] = $this->DataCard->compare($applicantCard, $positionCard);
+			$positionCard['Culture'] = $this->Applicant->User->UserCultureAnswer->compareCulture($this->Auth->user('id'),$position['Position']['employer_id']);
 			$positionCards[] = $positionCard;
 		}
 		$this->set('applicant_card', $applicantCard);

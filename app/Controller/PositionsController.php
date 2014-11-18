@@ -3,7 +3,7 @@
 
 class PositionsController extends AppController {
 
-	public $uses = array('Position');
+	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer');
 
 	public function add() {
 		if($this->request->is('post')) {
@@ -91,7 +91,7 @@ class PositionsController extends AppController {
 	
 		$this->Session->write('position_id',$position_id);
 
-		$positionCard = $this->Employer->Position->loadDataCard($position_id);
+		$positionCard = $this->Position->loadDataCard($position_id);
 		
 		$applicants = $this->Applicant->find('all', array(
 			'fields' => array('Applicant.user_id')));
@@ -100,7 +100,7 @@ class PositionsController extends AppController {
 		foreach($applicants as $applicant) {
 			$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
 			$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
-			$applicantCard['Culture'] = $this->Employer->User->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
+			$applicantCard['Culture'] = $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
 			$applicantCards[] = $applicantCard;
 		}
 		

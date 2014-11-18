@@ -96,7 +96,6 @@ class ApplicantsController extends AppController {
 			'fields' => array('Position.id','Position.employer_id')));
 		$positionCards = array();
 		foreach($positions as $position) {
-debug($position);
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
 			
 			$positionCard['Results'] = $this->DataCard->compare($applicantCard, $positionCard);

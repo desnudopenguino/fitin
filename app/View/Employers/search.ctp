@@ -9,7 +9,7 @@
 				'wrapInput' => false,
 				'class' => 'form-control'
 			),
-			'id' => 'createPositionForm'
+			'id' => 'searchPositionForm'
 			)); ?>
 		<fieldset>
 			<?php echo $this->Form->input('Position.id', array(

@@ -28,13 +28,17 @@
 			</div>
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Industry</h3>
-				<?php foreach($project['ProjectIndustry'] as $projectIndustry) { ?>
-					 <p><?php echo $projectIndustry['Industry']['industry_type']; ?></p>
-				<?php } ?>
+				<?php foreach($project['ProjectIndustry'] as $projectIndustry) { 
+					if(!empty($projectIndustry)) {?>
+						 <p><?php echo $projectIndustry['Industry']['industry_type']; ?></p>
+				<?php }
+					} ?>
 				<h3>Functions</h3>
-				<?php foreach($project['ProjectFunction'] as $projectFunction) { ?>
+				<?php foreach($project['ProjectFunction'] as $projectFunction) {
+					if(!empty($projectFunction)) {?>
 					 <p><?php echo $projectFunction['WorkFunction']['function_type']; ?></p>
-				<?php } ?>
+				<?php } 
+					} ?>
 				<h3>Skills</h3>
 				<?php foreach($project['ProjectSkill'] as $projectSkill) {
 					 echo $projectSkill['Skill']['skill_type']; 

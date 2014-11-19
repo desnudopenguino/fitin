@@ -28,13 +28,13 @@
 			</div>
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Industry</h3>
-				<?php foreach($project['ProjectIndustry'] as $projectIndustry) {
-					 echo $projectIndustry['Industry']['industry_type']; 
-				} ?>
+				<?php foreach($project['ProjectIndustry'] as $projectIndustry) { ?>
+					 <p><?php echo $projectIndustry['Industry']['industry_type']; ?></p>
+				<?php } ?>
 				<h3>Functions</h3>
-				<?php foreach($project['ProjectFunction'] as $projectFunction) {
-					 echo $projectFunction['WorkFunction']['function_type']; 
-				} ?>
+				<?php foreach($project['ProjectFunction'] as $projectFunction) { ?>
+					 <p><?php echo $projectFunction['WorkFunction']['function_type']; ?></p>
+				<?php } ?>
 				<h3>Skills</h3>
 				<?php foreach($project['ProjectSkill'] as $projectSkill) {
 					 echo $projectSkill['Skill']['skill_type']; 

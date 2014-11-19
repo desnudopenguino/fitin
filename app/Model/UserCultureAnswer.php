@@ -21,12 +21,16 @@ Class UserCultureAnswer extends AppModel {
 		$applicantCulture = $this->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $applicantId),
+			'contain' => array(
+				'CultureQuestion'),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 
 		$employerCulture = $this->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $employerId),
+			'contain' => array(
+				'CultureQuestion'),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id','CultureQuestion.culture_question_type_id')));
 

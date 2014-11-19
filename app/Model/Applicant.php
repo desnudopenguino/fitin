@@ -26,12 +26,6 @@ Class Applicant extends AppModel {
 		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"
 	);
 
-	public function checkDisplayName() {
-		if(empty($this->data[$this->alias]['display_name'])) {
-			$this->data[$this->alias]['display_name'] = $this->data['User']['email'];
-		} 
-	}
-
 	public function loadDataCard($id = null) {
 		$data = $this->find('first', array(
 			'conditions' => array(
@@ -160,6 +154,24 @@ Class Applicant extends AppModel {
 
 		$total = round($total / 60 / 60 / 24 / 365, 2);
 		return $total;
+	}
+
+	public function findDashboard($id = null) {
+		$dashboard_data = $this->find('first', array(
+			'conditions' => array(
+				'Applicant.user_id' => $id),
+			'contain' => array(
+				'User',
+				'Message',
+				'Application')));
+		$this->checkDisplayName($dashboard_data);
+		return $dashboard_data;
+	}
+
+	public function checkDisplayName($applicant_array) {
+		if(empty($applicant_array['Applicant']['display_name'])) {
+			$applicant_array['Applicant']['display_name'] = $applicant_array['User']['email'];
+		} 
 	}
 }
 ?>

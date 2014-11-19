@@ -119,20 +119,10 @@ class ApplicantsController extends AppController {
 		if(empty($applicant)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-debug($applicant);
 		$this->set('applicant', $this->Applicant->findProfile($applicant['User']['id']));
 
-		if($this->Auth->loggedIn()) {
-			$roleId = $this->Applicant->User->find('first', array(
-				'conditions' => array(
-					'User.id' => $this->Auth->user('id')),
-				'fields' => array(
-					'User.roleId')));
-			$roleId = $roleId['User']['roleId'];
-
-			if($this->Auth->user('roleId') == 1) { //i'm an employer!
-				$this->set('culture', $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id')));
-			}
+		if($this->Auth->loggedIn() && $this->Auth->user('roleId') == 1) {
+			$this->set('culture', $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id')));
 		}
 	}
  }

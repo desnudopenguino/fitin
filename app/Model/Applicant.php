@@ -170,5 +170,20 @@ Class Applicant extends AppModel {
 			$applicant_array['Applicant']['display_name'] = $applicant_array['User']['email'];
 		} 
 	}
+
+	public function findProfile($id = null) {
+		$profile_data = $this->find('first', array(
+			'conditions' => array(
+				'Applicant.user_id' => $id),
+			'contain' => array(
+				'User' => array(
+					'Address',
+					'Phone'),
+				'Project',
+				'Certification',
+				'Education')));
+		$this->checkDisplayName($profile_data);
+		return $profile_data;
+	}
 }
 ?>

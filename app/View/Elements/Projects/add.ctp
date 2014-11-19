@@ -35,26 +35,36 @@
 
 						echo $this->Form->input('ProjectIndustry.0.industry_id', array(
 							'type' => 'select',
-							'label' => 'Industry <button type="button" class="btn btn-success btn-sm addProjectIndustry"><i class="glyphicon glyphicon-plus"></i></button>',
+							'label' => 'Industry',
 							'options' => $industries));
 
 						echo $this->Form->input('ProjectIndustry.1.industry_id', array(
 							'type' => 'select',
 							'label' => false,
-							'style' => 'display: none;',
 							'empty' => 'Select an Industry',
 							'options' => $industries));
 
 						echo $this->Form->input('ProjectIndustry.2.industry_id', array(
 							'type' => 'select',
 							'label' => false,
-							'style' => 'display: none;',
 							'empty' => 'Select an Industry',
 							'options' => $industries));
 
 						echo $this->Form->input('ProjectFunction.0.work_function_id', array(
 							'type' => 'select',
 							'label' => 'Function',
+							'options' => $functions));
+
+						echo $this->Form->input('ProjectFunction.1.function_id', array(
+							'type' => 'select',
+							'label' => false,
+							'empty' => 'Select an Function',
+							'options' => $functions));
+
+						echo $this->Form->input('ProjectFunction.2.function_id', array(
+							'type' => 'select',
+							'label' => false,
+							'empty' => 'Select an Function',
 							'options' => $functions));
 
 						echo $this->Form->input('responsibilities', array(

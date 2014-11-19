@@ -37,9 +37,7 @@ class ApplicantsController extends AppController {
 			'fields' => array(
 				'Industry.id','Industry.industry_type'))));
 
-		$this->set('functions', $this->WorkFunction->find('list', array(
-			'fields' => array(
-				'WorkFunction.id','WorkFunction.function_type'))));
+		$this->set('functions', $this->WorkFunction->findAll());
 
 		$this->set('skills', $this->Skill->find('list', array(
 			'fields' => array(

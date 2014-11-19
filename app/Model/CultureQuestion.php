@@ -9,5 +9,13 @@ Class CultureQuestion extends AppModel {
 
 	public $belongsTo = array(
 		'CultureQuestionType');
+
+	public function findRandom() {
+		return $this->find('first', array(
+			'order' => array('rand()'),
+			'contain' => array(
+				'CulturQuestionAnswer',
+				'UserCultureAnswer')));
+	}
 }
 ?>

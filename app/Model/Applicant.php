@@ -177,7 +177,8 @@ Class Applicant extends AppModel {
 				'Applicant.user_id' => $id),
 			'contain' => array(
 				'User' => array(
-					'Address',
+					'Address' =>array(
+						'State'),
 					'PhoneNumber'),
 				'Project',
 				'Certification',

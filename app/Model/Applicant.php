@@ -182,7 +182,10 @@ Class Applicant extends AppModel {
 					'PhoneNumber'),
 				'Project',
 				'Certification',
-				'Education')));
+				'Education' => array(
+					'Degree',
+					'School',
+					'Industry')));
 		$this->checkDisplayName($profile_data);
 		return $profile_data;
 	}

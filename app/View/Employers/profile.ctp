@@ -10,7 +10,7 @@
 			<?php echo $employer['User']['PhoneNumber']['phone_number']; ?>
 		</p>
 		<p><?php echo $employer['User']['Address']['street']; ?><br>
-			<?php echo $employer['User']['Address']['city']; ?>, <?php echo $employer['User']['Address'['State']['short_name']; ?> <?php echo $employer['User']['Address']['zip']; ?>
+			<?php echo $employer['User']['Address']['city']; ?>, <?php echo $employer['User']['Address']['State']['short_name']; ?> <?php echo $employer['User']['Address']['zip']; ?>
 		</p>
 		<p><?php echo $employer['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",

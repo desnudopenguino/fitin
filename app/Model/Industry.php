@@ -6,5 +6,11 @@ Class Industry extends AppModel {
 		'Education',
 		'ProjectIndustry'
 	);
+
+	public function findAll() {
+		return $this->find('list', array(
+			'fields' => array(
+				'Industry.id', 'Industry.industry_type')));
+	}
 }
 ?>

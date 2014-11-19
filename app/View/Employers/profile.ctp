@@ -7,10 +7,10 @@
 					array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
 		</h2>
 		<p>Phone:
-			<?php echo $phone['PhoneNumber']['phone_number']; ?>
+			<?php echo $employer['User']['PhoneNumber']['phone_number']; ?>
 		</p>
-		<p><?php echo $address['Address']['street']; ?><br>
-			<?php echo $address['Address']['city']; ?>, <?php echo $address['State']['short_name']; ?> <?php echo $address['Address']['zip']; ?>
+		<p><?php echo $employer['User']['Address']['street']; ?><br>
+			<?php echo $employer['User']['Address']['city']; ?>, <?php echo $employer['User']['Address'['State']['short_name']; ?> <?php echo $employer['User']['Address']['zip']; ?>
 		</p>
 		<p><?php echo $employer['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",

@@ -113,8 +113,7 @@ class EmployersController extends AppController {
 		if(empty($employer)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-debug($employer);
-		$this->set('employer', $this->Employer->findProfile($employer['Employer']['user_id']));
+		$this->set('employer', $this->Employer->findProfile($employer['User']['user_id']));
 		if($this->Auth->loggedIn() && $this->Auth->user('roleId') == 2) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
 		}

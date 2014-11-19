@@ -180,7 +180,14 @@ Class Applicant extends AppModel {
 					'Address' =>array(
 						'State'),
 					'PhoneNumber'),
-				'Project',
+				'Project' => array(
+					'Organization',
+					'ProjectIndustry' => array(
+						'Industry'),
+					'ProjectFunction' => array(
+						'WorkFunction'),
+					'ProjectSkill' => array(
+						'Skill')),
 				'Certification',
 				'Education' => array(
 					'Degree',

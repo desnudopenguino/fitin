@@ -119,37 +119,17 @@ class ApplicantsController extends AppController {
 		if(empty($applicant)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-
-		$state = $this->State->find('first', array(
-			'conditions' => array(
-				'State.id' => $applicant['Address']['state_id']),
-			'fields' => 'State.short_name' 
-		));
-		$applicant['Address']['state'] = $state['State']['short_name'];
-		$this->set('applicant', $applicant);
-
-		$this->set('certifications',
-			$this->Applicant->Certification->findApplicantAll($applicant['Applicant']['user_id']));
-
-		$this->set('educations',
-			$this->Applicant->Education->find('all', array(
-				'conditions' => array(
-					'Education.applicant_id' => $applicant['Applicant']['user_id']))));
-
-		$this->set('projects',
-			$this->Applicant->Project->find('all', array(
-				'conditions' => array(
-					'Project.applicant_id' => $applicant['Applicant']['user_id']))));
+		$this->set('applicant', $this->Applicant->findProfile($applicant['id']));
 
 		if($this->Auth->loggedIn()) {
-			$myId = $this->Applicant->User->find('first', array(
+			$roleId = $this->Applicant->User->find('first', array(
 				'conditions' => array(
 					'User.id' => $this->Auth->user('id')),
 				'fields' => array(
 					'User.roleId')));
-			$myId = $myId['User']['roleId'];
+			$roleId = $roleId['User']['roleId'];
 
-			if($myId == 1) { //i'm an employer!
+			if($this->Auth->user('roleId') == 1) { //i'm an employer!
 				$this->set('culture', $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id')));
 			}
 		}

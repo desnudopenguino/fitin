@@ -113,28 +113,9 @@ class EmployersController extends AppController {
 		if(empty($employer)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-
-		$state = $this->State->find('first', array(
-			'conditions' => array(
-				'State.id' => $employer['Address']['state_id']),
-			'fields' => 'State.short_name' ));
-		$employer['Address']['state'] = $state['State']['short_name'];
-		$this->set('employer', $employer);
-
-		$this->set('positions', $this->Employer->Position->find('all', array(
-			'conditions' => array(
-				'Position.employer_id' => $employer['User']['id']))));
-
-		if($this->Auth->loggedIn()) {
-			$myId = $this->Employer->User->find('first', array(
-				'conditions' => array(
-					'User.id' => $this->Auth->user('id')),
-				'fields' => array(
-					'User.roleId')));
-			$myId = $myId['User']['roleId'];
-			if($myId == 2) { //i'm an applicant!
-				$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
-			}
+		$this->set('employer', $this->Employer->findProfile($employer['Employer']['user_id']));
+		if($this->Auth->loggedIn() && $this->Auth->user('roleId') == 2) {
+			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
 		}
 	}
 }

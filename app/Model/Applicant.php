@@ -161,8 +161,8 @@ Class Applicant extends AppModel {
 			'conditions' => array(
 				'Applicant.user_id' => $id),
 			'contain' => array(
-				'User',
-				'Message',
+				'User' => array(
+					'Message'),
 				'Application')));
 		$this->checkDisplayName($dashboard_data);
 		return $dashboard_data;

@@ -24,5 +24,23 @@ Class Employer extends AppModel {
 				'User' => array(
 					'Message'))));
 	}
+
+	public function findProfile($id = null) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'Employer.user_id' => $id),
+			'contain' => array(
+				'User' => array(
+					'Address' => array(
+						'State'),
+					'PhoneNumber'),
+				'Position' => array(
+					'PositionIndustry' => array(
+						'Industry'),
+					'PositionFunction' => array(
+						'WorkFunction'),
+					'PositionSkill' => array(
+						'Skill')))));
+	}
 }
 ?>

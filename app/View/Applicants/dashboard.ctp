@@ -1,3 +1,4 @@
+<?php debug($applicant); ?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2>Welcome, <?php echo $applicant['Applicant']['display_name']; ?></h2>

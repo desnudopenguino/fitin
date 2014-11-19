@@ -33,7 +33,6 @@ Class UserCultureAnswer extends AppModel {
 			$culture[$cultureType['CultureQuestionType']['id']]['percent'] = 0.0;
 		}
 
-debug($employerCulture);
 		foreach($employerCulture as $qkey => $question) {
 			foreach($culture as $cKey => $cval) {
 				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {

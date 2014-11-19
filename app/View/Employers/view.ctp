@@ -4,10 +4,10 @@
 		<div class="well">
 			<h2><?php echo $employer['User']['email']; ?></h2>
 			<p>Phone:
-				<?php echo $employer['PhoneNumber']['phone_number']; ?>
+				<?php echo $employer['User']['PhoneNumber']['phone_number']; ?>
 			</p>
 			<p>
-				<?php echo $employer['Address']['city']; ?>, <?php echo $employer['Address']['state']; ?> <?php echo $employer['Address']['zip']; ?>
+				<?php echo $employer['User']['Address']['city']; ?>, <?php echo $employer['User']['Address']['State']['short_name']; ?> <?php echo $employer['User']['Address']['zip']; ?>
 			</p>
 			<p><?php echo $employer['User']['email']; ?></p>
 		</div>

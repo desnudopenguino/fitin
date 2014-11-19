@@ -17,12 +17,7 @@ class EmployersController extends AppController {
 	}
 
 	function dashboard() {
-		$userId = $this->Auth->user('id');
-		$this->Employer->read(null,$userId);
-		$this->set('employer', $this->Employer->data);
-		$this->set('messages', $this->Employer->User->Message->find('all', array(
-			'conditions' => array(
-				'Message.receiver_id' => $userId))));
+		$this->set('employer', $this->Employer->findDashboard($this->Auth->user('id')));
 	}
 
 	function profile() {

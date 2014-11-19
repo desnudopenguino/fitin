@@ -18,17 +18,7 @@ class ApplicantsController extends AppController {
 
 // Dashboard - logged in page
 	public function dashboard() {
-		$userId = $this->Auth->user('id');
-		$this->Applicant->read(null,$userId);
-		$this->Applicant->checkDisplayName();
-		$this->set('applicant', $this->Applicant->data);
-		$this->set('messages', $this->Applicant->User->Message->find('all', array(
-			'conditions' => array(
-				'Message.receiver_id' => $userId))));
-
-		$this->set('applications', $this->Applicant->Application->find('all', array(
-			'conditions' => array(
-				'Application.applicant_id' => $userId))));
+		$this->set('applicant', $this->Applicant->findDashboard($this->Auth->user('id')));
 	}
 
 // Profile - contains profile data for user, logged in page

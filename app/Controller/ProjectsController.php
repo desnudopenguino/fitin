@@ -3,7 +3,7 @@
 
 class ProjectsController extends AppController {
 
-	public $uses = array('Project','Organization');
+	public $uses = array('Project','Organization','WorkFunction','Industry');
 
 	public function add() {
 		if($this->request->is('post')) {
@@ -39,6 +39,8 @@ class ProjectsController extends AppController {
 				)));
 			}
 		}
+		$this->set('functions', $this->WorkFunction->findAll());
+		$this->set('industries', $this->Industry->findAll());
 		if ($this->request->is('ajax')) {
 //remove the flash message if it is ajax. 
 			$this->Session->delete('Message.flash');

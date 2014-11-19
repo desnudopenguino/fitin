@@ -63,8 +63,8 @@ class AppController extends Controller {
 
 
 	public function beforeFilter() {
-		$this->Security->blackHoleCallback = 'forceSSL'; // commented out because hopefully apache redirects now
 		$this->Security->requireSecure(); 
+		$this->Security->blackHoleCallback = 'forceSSL'; // commented out because hopefully apache redirects now
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 	}
 	public function beforeRender() { 

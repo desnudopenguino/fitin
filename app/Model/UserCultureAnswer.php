@@ -73,7 +73,9 @@ debug($employerCulture);
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $user_id),
 			'contain' => array(
-				'CultureQuestion'),
+				'CultureQuestion' => array(
+					'fields' => array(
+						'CultureQuestion.culture_question_type_id'))),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 	}

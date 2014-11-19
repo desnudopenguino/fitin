@@ -1,12 +1,13 @@
+<?php debug($applicant); ?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">
 			<h2><?php echo $applicant['display_name']; ?></h2>
 			<p>Phone:
-				<?php echo $applicant['PhoneNumber']['phone_number']; ?>
+				<?php echo $applicant['User']['PhoneNumber']['phone_number']; ?>
 			</p>
 			<p>
-				<?php echo $applicant['Address']['city']; ?>, <?php echo $applicant['Address']['state']; ?> <?php echo $applicant['Address']['zip']; ?>
+				<?php echo $applicant['User']['Address']['city']; ?>, <?php echo $applicant['User']['Address']['State']['short_name']; ?> <?php echo $applicant['User']['Address']['zip']; ?>
 			</p>
 			<p><?php echo $applicant['User']['email']; ?></p>
 		</div>

@@ -1,16 +1,16 @@
-<div id="project_<?php echo $project['Project']['id']; ?>" class="panel panel-default">
+<div id="project_<?php echo $project['id']; ?>" class="panel panel-default">
 	<div class="panel-heading">
 		<div class="panel-title">
-			<?php echo $project['Project']['title']; ?> at
+			<?php echo $project['title']; ?> at
 			<?php echo $project['Organization']['organization_name']; ?>
 			<span class="smaller pull-right">
-				<?php echo $project['Project']['start_date']; ?> - 
-				<?php echo $project['Project']['end_date']; ?>
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProjectModal_<?php echo $project['Project']['id']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
+				<?php echo $project['start_date']; ?> - 
+				<?php echo $project['end_date']; ?>
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProjectModal_<?php echo $project['id']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
 				<?php echo $this->Form->create('Project', array(
-						'url' => '/projects/delete/'. $project['Project']['id'],
+						'url' => '/projects/delete/'. $project['id'],
 						'method' => 'post',
-						'id' => 'deleteProject_'. $project['Project']['id'],
+						'id' => 'deleteProject_'. $project['id'],
 						'style' => 'display: inline;'
 					));
 					echo $this->Form->button('<i class="glyphicon glyphicon-trash"></i>', array(
@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Responsibilities</h3>
-				<p><?php echo $project['Project']['responsibilities']; ?></p>
+				<p><?php echo $project['responsibilities']; ?></p>
 			</div>
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Industry</h3>

@@ -55,16 +55,16 @@
 							'label' => 'Function',
 							'options' => $functions));
 
-						echo $this->Form->input('ProjectFunction.1.function_id', array(
+						echo $this->Form->input('ProjectFunction.1.work_function_id', array(
 							'type' => 'select',
 							'label' => false,
-							'empty' => 'Select an Function',
+							'empty' => 'Select a Function',
 							'options' => $functions));
 
-						echo $this->Form->input('ProjectFunction.2.function_id', array(
+						echo $this->Form->input('ProjectFunction.2.work_function_id', array(
 							'type' => 'select',
 							'label' => false,
-							'empty' => 'Select an Function',
+							'empty' => 'Select a Function',
 							'options' => $functions));
 
 						echo $this->Form->input('responsibilities', array(

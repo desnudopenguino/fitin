@@ -57,8 +57,5 @@
 				<?php echo $this->fetch('content'); ?>
 		</div>
 	<?php echo $this->element('footer'); //footer code ?>
-	<?php
-		echo $this->Html->script(array("https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"));
-		echo $this->Html->css(array("https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css")); ?>
 </body>
 </html>

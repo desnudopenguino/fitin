@@ -1,3 +1,4 @@
+<?php debug($certification); ?>
 <tr>
 	<td><?php echo $certification['certification_name']; ?></td>
 	<td><?php echo $certification['organization']; ?></td>

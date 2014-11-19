@@ -6,23 +6,23 @@
 		<div class="panel-body">
 			<?php foreach($positions as $position) { 
 				$this->set('position', $position); ?>
-			<div id="position_<?php echo $position['Position']['id']; ?>" class="panel panel-default">
+			<div id="position_<?php echo $position['id']; ?>" class="panel panel-default">
 				<div class="panel-heading">
 					<div class="panel-title">
-						<?php echo $position['Position']['title']; ?>
+						<?php echo $position['title']; ?>
 					</div>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-5 col-md-offset-1">
 							<h3>Responsibilities</h3>
-							<p><?php echo $position['Position']['responsibilities']; ?></p>
+							<p><?php echo $position['responsibilities']; ?></p>
 						</div>
 						<div class="col-md-5 col-md-offset-1">
 							<h3>Experience</h3>
 								<p>
-									<?php echo $position['Position']['min_work_experience']; ?> to
-									<?php echo $position['Position']['max_work_experience']; ?> years of experience
+									<?php echo $position['min_work_experience']; ?> to
+									<?php echo $position['max_work_experience']; ?> years of experience
 								</p>
 							<h3>Industry</h3>
 							<?php  foreach($position['PositionIndustry'] as $positionIndustry) {

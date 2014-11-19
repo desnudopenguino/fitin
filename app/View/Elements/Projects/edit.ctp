@@ -1,4 +1,4 @@
-<div class="modal fade" id="editProjectModal_<?php echo $project['Project']['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editProjectLabel" aria-hidden="true">
+<div class="modal fade" id="editProjectModal_<?php echo $project['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editProjectLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

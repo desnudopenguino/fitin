@@ -17,8 +17,8 @@
 					<td><?php echo $education['Degree']['degree_type']; ?></td>
 					<td><?php echo $education['Industry']['industry_type']; ?></td>
 					<td><?php echo $education['School']['school_name']; ?></td>
-					<td><?php echo $education['Education']['graduation_date']; ?></td>
-					<td><?php echo $education['Education']['gpa']; ?></td>
+					<td><?php echo $education['graduation_date']; ?></td>
+					<td><?php echo $education['gpa']; ?></td>
 				</tr> 
 				<?php } ?>
 			</table>

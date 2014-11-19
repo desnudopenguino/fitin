@@ -1,4 +1,4 @@
-<?php debug($applicant); 
+<?php 
 	$this->set('projects', $applicant['Project']);
 	$this->set('educations', $applicant['Education']);
 	$this->set('certifications', $applicant['Certification']);

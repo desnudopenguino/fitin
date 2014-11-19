@@ -22,9 +22,7 @@ Class Employer extends AppModel {
 				'Employer.user_id' => $id),
 			'contain' => array(
 				'User' => array(
-					'Message'),
-				'Position' => array(
-					'Application')))); 
+					'Message'))));
 	}
 }
 ?>

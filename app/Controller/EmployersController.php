@@ -21,23 +21,7 @@ class EmployersController extends AppController {
 	}
 
 	function profile() {
-		$userId = $this->Auth->user('id');
-		$this->Employer->read(null,$userId);
-		$this->set('employer', $this->Employer->data);
-
-		$this->set('address',
-			$this->Employer->User->Address->find('first', array(
-				'conditions' => array(
-					'Address.user_id' => $userId))));
-
-		$this->set('phone',
-			$this->Employer->User->PhoneNumber->find('first', array(
-				'conditions' => array(
-					'PhoneNumber.user_id' => $userId))));
-
-		$this->set('positions', $this->Employer->Position->find('all', array(
-			'conditions' => array(
-				'Position.employer_id' => $this->Auth->user('id')))));
+		$this->set('employer', $this->Employer->findProfile($this->Auth->user('id')));
 
 		$this->set('industries', $this->Industry->find('list', array(
 			'fields' => array(

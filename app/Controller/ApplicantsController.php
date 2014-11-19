@@ -115,14 +115,14 @@ class ApplicantsController extends AppController {
 
 // View - publice view of applicant data
 	public function view($url = null) {
-		$applicant = $this->Applicant->User->findByUrl($url);
-		if(empty($applicant)) {
+		$user = $this->Applicant->User->findByUrl($url);
+		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		$this->set('applicant', $this->Applicant->findProfile($applicant['User']['id']));
+		$this->set('applicant', $this->Applicant->findProfile($user['User']['id']));
 
 		if($this->Auth->loggedIn() && $this->Auth->user('roleId') == 1) {
-			$this->set('culture', $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id')));
+			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['user_id'],$this->Auth->user('id')));
 		}
 	}
  }

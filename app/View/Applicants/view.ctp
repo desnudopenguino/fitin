@@ -1,7 +1,7 @@
 <?php debug($applicant);
-	$this->set('projects', $applicant['Project'];
-	$this->set('educations', $applicant['Education'];
-	$this->set('certifications', $applicant['Certification'];?>
+	$this->set('projects', $applicant['Project']);
+	$this->set('educations', $applicant['Education']);
+	$this->set('certifications', $applicant['Certification']);?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">

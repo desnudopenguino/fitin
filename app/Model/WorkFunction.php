@@ -6,5 +6,11 @@ Class WorkFunction extends AppModel {
 		'ProjectFunction',
 		'PositionFunction'
 	);
+
+	public function findAll() {
+		return $this->find('list', array(
+			'fields' => array(
+				'WorkFunction.id', 'WorkFunction.function_type')));
+	}
 }
 ?>

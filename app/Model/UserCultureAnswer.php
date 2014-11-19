@@ -13,26 +13,14 @@ Class UserCultureAnswer extends AppModel {
 	}
 
 //function that compares the culture, applicant id goes first, then employer id. this will return an array with the final stats (total # questions, matched # questions, and average in %)
-	public function compareCulture($applicantId, $employerId) {
+	public function compareCulture($applicant_id, $employer_id) {
 		$cultureTypes = $this->CultureQuestion->CultureQuestionType->find('all', array(
 			'fields' => array(
 				'CultureQuestionType.id','CultureQuestionType.question_type')));
 
-		$applicantCulture = $this->find('all', array(
-			'conditions' => array(
-				'UserCultureAnswer.user_id' => $applicantId),
-			'contain' => array(
-				'CultureQuestion'),
-			'fields' => array(
-				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
+		$applicantCulture = $this->findUserAnswers($applicant_id);
 
-		$employerCulture = $this->find('all', array(
-			'conditions' => array(
-				'UserCultureAnswer.user_id' => $employerId),
-			'contain' => array(
-				'CultureQuestion'),
-			'fields' => array(
-				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id','CultureQuestion.culture_question_type_id')));
+		$employerCulture = $this->findUserAnswers($employer_id);
 
 		$count = 0;
 		$culture = array();
@@ -77,6 +65,16 @@ Class UserCultureAnswer extends AppModel {
 		$culture['percent'] = $percent;
 
 		return $culture;
+	}
+
+	public function findUserAnswers($user_id = null) {
+		return $this->find('all', array(
+			'conditions' => array(
+				'UserCultureAnswer.user_id' => $user_id),
+			'contain' => array(
+				'CultureQuestion'),
+			'fields' => array(
+				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 	}
 }
 ?>

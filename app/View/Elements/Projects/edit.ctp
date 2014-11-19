@@ -37,23 +37,29 @@
 							'type' => 'text',
 							'value' => $project['Project']['end_date']));
 
-						echo $this->Form->input('ProjectIndustry.0.id', array(
-							'value' => $project['ProjectIndustry'][0]['id']));
+						foreach($project['ProjectIndustry'] as $pKey => $industry) {
+							echo $this->Form->input('ProjectIndustry.'.$pKey.'.id', array(
+								'value' => $project['ProjectIndustry'][$pKey]['id']));
+						
+							echo $this->Form->input('ProjectIndustry.'.$pKey.'.industry_id', array(
+								'type' => 'select',
+								'label' => 'Industry',
+								'empty' => 'Select an Industry',
+								'options' => $industries,
+								'value' => $project['ProjectIndustry'][$pKey]['industry_id']));
+						}
 
-						echo $this->Form->input('ProjectIndustry.0.industry_id', array(
-							'type' => 'select',
-							'label' => 'Industry',
-							'options' => $industries,
-							'value' => $project['ProjectIndustry'][0]['industry_id']));
+						foreach($project['ProjectFunction'] as $pKey => $function) {
+							echo $this->Form->input('ProjectFunction.'.$pKey.'.id', array(
+								'value' => $project['ProjectFunction'][$pKey]['id']));
 
-						echo $this->Form->input('ProjectFunction.0.id', array(
-							'value' => $project['ProjectFunction'][0]['id']));
-
-						echo $this->Form->input('ProjectFunction.0.work_function_id', array(
-							'type' => 'select',
-							'label' => 'Function',
-							'options' => $functions,
-							'value' => $project['ProjectFunction'][0]['work_function_id']));
+							echo $this->Form->input('ProjectFunction.'.$pKey.'.work_function_id', array(
+								'type' => 'select',
+								'label' => 'Function',
+								'empty' => 'Select an Function',
+								'options' => $functions,
+								'value' => $project['ProjectFunction'][$pKey]['work_function_id']));
+						}
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',

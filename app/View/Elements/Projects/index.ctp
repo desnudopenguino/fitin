@@ -7,16 +7,16 @@
 			<?php foreach($projects as $project) { 
 				$this->set('project', $project); ?>
 			<div class="well">
-				<?php echo $project['Project']['title']; ?> at
+				<?php echo $project['title']; ?> at
 				<?php echo $project['Organization']['organization_name']; ?>
 				<span class="smaller pull-right">
-					<?php echo $project['Project']['start_date']; ?> - 
-					<?php echo $project['Project']['end_date']; ?>
+					<?php echo $project['start_date']; ?> - 
+					<?php echo $project['end_date']; ?>
 				</span>
 				<div class="row">
 					<div class="col-md-5 col-md-offset-1">
 						<h3>Responsibilities</h3>
-						<p><?php echo $project['Project']['responsibilities']; ?></p>
+						<p><?php echo $project['responsibilities']; ?></p>
 					</div>
 					<div class="col-md-5 col-md-offset-1">
 						<h3>Industry</h3>

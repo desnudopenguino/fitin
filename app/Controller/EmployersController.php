@@ -109,13 +109,13 @@ class EmployersController extends AppController {
 
 // View - public view of employer data
 	public function view($url = null) {
-		$employer = $this->Employer->User->findByUrl($url);
-		if(empty($employer)) {
+		$user = $this->Employer->User->findByUrl($url);
+		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		$this->set('employer', $this->Employer->findProfile($employer['User']['id']));
+		$this->set('employer', $this->Employer->findProfile($user['User']['id']));
 		if($this->Auth->loggedIn() && $this->Auth->user('roleId') == 2) {
-			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$employer['User']['id']));
+			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));
 		}
 	}
 }

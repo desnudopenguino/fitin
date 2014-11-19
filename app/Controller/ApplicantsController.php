@@ -122,7 +122,7 @@ class ApplicantsController extends AppController {
 		$this->set('applicant', $this->Applicant->findProfile($user['User']['id']));
 
 		if($this->Auth->loggedIn() && $this->Auth->user('roleId') == 1) {
-			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['user_id'],$this->Auth->user('id')));
+			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));
 		}
 	}
  }

@@ -120,7 +120,7 @@ class ApplicantsController extends AppController {
 			throw new NotFoundException(__('Invalid User'));
 		}
 debug($applicant);
-		$this->set('applicant', $this->Applicant->findProfile($applicant['user_id']));
+		$this->set('applicant', $this->Applicant->findProfile($applicant['User']['id']));
 
 		if($this->Auth->loggedIn()) {
 			$roleId = $this->Applicant->User->find('first', array(

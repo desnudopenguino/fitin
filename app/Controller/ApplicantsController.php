@@ -119,6 +119,7 @@ class ApplicantsController extends AppController {
 		if(empty($applicant)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
+debug($applicant);
 		$this->set('applicant', $this->Applicant->findProfile($applicant['id']));
 
 		if($this->Auth->loggedIn()) {

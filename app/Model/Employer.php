@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 
 Class Employer extends AppModel {
 
+
 	public $belongsTo = array(
 		'User','Organization' );
 
@@ -15,5 +16,15 @@ Class Employer extends AppModel {
 		'Position'
 		);
 
+	public function findDashboard($id = null) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'Employer.user_id' => $id),
+			'contain' => array(
+				'User' => array(
+					'Message'),
+				'Position' => array(
+					'Application')))); 
+	}
 }
 ?>

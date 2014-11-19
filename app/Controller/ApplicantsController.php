@@ -23,42 +23,15 @@ class ApplicantsController extends AppController {
 
 // Profile - contains profile data for user, logged in page
 	public function profile() {
-		$userId = $this->Auth->user('id');
-		$this->Applicant->read(null, $userId);
-		$this->Applicant->checkDisplayName();	
-
-		$this->set('applicant', 
-			$this->Applicant->data);
-
-		$this->set('address',
-			$this->Applicant->User->Address->find('first', array(
-				'conditions' => array(
-					'Address.user_id' => $userId))));
-
-		$this->set('phone',
-			$this->Applicant->User->PhoneNumber->find('first', array(
-				'conditions' => array(
-					'PhoneNumber.user_id' => $userId))));
-
-		$this->set('certifications',
-			$this->Applicant->Certification->findApplicantAll($userId));
+		$this->set('applicant', $this->Applicant->findProfile($this->Auth->user('id')));
 
 		$this->set('degrees', $this->Degree->find('list',array(
 			'fields' => array(
 				'Degree.id', 'Degree.degree_type'))));
+
 		$this->set('concentrations', $this->Industry->find('list', array(
 			'fields' => array(
 				'Industry.id','Industry.industry_type'))));
-
-		$this->set('educations',
-			$this->Applicant->Education->find('all', array(
-				'conditions' => array(
-					'Education.applicant_id' => $userId))));
-
-		$this->set('projects',
-			$this->Applicant->Project->find('all', array(
-				'conditions' => array(
-					'Project.applicant_id' => $userId))));
 
 		$this->set('industries', $this->Industry->find('list', array(
 			'fields' => array(

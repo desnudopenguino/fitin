@@ -7,7 +7,7 @@ Class Organization extends AppModel {
 	public $hasMany = array('Project');
 
 	public function findByName($organization_name) {
-		return $this->find('first' array(
+		return $this->find('first', array(
 			'conditions' => array(
 				'Organization.organization_name' => $organization_name)));
 	}

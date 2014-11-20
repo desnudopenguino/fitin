@@ -8,7 +8,7 @@ class ProjectsController extends AppController {
 	public function add() {
 		if($this->request->is('post')) {
 //create/get organization
-			$organization = $this->Organization->checkAndCreate($this->request->data);
+			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
 //add organization id to the project data
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			unset($this->request->data['Organization']);

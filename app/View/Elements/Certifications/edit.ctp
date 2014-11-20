@@ -1,4 +1,4 @@
-<div class="modal fade" id="editCertificationModal_<?php echo $certification['Certification']['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editCertificationLabel_<?php echo $certification['Certification']['id']; ?>" aria-hidden="true">
+<div class="modal fade" id="editCertificationModal_<?php echo $certification['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editCertificationLabel_<?php echo $certification['Certification']['id']; ?>" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

@@ -1,4 +1,4 @@
-<div class="modal fade" id="editEducationModal_<?php echo $education['Education']['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editEducationLabel" aria-hidden="true">
+<div class="modal fade" id="editEducationModal_<?php echo $education['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editEducationLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,14 +7,14 @@
       </div>
 			<?php 
 				echo $this->Form->create('Education',array(
-					'url' => '/educations/edit/'. $education['Education']['id'],
+					'url' => '/educations/edit/'. $education['id'],
 					'method' => 'post',
 					'inputDefaults' => array(
 						'div' => 'form-group',
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'id' => 'editEducationForm_'. $education['Education']['id']
+					'id' => 'editEducationForm_'. $education['id']
 				)); ?>
       <div class="modal-body">
 				<fieldset>
@@ -23,12 +23,12 @@
 							'type' => 'select',
 							'label' => 'Degree',
 							'options' => $degrees,
-							'value' => $education['Education']['degree_id']));
+							'value' => $education['degree_id']));
 						echo $this->Form->input('industry_id', array(
 							'type' => 'select',
 							'label' => 'Concentration',
 							'options' => $concentrations,
-							'value' => $education['Education']['industry_id']));
+							'value' => $education['industry_id']));
 						echo $this->Form->input('School.school_name', array(
 							'type' => 'text',
 							'label' => 'School',
@@ -36,10 +36,10 @@
 						echo $this->Form->input('graduation_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',
-							'value' => $education['Education']['graduation_date'])); 
+							'value' => $education['graduation_date'])); 
 						echo $this->Form->input('gpa', array(
 							'type' => 'text',
-							'value' => $education['Education']['gpa'])); ?>
+							'value' => $education['gpa'])); ?>
 				</fieldset>
       </div>
       <div class="modal-footer">

@@ -157,12 +157,11 @@ Class Applicant extends AppModel {
 	public function findDashboard($id = null) {
 		$dashboard_data = $this->find('first', array(
 			'conditions' => array(
-				'Applicant.user_id' => $id),
+				'Applicant.user_id' => $id, 'Message.receiver_id' => $id),
 			'contain' => array(
 				'User' => array(
-					'Message' => array(
-						'conditions' array(
-							'Message.receiver_id' => $id))))));
+					'Message'
+							))));
 		$this->checkDisplayName($dashboard_data);
 		return $dashboard_data;
 	}

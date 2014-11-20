@@ -62,6 +62,6 @@ $(document).on('click','.addPositionIndustry', function() {
 //call to add item to functions
 var function_counter = 1;
 $(document).on('click','.addPositionFunction', function() {
-	$('#PositionFunction'+function_counter+'FunctionId').show();
+	$('#PositionFunction'+function_counter+'WorkFunctionId').show();
 	function_counter++;
 });

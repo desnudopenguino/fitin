@@ -63,8 +63,6 @@ class ProjectsController extends AppController {
 
 	public function edit($id = null) {
 		$this->Project->read(null,$id);
-debug($this->Project->data);
-
 		if(!$this->Project->exists()) {
 			throw new NotFoundException(__('Invalid Project'));
 		}
@@ -83,7 +81,6 @@ debug($this->Project->data);
 							'Organization.id' => $this->Organization->getLastInsertId())));
 				}
 				$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
-debug($this->request->data);
 				if($this->Project->saveAll($this->request->data)) {
 					if($this->request->is('ajax')) {
 						$this->disableCache();

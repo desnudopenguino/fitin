@@ -7,33 +7,33 @@
       </div>
 			<?php 
 				echo $this->Form->create('Position',array(
-					'url' => '/positions/edit/'. $position['Position']['id'],
+					'url' => '/positions/edit/'. $position['id'],
 					'method' => 'post',
 					'inputDefaults' => array(
 						'div' => 'form-group',
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'id' => 'editPositionForm_'. $position['Position']['id']
+					'id' => 'editPositionForm_'. $position['id']
 				)); ?>
       <div class="modal-body">
 				<fieldset>
 					<?php 
 						echo $this->Form->input('Position.id', array(
-							'value' => $position['Position']['id']));
+							'value' => $position['id']));
 
 						echo $this->Form->input('title', array(
 							'type' => 'text',
-							'value' => $position['Position']['title']));
+							'value' => $position['title']));
 
 						echo $this->Form->input('min_work_experience', array(
 							'type' => 'text',
-							'value' => $position['Position']['min_work_experience'],
+							'value' => $position['min_work_experience'],
 							'label' => 'Minimum years of experience'));
 
 						echo $this->Form->input('max_work_experience', array(
 							'type' => 'text',
-							'value' => $position['Position']['max_work_experience'],
+							'value' => $position['max_work_experience'],
 							'label' => 'Maximum years of experience'));
 
 						echo $this->Form->input('PositionIndustry.0.id', array(
@@ -92,7 +92,7 @@
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
-							'value' => $position['Position']['responsibilities']));
+							'value' => $position['responsibilities']));
 						?>
 				</fieldset>
       </div>

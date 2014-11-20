@@ -22,7 +22,9 @@ Class Employer extends AppModel {
 				'Employer.user_id' => $id),
 			'contain' => array(
 				'User' => array(
-					'Message'))));
+					'Message' => array(
+						'conditions' => array(
+							'Message.receiver_id' => $id))))));
 	}
 
 	public function findProfile($id = null) {

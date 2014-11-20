@@ -45,6 +45,24 @@
 							'options' => $industries,
 							'value' => $position['PositionIndustry'][0]['industry_id']));
 
+						echo $this->Form->input('PositionIndustry.1.id', array(
+							'value' => $position['PositionIndustry'][1]['id']));
+
+						echo $this->Form->input('PositionIndustry.1.industry_id', array(
+							'type' => 'select',
+							'label' => 'Industry',
+							'options' => $industries,
+							'value' => $position['PositionIndustry'][1]['industry_id']));
+
+						echo $this->Form->input('PositionIndustry.2.id', array(
+							'value' => $position['PositionIndustry'][2]['id']));
+
+						echo $this->Form->input('PositionIndustry.2.industry_id', array(
+							'type' => 'select',
+							'label' => 'Industry',
+							'options' => $industries,
+							'value' => $position['PositionIndustry'][2]['industry_id']));
+
 						echo $this->Form->input('PositionFunction.0.id', array(
 							'value' => $position['PositionFunction'][0]['id']));
 
@@ -53,6 +71,24 @@
 							'label' => 'Function',
 							'options' => $functions,
 							'value' => $position['PositionFunction'][0]['work_function_id']));
+
+						echo $this->Form->input('PositionFunction.1.id', array(
+							'value' => $position['PositionFunction'][1]['id']));
+
+						echo $this->Form->input('PositionFunction.1.work_function_id', array(
+							'type' => 'select',
+							'label' => 'Function',
+							'options' => $functions,
+							'value' => $position['PositionFunction'][1]['work_function_id']));
+
+						echo $this->Form->input('PositionFunction.2.id', array(
+							'value' => $position['PositionFunction'][2]['id']));
+
+						echo $this->Form->input('PositionFunction.2.work_function_id', array(
+							'type' => 'select',
+							'label' => 'Function',
+							'options' => $functions,
+							'value' => $position['PositionFunction'][2]['work_function_id']));
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',

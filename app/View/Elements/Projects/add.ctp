@@ -28,9 +28,11 @@
 							'label' => 'Company'));
 		
 						echo $this->Form->input('start_date', array(
+							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text'));
 
 						echo $this->Form->input('end_date', array(
+							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text'));
 
 						echo $this->Form->input('ProjectIndustry.0.industry_id', array(

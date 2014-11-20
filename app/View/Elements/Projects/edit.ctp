@@ -31,10 +31,12 @@
 		
 						echo $this->Form->input('start_date', array(
 							'type' => 'text',
+							'placeholder' => 'ex: 2000-01-01',
 							'value' => $project['Project']['start_date']));
 
 						echo $this->Form->input('end_date', array(
 							'type' => 'text',
+							'placeholder' => 'ex: 2000-01-01',
 							'value' => $project['Project']['end_date']));
 
 						foreach($project['ProjectIndustry'] as $pKey => $industry) {

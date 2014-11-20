@@ -3,8 +3,6 @@ App::uses('AppModel', 'Model');
 
 Class Education extends AppModel {
 
-	public $actsAs = array('Containable');
-
 	public $belongsTo = array(
 		'Applicant','Degree','School','Industry'
 	);

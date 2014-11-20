@@ -35,6 +35,7 @@
 							'value' => $education['School']['school_name']));
 						echo $this->Form->input('graduation_date', array(
 							'type' => 'text',
+							'placeholder' => 'ex: 2000-01-01',
 							'value' => $education['Education']['graduation_date'])); 
 						echo $this->Form->input('gpa', array(
 							'type' => 'text',

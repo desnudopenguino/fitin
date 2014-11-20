@@ -31,6 +31,7 @@
 							'type' => 'text',
 							'label' => 'School'));
 						echo $this->Form->input('graduation_date', array(
+							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text')); 
 						echo $this->Form->input('gpa', array(
 							'type' => 'text')); ?>

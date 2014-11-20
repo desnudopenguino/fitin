@@ -1,4 +1,4 @@
-<div class="modal fade" id="editCertificationModal_<?php echo $certification['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editCertificationLabel_<?php echo $certification['Certification']['id']; ?>" aria-hidden="true">
+<div class="modal fade" id="editCertificationModal_<?php echo $certification['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editCertificationLabel_<?php echo $certification['id']; ?>" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,14 +7,14 @@
       </div>
 			<?php 
 				echo $this->Form->create('Certification',array(
-					'url' => '/certifications/edit/'. $certification['Certification']['id'],
+					'url' => '/certifications/edit/'. $certification['id'],
 					'method' => 'post',
 					'inputDefaults' => array(
 						'div' => 'form-group',
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'id' => 'editCertificationForm_'. $certification['Certification']['id']
+					'id' => 'editCertificationForm_'. $certification['id']
 				)); ?>
       <div class="modal-body">
 				<fieldset>
@@ -22,18 +22,18 @@
 						echo $this->Form->input('certification_name', array(
 							'type' => 'text',
 							'label' => 'Name',
-							'value' => $certification['Certification']['certification_name']));
+							'value' => $certification['certification_name']));
 						echo $this->Form->input('organization', array(
 							'type' => 'text',
-							'value' => $certification['Certification']['organization']));
+							'value' => $certification['organization']));
 						echo $this->Form->input('earned_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',
-							'value' => $certification['Certification']['earned_date']));
+							'value' => $certification['earned_date']));
 						echo $this->Form->input('expiration_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',
-							'value' => $certification['Certification']['expiration_date'])); ?>
+							'value' => $certification['expiration_date'])); ?>
 				</fieldset>
       </div>
       <div class="modal-footer">

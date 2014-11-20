@@ -28,9 +28,11 @@
 							'value' => $certification['Certification']['organization']));
 						echo $this->Form->input('earned_date', array(
 							'type' => 'text',
+							'placeholder' => 'ex: 2000-01-01',
 							'value' => $certification['Certification']['earned_date']));
 						echo $this->Form->input('expiration_date', array(
 							'type' => 'text',
+							'placeholder' => 'ex: 2000-01-01',
 							'value' => $certification['Certification']['expiration_date'])); ?>
 				</fieldset>
       </div>

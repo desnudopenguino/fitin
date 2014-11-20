@@ -25,8 +25,10 @@
 						echo $this->Form->input('organization', array(
 							'type' => 'text'));
 						echo $this->Form->input('earned_date', array(
+							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text'));
 						echo $this->Form->input('expiration_date', array(
+							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text')); ?>
 				</fieldset>
       </div>

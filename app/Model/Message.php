@@ -21,13 +21,13 @@ Class Message extends AppModel {
 
 	public function findReceived($user_id) {
 		return $this->find('all', array(
-			'condition' => array(
+			'conditions' => array(
 				'Message.receiver_id' => $user_id)));
 	}
 
 	public function findSent($user_id) {
 		return $this->find('all', array(
-			'condition' => array(
+			'conditions' => array(
 				'Message.sender_id' => $user_id)));
 	}
 }

@@ -18,5 +18,17 @@ Class Message extends AppModel {
 		$this->data[$this->alias]['sender_id'] = AuthComponent::user('id');
 		return true;
 	}
+
+	public function findReceived($user_id) {
+		return $this->find('all', array(
+			'condition' => array(
+				'Message.receiver_id' => $user_id)));
+	}
+
+	public function findSent($user_id) {
+		return $this->find('all', array(
+			'condition' => array(
+				'Message.sender_id' => $user_id)));
+	}
 }
 ?>

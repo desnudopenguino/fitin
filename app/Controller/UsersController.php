@@ -11,8 +11,7 @@ class UsersController extends AppController {
 //index
     public function index() {
 			if($this->Auth->user('roleId') == 0) {
-        $this->User->recursive = 0;
-				$this->set('users', $this->paginate());
+				$this->set('users', $this->User->find('all'));
 			} else {
 				throw new NotFoundException("Not Found");
 			}

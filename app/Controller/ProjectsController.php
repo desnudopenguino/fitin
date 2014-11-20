@@ -8,17 +8,7 @@ class ProjectsController extends AppController {
 	public function add() {
 		if($this->request->is('post')) {
 //create/get organization
-			if($organization = $this->Organization->find('first', array(
-				'conditions' => array(
-					'Organization.organization_name' => $this->request->data['Organization']['organization_name'])))) {
-			} else {
-				$this->Organization->create();
-				$this->request->data['Organization']['organization_type_id'] = 1;
-				$this->Organization->save($this->request->data['Organization']);
-				$organization = $this->Organization->find('first', array(
-					'conditions' => array(
-						'Organization.id' => $this->Organization->getLastInsertId())));
-			}
+			$organization = $this->Organization->checkAndCreate($this->request->data);
 //add organization id to the project data
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			$this->Project->create();

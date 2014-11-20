@@ -1,4 +1,4 @@
-<div class="modal fade" id="editPositionModal_<?php echo $position['Position']['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editPositionLabel" aria-hidden="true">
+<div class="modal fade" id="editPositionModal_<?php echo $position['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editPositionLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

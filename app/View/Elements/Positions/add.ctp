@@ -52,7 +52,21 @@
 
 						echo $this->Form->input('PositionFunction.0.work_function_id', array(
 							'type' => 'select',
-							'label' => 'Function',
+							'label' => 'Function <button type="button" class="btn btn-success btn-sm addPositionFunction"><i class="glyphicon glyphicon-plus"></i></button>',
+							'options' => $functions));
+
+						echo $this->Form->input('PositionFunction.1.function_id', array(
+							'type' => 'select',
+							'label' => false,
+							'style' => 'display: none;',
+							'empty' => 'Select a Function',
+							'options' => $functions));
+
+						echo $this->Form->input('PositionFunction.2.function_id', array(
+							'type' => 'select',
+							'label' => false,
+							'style' => 'display: none;',
+							'empty' => 'Select a Function',
 							'options' => $functions));
 
 						echo $this->Form->input('responsibilities', array(

@@ -15,7 +15,8 @@ Class CultureQuestion extends AppModel {
 			'order' => array('rand()'),
 			'contain' => array(
 				'CultureQuestionAnswer',
-				'UserCultureAnswer')));
+				'UserCultureAnswer'
+					)));
 	}
 }
 ?>

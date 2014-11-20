@@ -3,8 +3,6 @@ App::uses('AppModel', 'Model');
 
 Class Position extends AppModel {
 
-	public $actsAs = array('Containable');
-
 	public $belongsTo = array(
 		'Employer'
 	);

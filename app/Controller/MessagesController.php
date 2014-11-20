@@ -28,10 +28,8 @@ class MessagesController extends AppController {
 
 //loads all of the messages for a user
 	public function inbox() {
-debug($this->Auth->user);
-		$this->set('messages',$this->Message->find('all', array(
-			'condition' => array(
-				'Message.receiver_id' => $this->Auth->user('id')))));
+debug($this->Auth->user('id'));
+		$this->set('messages',$this->Message->findReceived($this->Auth->user('id')));
 		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}

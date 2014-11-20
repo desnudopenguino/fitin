@@ -58,3 +58,10 @@ $(document).on('click','.addPositionIndustry', function() {
 	$('#PositionIndustry'+industry_counter+'IndustryId').show();
 	industry_counter++;
 });
+
+//call to add item to functions
+var function_counter = 1;
+$(document).on('click','.addPositionFunction', function() {
+	$('#PositionFunction'+function_counter+'FunctionId').show();
+	function_counter++;
+});

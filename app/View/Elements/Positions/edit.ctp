@@ -50,7 +50,7 @@
 
 						echo $this->Form->input('PositionIndustry.1.industry_id', array(
 							'type' => 'select',
-							'label' => 'Industry',
+							'label' => false,
 							'options' => $industries,
 							'value' => $position['PositionIndustry'][1]['industry_id']));
 
@@ -59,7 +59,7 @@
 
 						echo $this->Form->input('PositionIndustry.2.industry_id', array(
 							'type' => 'select',
-							'label' => 'Industry',
+							'label' => false,
 							'options' => $industries,
 							'value' => $position['PositionIndustry'][2]['industry_id']));
 
@@ -77,7 +77,7 @@
 
 						echo $this->Form->input('PositionFunction.1.work_function_id', array(
 							'type' => 'select',
-							'label' => 'Function',
+							'label' => false,
 							'options' => $functions,
 							'value' => $position['PositionFunction'][1]['work_function_id']));
 
@@ -86,7 +86,7 @@
 
 						echo $this->Form->input('PositionFunction.2.work_function_id', array(
 							'type' => 'select',
-							'label' => 'Function',
+							'label' => false,
 							'options' => $functions,
 							'value' => $position['PositionFunction'][2]['work_function_id']));
 

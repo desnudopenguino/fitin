@@ -33,39 +33,35 @@
 
 						echo $this->Form->input('PositionIndustry.0.industry_id', array(
 							'type' => 'select',
-							'label' => 'Industry <button type="button" class="btn btn-success btn-sm addPositionIndustry"><i class="glyphicon glyphicon-plus"></i></button>',
+							'label' => 'Industry',
 							'options' => $industries));
 
 						echo $this->Form->input('PositionIndustry.1.industry_id', array(
 							'type' => 'select',
 							'label' => false,
-							'style' => 'display: none;',
 							'empty' => 'Select an Industry',
 							'options' => $industries));
 
 						echo $this->Form->input('PositionIndustry.2.industry_id', array(
 							'type' => 'select',
 							'label' => false,
-							'style' => 'display: none;',
 							'empty' => 'Select an Industry',
 							'options' => $industries));
 
 						echo $this->Form->input('PositionFunction.0.work_function_id', array(
 							'type' => 'select',
-							'label' => 'Function <button type="button" class="btn btn-success btn-sm addPositionFunction"><i class="glyphicon glyphicon-plus"></i></button>',
+							'label' => 'Function',
 							'options' => $functions));
 
 						echo $this->Form->input('PositionFunction.1.work_function_id', array(
 							'type' => 'select',
 							'label' => false,
-							'style' => 'display: none;',
 							'empty' => 'Select a Function',
 							'options' => $functions));
 
 						echo $this->Form->input('PositionFunction.2.work_function_id', array(
 							'type' => 'select',
 							'label' => false,
-							'style' => 'display: none;',
 							'empty' => 'Select a Function',
 							'options' => $functions));
 

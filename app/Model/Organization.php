@@ -12,7 +12,8 @@ Class Organization extends AppModel {
 				'Organization.organization_name' => $organization_name)));
 	}
 
-	public function checkAndCreate($data) {
+	public function checkAndCreateCompany($data) {
+		$data['Organization']['organization_type_id'] = 1;
 		if($organization = $this->findByName($data['Organization']['organization_name'])) {
 		} else {
 			$this->create();

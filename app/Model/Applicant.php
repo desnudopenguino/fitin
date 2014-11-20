@@ -158,7 +158,6 @@ Class Applicant extends AppModel {
 		$dashboard_data = $this->find('first', array(
 			'conditions' => array(
 				'Applicant.user_id' => $id),
-//				'Applicant.user_id' => $id, 'Message.receiver_id' => $id),
 			'contain' => array(
 				'User' => array(
 					'Message' => array(

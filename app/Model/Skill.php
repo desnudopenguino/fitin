@@ -6,5 +6,11 @@ Class Skill extends AppModel {
 		'ProjectSkill',
 		'PositionSkill'
 	);
+
+	public function findAll() {
+		return $this->find('list', array(
+			'fields' => array(
+				'Skill.id', 'Skill.skill_type')));
+	}
 }
 ?>

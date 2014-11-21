@@ -199,5 +199,16 @@ Class Applicant extends AppModel {
 		$this->checkDisplayName($profile_data);
 		return $profile_data;
 	}
+
+	public function findEdit($id = null) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'Applicant.user_id' => $id),
+			'contain' => array(
+				'User' => array(
+					'Address' =>array(
+						'State'),
+					'PhoneNumber'))));
+	}
 }
 ?>

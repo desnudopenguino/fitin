@@ -24,6 +24,5 @@ Class PhoneNumber extends AppModel {
 		$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
 		return true;
 	}
-
 }
 ?>

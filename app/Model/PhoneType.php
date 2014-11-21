@@ -7,5 +7,11 @@ Class PhoneType extends AppModel {
 			'className' => 'PhoneNumber'
 		)
 	);
+
+	public function findAll() {
+		return $this->find('list', array(
+			'fields' => array(
+				'PhoneType.id','PhoneType.phone_type')));
+	}
 }
 ?>

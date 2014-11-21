@@ -7,5 +7,11 @@ Class State extends AppModel {
 			'className' => 'Address'
 		)
 	);
+
+	public function findAllLongNames() {
+		return $this->find('list', array(
+			'fields' => array(
+				'State.id','State.long_name')));
+	}
 }
 ?>

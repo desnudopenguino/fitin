@@ -68,5 +68,11 @@ Class Position extends AppModel {
 
 		return array('DataCard' => $dataCard);
 	}
+
+	public function findAllIds() {
+		return $this->find('all', array(
+			'fields' => array(
+				'Position.id', 'Position.employer_id')));
+	}
 }
 ?>

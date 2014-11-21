@@ -7,5 +7,11 @@ Class Degree extends AppModel {
 			'className' => 'Education'
 		)
 	);
+
+	public function findAll() {
+		return $this->find('list', array(
+			'fields' => array(
+				'Degree.id', 'Degree.degree_type')));
+	}
 }
 ?>

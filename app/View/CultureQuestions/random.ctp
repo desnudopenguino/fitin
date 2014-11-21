@@ -35,7 +35,7 @@
 		<div class="col-md-6">
 			<button id="undoCultureQuestion" class="btn btn-danger btn-block">Undo Last Question</button>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6" style="margin-top:10px;">
 			<button id="skipCultureQuestion" class="btn btn-warning btn-block">Skip Question</button>
 		</div>
 	</div>

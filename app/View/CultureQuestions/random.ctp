@@ -26,10 +26,10 @@
 		if(!empty($user_answer) && 
 			$user_answer['UserCultureAnswer']['culture_question_answer_id'] == $answer['id']) {
 				$class = 'btn btn-success btn-block culture-choice';
-		} else { $active = 'btn btn-primary btn-block culture-choice'; }
+		} else { $class = 'btn btn-primary btn-block culture-choice'; }
 		echo $this->Form->button($answer['answer_text'], array(
 			'value' => $answer['id'],
-			'class' => $active));
+			'class' => $class));
 	} ?>
 </fieldset>
 <?php	echo $this->Form->end(); ?>

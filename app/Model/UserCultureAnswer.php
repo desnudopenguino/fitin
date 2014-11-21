@@ -79,6 +79,14 @@ Class UserCultureAnswer extends AppModel {
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
 	}
 
+	public function findUserAnswerIdList($user_id = null) {
+		return $this->find('list', array(
+			'conditions' => array(
+				'UserCultureAnswer.user_id' => $user_id),
+			'fields' => array(
+				'UserCultureAnswer.culture_question_id')));
+	}
+
 	public function findUserAnswer($user_id = null, $question_id = null) {
 		return $this->find('first', array(
 			'conditions' => array(

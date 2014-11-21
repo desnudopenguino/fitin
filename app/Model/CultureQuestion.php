@@ -10,12 +10,14 @@ Class CultureQuestion extends AppModel {
 	public $belongsTo = array(
 		'CultureQuestionType');
 
-	public function findRandom() {
+	public function findRandom($user_id) {
 		return $this->find('first', array(
 			'order' => array('rand()'),
 			'contain' => array(
 				'CultureQuestionAnswer'
-					)));
+					),
+			'conditions' => array(
+				'NOT' => array($this->UserCultureAnswer->findUserAnswerIdList($user_id)))));
 	}
 
 	public function findById($id = null) {

@@ -36,6 +36,8 @@ Class CultureQuestion extends AppModel {
 				'UserCultureAnswer' => array(
 					'conditions' => array(
 						'UserCultureAnswer.user_id' => $user_id)),
+					'fields' => array(
+						'UserCultureAnswer.modified'),
 					'order' => array(
 						'modified ASC'))));
 	}	

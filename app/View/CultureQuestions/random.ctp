@@ -1,4 +1,12 @@
 <div class="well">
+	<div class="row"style="margin-top:10px;">
+		<div class="col-md-6">
+			<button type="button" id="undoCultureQuestion" class="btn btn-danger btn-block">Undo Last Question</button>
+		</div>
+		<div class="col-md-6">
+			<button type="button" id="skipCultureQuestion" class="btn btn-warning btn-block">Skip Question</button>
+		</div>
+	</div>
 <?php echo $this->Form->create('UserCultureAnswer', array(
 	'action' => 'add',
 	'method' => 'post',
@@ -37,13 +45,5 @@
 	} ?>
 </fieldset>
 <?php	echo $this->Form->end(); ?>
-	<div class="row"style="margin-top:10px;">
-		<div class="col-md-6">
-			<button type="button" id="undoCultureQuestion" class="btn btn-danger btn-block">Undo Last Question</button>
-		</div>
-		<div class="col-md-6">
-			<button type="button" id="skipCultureQuestion" class="btn btn-warning btn-block">Skip Question</button>
-		</div>
-	</div>
 </div>
 

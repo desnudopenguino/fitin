@@ -16,5 +16,9 @@
 <div class="row">
 		<?php echo $this->element('Test/reviews'); ?>
 </div>
+<div class="row">
+		<?php echo $this->element('Test/inbox'); ?>
+</div>
 <?php echo $this->Html->css('test');
+	echo $this->Html->css('inbox');
 	echo $this->Html->script('test'); ?>

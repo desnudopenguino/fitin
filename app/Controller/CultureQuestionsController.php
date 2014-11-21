@@ -18,7 +18,6 @@ class CultureQuestionsController extends AppController {
 			$last_answer = $this->CultureQuestion->UserCultureAnswer->findLastUserAnswer($this->Auth->user('id'));
 			$this->CultureQuestion->UserCultureAnswer->id = $last_answer['UserQuestionAnswer']['id'];
 			$this->CultureQuestion->UserCultureAnswer->delete();
-debug($last_answer);
 			$this->set('question', $this->CultureQuestion->findById($last_answer['UserCultureAnswer']['culture_question_id']));
 		if($this->request->is('ajax')) {
 			$this->disableCache();

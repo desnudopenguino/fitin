@@ -15,7 +15,7 @@ class CultureQuestionsController extends AppController {
 	}
 
 	public function undo() {
-			$last_answer = $this->UserQuestionAnswer->findLastUserAnswer($this->Auth->user('id'));
+			$last_answer = $this->CultureQuestion->UserQuestionAnswer->findLastUserAnswer($this->Auth->user('id'));
 			$this->CultureQuestion->UserQuestionAnswer->id = $last_answer['UserQuestionAnswer']['id'];
 			$this->CultureQuestion->UserQuestionAnswer->delete();
 debug($last_answer);

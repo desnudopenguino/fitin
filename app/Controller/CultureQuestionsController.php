@@ -15,13 +15,11 @@ class CultureQuestionsController extends AppController {
 	}
 
 	public function undo() {
-		if($this->request->is('post')) {
 			$last_answer = $this->UserQuestionAnswer->findLastUserAnswer($this->Auth->user('id'));
 			$this->CultureQuestion->UserQuestionAnswer->id = $last_answer['UserQuestionAnswer']['id'];
 			$this->CultureQuestion->UserQuestionAnswer->delete();
 debug($last_answer);
 			$this->set('question', $this->CultureQuestion->findById($last_answer['UserCultureAnswer']['culture_question_id']));
-		}	
 		if($this->request->is('ajax')) {
 			$this->disableCache();
 			$this->layout = false;

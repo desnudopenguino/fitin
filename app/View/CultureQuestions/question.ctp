@@ -1,5 +1,4 @@
 <div class="well">
-<?php echo debug($question); ?>
 	<div class="row"style="margin-top:10px;">
 		<div class="col-md-6">
 			<button type="button" id="undoCultureQuestion" class="btn btn-danger btn-block">Undo Last Question</button>

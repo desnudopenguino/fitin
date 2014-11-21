@@ -24,5 +24,10 @@ Class PhoneNumber extends AppModel {
 		$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
 		return true;
 	}
+
+	public function buildEmpty() {
+		return array('PhoneNumber' => array(
+			'phone_number' => '### ### ####'));
+	}
 }
 ?>

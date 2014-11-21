@@ -34,8 +34,8 @@ Class CultureQuestion extends AppModel {
 			'contain' => array(
 				'CultureQuestionAnswer',
 				'UserCultureAnswer' => array(
-					'fields' => array(
-						'UserCultureAnswer.modified'),
+//					'fields' => array(
+//						'UserCultureAnswer.modified'),
 					'conditions' => array(
 						'UserCultureAnswer.user_id' => $user_id)),
 					'order' => array(

@@ -7,16 +7,17 @@ function loadRandomCultureQuestion() {
 			$('#cultureContent').html(result);
 		}
 	});
-
 }
+
 //call to load culture question 
 $(document).on('click',"#cultureQuestions", function() {
-loadRandomCultureQuestion();
+	loadRandomCultureQuestion();
 	return false;
 });
 
 $(document).on('click',"#skipCultureQuestion", function() {
-loadRandomCultureQuestion();
+	loadRandomCultureQuestion();
+	return false;
 });
 
 $(document).on('click','.culture-choice', function() {

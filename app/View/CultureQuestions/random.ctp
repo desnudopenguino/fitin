@@ -25,11 +25,11 @@
 	foreach($question['CultureQuestionAnswer'] as $answer) {
 		if(!empty($user_answer) && 
 			$user_answer['UserCultureAnswer']['culture_question_answer_id'] == $answer['id']) {
-				$active = 'active';
-		} else { $active = ''; }
+				$class = 'btn btn-success btn-block culture-choice';
+		} else { $active = 'btn btn-primary btn-block culture-choice'; }
 		echo $this->Form->button($answer['answer_text'], array(
 			'value' => $answer['id'],
-			'class' => 'btn btn-primary btn-block culture-choice '.$active));
+			'class' => $active));
 	} ?>
 </fieldset>
 <?php	echo $this->Form->end(); ?>

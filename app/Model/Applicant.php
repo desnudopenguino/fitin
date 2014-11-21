@@ -208,7 +208,8 @@ Class Applicant extends AppModel {
 				'User' => array(
 					'Address' =>array(
 						'State'),
-					'PhoneNumber'))));
+					'PhoneNumber' => array(
+						'PhoneType')))));
 	}
 }
 ?>

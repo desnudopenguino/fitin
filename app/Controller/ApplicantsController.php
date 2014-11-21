@@ -9,13 +9,6 @@ class ApplicantsController extends AppController {
 		$this->Auth->allow('view');
 	}
 
-// Add saves new applicant, called from user/register
-	public function add($userArray) {
-		$this->Applicant->create();
-		if ($this->Applicant->save($userArray)) {
-		}
-	}
-
 // Dashboard - logged in page
 	public function dashboard() {
 		$this->set('applicant', $this->Applicant->findDashboard($this->Auth->user('id')));

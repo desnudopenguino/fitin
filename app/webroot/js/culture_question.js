@@ -15,6 +15,10 @@ loadRandomCultureQuestion();
 	return false;
 });
 
+$(document).on('click',"#skipCultureQuestion", function() {
+loadRandomCultureQuestion();
+});
+
 $(document).on('click','.culture-choice', function() {
 	$('#answer').val($(this).attr('value'));
 });

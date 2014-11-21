@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
 Class Education extends AppModel {
 
 	public $belongsTo = array(
-		'Applicant','Degree','School','Industry'
+		'Applicant','Degree','Organization','Industry'
 	);
 
 	public function beforeSave($options = array()) {
@@ -18,7 +18,7 @@ Class Education extends AppModel {
 				'Education.applicant_id' => $applicant_id),
 			'contain' => array(
 				'Degree',
-				'School',
+				'Organization',
 				'Industry')));
 	}
 

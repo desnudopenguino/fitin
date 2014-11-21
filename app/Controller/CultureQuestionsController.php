@@ -4,7 +4,9 @@
 class CultureQuestionsController extends AppController {
 
 	public function random() {
-		$this->set('question', $this->CultureQuestion->findRandom());
+		$question = $this->CultureQuestion->findRandom();
+		$this->set('question', $question);
+		$this->set('answer', $this->CultureQuestion->UserCultureAnswer->findUserAnswer($this->Auth->user('id'), $question['CultureQuestion']['id']));
 		if($this->request->is('ajax')) {
 			$this->disableCache();
 			$this->layout = false;

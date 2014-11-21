@@ -14,8 +14,7 @@ Class CultureQuestion extends AppModel {
 		return $this->find('first', array(
 			'order' => array('rand()'),
 			'contain' => array(
-				'CultureQuestionAnswer',
-				'UserCultureAnswer'
+				'CultureQuestionAnswer'
 					)));
 	}
 }

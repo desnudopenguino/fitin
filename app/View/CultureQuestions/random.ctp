@@ -31,6 +31,14 @@
 			'value' => $answer['id'],
 			'class' => $class));
 	} ?>
+	<div class="row">
+		<div class="col-md-6">
+			<button id="undoCultureQuestion" class="btn btn-danger btn-block">Undo Last Question</button>
+		</div>
+		<div class="col-md-6">
+			<button id="skipCultureQuestion" class="btn btn-warning btn-block">Skip Question</button>
+		</div>
+	</div>
 </fieldset>
 <?php	echo $this->Form->end(); ?>
 </div>

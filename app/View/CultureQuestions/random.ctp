@@ -1,4 +1,3 @@
-<?php debug($question); debug($user_answer);?>
 <div class="well">
 <?php echo $this->Form->create('UserCultureAnswer', array(
 	'action' => 'add',

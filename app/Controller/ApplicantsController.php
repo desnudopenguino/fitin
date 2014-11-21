@@ -71,7 +71,9 @@ class ApplicantsController extends AppController {
 		$this->Applicant->User->PhoneNumber->id = $applicant['User']['PhoneNumber']['id'];
 
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$this->Applicant->saveAll($this->request->data);
+			$this->Applicant->save($this->request->data);
+			$this->Applicant->User->Address->save($this->request->data);
+			$this->Applicant->User->PhoneNumber->save($this->request->data);
 		}
 	}
 

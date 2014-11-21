@@ -24,9 +24,9 @@
 
 	foreach($question['CultureQuestionAnswer'] as $answer) {
 		if(!empty($user_answer) && 
-			$user_answer['UserCultureAnswer']['curture_question_answer_id'] == $answer['id']) {
+			$user_answer['UserCultureAnswer']['culture_question_answer_id'] == $answer['id']) {
 				$active = 'active';
-		}
+		} else { $active = ''; }
 		echo $this->Form->button($answer['answer_text'], array(
 			'value' => $answer['id'],
 			'class' => 'btn btn-primary btn-block culture-choice '.$active));

@@ -16,8 +16,19 @@ $(document).on('click',"#cultureQuestions", function() {
 });
 
 $(document).on('click',"#skipCultureQuestion", function() {
-console.log('skip the question already!');
 	loadRandomCultureQuestion();
+	return false;
+});
+
+$(document).on('click',"#undoCultureQuestion", function() {
+	$.ajax({
+		url: '../culture_questions/undo',
+		type: 'POST',
+		async: true,
+		success: function(result) {
+			$('#cultureContent').html(result);
+		}
+	});
 	return false;
 });
 

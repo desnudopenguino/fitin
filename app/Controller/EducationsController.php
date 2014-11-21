@@ -3,25 +3,15 @@
 
 class EducationsController extends AppController {
 
-	public $uses = array('Education','School','Degree','Industry');
+	public $uses = array('Education','Organization','Degree','Industry');
 
 	public function add() {
-		$this->set('degrees',$this->Degree->find('list',array(
-			'fields' => array('Degree.id','Degree.degree_type'))));
-		$this->set('concentrations',$this->Industry->find('list', array(
-			'fields' => array('Industry.id','Industry.industry_type'))));
+		$this->set('degrees',$this->Degree->findAll());
+		$this->set('concentrations',$this->Industry->findAll());
 		if($this->request->is('post')) {
-			if($school = $this->School->find('first', array(
-				'conditions' => array(
-					'School.school_name' => $this->request->data['School']['school_name'])))) {
-			} else {
-				$this->School->create();
-				$this->School->save($this->request->data['School']);
-				$school = $this->School->find('first', array(
-				'conditions' => array(
-					'School.id' => $this->School->getLastInsertID())));
-			}
-			$this->request->data['Education']['school_id'] = $school['School']['id'];
+			$school = $this->Organization->checkAndCreate($this->request->data, 3);
+			$this->request->data['Education']['organization_id'] = $school['Organization']['id'];
+			unset($this->request->data['Organization']);
 			$this->Education->create();
 			if($this->Education->save($this->request->data)) {
 				$this->Session->setFlash(__('The education has been saved'),
@@ -70,10 +60,8 @@ class EducationsController extends AppController {
 	}
 
 	public function edit($id = null) {
-		$this->set('degrees',$this->Degree->find('list',array(
-			'fields' => array('Degree.id','Degree.degree_type'))));
-		$this->set('concentrations',$this->Industry->find('list', array(
-			'fields' => array('Industry.id','Industry.industry_type'))));
+		$this->set('degrees',$this->Degree->findAll());
+		$this->set('concentrations',$this->Industry->findAll());
 		$this->Education->read(null,$id);
 
 		if(!$this->Education->exists()) {

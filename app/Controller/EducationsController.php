@@ -70,17 +70,8 @@ class EducationsController extends AppController {
 
 		if($this->Education->data['Education']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->request->is('post') || $this->request->is('put')) {
-				if($school = $this->School->find('first', array(
-					'conditions' => array(
-						'School.school_name' => $this->request->data['School']['school_name'])))) {
-				} else {
-					$this->School->create();
-					$this->School->save($this->request->data['School']);
-					$school = $this->School->find('first', array(
-					'conditions' => array(
-						'School.id' => $this->School->getLastInsertID())));
-				}
-				$this->request->data['Education']['school_id'] = $school['School']['id'];
+				$school = $this->Organization->checkAndCreate($this->request->data, 3);
+				$this->request->data['Education']['organization_id'] = $school['Organization']['id'];
 				if($this->Education->save($this->request->data['Education'])) {
 					if($this->request->is('ajax')) {
 						$this->disableCache();

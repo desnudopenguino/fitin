@@ -27,7 +27,7 @@
 							'type' => 'select',
 							'label' => 'Concentration',
 							'options' => $concentrations));
-						echo $this->Form->input('School.school_name', array(
+						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
 							'label' => 'School'));
 						echo $this->Form->input('graduation_date', array(

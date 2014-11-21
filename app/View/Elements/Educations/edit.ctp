@@ -29,10 +29,10 @@
 							'label' => 'Concentration',
 							'options' => $concentrations,
 							'value' => $education['industry_id']));
-						echo $this->Form->input('School.school_name', array(
+						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
 							'label' => 'School',
-							'value' => $education['School']['school_name']));
+							'value' => $education['Organization']['organization_name']));
 						echo $this->Form->input('graduation_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',

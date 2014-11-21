@@ -14,6 +14,11 @@
 	echo $this->Form->input('UserCultureAnswer.culture_question_id', array(
 		'value' => $question['CultureQuestion']['id'],
 		'type' => 'hidden'));
+	if(!empty($user_answer)) {
+		echo $this->Form->input('UserCultureAnswer.id', array(
+			'value' => $user_answer['UserCultureAnswer']['id'],
+			'type' => 'hidden'));
+	}
 
 		$this->Form->unlockField('UserCultureAnswer.culture_question_answer_id');
 	echo $this->Form->input('UserCultureAnswer.culture_question_answer_id', array(

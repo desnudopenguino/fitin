@@ -53,7 +53,7 @@ class ApplicantsController extends AppController {
 
 // Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
-		$this->Applicant->user_id = $id;
+		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid User'));
 		}

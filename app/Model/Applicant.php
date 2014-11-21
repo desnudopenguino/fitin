@@ -194,7 +194,7 @@ Class Applicant extends AppModel {
 				'Certification',
 				'Education' => array(
 					'Degree',
-					'School',
+					'Organization',
 					'Industry'))));
 		$this->checkDisplayName($profile_data);
 		return $profile_data;

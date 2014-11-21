@@ -7,3 +7,5 @@
 		<?php echo $this->element('Test/login'); ?>
 	</div>
 </div>
+<?php echo $this->Html->css('test');
+	echo $this->Html->script('test'); ?>

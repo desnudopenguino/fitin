@@ -36,7 +36,8 @@ $(document).on('click','.culture-choice', function() {
 	$('#answer').val($(this).attr('value'));
 });
 
-$(document).on('submit','#saveUserCultureAnswerForm', function() {
+$(document).on('submit','#saveUserCultureAnswerForm', function(e) {
+	e.preventDefault();
 	$.ajax({
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),

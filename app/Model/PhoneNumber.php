@@ -26,8 +26,8 @@ Class PhoneNumber extends AppModel {
 	}
 
 	public function buildEmpty() {
-		return array('PhoneNumber' => array(
-			'phone_number' => '### ### ####'));
+		return array(
+			'phone_number' => '### ### ####');
 	}
 }
 ?>

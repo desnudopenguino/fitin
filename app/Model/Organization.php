@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
 Class Organization extends AppModel {
 	public $belongsTo = array('OrganizationType');
 
-	public $hasMany = array('Project');
+	public $hasMany = array('Project','Education');
 
 	public function findByName($organization_name) {
 		return $this->find('first', array(

@@ -16,7 +16,7 @@ $(document).on('click',"#cultureQuestions", function() {
 });
 
 $(document).on('click',"#skipCultureQuestion", function() {
-console.log('skip the question already!')
+console.log('skip the question already!');
 	loadRandomCultureQuestion();
 	return false;
 });

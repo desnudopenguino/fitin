@@ -85,5 +85,15 @@ Class UserCultureAnswer extends AppModel {
 				'UserCultureAnswer.user_id' => $user_id,
 				'UserCultureAnswer.culture_question_id' => $question_id)));
 	}
+
+	public function findLastUserAnswer($user_id = null) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'UserCultureAnswer.user_id' => $user_id),
+			'order' => array(
+				'UserCultureAnswer.modified DESC'),
+			'fields' => array(
+				'UserCultureAnswer.id','UserCultureAnswer.culture_question_id')));
+	}
 }
 ?>

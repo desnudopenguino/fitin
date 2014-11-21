@@ -15,8 +15,7 @@ Class CultureQuestion extends AppModel {
 		return $this->find('first', array(
 			'order' => array('rand()'),
 			'contain' => array(
-				'CultureQuestionAnswer'
-					),
+				'UserCultureAnswer'),
 			'conditions' => array(
 				'NOT' => array('CultureQuestion.id' => $answers))));
 	}
@@ -28,6 +27,24 @@ Class CultureQuestion extends AppModel {
 			'contain' => array(
 				'CultureQuestionAnswer'
 					)));
+	}
+
+	public function findOldest($user_id) {
+		return $this->find('first', array(
+			'contain' => array(
+				'UserCultureAnswer' => array(
+					'conditions' => array(
+						'UserCultureAnswer.user_id' => $user_id),
+					'order' => array(
+						'modified ASC')))));
+	}	
+
+	public function findNext($user_id) {
+		if($question = $this->findRandom($user_id)) {
+		} else {
+			$question = $this->findOldest($user_id);
+		}
+		return $question;
 	}
 }
 ?>

@@ -13,15 +13,15 @@
 		<fieldset>
 			<legend>Name</legend>
 			<?php 
-				echo $this->Form->Input('User.Applicant.first_name', array(
+				echo $this->Form->Input('Applicant.first_name', array(
 					'label' => 'First Name',
-					'value' => $applicant['first_name'])); 
-				echo $this->Form->Input('User.Applicant.mi', array(
+					'value' => $applicant['Applicant']['first_name'])); 
+				echo $this->Form->Input('Applicant.mi', array(
 					'label' => 'Middle Initial',
-					'value' => $applicant['mi'])); 
-				echo $this->Form->Input('User.Applicant.last_name', array(
+					'value' => $applicant['Applicant']['mi'])); 
+				echo $this->Form->Input('Applicant.last_name', array(
 					'label' => 'Last Name',
-					'value' => $applicant['last_name'])); ?>
+					'value' => $applicant['Applicant']['last_name'])); ?>
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>
@@ -30,12 +30,12 @@
 					'type' => 'select',
 					'label' => 'Phone Type',
 					'options' => $phone_types,
-					'value' => $phone_number['phone_type_id']));
+					'value' => $applicant['User']['PhoneNumber']['PhoneType']['phone_type_id']));
 		
 				echo $this->Form->Input('User.PhoneNumber.phone_number', array(
 					'type' => 'text',
 					'label' => 'Phone Number',
-					'value' => $phone_number['phone_number']));
+					'value' => $applicant['User']['PhoneNumber']['phone_number']));
 			?>
 		</fieldset>
 		<fieldset>
@@ -44,19 +44,19 @@
 				echo $this->Form->input('User.Address.street', array(
 					'type' => 'text',
 					'label' => 'Street',
-					'value' => $address['street']));
+					'value' => $applicant['User']['Address']['street']));
 				echo $this->Form->input('User.Address.city', array(
 					'type' => 'text',
 					'label' => 'City',
-					'value' => $address['city']));
+					'value' => $applicant['User']['Address']['city']));
 				echo $this->Form->input('User.Address.state_id', array(
 					'type' => 'select',
 					'label' => 'State',
 					'options' => $states,
-					'value' => $address['state_id']));
+					'value' => $applicant['User']['Address']['state_id']));
 				echo $this->Form->input('User.Address.zip', array(
 					'type' => 'text',
-					'value' => $address['zip']));
+					'value' => $applicant['User']['Address']['zip']));
 			?>
 		</fieldset>
 		<?php 

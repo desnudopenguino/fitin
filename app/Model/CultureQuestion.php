@@ -17,5 +17,14 @@ Class CultureQuestion extends AppModel {
 				'CultureQuestionAnswer'
 					)));
 	}
+
+	public function findById($id = null) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'CultureQuestion.id' => $id),
+			'contain' => array(
+				'CultureQuestionAnswer'
+					)));
+	}
 }
 ?>

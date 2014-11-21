@@ -1,4 +1,4 @@
-<?php debug($question); debug($answer);?>
+<?php debug($question); debug($user_answer);?>
 <div class="well">
 <?php echo $this->Form->create('UserCultureAnswer', array(
 	'action' => 'add',
@@ -23,9 +23,13 @@
 		'id' => 'answer'));
 
 	foreach($question['CultureQuestionAnswer'] as $answer) {
+		if(!empty($user_answer) && 
+			$user_answer['UserCultureAnswer']['curture_question_answer_id'] == $answer['id']) {
+				$active = 'active';
+		}
 		echo $this->Form->button($answer['answer_text'], array(
 			'value' => $answer['id'],
-			'class' => 'btn btn-primary btn-block culture-choice'));
+			'class' => 'btn btn-primary btn-block culture-choice '.$active));
 	} ?>
 </fieldset>
 <?php	echo $this->Form->end(); ?>

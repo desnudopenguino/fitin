@@ -39,7 +39,7 @@ Class CultureQuestion extends AppModel {
 					'conditions' => array(
 						'UserCultureAnswer.user_id' => $user_id),
 					'order' => array(
-						'UserCultureAnswer.modified DESC')))));
+						'UserCultureAnswer.modified ASC')))));
 	}	
 
 	public function findNext($user_id) {

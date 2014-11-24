@@ -7,7 +7,7 @@ Class Certification extends AppModel {
 		'Applicant'
 		);
 
-	public $validation = array(
+	public $validate = array(
 		'certification_name' => array(
 			'rule' => 'certification_name_required',
 			'required' => true,

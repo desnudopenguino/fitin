@@ -33,7 +33,7 @@ Class Address extends AppModel {
 			'rule' => 'zip_required',
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
+			'message' => 'Please fill out this field')
 			);
 
 	public function beforeSave($options = array()) {

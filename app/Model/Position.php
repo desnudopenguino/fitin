@@ -13,7 +13,7 @@ Class Position extends AppModel {
 		'PositionSkill',
 		'Application'
 	);
-
+/*
 	public $validate = array(
 		'min_work_experience' => array(
 			'role' => array('notEmpty'),
@@ -36,7 +36,7 @@ Class Position extends AppModel {
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field')
 		);
-
+*/
 	public function beforeSave($options = array()) {
 		$this->data[$this->alias]['employer_id'] = AuthComponent::user('id');
 		return true;

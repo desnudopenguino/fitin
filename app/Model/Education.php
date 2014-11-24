@@ -7,7 +7,7 @@ Class Education extends AppModel {
 		'Applicant','Degree','Organization','Industry'
 	);
 
-		public $validate = array(
+	public $validate = array(
 		'graduation_date' => array(
 			'rule' => array('notEmpty'),
 			'required' => true,
@@ -18,7 +18,7 @@ Class Education extends AppModel {
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
-			);
+	);
 
 
 	public function beforeSave($options = array()) {

@@ -15,22 +15,22 @@ Class Address extends AppModel {
 
 	public $validate = array(
 		'state_id' => array(
-			'rule' => 'state_id_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'street' => array(
-			'rule' => 'street_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'city' => array(
-			'rule' => 'city_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'zip' => array(
-			'rule' => 'zip_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field')

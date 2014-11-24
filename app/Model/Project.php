@@ -14,24 +14,24 @@ Class Project extends AppModel {
 		'ProjectSkill'
 	);
 
-	public $validation = array(
+	public $validate = array(
 		'title' => array(
-			'rule' => 'title_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'start_date' => array(			
-			'rule' => 'start_date_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'end_date' => array(			
-			'rule' => 'end_date_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'responsibilities' => array(			
-			'rule' => 'responsibilities_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),

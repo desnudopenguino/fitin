@@ -8,8 +8,8 @@ Class Certification extends AppModel {
 		);
 
 	public $validation = array(
-		'name' => array(
-			'rule' => 'name_required',
+		'certification_name' => array(
+			'rule' => 'certification_name_required',
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),

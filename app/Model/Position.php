@@ -102,12 +102,13 @@ Class Position extends AppModel {
 			'conditions' => array(
 				'Position.id' => $id),
 			'contain' => array(
-				'PositionIndustry' => array(
-					'Industry'),
-				'PositionFunction' => array(
-					'WorkFunction'),
-				'PositionSkill' => array(
-					'Skill'))));
+				'Position' => array(
+					'PositionIndustry' => array(
+						'Industry'),
+					'PositionFunction' => array(
+						'WorkFunction'),
+					'PositionSkill' => array(
+						'Skill')))));
 	}
 }
 ?>

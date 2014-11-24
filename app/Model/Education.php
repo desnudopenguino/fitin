@@ -9,12 +9,12 @@ Class Education extends AppModel {
 
 		public $validate = array(
 		'graduation_date' => array(
-			'rule' => 'graduation_date_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'gpa' => array(
-			'rule' => 'gpa_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),

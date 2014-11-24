@@ -14,6 +14,29 @@ Class Project extends AppModel {
 		'ProjectSkill'
 	);
 
+	public $validation = array(
+		'title' => array(
+			'rule' => 'title_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'start_date' => array(			
+			'rule' => 'start_date_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'end_date' => array(			
+			'rule' => 'end_date_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'responsibilities' => array(			
+			'rule' => 'responsibilities_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		);
+
 	public function beforeSave($options = array()) {
 
 		foreach($this->data['ProjectIndustry'] as $key => $industry) {

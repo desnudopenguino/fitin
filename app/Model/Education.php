@@ -7,6 +7,20 @@ Class Education extends AppModel {
 		'Applicant','Degree','Organization','Industry'
 	);
 
+		public $validate = array(
+		'graduation_date' => array(
+			'rule' => 'graduation_date_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'gpa' => array(
+			'rule' => 'gpa_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+			);
+
+
 	public function beforeSave($options = array()) {
 		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
 		return true;

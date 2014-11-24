@@ -7,6 +7,20 @@ Class Certification extends AppModel {
 		'Applicant'
 		);
 
+	public $validation = array(
+		'name' => array(
+			'rule' => 'name_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'earned_date' => array(			
+			'rule' => 'earned_date_required',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		);
+
+
 	public function findApplicantActive($applicant_id) {
 		return $this->find('all', array(
 			'conditions' => array(

@@ -14,6 +14,29 @@ Class Position extends AppModel {
 		'Application'
 	);
 
+	public $validate = array(
+		'min_work_experience' => array(
+			'role' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'max_work_experience' => array(
+			'role' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'title' => array(
+			'role' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'responsibilities' => array(
+			'role' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field')
+		);
+
 	public function beforeSave($options = array()) {
 		$this->data[$this->alias]['employer_id'] = AuthComponent::user('id');
 		return true;

@@ -24,6 +24,19 @@ Class Applicant extends AppModel {
 		'display_name' => "CONCAT(Applicant.first_name, ' ', Applicant.mi, ' ' , Applicant.last_name)"
 	);
 
+	public $validate = array(
+		'first_name' => array(
+			'rule' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'last_name' => array(
+			'rule' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field')
+	);
+
 	public function loadDataCard($id = null) {
 		$data = $this->find('first', array(
 			'conditions' => array(

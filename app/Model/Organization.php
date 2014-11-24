@@ -6,6 +6,14 @@ Class Organization extends AppModel {
 
 	public $hasMany = array('Project','Education');
 
+	public $validate = array(
+		'organization_name' => array(
+			'rule' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field')
+		);
+
 	public function findByName($organization_name) {
 		return $this->find('first', array(
 			'conditions' => array(

@@ -98,17 +98,25 @@ Class Position extends AppModel {
 	}
 
 	public function findById($id = null) {
-		return $this->find('first', array(
+		$position = $this->find('first', array(
 			'conditions' => array(
 				'Position.id' => $id),
 			'contain' => array(
-				'Position' => array(
-					'PositionIndustry' => array(
-						'Industry'),
-					'PositionFunction' => array(
-						'WorkFunction'),
-					'PositionSkill' => array(
-						'Skill')))));
+				'PositionIndustry' => array(
+					'Industry'),
+				'PositionFunction' => array(
+					'WorkFunction'),
+				'PositionSkill' => array(
+					'Skill'))));
+
+		$position['Position']['PositionIndustry'] = $position['PositionIndustry'];
+		unset($position['PositionIndustry']);	
+		$position['Position']['PositionFunction'] = $position['PositionFunction'];
+		unset($position['PositionFunction']);	
+		$position['Position']['PositionSkill'] = $position['PositionSkill'];
+		unset($position['PositionSkill']);	
+
+		return $position['Position'];
 	}
 }
 ?>

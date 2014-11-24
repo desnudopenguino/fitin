@@ -66,7 +66,7 @@ class EmployersController extends AppController {
 // Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
 		$this->Employer->read(null,$id);
-		if(empty($this->Employer->data)) {
+		if(!$this->Employer->exists()) {
 			throw new NotFoundException(__('Invalid User'));
 		}
 		$this->set('phone_types', $this->PhoneType->findAll());
@@ -74,27 +74,8 @@ class EmployersController extends AppController {
 		$this->set('states', $this->State->findAllLongNames());
 
 		$employer = $this->Employer->findEdit();
-		$this->set('employer', $this->Employer->data['Employer']);
+		$this->set('employer', $employer);
 
-		$phoneNumber = $this->Employer->User->PhoneNumber->find('first', array(
-			'conditions' => array(
-				'user_id' => $this->Auth->user('id')),
-			'fields' => 'id'
-		));
-		$this->Employer->User->PhoneNumber->read(null,$phoneNumber['PhoneNumber']['id']);
-		$this->set('phone_number',$this->Employer->User->PhoneNumber->data['PhoneNumber']);
-
-		$address = $this->Employer->User->Address->find('first', array(
-			'conditions' => array(
-				'user_id' => $this->Auth->user('id')),
-			'fields' => 'id'
-		));
-		$this->Employer->User->Address->read(null,$address['Address']['id']);
-		$this->set('address',$this->Employer->User->Address->data['Address']);
-
-		if(!$this->Employer->exists()) {
-			throw new NotFoundException(__('Invalid Employer'));
-		}
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->Employer->save($this->request->data['User']['Employer']);
 			$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);

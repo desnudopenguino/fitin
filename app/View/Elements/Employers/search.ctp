@@ -1,1 +1,2 @@
-<?php debug($employer_card); ?>
+<?php debug($position_card); ?>
+

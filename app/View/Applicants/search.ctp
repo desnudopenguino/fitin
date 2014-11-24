@@ -3,6 +3,10 @@
 		<?php debug($applicant_card); ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
-		<?php debug($position_cards); ?>
+		<?php 
+			foreach($position_cards as $position_card) {
+				$this->set('position_card', $position_card);
+				echo $this->elements('Employers/search');
+			} ?>
 	</div>
 </div>

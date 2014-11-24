@@ -26,15 +26,21 @@
 								</p>
 							<h3>Industry</h3>
 							<?php  foreach($position['PositionIndustry'] as $positionIndustry) {
+								if(!empty($positionIndustry['industry_id'])) {
 								 echo $positionIndustry['Industry']['industry_type']; 
+								}
 							} ?>
 							<h3>Functions</h3>
 							<?php  foreach($position['PositionFunction'] as $positionFunction) {
-								 echo $positionFunction['WorkFunction']['function_type']; 
+								if(!empty($positionFunction['work_function_id'])) {
+									echo $positionFunction['WorkFunction']['function_type']; 
+								}
 							} ?>
 							<h3>Skills</h3>
 							<?php foreach($position['PositionSkill'] as $positionSkill) {
-								 echo $positionSkill['Skill']['skill_type']; 
+								if(!empty($positionSkill['skill_id'])) {
+									echo $positionSkill['Skill']['skill_type']; 
+								}
 							} ?>
 						</div>
 					</div>

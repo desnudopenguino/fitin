@@ -17,7 +17,7 @@ Class Certification extends AppModel {
 			'rule' => 'earned_date_required',
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
+			'message' => 'Please fill out this field')
 		);
 
 

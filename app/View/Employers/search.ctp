@@ -28,9 +28,11 @@
 		<?php } ?>
 	</div>
 	<div id="results" class="col-md-6 col-md-offset-1">
-		<?php foreach($applicant_cards as $applicant_card) {
-			$this->set('applicant_card', $applicant_card);
-			echo $this->element('Applicants/search');
+		<?php if(!empty($applicant_cards)) {
+				foreach($applicant_cards as $applicant_card) {
+					$this->set('applicant_card', $applicant_card);
+					echo $this->element('Applicants/search');
+				}
 		} ?>
 	</div>
 </div>

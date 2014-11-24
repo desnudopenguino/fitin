@@ -9,12 +9,12 @@ Class Certification extends AppModel {
 
 	public $validate = array(
 		'certification_name' => array(
-			'rule' => 'certification_name_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'earned_date' => array(			
-			'rule' => 'earned_date_required',
+			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field')

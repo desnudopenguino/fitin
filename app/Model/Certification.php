@@ -25,7 +25,7 @@ Class Certification extends AppModel {
 		return true;
 	}
 
-	public function afterFind(array $results, boolean $primary = false) {
+	public function afterFind($results, $primary = false) {
 		debug($results);
 	}
 

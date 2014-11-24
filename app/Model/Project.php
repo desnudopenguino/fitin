@@ -25,11 +25,6 @@ Class Project extends AppModel {
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
-		'end_date' => array(			
-			'rule' => array('notEmpty'),
-			'required' => true,
-			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
 		'responsibilities' => array(			
 			'rule' => array('notEmpty'),
 			'required' => true,

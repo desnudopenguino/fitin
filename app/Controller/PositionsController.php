@@ -26,7 +26,8 @@ debug($this->request->data);
 				)));
 			}
 		}
-		$position = $this->Position->read(null, $this->Position->id);
+//		$position = $this->Position->read(null, $this->Position->id);
+		$position = $this->Position->findById($this->Position->id);
 		$this->set('position', $position);
 		if ($this->request->is('ajax')) {
 //remove the flash message if it is ajax. 

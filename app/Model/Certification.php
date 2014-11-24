@@ -25,6 +25,10 @@ Class Certification extends AppModel {
 		return true;
 	}
 
+	public function afterFind(array $results, boolean $primary = false) {
+		debug($results);
+	}
+
 
 	public function findApplicantActive($applicant_id) {
 		return $this->find('all', array(

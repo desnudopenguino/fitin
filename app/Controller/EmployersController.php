@@ -69,16 +69,11 @@ class EmployersController extends AppController {
 		if(empty($this->Employer->data)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		$this->set('phone_types',
-			$this->PhoneType->find('list', array(
-				'fields' => array(
-					'PhoneType.id','PhoneType.phone_type'))));
+		$this->set('phone_types', $this->PhoneType->findAll());
 
-		$this->set('states',
-			$this->State->find('list', array(
-				'fields' => array(
-					'State.id','State.long_name'))));
+		$this->set('states', $this->State->findAllLongNames());
 
+		$employer = $this->Employer->findEdit();
 		$this->set('employer', $this->Employer->data['Employer']);
 
 		$phoneNumber = $this->Employer->User->PhoneNumber->find('first', array(

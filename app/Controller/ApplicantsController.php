@@ -59,10 +59,6 @@ class ApplicantsController extends AppController {
 		$applicant = $this->Applicant->findEdit($id);
 		$this->set('applicant', $applicant);
 		
-		$this->Applicant->User->id = $id;
-		$this->Applicant->User->Address->id = $applicant['User']['Address']['id'];
-		$this->Applicant->User->PhoneNumber->id = $applicant['User']['PhoneNumber']['id'];
-
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->Applicant->save($this->request->data);
 			$this->Applicant->User->Address->save($this->request->data['User']['Address']);

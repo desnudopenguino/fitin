@@ -7,6 +7,7 @@ class PositionsController extends AppController {
 
 	public function add() {
 		if($this->request->is('post')) {
+debug($this->request->data);
 			$this->Position->create();
 			if($this->Position->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The position has been saved'),

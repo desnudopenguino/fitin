@@ -26,6 +26,11 @@ Class Certification extends AppModel {
 	}
 
 	public function afterFind($results, $primary = false) {
+		foreach($results as $result) {
+			if(empty($result['Certification']['expiration_date'])) {
+				$result['Certification']['expiration_date'] == 'N/A';
+			}
+		}
 		debug($results);
 	}
 

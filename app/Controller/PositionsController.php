@@ -7,7 +7,6 @@ class PositionsController extends AppController {
 
 	public function add() {
 		if($this->request->is('post')) {
-debug($this->request->data);
 			$this->Position->create();
 			if($this->Position->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The position has been saved'),
@@ -18,6 +17,7 @@ debug($this->request->data);
 				));
 			}
 			else {
+				debug('This Failed');
 				$this->Session->setFlash(__('The position could not be saved, please try again',
 					'alert',
 					array(
@@ -26,12 +26,12 @@ debug($this->request->data);
 				)));
 			}
 		}
+		$position = $this->Position->read(null, $this->Position->id);
+		$this->set('position', $position);
 		if ($this->request->is('ajax')) {
 //remove the flash message if it is ajax. 
 			$this->Session->delete('Message.flash');
 			$this->disableCache();		
-			$position = $this->Position->read(null, $this->Position->id);
-			$this->set('position', $position);
 			$this->layout = false;
 			$this->render('/Elements/Positions/block');
 		}

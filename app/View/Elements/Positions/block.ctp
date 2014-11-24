@@ -37,13 +37,13 @@
 				} ?>
 				<h3>Functions</h3>
 				<?php  foreach($position['PositionFunction'] as $positionFunction) {
-					if(!empty($positionFunction['industry_id'])) {
+					if(!empty($positionFunction['work_function_id'])) {
 					 echo $positionFunction['WorkFunction']['function_type']; 
 					}
 				} ?>
 				<h3>Skills</h3>
 				<?php foreach($position['PositionSkill'] as $positionSkill) {
-					if(!empty($positionSkill['industry_id'])) {
+					if(!empty($positionSkill['skill_id'])) {
 					 echo $positionSkill['Skill']['skill_type']; 
 					}
 				} ?>

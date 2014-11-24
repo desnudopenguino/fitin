@@ -34,7 +34,7 @@ Class Project extends AppModel {
 			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
+			'message' => 'Please fill out this field')
 		);
 
 	public function beforeSave($options = array()) {

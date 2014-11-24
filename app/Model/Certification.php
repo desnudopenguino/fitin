@@ -31,7 +31,6 @@ Class Certification extends AppModel {
 				$results[$rKey]['Certification']['expiration_date'] = 'N/A';
 			}
 		}
-		debug($results);
 		return $results;
 	}
 

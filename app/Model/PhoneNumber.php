@@ -26,7 +26,8 @@ Class PhoneNumber extends AppModel {
 	}
 
 	public function afterFind($results, $primary = false) {
-		if(empty($result['PhoneNumber']['phone_number']) || empty($result['PhoneNumber'])) {
+debug($results);
+		if(empty($result['PhoneNumber'] || empty($result['PhoneNumber']['phone_number']))) {
 			$result['PhoneNumber']['phone_number'] = $this->buildEmpty();
 		}
 	}

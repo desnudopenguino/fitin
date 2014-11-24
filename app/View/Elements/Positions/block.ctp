@@ -1,4 +1,3 @@
-<?php debug($position); ?>
 <div id="position_<?php echo $position['id']; ?>" class="panel panel-default">
 	<div class="panel-heading">
 		<div class="panel-title">

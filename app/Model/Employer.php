@@ -40,5 +40,16 @@ Class Employer extends AppModel {
 					'PositionSkill' => array(
 						'Skill')))));
 	}
+
+	public function findEdit($id = null) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'Employer.user_id' => $id),
+			'contain' => array(
+				'User' => array(
+					'PhoneNumber',
+					'Address' => array(
+						'State')))));
+	}
 }
 ?>

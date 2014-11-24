@@ -76,6 +76,10 @@ class EmployersController extends AppController {
 		$employer = $this->Employer->findEdit();
 		$this->set('employer', $employer);
 
+		$this->Employer->User->Address->id = $employer['User']['Address']['id'];
+		$this->Employer->User->PhoneNumber->id = $employer['User']['PhoneNumber']['id'];
+
+
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->Employer->save($this->request->data['User']['Employer']);
 			$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);

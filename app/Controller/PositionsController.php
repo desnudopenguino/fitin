@@ -25,9 +25,7 @@ class PositionsController extends AppController {
 				)));
 			}
 		}
-//		$position = $this->Position->read(null, $this->Position->id);
-		$position = $this->Position->findBlock($this->Position->id);
-		$this->set('position', $position);
+		$this->set('position', $this->Position->findBlock($this->Position->id));
 		$this->set('industries', $this->Industry->findAll());
 		$this->set('functions', $this->WorkFunction->findAll());
 		if ($this->request->is('ajax')) {
@@ -64,19 +62,22 @@ class PositionsController extends AppController {
 			throw new NotFoundException(__('Invalid Position'));
 		}
 
-		if($this->Position->data['Position']['employer_id'] == $this->Auth->user('id')) {
-			if($this->request->is('post') || $this->request->is('put')) {
-				if($this->Position->saveAll($this->request->data)) {
-					if($this->request->is('ajax')) {
-						$this->disableCache();
-						$this->layout= false;
-						$this->set('position', $this->Position->read(null, $this->Position->id));	
-						$this->render('/Elements/Positions/block');
-					}
-				}
-			}			
+		if($this->Position->data['Position']['employer_id'] != $this->Auth->user('id')) {
+			throw new NotFoundException(__('Invalid Position'));
 		}
-
+		if($this->request->is('post') || $this->request->is('put')) {
+			if($this->Position->saveAll($this->request->data)) {
+				if($this->request->is('ajax')) {
+					$this->disableCache();
+					$this->layout= false;
+					$this->set('position', $this->Position->findBlock($this->Position->id));
+					$this->set('industries', $this->Industry->findAll());
+					$this->set('functions', $this->WorkFunction->findAll());
+					$this->render('/Elements/Positions/block');
+				}
+			}
+						
+		}
 	}
 
 	public function index() {

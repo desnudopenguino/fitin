@@ -13,13 +13,15 @@ Class Position extends AppModel {
 		'PositionSkill',
 		'Application'
 	);
-/*
+
 	public $validate = array(
 		'min_work_experience' => array(
 			'role' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
+			'message' => 'Please fill out this field')
+);
+/*,
 		'max_work_experience' => array(
 			'role' => array('notEmpty'),
 			'required' => true,

@@ -3,7 +3,7 @@
 
 class PositionsController extends AppController {
 
-	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer');
+	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer','Industry','WorkFunction');
 
 	public function add() {
 		if($this->request->is('post')) {
@@ -28,6 +28,8 @@ class PositionsController extends AppController {
 //		$position = $this->Position->read(null, $this->Position->id);
 		$position = $this->Position->findBlock($this->Position->id);
 		$this->set('position', $position);
+		$this->set('industries', $this->Industry->findAll());
+		$this->set('functions', $this->WorkFunction->findAll());
 		if ($this->request->is('ajax')) {
 //remove the flash message if it is ajax. 
 			$this->Session->delete('Message.flash');

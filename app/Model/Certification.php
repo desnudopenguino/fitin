@@ -20,7 +20,7 @@ Class Certification extends AppModel {
 			'message' => 'Please fill out this field')
 		);
 
-	public function beforeSave() {
+	public function beforeSave($options = array()) {
 		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
 		return true;
 	}

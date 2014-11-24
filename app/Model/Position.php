@@ -97,7 +97,7 @@ Class Position extends AppModel {
 				'Position.id', 'Position.employer_id')));
 	}
 
-	public function findById($id = null) {
+	public function findBlock($id = null) {
 		$position = $this->find('first', array(
 			'conditions' => array(
 				'Position.id' => $id),

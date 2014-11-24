@@ -6,7 +6,6 @@ class PositionsController extends AppController {
 	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer');
 
 	public function add() {
-debug($this->request->data);
 		if($this->request->is('post')) {
 			$this->Position->create();
 			if($this->Position->saveAll($this->request->data)) {
@@ -27,7 +26,7 @@ debug($this->request->data);
 			}
 		}
 //		$position = $this->Position->read(null, $this->Position->id);
-		$position = $this->Position->findById($this->Position->id);
+		$position = $this->Position->findBlock($this->Position->id);
 		$this->set('position', $position);
 		if ($this->request->is('ajax')) {
 //remove the flash message if it is ajax. 

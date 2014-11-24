@@ -6,7 +6,7 @@ class PositionsController extends AppController {
 	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer');
 
 	public function add() {
-debug($this->request);
+debug($this->request->data);
 		if($this->request->is('post')) {
 			$this->Position->create();
 			if($this->Position->saveAll($this->request->data)) {

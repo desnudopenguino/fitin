@@ -6,6 +6,7 @@ class PositionsController extends AppController {
 	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer');
 
 	public function add() {
+debug($this->request);
 		if($this->request->is('post')) {
 			$this->Position->create();
 			if($this->Position->saveAll($this->request->data)) {
@@ -17,7 +18,6 @@ class PositionsController extends AppController {
 				));
 			}
 			else {
-				debug('This Failed');
 				$this->Session->setFlash(__('The position could not be saved, please try again',
 					'alert',
 					array(

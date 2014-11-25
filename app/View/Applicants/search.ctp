@@ -1,6 +1,5 @@
 <div class="row">
-	<div class="col-md-3 col-md-offset-1">
-		<?php debug($applicant_card); ?>
+	<div class="col-md-3 col-md-offset-1 well">
 		<?php echo $this->element('Applicants/dataCard'); ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">

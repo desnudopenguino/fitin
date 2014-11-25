@@ -7,24 +7,17 @@
 					<h2>User Name</h2>
 				</div>
 				<div class="col-md-3 col-md-offset-1">
-					Culture Match: <?php echo $applicant_card['Culture']['percent']; ?>%
 					<div class="row" title="##% Cultural Match" >
+						<?php foreach($applicant_card['Culture'] as $culture) { ?>
 						<div class="col-md-11 clearfix">
-							Ethical:
-							<div class="progress" style="background-color: #dadada;">
-								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Culture']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Culture']['percent']; ?>%;">
-									<?php echo $applicant_card['Culture']['percent']; ?>%
+							<?php echo $culture['name']; ?>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $culture['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $culture['percent']; ?>%;">
+									<?php echo $culture['percent']; ?>%
 								</div>
 							</div> 
 						</div>
-						<div class="col-md-11 clearfix">
-							Ethical:
-							<div class="progress" style="background-color: #dadada;">
-								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Culture']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Culture']['percent']; ?>%;">
-									<?php echo $applicant_card['Culture']['percent']; ?>%
-								</div>
-							</div> 
-						</div>
+						<?php } ?>
 					</div>	
 				</div>
 				<div class="col-md-3 col-md-offset-1">

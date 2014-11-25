@@ -37,7 +37,7 @@ Class Education extends AppModel {
 	}
 
 	public function findRow($id = null) {
-		$education = $this->find('first' array(
+		$education = $this->find('first', array(
 			'conditions' => array(
 				'Education.id' => $id),
 			'contain' => array(

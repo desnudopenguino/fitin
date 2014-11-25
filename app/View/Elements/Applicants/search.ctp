@@ -27,7 +27,7 @@
 			</div>
 			<div class="accordion-body" id="id">
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-5">
 						<h3>Education:</h3>
 						<ul class="list-group">
 						<?php foreach($applicant_card['DataCard']['Education'] as $education) {
@@ -45,7 +45,7 @@
 						} ?>
 						</ul>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-6 col-md-offset-1">
 						<h3>Experience:</h3>
 						<table class="table table-striped">
 							<tr>

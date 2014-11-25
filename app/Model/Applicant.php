@@ -208,7 +208,8 @@ Class Applicant extends AppModel {
 						'WorkFunction'),
 					'ProjectSkill' => array(
 						'Skill')),
-				'Certification',
+				'Certification' => array(
+					'Organization'),
 				'Education' => array(
 					'Degree',
 					'Organization',

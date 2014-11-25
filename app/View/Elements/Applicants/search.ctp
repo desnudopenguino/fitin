@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="accordion-body" id="id">
-				<div class="col-md-6">
+				<div class="col-md-5">
 					<h3>Education:</h3>
 					<ul class="list-group">
 					<?php foreach($applicant_card['DataCard']['Education'] as $education) {

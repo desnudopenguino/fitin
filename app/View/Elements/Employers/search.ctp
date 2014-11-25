@@ -27,7 +27,6 @@
 			</div>
 			<div class="accordion-body" id="id">
 				<div class="row">
-					<h2>Requirements</h2>
 					<div class="col-md-5">
 						<h3>Education:</h3>
 						<ul class="list-group">

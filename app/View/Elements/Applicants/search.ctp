@@ -32,42 +32,35 @@
 							<th>Name</th>
 							<th>Exp.</th>
 						</tr>
-					<?php foreach($applicant_card['DataCard']['Certification'] as $certification) {
-						?>
+						<?php foreach($applicant_card['DataCard']['Certification'] as $certification) { ?>
 						<tr>
 							<td>Cert</td>
 							<td><?php echo $certification ?></td>
 							<td>N/A</td>
 						</tr>
-					<?php
-					} ?>
-					<?php foreach($applicant_card['DataCard']['Function'] as $function) {
-						?>
-							<tr>
-								<td>Function</td>
-								<td><?php echo $function['function']; ?></td>
-								<td><?php echo $function['totalDuration']; ?></td>
-							</tr>
-					<?php
-					} ?>
-					<?php foreach($applicant_card['DataCard']['Industry'] as $industry) {
-						?>
-							<tr>
-								<td>Industry</td>
-								<td><?php echo $industry['industry']; ?></td>
-								<td><?php echo $industry['totalDuration']; ?></td>
-							</tr>
-					<?php
-					} ?>
-					<?php foreach($applicant_card['DataCard']['Skill'] as $skill) {
-						?>
-							<tr>
-								<td>Skill</td>
-								<td><?php echo $skill['skill']; ?></td>
-								<td><?php echo $skill['totalDuration']; ?></td>
-							</tr>
-					<?php
-					} ?>
+						<?php }
+							foreach($applicant_card['DataCard']['Function'] as $function) { ?>
+						<tr>
+							<td>Function</td>
+							<td><?php echo $function['function']; ?></td>
+							<td><?php echo $function['totalDuration']; ?></td>
+						</tr>
+						<?php }
+							foreach($applicant_card['DataCard']['Industry'] as $industry) { ?>
+						<tr>
+							<td>Industry</td>
+							<td><?php echo $industry['industry']; ?></td>
+							<td><?php echo $industry['totalDuration']; ?></td>
+						</tr>
+						<?php }
+							foreach($applicant_card['DataCard']['Skill'] as $skill) { ?>
+						<tr>
+							<td>Skill</td>
+							<td><?php echo $skill['skill']; ?></td>
+							<td><?php echo $skill['totalDuration']; ?></td>
+						</tr>
+						<?php } ?>
+					</table>
 				</div>
 			</div>
 		</div>

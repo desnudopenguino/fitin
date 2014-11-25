@@ -27,6 +27,7 @@
 			</div>
 			<div class="accordion-body" id="id">
 				<div class="row">
+					<h2>Requirements</h2>
 					<div class="col-md-5">
 						<h3>Education:</h3>
 						<ul class="list-group">
@@ -47,6 +48,7 @@
 					</div>
 					<div class="col-md-6 col-md-offset-1">
 						<h3>Experience:</h3>
+						<?php echo $position_card['MinimumExperience']; ?> to <?php echo $position_card['MaximumExperience']; ?> years of experience with:
 						<table class="table table-striped">
 							<tr>
 								<th>Type</th>

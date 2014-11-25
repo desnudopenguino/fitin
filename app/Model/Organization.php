@@ -30,5 +30,11 @@ Class Organization extends AppModel {
 		}
 		return $organization;
 	}
+
+	public function findAll() {
+		return $this->find('list', array(
+			'fields' => array(
+				'Organization.organization_id','Organization.organization_name')));
+	}
 }
 ?>

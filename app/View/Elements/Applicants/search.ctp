@@ -9,7 +9,7 @@
 				<div class="col-md-3 col-md-offset-1">
 					Culture Match: <?php echo $applicant_card['Culture']['percent']; ?>%
 					<div class="row" title="##% Cultural Match" >
-						<div class="col-md-11">
+						<div class="col-md-11 clearfix">
 							<div class="progress pull-right" style="background-color: #dadada;">
 								<div class="bar" style="width: <?php echo $applicant_card['Culture']['percent']; ?>%; background-color: #cf0000;">
 									<span class="culture-bar">Culture: <?php echo $applicant_card['Culture']['percent']; ?>%</span>

@@ -44,14 +44,14 @@ Class Education extends AppModel {
 				'Degree',
 				'Organization',
 				'Industry')));
-
+/*
 		$education['Education']['Degree'] = $education['Degree'];
 		unset($education['Degree']);
 		$education['Education']['Organization'] = $education['Organization'];
 		unset($education['Organization']);
 		$education['Education']['Industry'] = $education['Industry'];
 		unset($education['Industry']);
-
+*/
 		return $education;	
 	}
 	

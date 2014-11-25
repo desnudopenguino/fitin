@@ -7,9 +7,7 @@ class ProjectsController extends AppController {
 
 	public function add() {
 		if($this->request->is('post')) {
-//create/get organization
 			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
-//add organization id to the project data
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			unset($this->request->data['Organization']);
 			$this->Project->create();
@@ -36,8 +34,7 @@ class ProjectsController extends AppController {
 //remove the flash message if it is ajax. 
 			$this->Session->delete('Message.flash');
 			$this->disableCache();		
-			$project = $this->Project->read(null, $this->Project->id);
-			$this->set('project', $project);
+			$this->set('project', $this->Project->findBlock($this->Project->id));
 			$this->layout = false;
 			$this->render('/Elements/Projects/block');
 		}
@@ -67,29 +64,22 @@ class ProjectsController extends AppController {
 			throw new NotFoundException(__('Invalid Project'));
 		}
 
-		if($this->Project->data['Project']['applicant_id'] == $this->Auth->user('id')) {
-			if($this->request->is('post') || $this->request->is('put')) {
-				if($organization = $this->Organization->find('first', array(
-					'conditions' => array(
-						'Organization.organization_name' => $this->request->data['Organization']['organization_name'])))) {
-				} else {
-					$this->Organization->create();
-					$this->request->data['Organization']['organization_type_id'] = 1;
-					$this->Organization->save($this->request->data['Organization']);
-					$organization = $this->Organization->find('first', array(
-						'conditions' => array(
-							'Organization.id' => $this->Organization->getLastInsertId())));
+		if($this->Project->data['Project']['applicant_id'] != $this->Auth->user('id')) {
+			throw new NotFoundException(__('Invalid Project'));
+		}
+		if($this->request->is('post') || $this->request->is('put')) {
+			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
+			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
+			if($this->Project->saveAll($this->request->data)) {
+				if($this->request->is('ajax')) {
+					$this->disableCache();
+					$this->layout= false;
+					$this->set('functions', $this->WorkFunction->findAll());
+					$this->set('industries', $this->Industry->findAll());
+					$this->set('project', $this->Project->findBlock($this->Project->id));	
+					$this->render('/Elements/Projects/block');
 				}
-				$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
-				if($this->Project->saveAll($this->request->data)) {
-					if($this->request->is('ajax')) {
-						$this->disableCache();
-						$this->layout= false;
-						$this->set('project', $this->Project->read(null, $this->Project->id));	
-						$this->render('/Elements/Projects/block');
-					}
-				}
-			}			
+			}
 		}
 
 	}

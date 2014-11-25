@@ -33,7 +33,7 @@ class EducationsController extends AppController {
 		if ($this->request->is('ajax')) {
 			$this->Session->delete('Message.flash');
 			$this->disableCache();		
-			$education = $this->Education->read(null, $this->Education->id);
+			$education = $this->Education->findRow($this->Education->id);
 			$this->set('education', $education);
 			$this->layout = false;
 			$this->render('/Elements/Educations/row');
@@ -76,7 +76,7 @@ class EducationsController extends AppController {
 					if($this->request->is('ajax')) {
 						$this->disableCache();
 						$this->layout= false;
-						$this->set('education', $this->Education->read(null, $this->Education->id));	
+						$this->set('education', $this->Education->findRow($this->Education->id));	
 						$this->render('/Elements/Educations/row');
 					}
 				}

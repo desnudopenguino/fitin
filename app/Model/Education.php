@@ -36,5 +36,24 @@ Class Education extends AppModel {
 				'Industry')));
 	}
 
+	public function findRow($id = null) {
+		$education = $this->find('first' array(
+			'conditions' => array(
+				'Education.id' => $id),
+			'contain' => array(
+				'Degree',
+				'Organization',
+				'Industry')));
+
+		$education['Education']['Degree'] = $education['Degree'];
+		unset($education['Degree']);
+		$education['Education']['Organization'] = $education['Organization'];
+		unset($education['Organization']);
+		$education['Education']['Industry'] = $education['Industry'];
+		unset($education['Industry']);
+
+		return $education;	
+	}
+	
 }
 ?>

@@ -55,7 +55,8 @@ Class Certification extends AppModel {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Certification.applicant_id' => $applicant_id),
-			'contain' => false));
+			'contain' => array(
+				'Organization')));
 	}
 
 	public function findRow($id = null) {
@@ -63,7 +64,7 @@ Class Certification extends AppModel {
 			'conditions' => array(
 				'Certification.id' => $id),
 			'contain' => array(
-				false
+				'Organization'
 			)));
 
 		return $certification['Certification'];

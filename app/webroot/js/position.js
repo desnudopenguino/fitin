@@ -17,6 +17,7 @@ $('#createPositionForm').submit(function() {
 
 //call to delete position
 $(document).on('submit',"form[id^='deletePosition_']", function() {
+	if(confirm('Are you sure?')) {
 	var id = $(this).attr('id');
 	$.ajax({
 		url: $(this).attr('action'),
@@ -27,6 +28,7 @@ $(document).on('submit',"form[id^='deletePosition_']", function() {
 			$('#'+id).closest('.panel').fadeOut(300, function() { $(this).remove(); });
 		}
 	});
+	}
 	return false;
 });
 

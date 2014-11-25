@@ -17,8 +17,8 @@
 						</div>
 						<div class="col-md-11">
 							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Culture']['Total']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Culture']['Total']['percent']; ?>%;">
-									Culture Match - <?php echo $applicant_card['Culture']['Total']['percent']; ?>%
+								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Results']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Results']['percent']; ?>%;">
+									Job Match - <?php echo $applicant_card['Results']['percent']; ?>%
 								</div>
 							</div> 
 						</div>

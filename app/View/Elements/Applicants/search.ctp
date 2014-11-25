@@ -40,7 +40,7 @@
 							<th>Name</th>
 							<th>Exp. (years)</th>
 						</tr>
-						<?php }
+						<?php 
 							foreach($applicant_card['DataCard']['Function'] as $function) { ?>
 						<tr>
 							<td>Function</td>

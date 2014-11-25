@@ -54,6 +54,7 @@ class CertificationsController extends AppController {
 
 	public function edit($id = null) {
 		$this->Certification->read(null,$id);
+debug($this->Certification->data);
 
 		if(!$this->Certification->exists()) {
 			throw new NotFoundException(__('Invalid Certification'));

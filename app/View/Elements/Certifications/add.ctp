@@ -22,7 +22,7 @@
 						echo $this->Form->input('certification_name', array(
 							'type' => 'text',
 							'label' => 'Name'));
-						echo $this->Form->input('organization', array(
+						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text'));
 						echo $this->Form->input('earned_date', array(
 							'placeholder' => 'ex: 2000-01-01',

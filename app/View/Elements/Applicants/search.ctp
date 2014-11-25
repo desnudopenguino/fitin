@@ -2,7 +2,7 @@
 <div class="row well">
 	<div class="accordion">
 		<div class="accordion-group">
-			<div class="accordion-heading">
+			<div class="accordion-heading clearfix">
 				<div class="col-md-3">
 					<h2><?php echo $applicant_card['DataCard']['Info']['display_name']; ?></h2>
 				</div>

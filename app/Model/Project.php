@@ -55,5 +55,28 @@ Class Project extends AppModel {
 				'ProjectSkill')));
 			
 	}
+
+	public function findBlock($id = null) {
+		$project = $this->find('first', array(
+			'conditions' => array(
+				'Project.id' => $id),
+			'contain' => array(
+				'ProjectIndustry' => array(
+					'Industry'),
+				'ProjectFunction' => array(
+					'WorkFunction'),
+				'ProjectSkill' => array(
+					'Skill'))));
+
+		$project['Project']['ProjectIndustry'] = $project['ProjectIndustry'];
+		unset($project['ProjectIndustry']);	
+		$project['Project']['ProjectFunction'] = $project['ProjectFunction'];
+		unset($project['ProjectFunction']);	
+		$project['Project']['ProjectSkill'] = $project['ProjectSkill'];
+		unset($project['ProjectSkill']);	
+
+		return $project['Project'];
+
+	}
 }
 ?>

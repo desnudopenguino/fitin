@@ -48,7 +48,7 @@
 					</div>
 					<div class="col-md-6 col-md-offset-1">
 						<h3>Experience:</h3>
-						<?php echo $position_card['MinimumExperience']; ?> to <?php echo $position_card['MaximumExperience']; ?> years of experience with:
+						<?php echo $position_card['DataCard']['MinimumExperience']; ?> to <?php echo $position_card['DataCard']['MaximumExperience']; ?> years of experience with:
 						<table class="table table-striped">
 							<tr>
 								<th>Type</th>

@@ -1,3 +1,4 @@
+<h2>My Data Card</h2>
 <h3>Education:</h3>
 <ul class="list-group">
 	<?php foreach($applicant_card['DataCard']['Education'] as $education) { ?>

@@ -57,9 +57,9 @@
 				<div class="col-md-2">
 					Certifications	
 					<ul>
-					<?php foreach($applicant_card['DataCard']['Cerfification'] as $cerfification) {
+					<?php foreach($applicant_card['DataCard']['Certification'] as $certification) {
 						?>
-						<li><?php echo $cerfification ?></li>
+						<li><?php echo $certification ?></li>
 					<?php
 					} ?>
 					</ul>

@@ -17,13 +17,13 @@
 				<div class="col-md-2">
 					Education
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-2 col-md-offset-1">
 					Functions	
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-2 col-md-offset-1">
 					Industries	
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-2 col-md-offset-1">
 					Skills	
 				</div>
 			</div>

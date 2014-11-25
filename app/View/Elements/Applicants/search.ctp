@@ -16,10 +16,10 @@
 			<div class="accordion-body" id="id">
 				<div class="col-md-2">
 					Education
-					<ul>
+					<ul class="list-group">
 					<?php foreach($applicant_card['DataCard']['Education'] as $education) {
 						?>
-						<li><?php echo $education['degree']; ?> in <?php echo $education['industry']; ?></li>
+						<li class="list-group-item"><?php echo $education['degree']; ?> in <?php echo $education['industry']; ?></li>
 						<?php
 					} ?>
 					</ul>

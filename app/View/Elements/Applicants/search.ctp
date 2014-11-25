@@ -10,10 +10,9 @@
 					<div class="row" title="##% Cultural Match" >
 						<?php foreach($applicant_card['Culture'] as $culture) { ?>
 						<div class="col-md-11">
-							<?php echo $culture['name']; ?>
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $culture['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $culture['percent']; ?>%;">
-									<?php echo $culture['percent']; ?>%
+									<?php echo $culture['name']; ?> - <?php echo $culture['percent']; ?>%
 								</div>
 							</div> 
 						</div>

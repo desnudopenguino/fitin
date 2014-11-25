@@ -23,7 +23,7 @@
 				'class' => 'btn btn-primary')); ?>
 			<?php echo $this->Form->end(); ?>
 		</div>
-		<div id="position-data">
+		<div id="position-data" class="well">
 			<?php if(!empty($position_card)) {
 				echo $this->element('Employers/dataCard');
 			} else { echo "Select a position"; } ?>

@@ -8,6 +8,15 @@
 				</div>
 				<div class="col-md-3 col-md-offset-1">
 					Culture Match: <?php echo $applicant_card['Culture']['percent']; ?>%
+					<div class="row" title="##% Cultural Match" >
+						<div class="col-md-11">
+							<div class="progress pull-right" style="background-color: #dadada;">
+								<div class="bar" style="width: <?php echo $applicant_card['Culture']['percent']; ?>; background-color: #cf0000;">
+									<span class="culture-bar">Culture: <?php echo $applicant_card['Culture']['percent']; ?>%</span>
+								</div>
+							</div> 
+						</div>
+					</div>	
 				</div>
 				<div class="col-md-3 col-md-offset-1">
 					<h3>Job Match: <?php echo $applicant_card['Results']['percent']; ?>%</h3>
@@ -34,7 +43,7 @@
 				</div>
 				<div class="col-md-6">
 					<h3>Experience:</h3>
-					<table>
+					<table class="table table-striped">
 						<tr>
 							<th>Type</th>
 							<th>Name</th>

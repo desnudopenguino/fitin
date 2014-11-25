@@ -4,7 +4,8 @@ App::uses('AppModel', 'Model');
 Class Certification extends AppModel {
 
 	public $belongsTo = array(
-		'Applicant'
+		'Applicant',
+		'Organization'
 		);
 
 	public $validate = array(

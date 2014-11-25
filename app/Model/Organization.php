@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
 Class Organization extends AppModel {
 	public $belongsTo = array('OrganizationType');
 
-	public $hasMany = array('Project','Education');
+	public $hasMany = array('Project','Education','Certification');
 
 	public $validate = array(
 		'organization_name' => array(

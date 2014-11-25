@@ -15,13 +15,14 @@
 								</div>
 							</div> 
 						</div>
-					</div>	
-					<div class="col-md-11" title="Job Match">
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Results']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Results']['percent']; ?>%;">
-							<?php echo $applicant_card['Results']['percent']; ?>% Job Match
+						<div class="col-md-11" title="Job Match">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Results']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Results']['percent']; ?>%;">
+									<?php echo $applicant_card['Results']['percent']; ?>% Job Match
+								</div>
+							</div> 
 						</div>
-					</div> 
+					</div>
 				</div>
 			</div>
 			<div class="accordion-body" id="id">

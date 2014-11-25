@@ -26,15 +26,43 @@
 				</div>
 				<div class="col-md-2">
 					Functions	
+					<ul>
+					<?php foreach($applicant_card['Function'] as $function) {
+						?>
+						<li><?php echo $function['function']; ?>: <?php echo $function['totalDuration']; ?> years</li>
+					<?php
+					} ?>
+					</ul>
 				</div>
 				<div class="col-md-2">
 					Industries	
+					<ul>
+					<?php foreach($applicant_card['Industry'] as $industry) {
+						?>
+						<li><?php echo $industry['industry']; ?>: <?php echo $industry['totalDuration']; ?> years</li>
+					<?php
+					} ?>
+					</ul>
 				</div>
 				<div class="col-md-2">
 					Skills	
+					<ul>
+					<?php foreach($applicant_card['Skill'] as $skill) {
+						?>
+						<li><?php echo $skill['skill']; ?>: <?php echo $skill['totalDuration']; ?> years</li>
+					<?php
+					} ?>
+					</ul>
 				</div>
 				<div class="col-md-2">
 					Certifications	
+					<ul>
+					<?php foreach($applicant_card['Cerfification'] as $cerfification) {
+						?>
+						<li><?php echo $cerfification ?></li>
+					<?php
+					} ?>
+					</ul>
 				</div>
 			</div>
 		</div>

@@ -61,6 +61,8 @@ Class Certification extends AppModel {
 			'contain' => array(
 				false
 			)));
+
+		return $certification['Certification'];
 	}
 }
 ?>

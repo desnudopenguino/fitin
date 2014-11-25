@@ -4,7 +4,7 @@
 		<div class="accordion-group">
 			<div class="accordion-heading clearfix">
 				<div class="col-md-3">
-					<h2><?php echo $position_card['DataCard']['Info']['display_name']; ?></h2>
+					<h2><?php echo $position_card['DataCard']['Info']['title']; ?></h2>
 				</div>
 				<div class="col-md-8 col-md-offset-1">
 					<div class="row">

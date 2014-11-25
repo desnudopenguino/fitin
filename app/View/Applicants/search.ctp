@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
 		<?php debug($applicant_card); ?>
-		<?php echo $this->element('Employers/dataCard'); ?>
+		<?php echo $this->element('Applicants/dataCard'); ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php 

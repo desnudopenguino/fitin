@@ -16,8 +16,8 @@ $('#createEducationForm').submit(function() {
 });
 
 //call to delete education
-//$("form[id^='deleteEducation_']").on('submit', function() {
 $(document).on('submit',"form[id^='deleteEducation_']", function() {
+	if(confirm('Are you sure?')) {
 	var id = $(this).attr('id');
 	$.ajax({
 		url: $(this).attr('action'),
@@ -28,6 +28,7 @@ $(document).on('submit',"form[id^='deleteEducation_']", function() {
 			$('#'+id).parent().parent().fadeOut(1000, function() { $(this).remove(); });
 		}
 	});
+	}
 	return false;
 });
 

@@ -4,7 +4,7 @@
 		<div class="accordion-group">
 			<div class="accordion-heading">
 				<div class="col-md-3">
-					<h2><?php echo $applicant_card['Info']['display_name']; ?></h2>
+					<h2><?php echo $applicant_card['DataCard']['Info']['display_name']; ?></h2>
 				</div>
 				<div class="col-md-8 col-md-offset-1">
 					<div class="row">

@@ -23,6 +23,14 @@
 						<?php
 					} ?>
 					</ul>
+					Certifications
+					<ul class="list-group">
+					<?php foreach($applicant_card['DataCard']['Certification'] as $certification) {
+						?>
+						<li class="list-group-item"><?php echo $certification; ?></li>
+						<?php
+					} ?>
+					</ul>
 				</div>
 				<div class="col-md-6">
 					Experience
@@ -30,13 +38,7 @@
 						<tr>
 							<th>Type</th>
 							<th>Name</th>
-							<th>Exp.</th>
-						</tr>
-						<?php foreach($applicant_card['DataCard']['Certification'] as $certification) { ?>
-						<tr>
-							<td>Cert</td>
-							<td><?php echo $certification ?></td>
-							<td>N/A</td>
+							<th>Exp. (years)</th>
 						</tr>
 						<?php }
 							foreach($applicant_card['DataCard']['Function'] as $function) { ?>

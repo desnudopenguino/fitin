@@ -25,6 +25,16 @@
 					</ul>
 				</div>
 				<div class="col-md-2">
+					Certifications	
+					<ul>
+					<?php foreach($applicant_card['DataCard']['Certification'] as $certification) {
+						?>
+						<li><?php echo $certification ?></li>
+					<?php
+					} ?>
+					</ul>
+				</div>
+				<div class="col-md-2">
 					Functions	
 					<ul>
 					<?php foreach($applicant_card['DataCard']['Function'] as $function) {
@@ -50,16 +60,6 @@
 					<?php foreach($applicant_card['DataCard']['Skill'] as $skill) {
 						?>
 						<li><?php echo $skill['skill']; ?>: <?php echo $skill['totalDuration']; ?> years</li>
-					<?php
-					} ?>
-					</ul>
-				</div>
-				<div class="col-md-2">
-					Certifications	
-					<ul>
-					<?php foreach($applicant_card['DataCard']['Certification'] as $certification) {
-						?>
-						<li><?php echo $certification ?></li>
 					<?php
 					} ?>
 					</ul>

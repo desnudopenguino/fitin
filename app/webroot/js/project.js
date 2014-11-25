@@ -17,6 +17,7 @@ $('#createProjectForm').submit(function() {
 
 //call to delete project
 $(document).on('submit',"form[id^='deleteProject_']", function() {
+	if(confirm('Are you sure?')) {
 	var id = $(this).attr('id');
 	$.ajax({
 		url: $(this).attr('action'),
@@ -24,11 +25,10 @@ $(document).on('submit',"form[id^='deleteProject_']", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-console.log(id + ' deleted');
 			$('#'+id).closest('.panel').fadeOut(300, function() { $(this).remove(); });
-console.log(id + ' removed');
 		}
 	});
+	}
 	return false;
 });
 

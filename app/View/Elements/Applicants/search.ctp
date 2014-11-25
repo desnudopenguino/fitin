@@ -17,7 +17,7 @@
 				<div class="col-md-2">
 					Education
 					<ul>
-					<?php foreach($applicant_card['Education'] as $education) {
+					<?php foreach($applicant_card['DataCard']['Education'] as $education) {
 						?>
 						<li><?php echo $education['degree']; ?> in <?php echo $education['industry']; ?></li>
 						<?php
@@ -27,7 +27,7 @@
 				<div class="col-md-2">
 					Functions	
 					<ul>
-					<?php foreach($applicant_card['Function'] as $function) {
+					<?php foreach($applicant_card['DataCard']['Function'] as $function) {
 						?>
 						<li><?php echo $function['function']; ?>: <?php echo $function['totalDuration']; ?> years</li>
 					<?php
@@ -37,7 +37,7 @@
 				<div class="col-md-2">
 					Industries	
 					<ul>
-					<?php foreach($applicant_card['Industry'] as $industry) {
+					<?php foreach($applicant_card['DataCard']['Industry'] as $industry) {
 						?>
 						<li><?php echo $industry['industry']; ?>: <?php echo $industry['totalDuration']; ?> years</li>
 					<?php
@@ -47,7 +47,7 @@
 				<div class="col-md-2">
 					Skills	
 					<ul>
-					<?php foreach($applicant_card['Skill'] as $skill) {
+					<?php foreach($applicant_card['DataCard']['Skill'] as $skill) {
 						?>
 						<li><?php echo $skill['skill']; ?>: <?php echo $skill['totalDuration']; ?> years</li>
 					<?php
@@ -57,7 +57,7 @@
 				<div class="col-md-2">
 					Certifications	
 					<ul>
-					<?php foreach($applicant_card['Cerfification'] as $cerfification) {
+					<?php foreach($applicant_card['DataCard']['Cerfification'] as $cerfification) {
 						?>
 						<li><?php echo $cerfification ?></li>
 					<?php

@@ -41,7 +41,7 @@
 					} ?>
 					</ul>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<h3>Experience:</h3>
 					<table class="table table-striped">
 						<tr>

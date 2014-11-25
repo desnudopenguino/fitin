@@ -1,4 +1,3 @@
-<?php debug($position_card); ?>
 <div class="row well">
 	<div class="accordion">
 		<div class="accordion-group">

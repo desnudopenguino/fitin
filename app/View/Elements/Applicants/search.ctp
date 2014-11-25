@@ -10,9 +10,9 @@
 					Culture Match: <?php echo $applicant_card['Culture']['percent']; ?>%
 					<div class="row" title="##% Cultural Match" >
 						<div class="col-md-11 clearfix">
-							<div class="progress pull-right" style="background-color: #dadada;">
-								<div class="bar" style="width: <?php echo $applicant_card['Culture']['percent']; ?>%; background-color: #cf0000;">
-									<span class="culture-bar">Culture: <?php echo $applicant_card['Culture']['percent']; ?>%</span>
+							<div class="progress" style="background-color: #dadada;">
+								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Culture']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Culture']['percent']; ?>%;">
+									<?php echo $applicant_card['Culture']['percent']; ?>%
 								</div>
 							</div> 
 						</div>

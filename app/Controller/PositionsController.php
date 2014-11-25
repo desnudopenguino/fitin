@@ -111,5 +111,15 @@ class PositionsController extends AppController {
 			$this->layout = false;
 		}
 	}
+
+	public function dataCard($id = null) {
+		$this->set('position_card', $this->Position->loadDataCard($id));
+
+		if($this->request->is('ajax')) {
+					$this->disableCache();
+					$this->layout= false;
+					$this->renter('/Elements/Employers/dataCard');	
+		}
+	}
  }
 ?>

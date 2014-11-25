@@ -23,9 +23,9 @@
 							'type' => 'text',
 							'label' => 'Name',
 							'value' => $certification['certification_name']));
-						echo $this->Form->input('organization', array(
+						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
-							'value' => $certification['organization']));
+							'value' => $certification['Organization']['organization_name']));
 						echo $this->Form->input('earned_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',

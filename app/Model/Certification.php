@@ -58,7 +58,7 @@ Class Certification extends AppModel {
 		$certification = $this->find('first', array(
 			'conditions' => array(
 				'Certification.id' => $id),
-			'contain' array(
+			'contain' => array(
 				false
 			)));
 	}

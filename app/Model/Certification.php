@@ -67,7 +67,8 @@ Class Certification extends AppModel {
 			'contain' => array(
 				'Organization'
 			)));
-
+		$certification['Certification']['Organization'] = $certification['Organization'];
+		unset($certification['Organization']);
 		return $certification['Certification'];
 	}
 }

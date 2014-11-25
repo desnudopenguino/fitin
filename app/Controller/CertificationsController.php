@@ -3,10 +3,13 @@
 
 class CertificationsController extends AppController {
 
-	public $helpers = array('Js');
+	public $uses = array('Certification','Organization');
 
 	public function add() {
 		if($this->request->is('post')) {
+			$organization = $this->Organization->checkAndCreate($this->request->data,2);
+			$this->request->data['Certification']['organization_id'] = $organization['Organization']['id'];
+			unset($this->request->data['Organization']);
 			$this->Certification->create();
 			if($this->Certification->save($this->request->data)) {
 				$this->Session->setFlash(__('The certification has been saved'),

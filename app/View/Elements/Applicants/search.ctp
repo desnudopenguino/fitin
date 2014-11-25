@@ -15,6 +15,10 @@
 								</div>
 							</div> 
 						</div>
+					</div>	
+				</div>
+				<div class="col-md-3 col-md-offset-1">
+					<h3>Job Match: <?php echo $applicant_card['Results']['percent']; ?>%</h3>
 						<div class="col-md-11">
 							<h3>Job - <?php echo $applicant_card['Results']['percent']; ?>%</h3>
 							<div class="progress">
@@ -22,10 +26,6 @@
 								</div>
 							</div> 
 						</div>
-					</div>	
-				</div>
-				<div class="col-md-3 col-md-offset-1">
-					<h3>Job Match: <?php echo $applicant_card['Results']['percent']; ?>%</h3>
 				</div>
 			</div>
 			<div class="accordion-body" id="id">

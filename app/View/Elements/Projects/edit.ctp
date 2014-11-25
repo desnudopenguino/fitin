@@ -7,23 +7,23 @@
       </div>
 			<?php 
 				echo $this->Form->create('Project',array(
-					'url' => '/projects/edit/'. $project['Project']['id'],
+					'url' => '/projects/edit/'. $project['id'],
 					'method' => 'post',
 					'inputDefaults' => array(
 						'div' => 'form-group',
 						'wrapInput' => false,
 						'class' => 'form-control'
 					),
-					'id' => 'editProjectForm_'. $project['Project']['id']
+					'id' => 'editProjectForm_'. $project['id']
 				)); ?>
       <div class="modal-body">
 				<fieldset>
 					<?php 
 						echo $this->Form->input('Project.id', array(
-							'value' => $project['Project']['id']));
+							'value' => $project['id']));
 						echo $this->Form->input('title', array(
 							'type' => 'text',
-							'value' => $project['Project']['title']));
+							'value' => $project['title']));
 					
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
@@ -32,12 +32,12 @@
 						echo $this->Form->input('start_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',
-							'value' => $project['Project']['start_date']));
+							'value' => $project['start_date']));
 
 						echo $this->Form->input('end_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',
-							'value' => $project['Project']['end_date']));
+							'value' => $project['end_date']));
 
 						foreach($project['ProjectIndustry'] as $pKey => $industry) {
 							echo $this->Form->input('ProjectIndustry.'.$pKey.'.id', array(
@@ -65,7 +65,7 @@
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
-							'value' => $project['Project']['responsibilities']));
+							'value' => $project['responsibilities']));
 						?>
 				</fieldset>
       </div>

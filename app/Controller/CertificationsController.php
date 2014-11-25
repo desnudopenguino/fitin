@@ -65,6 +65,9 @@ class CertificationsController extends AppController {
 			throw new NotFoundException(__('Invalid Certification'));
 		}
 		if($this->request->is('post') || $this->request->is('put')) {
+			$organization = $this->Organization->checkAndCreate($this->request->data,2);
+			$this->request->data['Certification']['organization_id'] = $organization['Organization']['id'];
+			unset($this->request->data['Organization']);
 			if($this->Certification->save($this->request->data['Certification'])) {
 				if($this->request->is('ajax')) {
 					$this->disableCache();

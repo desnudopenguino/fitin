@@ -7,7 +7,7 @@
 					<h2>User Name</h2>
 				</div>
 				<div class="col-md-3 col-md-offset-1">
-					<div class="row" title="##% Cultural Match" >
+					<div class="row">
 						<?php foreach($applicant_card['Culture'] as $culture) { ?>
 						<div class="col-md-11">
 							<div class="progress">

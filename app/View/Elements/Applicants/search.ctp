@@ -16,6 +16,13 @@
 			<div class="accordion-body" id="id">
 				<div class="col-md-2">
 					Education
+					<ul>
+					<?php foreach($applicant_card['Education'] as $education) {
+						?>
+						<li><?php echo $education['degree']; ?> in <?php echo $education['industry']; ?></li>
+						<?php
+					} ?>
+					</ul>
 				</div>
 				<div class="col-md-2">
 					Functions	

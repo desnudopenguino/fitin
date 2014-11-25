@@ -63,11 +63,15 @@ Class Applicant extends AppModel {
 		));
 		
 		$dataCard = array();
+		$dataCard['Info'] = array();
 		$dataCard['Certification'] = array();
 		$dataCard['Education'] = array();
 		$dataCard['Function'] = array();
 		$dataCard['Industry'] = array();
 		$dataCard['Skill'] = array();
+
+//info
+		$dataCard['Info'] = $data['Applicant'];
 //certification stuff
 		foreach($data['Certification'] as $cKey => $certification) {
 			$dataCard['Certification'][$cKey] = $certification['certification_name'];

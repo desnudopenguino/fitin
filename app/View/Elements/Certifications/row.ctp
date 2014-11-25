@@ -1,7 +1,7 @@
 <tr>
 <?php debug($certification); ?>
 	<td><?php echo $certification['certification_name']; ?></td>
-	<td><?php echo $certification['Organization.organization_name']; ?></td>
+	<td><?php echo $certification['Organization']['organization_name']; ?></td>
 	<td><?php echo $certification['earned_date']; ?></td>
 	<td><?php echo $certification['expiration_date']; ?></td>
 	<td>

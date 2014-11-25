@@ -75,6 +75,8 @@ Class Project extends AppModel {
 		unset($project['ProjectFunction']);	
 		$project['Project']['ProjectSkill'] = $project['ProjectSkill'];
 		unset($project['ProjectSkill']);	
+		$project['Project']['Organization'] = $project['Organization'];
+		unset($project['Organization']);	
 
 		return $project['Project'];
 

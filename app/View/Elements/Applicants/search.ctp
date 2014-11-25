@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<div class="accordion-body" id="id">
-				<div class="col-md-2">
+				<div class="col-md-6">
 					Education
 					<ul class="list-group">
 					<?php foreach($applicant_card['DataCard']['Education'] as $education) {

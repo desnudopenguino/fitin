@@ -10,12 +10,12 @@
 					Culture Match: <?php echo $applicant_card['Culture']['percent']; ?>%
 				</div>
 				<div class="col-md-3 col-md-offset-1">
-					<h2>Job Match: <?php echo $applicant_card['Results']['percent']; ?>%</h2>
+					<h3>Job Match: <?php echo $applicant_card['Results']['percent']; ?>%</h3>
 				</div>
 			</div>
 			<div class="accordion-body" id="id">
 				<div class="col-md-6">
-					<h3>Education</h3>
+					<h3>Education:</h3>
 					<ul class="list-group">
 					<?php foreach($applicant_card['DataCard']['Education'] as $education) {
 						?>
@@ -23,7 +23,7 @@
 						<?php
 					} ?>
 					</ul>
-					<h3>Certifications</h3>
+					<h3>Certifications:</h3>
 					<ul class="list-group">
 					<?php foreach($applicant_card['DataCard']['Certification'] as $certification) {
 						?>
@@ -33,7 +33,7 @@
 					</ul>
 				</div>
 				<div class="col-md-6">
-					<h3>Experience</h3>
+					<h3>Experience:</h3>
 					<table>
 						<tr>
 							<th>Type</th>

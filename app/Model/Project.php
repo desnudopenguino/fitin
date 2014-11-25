@@ -61,6 +61,7 @@ Class Project extends AppModel {
 			'conditions' => array(
 				'Project.id' => $id),
 			'contain' => array(
+				'Organization',
 				'ProjectIndustry' => array(
 					'Industry'),
 				'ProjectFunction' => array(

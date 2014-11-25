@@ -15,6 +15,13 @@
 								</div>
 							</div> 
 						</div>
+						<div class="col-md-11">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Culture']['Total']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Culture']['Total']['percent']; ?>%;">
+									Culture Match - <?php echo $applicant_card['Culture']['Total']['percent']; ?>%
+								</div>
+							</div> 
+						</div>
 					</div>	
 				</div>
 				<div class="col-md-3 col-md-offset-1">

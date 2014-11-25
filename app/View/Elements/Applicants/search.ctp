@@ -9,7 +9,7 @@
 				<div class="col-md-7 col-md-offset-1">
 					<div class="row">
 						<div class="col-md-11">
-							<h3><?php echo $applicant_card['Culture']['Total']['percent']; ?>% Culture Match</h3>
+							<h4><?php echo $applicant_card['Culture']['Total']['percent']; ?>% Culture Match</h4>
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Culture']['Total']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Culture']['Total']['percent']; ?>%;">
 								</div>
@@ -17,7 +17,7 @@
 						</div>
 					</div>	
 					<div class="col-md-11">
-					<h3><?php echo $applicant_card['Results']['percent']; ?>% Job Match</h3>
+					<h4><?php echo $applicant_card['Results']['percent']; ?>% Job Match</h4>
 					<div class="progress">
 						<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Results']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Results']['percent']; ?>%;">
 						</div>

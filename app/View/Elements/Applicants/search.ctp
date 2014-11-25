@@ -24,45 +24,50 @@
 					} ?>
 					</ul>
 				</div>
-				<div class="col-md-2">
-					Certifications	
-					<ul>
+				<div class="col-md-6">
+					Experience
+					<table>
+						<tr>
+							<th>Type</th>
+							<th>Name</th>
+							<th>Exp.</th>
+						</tr>
 					<?php foreach($applicant_card['DataCard']['Certification'] as $certification) {
 						?>
-						<li><?php echo $certification ?></li>
+						<tr>
+							<td>Cert</td>
+							<td><?php echo $certification ?></td>
+							<td>N/A</td>
+						</tr>
 					<?php
 					} ?>
-					</ul>
-				</div>
-				<div class="col-md-2">
-					Functions	
-					<ul>
 					<?php foreach($applicant_card['DataCard']['Function'] as $function) {
 						?>
-						<li><?php echo $function['function']; ?>: <?php echo $function['totalDuration']; ?> years</li>
+							<tr>
+								<td>Function</td>
+								<td><?php echo $function['function']; ?></td>
+								<td><?php echo $function['totalDuration']; ?></td>
+							</tr>
 					<?php
 					} ?>
-					</ul>
-				</div>
-				<div class="col-md-2">
-					Industries	
-					<ul>
 					<?php foreach($applicant_card['DataCard']['Industry'] as $industry) {
 						?>
-						<li><?php echo $industry['industry']; ?>: <?php echo $industry['totalDuration']; ?> years</li>
+							<tr>
+								<td>Industry</td>
+								<td><?php echo $industry['industry']; ?></td>
+								<td><?php echo $industry['totalDuration']; ?></td>
+							</tr>
 					<?php
 					} ?>
-					</ul>
-				</div>
-				<div class="col-md-2">
-					Skills	
-					<ul>
 					<?php foreach($applicant_card['DataCard']['Skill'] as $skill) {
 						?>
-						<li><?php echo $skill['skill']; ?>: <?php echo $skill['totalDuration']; ?> years</li>
+							<tr>
+								<td>Skill</td>
+								<td><?php echo $skill['skill']; ?></td>
+								<td><?php echo $skill['totalDuration']; ?></td>
+							</tr>
 					<?php
 					} ?>
-					</ul>
 				</div>
 			</div>
 		</div>

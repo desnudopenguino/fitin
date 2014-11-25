@@ -7,6 +7,6 @@
 		Culture Match
 	</div>
 	<div class="col-md-3 col-md-offset-1">
-		Job Match
+		Job Match: <?php echo $applicant_card['Results']['percent']; ?>%
 	</div>
 </div>

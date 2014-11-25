@@ -53,5 +53,14 @@ Class Certification extends AppModel {
 				'Certification.applicant_id' => $applicant_id),
 			'contain' => false));
 	}
+
+	public function findRow($id = null) {
+		$certification = $this->find('first', array(
+			'conditions' => array(
+				'Certification.id' => $id),
+			'contain' array(
+				false
+			)));
+	}
 }
 ?>

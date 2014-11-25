@@ -28,8 +28,7 @@ class CertificationsController extends AppController {
 		if ($this->request->is('ajax')) {
 			$this->Session->delete('Message.flash');
 			$this->disableCache();		
-			$certification = $this->Certification->read(null, $this->Certification->id);
-			$this->set('certification', $certification);
+			$this->set('certification', $this->Certification->findRow($this->Certification->id));
 			$this->layout = false;
 			$this->render('/Elements/Certifications/row');
 		}
@@ -61,18 +60,18 @@ class CertificationsController extends AppController {
 		}
 
 		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
-			if($this->request->is('post') || $this->request->is('put')) {
-				if($this->Certification->save($this->request->data['Certification'])) {
-					if($this->request->is('ajax')) {
-						$this->disableCache();
-						$this->layout= false;
-						$this->set('certification', $this->Certification->read(null, $this->Certification->id));	
-						$this->render('/Elements/Certifications/row');
-					}
-				}
-			}			
+			throw new NotFoundException(__('Invalid Certification'));
 		}
-
+		if($this->request->is('post') || $this->request->is('put')) {
+			if($this->Certification->save($this->request->data['Certification'])) {
+				if($this->request->is('ajax')) {
+					$this->disableCache();
+					$this->layout= false;
+					$this->set('certification', $this->Certification->findRow($this->Certification->id));
+					$this->render('/Elements/Certifications/row');
+				}
+			}
+		}
 	}
 
 	public function index() {

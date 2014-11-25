@@ -56,6 +56,7 @@ Class Position extends AppModel {
 		));
 		
 		$dataCard = array();
+		$dataCard['Info'] = array();
 		$dataCard['Certification'] = array();
 		$dataCard['Education'] = array();
 		$dataCard['Function'] = array();
@@ -63,6 +64,8 @@ Class Position extends AppModel {
 		$dataCard['Skill'] = array();
 		$dataCard['MinimumExperience'] = $data['Position']['min_work_experience'];
 		$dataCard['MaximumExperience'] = $data['Position']['max_work_experience'];
+
+		$dataCard['Info'] = $data['Position'];
 
 		foreach($data['PositionFunction'] as $fKey => $function) {
 			if(!empty($function['WorkFunction'])) {

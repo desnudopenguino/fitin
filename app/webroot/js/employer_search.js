@@ -7,7 +7,8 @@ $(document).on('submit',"#searchPositionForm", function() {
 		data: $(this).serialize(),
 		success: function(result) {
 			$('#results').html(result).hide().fadeIn(300);
-console.log('successful search!');
 		}});
+console.log($this).serialise());
+		
 	return false;
 });

@@ -22,10 +22,12 @@ debug($data);
 		unset($data['ProjectSkill']['skill_names']);
 
 		foreach($skills as $skill) {
-			$data['ProjectSkill'][]['skill_name'] = $skill;
+			$data['ProjectSkill'][]['Skill']['skill_name'] = $skill;
 		}
 	
 		return $data;
 	}
+
+	public function checkAndCreate(
 }
 ?>

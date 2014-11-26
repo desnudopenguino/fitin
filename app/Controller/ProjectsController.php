@@ -6,12 +6,12 @@ class ProjectsController extends AppController {
 	public $uses = array('Project','Organization','WorkFunction','Industry');
 
 	public function add() {
-debug($this->request->data);
 		if($this->request->is('post')) {
 			$this->request->data = $this->Project->ProjectSkill->explode($this->request->data);
 			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			unset($this->request->data['Organization']);
+debug($this->request->data);
 			$this->Project->create();
 			if($this->Project->saveAll($this->request->data)) {
 				$this->Session->setFlash(__('The project has been saved'),

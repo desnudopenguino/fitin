@@ -67,6 +67,10 @@
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea'));
+
+						echo $this->Form->input('PositionSkill.skill_names', array(
+							'type' => 'textarea'));
+
 						?>
 				</fieldset>
       </div>

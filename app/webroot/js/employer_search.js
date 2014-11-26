@@ -8,7 +8,14 @@ $(document).on('submit',"#searchPositionForm", function() {
 		success: function(result) {
 			$('#results').html(result).hide().fadeIn(300);
 		}});
-console.log($('#PositionId').val());
+
+	$.ajax({
+		url: '../positions/dataCard/'+$('#PositionId').val(),
+		type: 'POST',
+		async: true,
+		success: function(result) {
+			$('#position-data').html(result).hide.fadeIn(300);
+		}});	
 		
 	return false;
 });

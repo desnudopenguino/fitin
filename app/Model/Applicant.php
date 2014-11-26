@@ -137,7 +137,7 @@ Class Applicant extends AppModel {
 			$dataCard['Function'][$fKey]['totalDuration'] = $this->calculateDuration($function['duration']);
 		}
 		foreach($dataCard['Skill'] as $sKey => $skill) {
-			$dataCard['Skill'][$iKey]['totalDuration'] = $this->calculateDuration($skill['duration']);
+			$dataCard['Skill'][$sKey]['totalDuration'] = $this->calculateDuration($skill['duration']);
 		}
 
 		return array('DataCard' => $dataCard);	

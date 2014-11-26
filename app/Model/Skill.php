@@ -20,11 +20,11 @@ Class Skill extends AppModel {
 	}
 
 	public function checkAndCreate($data) {
-		if($skill = $this->findByName($data['Skill']['skill_name'])) {
+		if($skill = $this->findByName($data['Skill']['skill_type'])) {
 		} else {
 			$this->create();
 			$this->save($data);
-			$skill = $this->findByName($data['Skill']['skill_name']);	
+			$skill = $this->findByName($data['Skill']['skill_type']);	
 		}
 		return $skill;
 	}

@@ -13,11 +13,11 @@ Class ProjectSkill extends AppModel {
 	}
 
 	public function checkAndCreateSkills($data) {
-		$this->explodeString($data);
+		$data = $this->explode($data);
 debug($data);
 	}
 
-	public function explodeString($data) {
+	public function explode($data) {
 		$skills = explode(', ', $data['ProjectSkill']['skill_names']);
 
 		foreach($skills as $skill) {

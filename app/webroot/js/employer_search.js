@@ -8,7 +8,7 @@ $(document).on('submit',"#searchPositionForm", function() {
 		success: function(result) {
 			$('#results').html(result).hide().fadeIn(300);
 		}});
-console.log($(this).serialize());
+console.log($('#PositionId').val());
 		
 	return false;
 });

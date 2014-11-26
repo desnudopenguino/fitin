@@ -43,6 +43,14 @@ Class Project extends AppModel {
 		return true;
 	}
 
+	public function afterFind($results, $primary = false) {
+		foreach($results as $rKey => $result) {
+			if(empty($result['Project']['end_date'])) {
+				$results[$rKey]['Project']['end_date'] = date('Y-m-d');
+			}
+		}
+	}
+
 	public function findApplicantAll($applicant_id) {
 		return $this->find('all', array(
 			'conditions' => array(

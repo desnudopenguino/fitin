@@ -19,6 +19,7 @@ debug($data);
 
 	public function explode($data) {
 		$skills = explode(', ', $data['ProjectSkill']['skill_names']);
+		unset($data['ProjectSkill']['skill_names']);
 
 		foreach($skills as $skill) {
 			$data['ProjectSkill'][]['skill_name'] = $skill;

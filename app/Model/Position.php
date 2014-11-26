@@ -55,7 +55,6 @@ Class Position extends AppModel {
 					'Skill'))
 		));
 		
-debug($data);
 		$dataCard = array();
 		$dataCard['Info'] = array();
 		$dataCard['Certification'] = array();

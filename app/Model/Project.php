@@ -49,6 +49,7 @@ Class Project extends AppModel {
 				$results[$rKey]['Project']['end_date'] = date('Y-m-d');
 			}
 		}
+		return $results;
 	}
 
 	public function findApplicantAll($applicant_id) {

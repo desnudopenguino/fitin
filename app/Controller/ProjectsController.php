@@ -8,7 +8,7 @@ class ProjectsController extends AppController {
 	public function add() {
 debug($this->request->data);
 		if($this->request->is('post')) {
-			$skills = $this->Project->ProjectSkill->checkAndCreateSkills($this->request->data);
+			$this->request->data = $this->Project->ProjectSkill->explode($this->request->data);
 			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			unset($this->request->data['Organization']);

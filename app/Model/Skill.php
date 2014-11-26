@@ -13,10 +13,10 @@ Class Skill extends AppModel {
 				'Skill.id', 'Skill.skill_type')));
 	}
 
-	public function findByName($skill_name) {
+	public function findByName($skill_type) {
 		return $this->find('first', array(
 			'conditions' => array(
-				'Skill.skill_name' => $skill_name)));
+				'Skill.skill_type' => $skill_type)));
 	}
 
 	public function checkAndCreate($data) {

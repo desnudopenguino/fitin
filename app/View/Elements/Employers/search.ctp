@@ -1,4 +1,5 @@
 <div class="row well">
+<?php debug($position_card); ?>
 	<div class="accordion">
 		<div class="accordion-group">
 			<div class="accordion-heading clearfix">

@@ -28,6 +28,5 @@ debug($data);
 		return $data;
 	}
 
-	public function checkAndCreate(
 }
 ?>

@@ -118,7 +118,7 @@ class PositionsController extends AppController {
 		if($this->request->is('ajax')) {
 					$this->disableCache();
 					$this->layout= false;
-					$this->renter('/Elements/Employers/dataCard');	
+					$this->render('/Elements/Employers/dataCard');	
 		}
 	}
  }

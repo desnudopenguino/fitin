@@ -14,7 +14,7 @@ $(document).on('submit',"#searchPositionForm", function() {
 		type: 'POST',
 		async: true,
 		success: function(result) {
-			$('#position-data').html(result).hide.fadeIn(300);
+			$('#position-data').html(result).hide().fadeIn(300);
 		}});	
 		
 	return false;

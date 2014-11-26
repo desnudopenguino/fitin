@@ -89,6 +89,9 @@ Class Applicant extends AppModel {
 
 //project stuff - split the functions and experiences into different bits. 
 		foreach($data['Project'] as $pKey => $project) {
+			if($project['end_date'] == 'Current') {
+				$project['end_date'] = date('Y-m-d');
+			}
 			foreach($project['ProjectIndustry'] as $industry) {
 				if(!empty($industry['Industry'])) {
 					if(empty($dataCard['Industry'][$industry['industry_id']])) {

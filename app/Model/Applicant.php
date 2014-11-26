@@ -116,7 +116,7 @@ Class Applicant extends AppModel {
 				}
 			}
 			foreach($project['ProjectSkill'] as $skill) {
-				if(!empty($industry['Skill'])) {
+				if(!empty($skill['Skill'])) {
 					if(empty($dataCard['Skill'][$skill['skill_id']])) {
 						$dataCard['Skill'][$skill['skill_id']] = array(
 						'id' => $skill['skill_id'],

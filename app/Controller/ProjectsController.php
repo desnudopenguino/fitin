@@ -6,6 +6,7 @@ class ProjectsController extends AppController {
 	public $uses = array('Project','Organization','WorkFunction','Industry');
 
 	public function add() {
+debug($this->request->data);
 		if($this->request->is('post')) {
 			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];

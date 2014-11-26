@@ -46,7 +46,7 @@ Class Project extends AppModel {
 	public function afterFind($results, $primary = false) {
 		foreach($results as $rKey => $result) {
 			if(empty($result['Project']['end_date'])) {
-				$results[$rKey]['Project']['end_date'] = date('Y-m-d');
+				$results[$rKey]['Project']['end_date'] = 'Current';
 			}
 		}
 		return $results;

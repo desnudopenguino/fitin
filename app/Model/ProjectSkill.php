@@ -23,6 +23,8 @@ debug($data);
 		foreach($skills as $skill) {
 			$data['ProjectSkill'][]['skill_name'] = $skill;
 		}
+	
+		return $data;
 	}
 }
 ?>

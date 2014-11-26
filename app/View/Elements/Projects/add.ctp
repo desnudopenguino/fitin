@@ -72,7 +72,7 @@
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea'));
 
-						echo $this->Form->input('skills', array(
+						echo $this->Form->input('ProjectSkill.skill_names', array(
 							'type' => 'textarea'));
 						?>
 				</fieldset>

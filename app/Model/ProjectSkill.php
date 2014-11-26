@@ -11,7 +11,7 @@ Class ProjectSkill extends AppModel {
 		unset($data['ProjectSkill']['skill_names']);
 
 		foreach($skills as $skill) {
-			$data['ProjectSkill'][]['Skill']['skill_name'] = $skill;
+			$data['ProjectSkill'][]['Skill']['skill_type'] = $skill;
 		}
 		return $data;
 	}

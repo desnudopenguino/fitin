@@ -80,8 +80,9 @@
 								'controller' => 'applications', 'action' => 'apply', $position_card['DataCard']['Info']['id']),
 								array('class' => 'btn btn-primary', 'escape' => false)); 
 							//view profile
-							echo $this->Html->link('View Profile','/with'.$position_card['DataCard']['Info']['User']['url']);
+							echo $this->Html->link('View Profile','/with/'. $position_card['DataCard']['Info']['User']['url']);
 							//contact
+							debug($position_card['DataCard']['Info']);
 						?>
 						</div>
 					</div>

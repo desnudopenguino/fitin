@@ -72,6 +72,14 @@
 							</tr>
 							<?php } ?>
 						</table>
+						<div>
+							<?php //apply
+								echo $this->Html->link('<i class="glyphicon glyphicon-sent"></i> Apply', array(
+									'cortroller' => 'applications', 'action' => 'add', $position_card['DataCard']['Info']['id']),
+									array('class' => 'btn btn-primary', 'escape' => false)); 
+								//view profile
+								//contact
+						</div>
 					</div>
 				</div>
 			</div>

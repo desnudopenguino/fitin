@@ -15,6 +15,10 @@ class ApplicationsController extends AppController {
 		}
 	}
 
+	public function apply() {
+
+	}
+
 	public function edit() {
 
 	}

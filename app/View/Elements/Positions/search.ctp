@@ -76,10 +76,11 @@
 					<div class="row">
 						<div class="col-md-12">
 						<?php //apply
-							echo $this->Html->link('<i class="glyphicon glyphicon-sent"></i> Apply', array(
-								'controller' => 'applications', 'action' => 'add', $position_card['DataCard']['Info']['id']),
+							echo $this->Html->link('<i class="glyphicon glyphicon-send"></i> Apply', array(
+								'controller' => 'applications', 'action' => 'apply', $position_card['DataCard']['Info']['id']),
 								array('class' => 'btn btn-primary', 'escape' => false)); 
 							//view profile
+							echo $this->Html->link('View Profile','/with'.$position_card['DataCard']['Info']['User']['url']);
 							//contact
 						?>
 						</div>

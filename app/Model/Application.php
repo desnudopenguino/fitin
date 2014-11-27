@@ -9,6 +9,7 @@ Class Application extends AppModel {
 		);
 
 	public function beforeSave($options = array()) {
+		$this->data[$this->alias]['applicant_id' = AuthComponent::user('id');
 		return true;
 	}
 

@@ -18,6 +18,9 @@ class ApplicationsController extends AppController {
 	public function apply($position_id = null) {
 		$this->Application->create();
 		$this->Application->save(array('Application' => array('position_id' => $position_id)));
+		if($this->request->is('ajax')) {
+		}
+			$this->autoRender = false;	
 	}
 
 	public function edit() {

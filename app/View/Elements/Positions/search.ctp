@@ -75,15 +75,16 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-						<?php //apply
+						<?php
 							echo $this->Html->link('<i class="glyphicon glyphicon-send"></i> Apply', array(
 								'controller' => 'applications', 'action' => 'apply', $position_card['DataCard']['Info']['id']),
 								array('class' => 'btn btn-primary', 'escape' => false)); 
-							//view profile
+
 							echo $this->Html->link('View Profile','/with/'. $position_card['DataCard']['Info']['url'],
 								array('class' => 'btn btn-primary', 'escape' => false));
-							//contact
-							debug($position_card['DataCard']['Info']);
+
+							echo $this->Html->link('<i class="glyphicon glyphicon-envelope"></i>Message', '#',
+								array('class' => 'btn btn-primary', 'escape' => false));
 						?>
 						</div>
 					</div>

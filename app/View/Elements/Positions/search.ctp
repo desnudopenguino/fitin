@@ -81,7 +81,10 @@
 								array('class' => 'btn btn-primary apply', 'escape' => false)); 
 
 							echo $this->Html->link('View Profile','/with/'. $position_card['DataCard']['Info']['url'],
-								array('class' => 'btn btn-primary', 'escape' => false));
+								array(
+									'class' => 'btn btn-primary',
+									'id' => 'apply_'.$position_card['DataCard']['Info']['id'],
+									'escape' => false));
 
 							echo $this->Html->link('<i class="glyphicon glyphicon-envelope"></i> Message', '#',
 								array('class' => 'btn btn-primary', 'escape' => false));

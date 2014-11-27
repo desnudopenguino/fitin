@@ -8,6 +8,8 @@ e.preventDefault();
 		type: 'POST',
 		async: true,
 		success: function() {
+			$(this).addClass('disabled');
+			$(this).text('Applied');
 			
 		}});
 	return false;

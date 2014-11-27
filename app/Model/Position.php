@@ -67,6 +67,7 @@ Class Position extends AppModel {
 		$dataCard['MaximumExperience'] = $data['Position']['max_work_experience'];
 
 		$dataCard['Info'] = $data['Position'];
+		$dataCard['Info']['Employer'] = $data['Employer'];
 
 		foreach($data['PositionFunction'] as $fKey => $function) {
 			if(!empty($function['WorkFunction'])) {

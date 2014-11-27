@@ -79,6 +79,7 @@
 									array('class' => 'btn btn-primary', 'escape' => false)); 
 								//view profile
 								//contact
+							?>
 						</div>
 					</div>
 				</div>

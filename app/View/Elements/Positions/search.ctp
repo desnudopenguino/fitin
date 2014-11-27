@@ -74,6 +74,7 @@
 						</table>
 					</div>
 					<div class="row">
+						<div class="col-md-12">
 						<?php //apply
 							echo $this->Html->link('<i class="glyphicon glyphicon-sent"></i> Apply', array(
 								'cortroller' => 'applications', 'action' => 'add', $position_card['DataCard']['Info']['id']),
@@ -81,6 +82,7 @@
 							//view profile
 							//contact
 						?>
+						</div>
 					</div>
 				</div>
 			</div>

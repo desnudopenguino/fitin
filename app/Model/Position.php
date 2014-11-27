@@ -46,7 +46,8 @@ Class Position extends AppModel {
 			'conditions' => array(
 				'Position.id' => $id),
 			'contain' => array(
-				'Employer',
+				'Employer' => array(
+					'User'),
 				'PositionIndustry' => array(
 					'Industry'),
 				'PositionFunction' => array(

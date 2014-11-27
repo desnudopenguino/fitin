@@ -83,7 +83,7 @@
 							echo $this->Html->link('View Profile','/with/'. $position_card['DataCard']['Info']['url'],
 								array('class' => 'btn btn-primary', 'escape' => false));
 
-							echo $this->Html->link('<i class="glyphicon glyphicon-envelope"></i>Message', '#',
+							echo $this->Html->link('<i class="glyphicon glyphicon-envelope"></i> Message', '#',
 								array('class' => 'btn btn-primary', 'escape' => false));
 						?>
 						</div>

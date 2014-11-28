@@ -1,6 +1,7 @@
 //load the mail stuff if inbox button is clicked
 $(document).on('click',".cancel", function(e) {
-var id = $(this).attr('href').match(/\d+/g,'');
+var href = $(this).attr('href');
+var id = href.match(/\d+/g,'');
 	$.ajax({
 		url: $(this).attr('href'),
 		type: 'POST',

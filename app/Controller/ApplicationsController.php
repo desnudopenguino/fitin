@@ -31,7 +31,7 @@ class ApplicationsController extends AppController {
 		$this->autoRender = false;
 	}
 
-	public function applicantIndex() {
+	public function applicant() {
 		$applicant_card = $this->Application->Applicant->loadDataCard($this->Auth->user('id'));
 		$applications = $this->Application->findApplicantActive($this->Auth->user('id'));
 		foreach($applications as $aKey => $application) {

@@ -1,7 +1,7 @@
 <div class="row">
 	<?php foreach($applications as $application) {
 		$this->set('application', $application);
-		echo $this->element('Applications/employer');
+		echo $this->element('Applications/position');
 	} ?>
 </div>
 <?php echo $this->Html->script('applicant_applications'); ?>

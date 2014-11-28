@@ -33,7 +33,7 @@ class ApplicationsController extends AppController {
 
 	public function applicantIndex() {
 		$applicant_card = $this->Application->Applicant->loadDataCard($this->Auth->user('id'));
-		$applications = $this->Application->findApplicant($this->Auth->user('id'));
+		$applications = $this->Application->findApplicantActive($this->Auth->user('id'));
 		foreach($applications as $aKey => $application) {
 //build the culture & job match
 			$position_card = $this->Application->Position->loadDataCard($application['Application']['position_id']);

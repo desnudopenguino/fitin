@@ -3,7 +3,7 @@
 
 class ApplicationsController extends AppController {
 
-	public $uses = array('DataCard');
+	public $uses = array('Application','DataCard');
 
 	public function add() {
 		if($this->request->is('post')) {
@@ -34,7 +34,7 @@ class ApplicationsController extends AppController {
 		$applications = $this->Application->findApplicant($this->Auth->user('id'));
 		foreach($applications as $aKey => $application) {
 //build the culture & job match
-			$position_card = $this->Application->Position->loadDataCard($application['Application']['position_id']);
+			$position_card = $this->Position->loadDataCard($application['Application']['position_id']);
 			$applications[$aKey]['Results'] = $this->DataCard->compare($applicant_card,$position_card);
 			$applications[$aKey]['Culture'] = $this->Application->Applicant->User->UserCultureAnswer($this->Auth->user('id'),$application['Application']['position_id']);
 		}

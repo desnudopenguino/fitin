@@ -16,7 +16,10 @@ Class Application extends AppModel {
 	public function findApplicant($applicant_id = null) {
 		return $this->find('all', array(
 			'conditions' => array(
-				'Application.applicant_id' => $applicant_id)));
+				'Application.applicant_id' => $applicant_id),
+			'contain' => array(
+				'Position' => array(
+					'Employer'))));
 	}
 	
 	public function findEmployer($employer_id = null) {

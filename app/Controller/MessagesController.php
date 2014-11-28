@@ -20,6 +20,10 @@ class MessagesController extends AppController {
 		$this->Message->create();
 		$this->Message->set($this->request->data);
 		$this->set('message', $this->Message->data);
+		
+		if($this->request->data->is('post') && !empty($this->request->data['Message']['message'] )) {
+			$this->Message->save($this->request->data);
+		}
 
 	}
 

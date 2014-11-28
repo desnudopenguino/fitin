@@ -25,8 +25,10 @@ class ApplicationsController extends AppController {
 			$this->autoRender = false;	
 	}
 
-	public function edit() {
-
+	public function cancel($id = null) {
+		$this->Application->read(null,$id);
+		$this->Application->save(array('Application' => array('application_status_id' => 2)));
+		$this->autoRender = false;
 	}
 
 	public function applicantIndex() {

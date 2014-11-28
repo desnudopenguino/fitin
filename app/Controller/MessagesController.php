@@ -17,7 +17,6 @@ class MessagesController extends AppController {
 
 //compose message action
 	public function compose() {
-debug($this->request->data);
 		$this->Message->create();
 		$this->Message->set($this->request->data);
 		$this->set('message', $this->Message->data);

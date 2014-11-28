@@ -14,17 +14,18 @@ Class Application extends AppModel {
 	}
 
 	public function findApplicant($applicant_id = null) {
-		$application = $this->find('all', array(
+		$applications = $this->find('all', array(
 			'conditions' => array(
 				'Application.applicant_id' => $applicant_id),
 			'contain' => array(
 				'Position' => array(
 					'Employer'))));
+		foreach($applications as $aKey => $application) {
+			$applications[$aKey]['Application']['Position'] = $application['Position'];
+			unset($applications[$aKey]['Position']);
+		}
 
-		$application['Application']['Position'] = $application['Position'];
-		unset($application['Position']);
-
-		return $application;
+		return $applications;
 	}
 	
 	public function findEmployer($employer_id = null) {

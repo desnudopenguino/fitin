@@ -15,6 +15,12 @@ class MessagesController extends AppController {
 		}
 	}
 
+//compose message action
+	public function compose() {
+debug($this->request->data);
+		
+	}
+
 //marks message as read in the db
 	public function read($id = null) {
 		

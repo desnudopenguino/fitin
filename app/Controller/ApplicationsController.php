@@ -30,13 +30,13 @@ class ApplicationsController extends AppController {
 	}
 
 	public function applicantIndex() {
-		$applicantCard = $this->Application->Applicant->loadDataCard($this->Auth->user('id'));
+		$applicant_card = $this->Application->Applicant->loadDataCard($this->Auth->user('id'));
 		$applications = $this->Application->findApplicant($this->Auth->user('id'));
 		foreach($applications as $aKey => $application) {
 //build the culture & job match
-			$position_card = $this->Application->Position->loadDataCard($application['position_id']);
-			$applications[$aKey]['Results'] = $this->DataCard->compare($applicantCard,$position_card);
-			$applications[$aKey]['Culture'] = $this->Application->Applicant->User->UserCultureAnswer($this->Auth->user('id'),$application['position_id']);
+			$position_card = $this->Application->Position->loadDataCard($application['Application']['position_id']);
+			$applications[$aKey]['Results'] = $this->DataCard->compare($applicant_card,$position_card);
+			$applications[$aKey]['Culture'] = $this->Application->Applicant->User->UserCultureAnswer($this->Auth->user('id'),$application['Application']['position_id']);
 		}
 
 		$this->set('applications', $applications);

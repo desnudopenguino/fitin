@@ -94,11 +94,11 @@ debug($position_card);
 
 							echo $this->Form->input('receiver_id', array(
 								'type' => 'hidden',
-								'value' => $position_card['DataCard']['Info']['Position']['employer_id']));
+								'value' => $position_card['DataCard']['Info']['employer_id']));
 
 							echo $this->Form->input('title', array(
 								'type' => 'hidden',
-								'value' => $position_card['DataCard']['Info']['Position']['title']));
+								'value' => $position_card['DataCard']['Info']['title']));
 	
 							echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
 								'class' => 'btn btn-primary',

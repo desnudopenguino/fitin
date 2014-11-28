@@ -14,7 +14,7 @@ Class Application extends AppModel {
 	}
 
 	public function findApplicant($applicant_id = null) {
-		$application $this->find('all', array(
+		$application = $this->find('all', array(
 			'conditions' => array(
 				'Application.applicant_id' => $applicant_id),
 			'contain' => array(

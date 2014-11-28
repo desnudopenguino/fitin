@@ -15,7 +15,7 @@
 	<?php 
 	echo $this->Form->input('receiver_id', array(
 		'type' => 'hidden',
-		'value' => $user['User']['id']));
+		'value' => $message['receiver_id']));
 	echo $this->Form->input('title', array(
 		'type' => 'text'));
 

@@ -8,7 +8,7 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 			View Position
 		</div>
 		<div class="col-md-4">
-			<?php echo $this->Html-link('<i class="glyphicon glyphicon-remove"></i>Cancel', array('controller' => 'applications', 'action' => 'cancel', $application['Application']['id']),array(
+			<?php echo $this->Html->link('<i class="glyphicon glyphicon-remove"></i>Cancel', array('controller' => 'applications', 'action' => 'cancel', $application['Application']['id']),array(
 				'class' => 'btn btn-warning cancel',
 				'id' => 'cancel_'. $application['Application']['id'],
 				'escape' => false)); ?>

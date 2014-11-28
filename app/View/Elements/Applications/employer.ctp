@@ -11,7 +11,7 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 			<?php echo $this->Html-link('<i class="glyphicon glyphicon-remove"></i>Cancel', array('controller' => 'applications', 'action' => 'cancel', $application['Application']['id']),array(
 				'class' => 'btn btn-warning cancel',
 				'id' => 'cancel_'. $application['Application']['id'],
-				'escape' => false));
+				'escape' => false)); ?>
 		</div>
 		<div class="col-md-4">
 			Contact Employer

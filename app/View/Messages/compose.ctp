@@ -14,8 +14,8 @@
 	<legend>Send Message</legend>
 	<?php 
 	echo $this->Form->input('receiver_id', array(
-		'type' => 'hidden',
-		'value' => $message['receiver_id']));
+		'type' => 'text'));
+
 	echo $this->Form->input('title', array(
 		'type' => 'text'));
 

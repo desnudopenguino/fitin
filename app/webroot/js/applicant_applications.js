@@ -1,5 +1,5 @@
 //load the mail stuff if inbox button is clicked
-$(document).on('click',".cancel", function(e) {
+$(document).on('click',".cancel", function() {
 var href = $(this).attr('href');
 var id = href.match(/\d+/g,'');
 	$.ajax({
@@ -7,7 +7,7 @@ var id = href.match(/\d+/g,'');
 		type: 'POST',
 		async: true,
 		success: function() {
-			$('#application_'+id).fadeOut(200, function() ( $(this).remove(); });
+			$('#application_'+id).fadeOut(200, function() { $(this).remove(); });
 		}});
 	return false;
 });

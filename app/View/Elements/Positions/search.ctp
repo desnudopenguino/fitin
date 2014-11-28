@@ -87,6 +87,24 @@
 									'class' => 'btn btn-primary',
 									'escape' => false));
 
+//form with hidden fields instead.
+							echo $this->Form->create('Message', array(
+								'action' => 'compose'));
+
+							echo $this->Form->input('receiver_id', array(
+								'type' => 'hidden',
+								'value' => $position_card['DataCard']['Info']['Position']['employer_id']));
+
+							echo $this->Form->input('title', array(
+								'type' => 'hidden',
+								'value' => $position_card['DataCard']['Info']['Position']['title']));
+	
+							echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
+								'class' => 'btn btn-primary',
+								'type' => 'submit'));
+
+							echo $this->Form->end(); 
+						
 							echo $this->Html->link('<i class="glyphicon glyphicon-envelope"></i> Message', '#',
 								array('class' => 'btn btn-primary', 'escape' => false));
 						?>

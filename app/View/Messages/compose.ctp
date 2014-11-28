@@ -1,7 +1,7 @@
 <?php 
 	debug($message);
 	echo $this->Form->create('Message',array(
-		'action' => 'add',
+		'action' => 'compose',
 		'method' => 'post',
 		'inputDefaults' => array(
 			'div' => 'form-group',
@@ -14,7 +14,7 @@
 	<legend>Send Message</legend>
 	<?php 
 	echo $this->Form->input('receiver_id', array(
-		'type' => 'text'));
+		'type' => 'hidden'));
 
 	echo $this->Form->input('title', array(
 		'type' => 'text'));

@@ -3,6 +3,8 @@
 
 class ApplicationsController extends AppController {
 
+	public $uses = array('DataCard');
+
 	public function add() {
 		if($this->request->is('post')) {
 			$this->Application->create();
@@ -28,7 +30,16 @@ class ApplicationsController extends AppController {
 	}
 
 	public function applicantIndex() {
-		$this->set('applications', $this->Application->findApplicant($this->Auth->user('id')));
+		$applicantCard = $this->Application->Applicant->loadDataCard($this->Auth->user('id'));
+		$applications = $this->Application->findApplicant($this->Auth->user('id')));
+		foreach($applications as $aKey => $application) {
+//build the culture & job match
+			$position_card = $this->Application->Position->loadDataCard($application['position_id']);
+			$applications[$aKey]['Results'] = $this->DataCard->compare($applicantCard,$position_card);
+			$applications[$aKey]['Culture'] = $this->Application->Applicant->User->UserCultureAnswer($this->Auth->user('id'),$application['position_id']);
+		}
+
+		$this->set('applications', $applications);
 		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}

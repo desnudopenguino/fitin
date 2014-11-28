@@ -76,6 +76,7 @@
 					<div class="row">
 						<div class="col-md-12">
 						<?php
+debug($position_card);
 							echo $this->Html->link('<i class="glyphicon glyphicon-send"></i> Apply', array(
 								'controller' => 'applications', 'action' => 'apply', $position_card['DataCard']['Info']['id']),
 								array('class' => 'btn btn-primary apply',

@@ -42,6 +42,7 @@ Class Applicant extends AppModel {
 			'conditions' => array(
 				'Applicant.user_id' => $id),
 			'contain' => array(
+				'User',
 				'Certification' => array(
 					'fields' => array(
 						'Certification.certification_name')),

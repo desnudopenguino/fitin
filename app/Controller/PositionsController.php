@@ -122,5 +122,9 @@ class PositionsController extends AppController {
 					$this->render('/Elements/Employers/dataCard');	
 		}
 	}
+
+	public function view($id = null) {
+		$this->set('position', $this->Position->findById($id));
+	}
  }
 ?>

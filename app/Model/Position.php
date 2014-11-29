@@ -123,5 +123,21 @@ Class Position extends AppModel {
 
 		return $position['Position'];
 	}
+
+	public function findById($id = null) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'Position.id' => $id),
+			'contain' => array(
+				'PositionIndustry' => array(
+					'Industry'),
+				'PositionFunction' => array(
+					'Function'),
+				'PositionSkill' => array(
+					'Skill'),
+				'Employer' => array(
+					'User'))));
+	
+	}
 }
 ?>

@@ -124,6 +124,10 @@ class PositionsController extends AppController {
 	}
 
 	public function view($id = null) {
+		$this->Position->id = $id;
+		if(!$this->Position->exists()) {
+			throw new NotFoundException(__('Invalid Position'));
+		}
 		$this->set('position', $this->Position->findById($id));
 	}
  }

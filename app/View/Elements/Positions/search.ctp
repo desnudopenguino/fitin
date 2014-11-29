@@ -74,38 +74,43 @@
 						</table>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-4">
 						<?php
 							echo $this->Html->link('<i class="glyphicon glyphicon-send"></i> Apply', array(
 								'controller' => 'applications', 'action' => 'apply', $position_card['DataCard']['Info']['id']),
 								array('class' => 'btn btn-primary apply',
 									'id' => 'apply_'.$position_card['DataCard']['Info']['id'],
-									'escape' => false)); 
-
-							echo $this->Html->link('View Profile','/with/'. $position_card['DataCard']['Info']['url'],
+									'escape' => false)); ?>
+						</div>
+						<div class="col-md-4">
+							<?php
+							echo $this->Html->link('View Position', array(
+								'controller' => 'positions', 'action' => 'view', $position_card['DataCard']['Info']['id']),
 								array(
 									'class' => 'btn btn-primary',
 									'escape' => false));
+							?>
+						</div>
+						<div class="col-md-4">
+							<?php 
+								echo $this->Form->create('Message', array(
+									'action' => 'compose',
+									'class' => 'form-inline'));
 
-//form with hidden fields instead.
-							echo $this->Form->create('Message', array(
-								'action' => 'compose',
-								'class' => 'form-inline'));
+								echo $this->Form->input('receiver_id', array(
+									'type' => 'hidden',
+									'value' => $position_card['DataCard']['Info']['employer_id']));
 
-							echo $this->Form->input('receiver_id', array(
-								'type' => 'hidden',
-								'value' => $position_card['DataCard']['Info']['employer_id']));
-
-							echo $this->Form->input('title', array(
-								'type' => 'hidden',
-								'value' => $position_card['DataCard']['Info']['title']));
+								echo $this->Form->input('title', array(
+									'type' => 'hidden',
+									'value' => $position_card['DataCard']['Info']['title']));
 	
-							echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
-								'class' => 'btn btn-primary',
-								'type' => 'submit'));
+								echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
+									'class' => 'btn btn-primary',
+									'type' => 'submit'));
 
-							echo $this->Form->end(); 
-						?>
+								echo $this->Form->end(); 
+							?>
 						</div>
 					</div>
 				</div>

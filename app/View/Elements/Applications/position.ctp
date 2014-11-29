@@ -14,11 +14,11 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 
 				echo $this->Form->input('receiver_id', array(
 					'type' => 'hidden',
-					'value' => $position_card['DataCard']['Info']['employer_id']));
+					'value' => $application['Application']['Position']['employer_id']));
 
 				echo $this->Form->input('title', array(
 					'type' => 'hidden',
-					'value' => $position_card['DataCard']['Info']['title']));
+					'value' => $application['Application']['Position']['title']));
 
 				echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
 					'class' => 'btn btn-primary',

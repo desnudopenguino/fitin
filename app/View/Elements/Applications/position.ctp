@@ -5,7 +5,7 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 	<div class="row">
 		<div class="col-md-4">
 			<?php echo $this->Html->link('View Position', array(
-				'controller' => 'positions', 'action' => 'view', $application['Application']['id']), array(
+				'controller' => 'positions', 'action' => 'view', $application['Application']['position_id']), array(
 				'class' => 'btn btn-primary',
 				'escape' => false));
 			?>

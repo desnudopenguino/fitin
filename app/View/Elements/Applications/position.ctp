@@ -7,7 +7,6 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 			View Position
 		</div>
 		<div class="col-md-4">
-			Contact Employer
 			<?php
 				echo $this->Form->create('Message', array(
 					'action' => 'compose'));

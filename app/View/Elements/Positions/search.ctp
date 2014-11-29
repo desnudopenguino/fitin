@@ -89,7 +89,8 @@
 
 //form with hidden fields instead.
 							echo $this->Form->create('Message', array(
-								'action' => 'compose'));
+								'action' => 'compose',
+								'class' => 'form-inline'));
 
 							echo $this->Form->input('receiver_id', array(
 								'type' => 'hidden',

@@ -94,7 +94,7 @@
 
 								echo $this->Form->input('receiver_id', array(
 									'type' => 'hidden',
-									'value' => $applicant_card['DataCard']['Info']['applicant_id']));
+									'value' => $applicant_card['DataCard']['Info']['user_id']));
 
 								echo $this->Form->input('title', array(
 									'type' => 'hidden',

@@ -132,7 +132,7 @@ Class Position extends AppModel {
 				'PositionIndustry' => array(
 					'Industry'),
 				'PositionFunction' => array(
-					'Function'),
+					'WorkFunction'),
 				'PositionSkill' => array(
 					'Skill'),
 				'Employer' => array(

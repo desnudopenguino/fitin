@@ -21,7 +21,7 @@ class MessagesController extends AppController {
 		$this->Message->set($this->request->data);
 		$this->set('message', $this->Message->data);
 		
-		if($this->request->data->is('post') && !empty($this->request->data['Message']['message'] )) {
+		if($this->request->is('post') && !empty($this->request->data['Message']['message'] )) {
 			$this->Message->save($this->request->data);
 		}
 

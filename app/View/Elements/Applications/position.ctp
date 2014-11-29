@@ -8,6 +8,7 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 				'controller' => 'positions', 'action' => 'view'), array(
 				'class' => 'btn btn-primary',
 				'escape' => false));
+			?>
 		</div>
 		<div class="col-md-4">
 			<?php

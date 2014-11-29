@@ -79,7 +79,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<?php
-								echo $this->Html->link('View Profile','/with/'. $position_card['DataCard']['Info']['url'],
+								echo $this->Html->link('View Profile','/with/'. $applicant_card['DataCard']['Info']['url'],
 								array(
 									'class' => 'btn btn-primary',
 									'escape' => false));

@@ -76,6 +76,36 @@
 							<?php } ?>
 						</table>
 					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<?php
+								echo $this->Html->link('View Profile','/with/'. $position_card['DataCard']['Info']['url'],
+								array(
+									'class' => 'btn btn-primary',
+									'escape' => false));
+							?>
+						</div>
+						<div class="col-md-6">
+							<?php
+								echo $this->Form->create('Message', array(
+									'action' => 'compose',
+									'class' => 'form-inline'));
+
+								echo $this->Form->input('receiver_id', array(
+									'type' => 'hidden',
+									'value' => $applicant_card['DataCard']['Info']['applicant_id']));
+
+								echo $this->Form->input('title', array(
+									'type' => 'hidden',
+									'value' => $position_card['DataCard']['Info']['title']));
+	
+								echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
+									'class' => 'btn btn-primary',
+									'type' => 'submit'));
+
+								echo $this->Form->end(); 
+							?>
+						</div>
 				</div>
 			</div>
 		</div>

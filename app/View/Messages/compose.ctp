@@ -1,5 +1,4 @@
 <?php 
-	debug($message);
 	echo $this->Form->create('Message',array(
 		'action' => 'compose',
 		'method' => 'post',

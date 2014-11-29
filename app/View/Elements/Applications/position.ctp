@@ -13,7 +13,8 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 		<div class="col-md-4">
 			<?php
 				echo $this->Form->create('Message', array(
-					'action' => 'compose'));
+					'action' => 'compose',
+					'class' => 'form-inline'));
 
 				echo $this->Form->input('receiver_id', array(
 					'type' => 'hidden',

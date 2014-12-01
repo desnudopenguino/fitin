@@ -4,18 +4,12 @@ App::uses('AppModel', 'Model');
 Class Applicant extends AppModel {
 
 	public $belongsTo = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id'
-		)
-	);
+		'User');
 
 	public $primaryKey = 'user_id';
 
 	public $hasMany = array(
-		'Certification' => array(
-			'className' => 'Certification'
-		),
+		'Certification',
 		'Education',
 		'Project',
 		'Application');

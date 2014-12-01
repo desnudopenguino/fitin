@@ -57,7 +57,11 @@ debug($this->User->Employer->data);
 debug($this->request->data);
 $validUser = false;
 												$this->User->Applicant->create();
-												if(!$this->User->Applicant->save(array('Applicant' => array('user_id' => $userId))))
+												if(!$this->User->Applicant->save(array('Applicant' => array(
+													'user_id' => $userId,
+													'first_name' => "New",
+													'last_name' => "User"
+													))))
 {
 	debug("FAIL");
 }

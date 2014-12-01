@@ -1,8 +1,8 @@
 <div>
 	<ul class="nav nav-tabs">
-		<li id="btn_inbox">Inbox</li>
-		<li id="btn_sent">Sent Mail</li>
-		<li id="btn_archive">Archive</li>
+		<li role="presentation" class="active" id="btn_inbox"><a href="#">Inbox</a></li>
+		<li role="presentation" id="btn_sent"><a href="#">Sent Mail</a></li>
+		<li role="presentation" id="btn_archive"><a href="#">Archive</a></li>
 	</ul>
 </div>
 <div class="tab-content">

@@ -4,7 +4,6 @@
 		<span class="name"><?php echo $message['Message']['sender_id']; ?></span>
 		<span class="title"><?php echo $message['Message']['title']; ?></span>
 		<span class="time"><?php echo $message['Message']['created']; ?></span>
-		<span class="reply">Reply</span>
 	</a>
 </div>		
 

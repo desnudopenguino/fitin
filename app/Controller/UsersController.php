@@ -47,25 +47,16 @@ class UsersController extends AppController {
 							$validUser = true;
 							switch($this->request->data['User']['roleId']) { //create usertype in case here
 								case 1: //Employer
-debug($this->request->data);
-$validUser = false;
 												$this->User->Employer->create();
 												$this->User->Employer->save(array('Employer' => array('user_id' => $userId)));
-debug($this->User->Employer->data);
 												break;
 								case 2: //Applicant
-debug($this->request->data);
-$validUser = false;
 												$this->User->Applicant->create();
-												if(!$this->User->Applicant->save(array('Applicant' => array(
+												$this->User->Applicant->save(array('Applicant' => array(
 													'user_id' => $userId,
 													'first_name' => "New",
 													'last_name' => "User"
-													))))
-{
-	debug("FAIL");
-}
-debug($this->User->Applicant->data);
+													)));
 												break;
 								case 3: //Recruiter
 												break;

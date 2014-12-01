@@ -1,9 +1,9 @@
 <div>
 	<?php debug($message); ?>
 	<a class="list-group-item">
-		<span class="name">user name</span>
-		<span class="title">Title</span>
-		<span class="time">timestamp</span>
+		<span class="name"><?php echo $message['Message']['sender_id']; ?></span>
+		<span class="title"><?php echo $message['Message']['title']; ?></span>
+		<span class="time"><?php echo $message['Message']['created']; ?></span>
 		<span class="reply">Reply</span>
 	</a>
 </div>		

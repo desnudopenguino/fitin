@@ -57,7 +57,7 @@ debug($this->User->Employer->data);
 debug($this->request->data);
 $validUser = false;
 												$this->User->Applicant->create();
-												$this->User->Applicant->save(array('Applicant' => array( 'user_id' => $userId)));
+												$this->User->Applicant->save(array('Applicant' => array('user_id' => $userId)));
 debug($this->User->Applicant->data);
 												break;
 								case 3: //Recruiter

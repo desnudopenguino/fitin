@@ -9,7 +9,10 @@
 </div>
 <div class="tab-content">
 	<div id="mail_content">
+		<?php foreach($messages as $message) {
+			$this->set('message', $message);
+			$this->element('Messages/message');
+		} ?>
 		
-		<?php debug($messages); ?>
 	</div>
 </div>

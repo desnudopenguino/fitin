@@ -5,5 +5,8 @@
 		<span class="title"><?php echo $message['Message']['title']; ?></span>
 		<span class="time pull-right"><?php echo $message['Message']['created']; ?></span>
 	</a>
-</div>		
+</div>
+<div id="message_<?php echo $message['Message']['id']; ?>" style="display: none;">
+	<p><?php echo $message['Message']['message']; ?></p>
+</div>
 

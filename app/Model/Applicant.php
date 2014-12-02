@@ -182,17 +182,6 @@ Class Applicant extends AppModel {
 							))));
 		$this->checkDisplayName($dashboard_data);
 
-debug($this->find('sql', array(
-			'conditions' => array(
-				'Applicant.user_id' => $id),
-			'contain' => array(
-				'User' => array(
-					'Message' => array(
-						'conditions' => array(
-							'Message.receiver_id' => $id))
-							)))));
-
-			
 		return $dashboard_data;
 	}
 

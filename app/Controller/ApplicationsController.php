@@ -46,8 +46,8 @@ class ApplicationsController extends AppController {
 			$this->layout = false;
 		}
 	}
-	public function employerIndex() {
-		$this->set('applications', $this->Application->findEmployer($this->Auth->user('id')));
+	public function employer() {
+		$this->set('applications', $this->Application->findEmployerActive($this->Auth->user('id')));
 	}
  }
 ?>

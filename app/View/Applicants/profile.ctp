@@ -4,7 +4,7 @@
 	$this->set('certifications', $applicant['Certification']);
 ?>
 <div class="row">
-	<div class="col-md-3 col-md-offset-1 well" data-spy="affix" data-offset-top="60">
+	<div class="col-md-3 col-md-offset-1 well">
 		<h2><?php 
 				echo $applicant['Applicant']['display_name']; ?><?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', array(
 					'controller' => 'applicants', 'action' => 'edit', $applicant['User']['id']),

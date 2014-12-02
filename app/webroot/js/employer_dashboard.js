@@ -13,7 +13,7 @@ console.log('load the inbox successful');
 //load the applications stuff if applications button is clicked
 $(document).on('click',"#applications-btn", function() {
 	$.ajax({
-		url: '../applications/employerIndex',
+		url: '../applications/employer',
 		type: 'GET',
 		async: true,
 		success: function(result) {

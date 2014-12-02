@@ -1,5 +1,5 @@
 function clearActive() {
-		$('.dashboard-nav').removeClass('active');
+		$('.dashboard-nav').parent().removeClass('active');
 }
 
 //load the mail stuff if inbox button is clicked
@@ -11,7 +11,7 @@ $(document).on('click',"#inbox-btn", function() {
 		success: function(result) {
 			$('#dashboardContent').html(result);
 			clearActive();
-			$('#inbox-btn').addClass('active');
+			$('#inbox-btn').parent().addClass('active');
 		}});
 });
 
@@ -24,7 +24,7 @@ $(document).on('click',"#applications-btn", function() {
 		success: function(result) {
 			$('#dashboardContent').html(result);
 			clearActive();
-			$('#applications-btn').addClass('active');
+			$('#applications-btn').parent().addClass('active');
 		}});
 });
 

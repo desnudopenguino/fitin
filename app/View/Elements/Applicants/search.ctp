@@ -106,6 +106,7 @@
 								echo $this->Form->end(); 
 							?>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>

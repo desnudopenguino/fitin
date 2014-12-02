@@ -15,3 +15,4 @@
 		} ?>
 	</div>
 </div>
+<?php echo $this->Html->script('message'); ?>

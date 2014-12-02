@@ -1,3 +1,7 @@
+function clearActive() {
+		$('.dashboard-nav').parent().removeClass('active');
+}
+
 //load the mail stuff if inbox button is clicked
 $(document).on('click',"#inbox-btn", function() {
 	$.ajax({
@@ -6,7 +10,8 @@ $(document).on('click',"#inbox-btn", function() {
 		async: true,
 		success: function(result) {
 			$('#dashboardContent').html(result);
-console.log('load the inbox successful');
+			clearActive();
+			$('#inbox-btn').parent().addClass('active');
 		}});
 });
 
@@ -18,7 +23,8 @@ $(document).on('click',"#applications-btn", function() {
 		async: true,
 		success: function(result) {
 			$('#dashboardContent').html(result);
-console.log('load the applications successful');
+			clearActive();
+			$('#applications-btn').parent().addClass('active');
 		}});
 
 });

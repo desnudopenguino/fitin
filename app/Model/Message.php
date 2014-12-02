@@ -22,10 +22,7 @@ Class Message extends AppModel {
 	public function findReceived($user_id) {
 		return $this->find('all', array(
 			'conditions' => array(
-				'Message.receiver_id' => $user_id),
-			'contain' => array(
-				'User'
-			)));
+				'Message.receiver_id' => $user_id)));
 	}
 
 	public function findSent($user_id) {

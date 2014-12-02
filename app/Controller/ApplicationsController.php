@@ -48,6 +48,9 @@ class ApplicationsController extends AppController {
 	}
 	public function employer() {
 		$this->set('applications', $this->Application->findEmployerActive($this->Auth->user('id')));
+		if($this->request->is('ajax')) {
+			$this->layout = false;
+		}
 	}
  }
 ?>

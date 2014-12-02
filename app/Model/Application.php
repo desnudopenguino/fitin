@@ -47,9 +47,10 @@ Class Application extends AppModel {
 	public function findEmployer($employer_id = null) {
 		return $this->find('all', array(
 			'contain' => array(
-				'Employer' => array(
-					'conditions' => array(
-						'Employer.user_id' => $employer_id)))));
+				'Position' => array(
+					'Employer' => array(
+						'conditions' => array(
+							'Employer.user_id' => $employer_id))))));
 	}
 }
 ?>

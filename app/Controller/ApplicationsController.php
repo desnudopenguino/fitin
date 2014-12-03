@@ -47,7 +47,16 @@ class ApplicationsController extends AppController {
 		}
 	}
 	public function employer() {
-		$this->set('applications', $this->Application->findEmployerActive($this->Auth->user('id')));
+		
+		$applications = $this->Application->findEmployerActive($this->Auth->user('id'));
+
+		foreach($applications as $aKey => $application) {
+			$position_card = $this->Application->Position->loadDataCard($application['Application']['position_id']);
+			$applicant_card = $this->Application->Applicant->loadDataCard($application['Application']['applicant_id']);
+			$applications[$aKey]['Results'] = $this->DataCard->compare($applicant_card, $position_card);
+			$applications[$aKey]['Culture'] = $this->Application->Applicant->User->UserCultureAnswer->compareCulture($application['Application']['applicant_id'], $this->Auth->user('id'));
+		}
+		$this->set('applications', $applications);
 		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}

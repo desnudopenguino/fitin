@@ -16,7 +16,7 @@
 		</div>
 		<?php if(isset($culture)) { ?>
 		<div class="well">
-			<?php echo $this->element('Culture/index'); ?>
+			<?php echo $this->element('Culture/profile'); ?>
 		</div>	
 		<?php } ?>
 	</div>

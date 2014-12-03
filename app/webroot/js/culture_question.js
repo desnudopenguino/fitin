@@ -37,7 +37,7 @@ $(document).on('click','.culture-choice', function() {
 });
 
 $(document).on('submit','#saveUserCultureAnswerForm', function(e) {
-	$('.form-button').attr('disabled' true);
+	$('.form-button').attr('disabled', true);
 	$.ajax({
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),

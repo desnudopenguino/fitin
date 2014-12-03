@@ -1,10 +1,10 @@
 <div class="well">
 	<div class="row"style="margin-top:10px;">
 		<div class="col-md-6">
-			<button type="button" id="undoCultureQuestion" class="btn btn-danger btn-block">Undo Last Question</button>
+			<button type="button" id="undoCultureQuestion" class="btn btn-danger btn-block form-button">Undo Last Question</button>
 		</div>
 		<div class="col-md-6">
-			<button type="button" id="skipCultureQuestion" class="btn btn-warning btn-block">Skip Question</button>
+			<button type="button" id="skipCultureQuestion" class="btn btn-warning btn-block form-button">Skip Question</button>
 		</div>
 	</div>
 <?php echo $this->Form->create('UserCultureAnswer', array(
@@ -38,7 +38,7 @@
 		if(!empty($user_answer) && 
 			$user_answer['UserCultureAnswer']['culture_question_answer_id'] == $answer['id']) {
 				$class = 'btn btn-success btn-block culture-choice';
-		} else { $class = 'btn btn-primary btn-block culture-choice'; }
+		} else { $class = 'btn btn-primary btn-block culture-choice form-button'; }
 		echo $this->Form->button($answer['answer_text'], array(
 			'value' => $answer['id'],
 			'class' => $class));

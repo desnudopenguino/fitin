@@ -13,9 +13,7 @@
 			<p><?php echo $employer['User']['email']; ?></p>
 		</div>
 		<?php if(isset($culture)) { ?>
-		<div class="well">
 			<?php echo $this->element('Culture/profile'); ?>
-		</div>	
 		<?php } ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">

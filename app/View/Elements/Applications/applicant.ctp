@@ -32,7 +32,7 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 			?>
 		</div>
 		<div class="col-md-4">
-			<?php echo $this->Html->link('<i class="glyphicon glyphicon-remove"></i>Decline', array('controller' => 'applications', 'action' => 'decline', $application['Application']['id']),array(
+			<?php echo $this->Html->link('<i class="glyphicon glyphicon-remove"></i> Close', array('controller' => 'applications', 'action' => 'close', $application['Application']['id']),array(
 				'class' => 'btn btn-warning cancel',
 				'id' => 'cancel_'. $application['Application']['id'],
 				'escape' => false)); ?>

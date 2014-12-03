@@ -26,9 +26,17 @@ class MessagesController extends AppController {
 
 	}
 
-//loads all of the messages for a user
+//loads all of the received messages for a user
 	public function inbox() {
 		$this->set('messages',$this->Message->findReceived($this->Auth->user('id')));
+		if($this->request->is('ajax')) {
+			$this->layout = false;
+		}
+	}
+
+//loads all of the sent messages for a user
+	public function sent() {
+		$this->set('messages', $this->Message->findSent($this->Auth->user('id')));
 		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}

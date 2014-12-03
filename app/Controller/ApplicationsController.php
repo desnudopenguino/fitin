@@ -33,6 +33,10 @@ class ApplicationsController extends AppController {
 //employer initiated stop of application
 	public function close($id = null) {
 		$this->Application->read(null,$id);
+debug($this->Application->find('first', array(
+			'conditions' => array(
+				'Application.id' => $id))));
+debug($this->Application->data);
 		$this->Application->save(array('Application' => array('application_status_id' => 3)));
 		$this->autoRender = false;
 	}

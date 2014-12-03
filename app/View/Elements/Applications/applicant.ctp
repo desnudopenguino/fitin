@@ -1,3 +1,4 @@
+<?php debug($application); ?>
 <div class="col-md-12 well" id="application_<?php echo $application['Application']['id']; ?>">
 	<h3><?php echo $application['Application']['Position']['title']; ?></h3>
 	<p>Job Match: <?php echo $application['Results']['percent']; ?>% 

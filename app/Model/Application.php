@@ -58,6 +58,7 @@ Class Application extends AppModel {
 		
 		foreach($applications as $aKey => $application) {
 			$applications[$aKey]['Application']['Applicant'] = $application['Applicant'];
+			$applications[$aKey]['Application']['Position'] = $application['Position'];
 			unset($applications[$aKey]['Applicant']);
 		}
 		return $applications;

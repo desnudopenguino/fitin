@@ -5,7 +5,7 @@ function clearActive() {
 //load the mail stuff if inbox button is clicked
 $(document).on('click',"#inbox-btn", function() {
 	$.ajax({
-		url: '../messages/inbox',
+		url: '../messages/load',
 		type: 'GET',
 		async: true,
 		success: function(result) {

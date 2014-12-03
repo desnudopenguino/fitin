@@ -41,5 +41,18 @@ class MessagesController extends AppController {
 			$this->layout = false;
 		}
 	}
- }
+
+//loads the archived messages
+	public function archive() {
+
+	}
+
+//initial messages section load
+	public function load() {
+		$this->set('messages', $this->Message->findReceived($this->Auth->user('id')));
+		if($this->request->is('ajax')) {
+			$this->layout = false;
+		}
+	}
+}
 ?>

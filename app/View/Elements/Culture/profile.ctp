@@ -1,5 +1,4 @@
 <div class="well">
-	<?php debug($culture); ?>
 	<h2>Culture Match:</h2>
 	<div class="row">
 		<div class="col-md-4">

@@ -6,7 +6,7 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 	<div class="row">
 		<div class="col-md-4">
 			<?php echo $this->Html->link('View Position', array(
-				'controller' => 'positions', 'action' => 'view', $application['Application']['position_id']), array(
+				'controller' => 'applicants', 'action' => 'view', $application['Application']['Applicant']['user_id']), array(
 				'class' => 'btn btn-primary',
 				'escape' => false));
 			?>
@@ -19,7 +19,7 @@ Culture Match: <?php echo $application['Culture']['Total']['percent']; ?>%</p>
 
 				echo $this->Form->input('receiver_id', array(
 					'type' => 'hidden',
-					'value' => $application['Application']['Position']['employer_id']));
+					'value' => $application['Application']['applicant_id']));
 
 				echo $this->Form->input('title', array(
 					'type' => 'hidden',

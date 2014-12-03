@@ -49,7 +49,8 @@ Class Application extends AppModel {
 			'conditions' => array(
 				'Application.application_status_id' => 1),
 			'contain' => array(
-				'Applicant',
+				'Applicant' => array(
+					'User'),
 				'Position' => array(
 					'Employer' => array(
 						'conditions' => array(

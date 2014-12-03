@@ -60,6 +60,7 @@ Class Application extends AppModel {
 			$applications[$aKey]['Application']['Applicant'] = $application['Applicant'];
 			$applications[$aKey]['Application']['Position'] = $application['Position'];
 			unset($applications[$aKey]['Applicant']);
+			unset($applications[$aKey]['Position']);
 		}
 		return $applications;
 	}

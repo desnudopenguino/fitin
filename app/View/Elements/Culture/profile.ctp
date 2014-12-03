@@ -7,7 +7,7 @@
 		</div>
 		<div class="col-md-8" title="Total match: <?php echo $culture['Total']['percent']; ?>">
 			<div class="progress">
-				<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $culture['Total']['percent']; ?>%"></div>
+				<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $culture['Total']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $culture['Total']['percent']; ?>%;"></div>
 			</div>
 		</div>
 	</div>

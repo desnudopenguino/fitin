@@ -30,5 +30,12 @@ Class Message extends AppModel {
 			'conditions' => array(
 				'Message.sender_id' => $user_id)));
 	}
+
+	public function findArchived($user_id) {
+		return $this->find('all', array(
+			'conditions' => array(
+				'Message.receiver_id' => $user_id)));
+	}
+
 }
 ?>

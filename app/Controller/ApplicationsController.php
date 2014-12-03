@@ -24,10 +24,16 @@ class ApplicationsController extends AppController {
 		}
 			$this->autoRender = false;	
 	}
-
+//applicant initiated stop of application
 	public function cancel($id = null) {
 		$this->Application->read(null,$id);
 		$this->Application->save(array('Application' => array('application_status_id' => 2)));
+		$this->autoRender = false;
+	}
+//employer initiated stop of application
+	public function close($id = null) {
+		$this->Application->read(null,$id);
+		$this->Application->save(array('Application' => array('application_status_id' => 3)));
 		$this->autoRender = false;
 	}
 

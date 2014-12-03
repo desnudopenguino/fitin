@@ -44,9 +44,7 @@ class ApplicationsController extends AppController {
 //build the culture & job match
 			$position_card = $this->Application->Position->loadDataCard($application['Application']['position_id']);
 			$applications[$aKey]['Results'] = $this->DataCard->compare($applicant_card,$position_card);
-debug($this->Auth->user('id'));
-debug($application['Application']['position_id']);
-			$applications[$aKey]['Culture'] = $this->Application->Applicant->User->UserCultureAnswer->compareCulture($this->Auth->user('id'),$application['Application']['position_id']);
+			$applications[$aKey]['Culture'] = $this->Application->Applicant->User->UserCultureAnswer->compareCulture($this->Auth->user('id'),$application['Application']['Employer']['user_id']);
 		}
 
 		$this->set('applications', $applications);

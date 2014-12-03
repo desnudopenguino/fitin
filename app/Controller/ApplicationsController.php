@@ -16,7 +16,7 @@ class ApplicationsController extends AppController {
 			}
 		}
 	}
-
+//applicant creates application/applies to position
 	public function apply($position_id = null) {
 		$this->Application->create();
 		$this->Application->save(array('Application' => array('position_id' => $position_id)));

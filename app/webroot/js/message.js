@@ -16,7 +16,7 @@ console.log("view sent messages");
 		success: function(result) {
 			$('#mail_content').html(result);
 			clearActiveMail();
-			$('#inbox-btn').addClass('active');
+			$('#btn_sent').addClass('active');
 		}});
 	
 });
@@ -30,7 +30,7 @@ console.log("view archived messages");
 		success: function(result) {
 			$('#mail_content').html(result);
 			clearActiveMail();
-			$('#inbox-btn').addClass('active');
+			$('#btn_archive').addClass('active');
 		}});
 
 });
@@ -44,6 +44,6 @@ console.log("view inbox messages");
 		success: function(result) {
 			$('#mail_content').html(result);
 			clearActiveMail();
-			$('#inbox-btn').addClass('active');
+			$('#btn_inbox').addClass('active');
 		}});
 });

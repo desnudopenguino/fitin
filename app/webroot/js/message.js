@@ -4,15 +4,15 @@ $(document).on('click',".message", function() {
 console.log('show/hide the item');
 });
 
-$(document).on('click','#sent', function() {
+$(document).on('click','#btn_sent', function() {
 console.log("view sent messages");
 });
 
-$(document).on('click','#archive', function() {
+$(document).on('click','#btn_archive', function() {
 console.log("view archived messages");
 
 });
 
-$(document).on('click','#inbox', function() {
+$(document).on('click','#btn_inbox', function() {
 console.log("view inbox messages");
 });

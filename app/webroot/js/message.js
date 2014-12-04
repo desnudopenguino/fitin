@@ -3,7 +3,7 @@ function clearActiveMail() {
 }
 //load the mail stuff if inbox button is clicked
 $(document).on('click',".message", function() {
-	$($(this).data('target')).toggle();
+	$($(this).data('target')).toggle(1);
 console.log('show/hide the item');
 });
 

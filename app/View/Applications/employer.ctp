@@ -4,4 +4,3 @@
 		echo $this->element('Applications/applicant');
 	}?>
 </div>
-<?php echo $this->Html->script('employer_applications'); ?>

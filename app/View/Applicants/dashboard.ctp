@@ -10,4 +10,5 @@
 	</div>
 </div>
 <?php echo $this->Html->script('applicant_dashboard'); ?>
+<?php echo $this->Html->script('applicant_applications'); ?>
 <?php echo $this->Html->script('message'); ?>

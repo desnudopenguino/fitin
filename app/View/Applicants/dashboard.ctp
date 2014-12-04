@@ -9,4 +9,5 @@
 	<div class="col-md-6 col-md-offset-1" id="dashboardContent">
 	</div>
 </div>
-<?php echo $this->Html->script('applicant_dashboard');
+<?php echo $this->Html->script('applicant_dashboard'); ?>
+<?php echo $this->Html->script('message'); ?>

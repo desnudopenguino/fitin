@@ -10,8 +10,6 @@
 			<?php echo $message['Message']['created']; ?>
 		</span>
 	</a>
-</div>
-<div id="message_<?php echo $message['Message']['id']; ?>" style="display: none;">
-	<p><?php echo $message['Message']['message']; ?></p>
-</div>
+	<p id="message_<?php echo $message['Message']['id']; ?>" style="display: none; margin-top:1em; padding-top: 1em; padding-left:2em; border-top:2px solid #ddd; padding-bottom: 1em;"><?php echo $message['Message']['message']; ?></p>
 
+</div>

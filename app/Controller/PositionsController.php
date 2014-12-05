@@ -105,6 +105,7 @@ class PositionsController extends AppController {
 			}
 		
 			$this->set('applicant_cards', $applicantCards);
+			$this->set('position_card', $positionCard);
 		}
 
 		if($this->request->is('ajax')) {

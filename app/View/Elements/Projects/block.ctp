@@ -40,9 +40,10 @@
 				<?php } 
 					} ?>
 				<h3>Skills</h3>
-				<?php foreach($project['ProjectSkill'] as $sKey => $projectSkill) {
+				<?php $end = count($project['ProjectSkill']) - 1;
+					foreach($project['ProjectSkill'] as $sKey => $projectSkill) {
 					echo $projectSkill['Skill']['skill_type'];
-					if($sKey != count($array) - 1) {
+					if($sKey != $end) {
 						echo ", ";
 					}
 				} ?>

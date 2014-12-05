@@ -37,7 +37,9 @@ Class Message extends AppModel {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Message.created BETWEEN DATE_SUB(curdate(), INTERVAL 180 DAY) AND DATE_SUB(curdate(), INTERVAL 3 WEEK)',
-				'Message.receiver_id' => $user_id)));
+				'OR' => array(
+					'Message.receiver_id' => $user_id,
+					'Message.sender_id' => $user_id))));
 	}
 
 }

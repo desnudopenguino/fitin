@@ -28,7 +28,7 @@
 					'type' => 'select',
 					'label' => 'Phone Type',
 					'options' => $phone_types,
-					'value' => $phone_number['phone_type_id']));
+					'value' => $employer['User']['PhoneNumber']['phone_type_id']));
 		
 				echo $this->Form->Input('User.PhoneNumber.phone_number', array(
 					'type' => 'text',

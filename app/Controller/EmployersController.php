@@ -86,6 +86,7 @@ class EmployersController extends AppController {
 			$this->Employer->save($this->request->data['Employer']);
 			$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 			$this->Employer->User->Address->save($this->request->data['User']['Address']);
+			$this->Employer->Company->checkAndSave($this->request->data);
 		}
 	}
 

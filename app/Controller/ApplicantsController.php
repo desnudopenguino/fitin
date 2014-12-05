@@ -63,9 +63,19 @@ class ApplicantsController extends AppController {
 		$this->Applicant->User->PhoneNumber->id = $applicant['User']['PhoneNumber']['id'];
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$this->Applicant->save($this->request->data);
-			$this->Applicant->User->Address->save($this->request->data['User']['Address']);
-			$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
+			if($this->Applicant->save($this->request->data)) {
+				$this->Applicant->User->Address->save($this->request->data['User']['Address']);
+				$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
+				$this->Session->setFlash(__('The Applicant Information has been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-success'));
+			} else {
+				$this->Session->setFlash(__('The Applicant Information has not been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'));
+			}
 		}
 	}
 

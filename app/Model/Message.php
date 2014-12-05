@@ -15,7 +15,9 @@ Class Message extends AppModel {
 	);
 
 	public function beforeSave($options = array()) {
-		$this->data[$this->alias]['sender_id'] = AuthComponent::user('id');
+		if(empty($this->data[$this->alias]['id'])) {
+			$this->data[$this->alias]['sender_id'] = AuthComponent::user('id');
+		}
 		return true;
 	}
 

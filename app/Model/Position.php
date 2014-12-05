@@ -37,7 +37,9 @@ Class Position extends AppModel {
 			'message' => 'Please fill out this field')
 		);
 	public function beforeSave($options = array()) {
-		$this->data[$this->alias]['employer_id'] = AuthComponent::user('id');
+		if(empty($this->data[$this->alias]['id'])) {
+			$this->data[$this->alias]['employer_id'] = AuthComponent::user('id');
+		}
 		return true;
 	}
 

@@ -8,7 +8,9 @@ Class ApplicantPersonalityAnswer extends AppModel {
 		'PersonalityQuestionAnswer');
 
 	public function beforeSave($options = array()) {
-		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		if(empty($this->data[$this->alias]['id'])) {
+			$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		}
 		return true;	
 	}
 }

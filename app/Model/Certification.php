@@ -22,7 +22,9 @@ Class Certification extends AppModel {
 		);
 
 	public function beforeSave($options = array()) {
-		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		if(empty($this->data[$this->alias]['id'])) {
+			$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		}
 
 		if($this->data[$this->alias]['expiration_date'] == 'N/A') {
 			$this->data[$this->alias]['expiration_date'] = null;

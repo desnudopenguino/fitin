@@ -39,7 +39,9 @@ Class Project extends AppModel {
 				unset($this->data['ProjectIndustry'][$key]);
 			}
 		}
-		$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		if(empty($this->data[$this->alias]['id'])) {
+			$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		}
 		return true;
 	}
 

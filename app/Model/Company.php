@@ -13,5 +13,16 @@ Class Company extends AppModel {
 		}
 		return true;
 	}
+
+	public function checkAndCreate($data = null) {
+		if(empty($this->find('first', array(
+			'conditions' => array(
+				'Company.organization_id' => $data['Organization']['id'])))) &&
+			empty($this->find('first', array(
+				'conditions' => array(
+					'Company.employer_id' => $this->Auth->user('id')))))) {
+			$this->save(array('Company' => array('organization_id' => $data['Organization']['id'])));
+		}
+	}
 }
 ?>

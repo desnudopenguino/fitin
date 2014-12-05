@@ -10,11 +10,15 @@
 				'class' => 'well form-horizontal'
 			)); ?>
 		<fieldset>
-			<legend>Name</legend>
+			<legend>Company Info</legend>
 			<?php 
 				echo $this->Form->Input('Organization.organization_name', array(
 					'label' => 'Company Name',
-					'value' => $employer['Organization']['organization_name'])); ?> 
+					'value' => $employer['Organization']['organization_name']));  
+
+				echo $this->Form->Input('Employer.department', array(
+					'label' => 'Department',
+					'value' => $employer['Employer']['department'])); ?> 
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>

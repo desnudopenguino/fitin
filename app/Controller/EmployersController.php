@@ -83,10 +83,21 @@ class EmployersController extends AppController {
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$organization = $this->Organization->checkAndCreate($this->request->data,1);
 			$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-			$this->Employer->save($this->request->data['Employer']);
-			$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
-			$this->Employer->User->Address->save($this->request->data['User']['Address']);
-			$this->Employer->Company->checkAndCreate($organization);
+			if($this->Employer->save($this->request->data['Employer'])) {
+				$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
+				$this->Employer->User->Address->save($this->request->data['User']['Address']);
+				$this->Employer->Company->checkAndCreate($organization);
+				$this->Session->setFlash(__('The Employer Information has been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-success'));
+			} else {
+				$this->Session->setFlash(__('The Employer Information has not been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'));
+	
+			}
 		}
 	}
 

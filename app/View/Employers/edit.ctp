@@ -33,7 +33,7 @@
 				echo $this->Form->Input('User.PhoneNumber.phone_number', array(
 					'type' => 'text',
 					'label' => 'Phone Number',
-					'value' => $phone_number['phone_number']));
+					'value' => $employer['User']['PhoneNumber']['phone_number']));
 			?>
 		</fieldset>
 		<fieldset>
@@ -42,19 +42,19 @@
 				echo $this->Form->input('User.Address.street', array(
 					'type' => 'text',
 					'label' => 'Street',
-					'value' => $address['street']));
+					'value' => $employer['User']['Address']['street']));
 				echo $this->Form->input('User.Address.city', array(
 					'type' => 'text',
 					'label' => 'City',
-					'value' => $address['city']));
+					'value' => $employer['User']['Address']['city']));
 				echo $this->Form->input('User.Address.state_id', array(
 					'type' => 'select',
 					'label' => 'State',
 					'options' => $states,
-					'value' => $address['state_id']));
+					'value' => $employer['User']['Address']['state_id']));
 				echo $this->Form->input('User.Address.zip', array(
 					'type' => 'text',
-					'value' => $address['zip']));
+					'value' => $employer['User']['Address']['zip']));
 			?>
 		</fieldset>
 		<?php 

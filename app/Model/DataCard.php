@@ -53,5 +53,29 @@ Class DataCard extends AppModel {
 
 		return array('total' => $total, 'match' => $match, 'percent' => $percent);
 	}
+
+	public function sortByJobMatch($data_cards) {
+		$sort_array = array();
+		
+		foreach($data_cards as $data_card) {
+			$sort_array[$data_card['Info']['id']] = $data_card['Results']['percent'];
+		}
+
+		asort($sort_array);
+
+		$return_array = array();
+
+		foreach($sort_array as $sKey => $value) {
+			foreach($data_cards as $dKey => $data_card) {
+				if($sKey == $data_card['Info']['id']) {
+					$return_array[] = $data_card;
+					unset($data_cards[$dKey];
+				}
+			}
+		}
+
+debug($return_array);
+//		return $return_array;
+	}
 }
 ?>

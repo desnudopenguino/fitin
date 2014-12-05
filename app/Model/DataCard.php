@@ -69,7 +69,7 @@ Class DataCard extends AppModel {
 			foreach($data_cards as $dKey => $data_card) {
 				if($sKey == $data_card['Info']['id']) {
 					$return_array[] = $data_card;
-					unset($data_cards[$dKey];
+					unset($data_cards[$dKey]);
 				}
 			}
 		}

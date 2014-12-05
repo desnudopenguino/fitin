@@ -1,4 +1,8 @@
 <?php foreach($messages as $message) {
 		$this->set('message', $message);
-		echo $this->element('Messages/message');
+		if($message['Message']['sender_id'] == AuthComponent::user('id')) {
+			echo $this->element('Messages/sent');
+		} else {
+			echo $this->element('Messages/message');
+		}
 	} ?>

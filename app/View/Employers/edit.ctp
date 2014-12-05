@@ -1,5 +1,4 @@
 <div class="row">
-<?php debug($employer); ?>
 	<div class="col-md-10 col-md-offset-1">
 		<?php 
 			echo $this->Form->create('User', array(

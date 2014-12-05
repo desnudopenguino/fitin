@@ -3,7 +3,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -81,6 +81,8 @@ class EmployersController extends AppController {
 
 
 		if($this->request->is('post') || $this->request->is('put')) { 
+			$organization = $this->Organization->checkAndCreate($this->request->data,1);
+			$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
 			$this->Employer->save($this->request->data['Employer']);
 			$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 			$this->Employer->User->Address->save($this->request->data['User']['Address']);

@@ -32,6 +32,13 @@
 							<?php } 
 							} ?>
 						<h3>Skills</h3>
+						<?php $end = count($project['ProjectSkill']) - 1;
+							foreach($project['ProjectSkill'] as $sKey => $projectSkill) {
+							echo $projectSkill['Skill']['skill_type'];
+							if($sKey != $end) {
+								echo ", ";
+							}
+						} ?>
 					</div>
 				</div>
 			</div>

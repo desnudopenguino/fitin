@@ -3,7 +3,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -33,7 +33,8 @@ class EmployersController extends AppController {
 	}
 
 	function culture() {
-
+		$this->set('match', sizeof($this->UserCultureAnswer->findUserAnswers($this->Auth->user('id'))));
+		$this->set('total', sizeof($this->CultureQuestion->findAll()));
 	}
 
 	function search() {

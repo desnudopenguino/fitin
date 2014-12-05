@@ -73,7 +73,7 @@ class EmployersController extends AppController {
 
 		$this->set('states', $this->State->findAllLongNames());
 
-		$employer = $this->Employer->findEdit($this->Auth->user('id'));
+		$employer = $this->Employer->findEdit($id);
 		$this->set('employer', $employer);
 
 		$this->Employer->User->Address->id = $employer['User']['Address']['id'];

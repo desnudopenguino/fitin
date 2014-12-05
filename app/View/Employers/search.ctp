@@ -25,6 +25,7 @@
 		</div>
 		<div id="position-data" class="well">
 			<?php if(!empty($position_card)) {
+				$this->set('position_card', $position_card);
 				echo $this->element('Positions/dataCard');
 			} else { echo "Select a position"; } ?>
 		</div>

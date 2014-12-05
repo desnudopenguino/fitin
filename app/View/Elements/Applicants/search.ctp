@@ -97,7 +97,7 @@
 
 								echo $this->Form->input('title', array(
 									'type' => 'hidden',
-									'value' => $applicant_card['DataCard']['Info']['title']));
+									'value' => $position_card['DataCard']['Info']['title']));
 	
 								echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
 									'class' => 'btn btn-primary',

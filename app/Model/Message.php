@@ -22,7 +22,7 @@ Class Message extends AppModel {
 	public function findReceived($user_id) {
 		return $this->find('all', array(
 			'conditions' => array(
-				'Message.created' => '>= DATE_SUB(curdate(), INTERVAL 3 WEEK)',
+				'Message.created >=' => 'DATE_SUB(curdate(), INTERVAL 3 WEEK)',
 				'Message.receiver_id' => $user_id)));
 	}
 

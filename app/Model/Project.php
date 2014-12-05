@@ -33,14 +33,12 @@ Class Project extends AppModel {
 		);
 
 	public function beforeSave($options = array()) {
-
-		foreach($this->data['ProjectIndustry'] as $key => $industry) {
-			if($industry['ProjectIndustry']['industry_id'] == '' || $industry['ProjectIndustry']['industry_id'] == NULL) {
-				unset($this->data['ProjectIndustry'][$key]);
-			}
-		}
 		if(empty($this->data[$this->alias]['id'])) {
 			$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		}
+
+		if($this->data[$this->alias]['end_date'] == 'Current') {
+			$this->data[$this->alias]['end_date'] = null;
 		}
 		return true;
 	}

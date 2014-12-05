@@ -81,7 +81,7 @@ class EmployersController extends AppController {
 
 
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$this->Employer->save($this->request->data['User']['Employer']);
+			$this->Employer->save($this->request->data['Employer']);
 			$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 			$this->Employer->User->Address->save($this->request->data['User']['Address']);
 		}

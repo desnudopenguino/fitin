@@ -3,7 +3,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');
@@ -26,7 +26,8 @@ class ApplicantsController extends AppController {
 
 // Culture - allows user to answer corporate culture questions
 	public function culture() {
-
+		$this->set('match', sizeof($this->UserCultureAnswer->findUserAnswers($this->Auth->user('id'))));
+		$this->set('total', sizeof($this->CultureQuestion->findAll()));
 	}
 
 // Search - search page, applicant gets matched up with open positions based on skills & culture match

@@ -12,6 +12,10 @@ Class Employer extends AppModel {
 		'Position'
 		);
 
+	public $hasOne = array(
+		'Company'
+		);
+
 	public function findDashboard($id = null) {
 		return $this->find('first', array(
 			'conditions' => array(

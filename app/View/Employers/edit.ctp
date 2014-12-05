@@ -17,9 +17,9 @@
 					'label' => 'Company Name',
 					'value' => $employer['Organization']['organization_name']));  
 
-				echo $this->Form->Input('Employer.department', array(
+				echo $this->Form->Input('Employer.department_name', array(
 					'label' => 'Department',
-					'value' => $employer['Employer']['department'])); ?> 
+					'value' => $employer['Employer']['department_name'])); ?> 
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>

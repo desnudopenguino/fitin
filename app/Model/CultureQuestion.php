@@ -49,5 +49,9 @@ Class CultureQuestion extends AppModel {
 		}
 		return $question;
 	}
+
+	public function findAll() {
+		return $this->find('list');
+	}
 }
 ?>

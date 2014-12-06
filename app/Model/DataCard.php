@@ -64,9 +64,10 @@ Class DataCard extends AppModel {
 		asort($sort_array);
 		$return_array = array();
 		
-		while(!empty($sort_array)) {
-			foreach($data_cards as $dKey => $data_card) {
 				$end_key = key(end($sort_array));
+debug($end_key);
+	//	while(!empty($sort_array)) {
+/*			foreach($data_cards as $dKey => $data_card) {
 debug($end_key);
 				//if(key(end($sort_array)) == $data_card['DataCard']['Info']['id']) {
 					$return_array[] = $data_card;
@@ -74,8 +75,8 @@ debug($end_key);
 					unset($sort_array[$end_key]);
 				//}
 			}
-		}
-	
+	//	}
+	*/
 
 debug($return_array);
 //		return $return_array;

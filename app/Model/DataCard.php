@@ -62,7 +62,7 @@ Class DataCard extends AppModel {
 		}
 
 		rsort($sort_array);
-
+debug($sort_array);
 		$return_array = array();
 
 		foreach($sort_array as $sKey => $value) {

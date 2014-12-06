@@ -58,7 +58,7 @@ Class DataCard extends AppModel {
 		$sort_array = array();
 		
 		foreach($data_cards as $data_card) {
-			$sort_array[$data_card['Info']['id']] = $data_card['Results']['percent'];
+			$sort_array[$data_card['DataCard']['Info']['id']] = $data_card['Results']['percent'];
 		}
 
 		asort($sort_array);
@@ -67,7 +67,7 @@ Class DataCard extends AppModel {
 
 		foreach($sort_array as $sKey => $value) {
 			foreach($data_cards as $dKey => $data_card) {
-				if($sKey == $data_card['Info']['id']) {
+				if($sKey == $data_card['DataCard']['Info']['id']) {
 					$return_array[] = $data_card;
 					unset($data_cards[$dKey]);
 				}

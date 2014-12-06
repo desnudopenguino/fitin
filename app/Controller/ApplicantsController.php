@@ -41,7 +41,7 @@ class ApplicantsController extends AppController {
 			$positionCard['Culture'] = $this->Applicant->User->UserCultureAnswer->compareCulture($this->Auth->user('id'),$position['Position']['employer_id']);
 			$positionCards[] = $positionCard;
 		}
-		$this->DataCard->sortByJobMatch($positionCards);
+		$positionCards = $this->DataCard->sortByJobMatch($positionCards);
 		$this->set('applicant_card', $applicantCard);
 		$this->set('position_cards', $positionCards);
 	}

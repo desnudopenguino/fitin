@@ -76,8 +76,7 @@ Class DataCard extends AppModel {
 			}
 		}
 
-debug($return_array);
-//		return $return_array;
+		return $return_array;
 	}
 }
 ?>

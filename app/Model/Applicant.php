@@ -68,6 +68,7 @@ Class Applicant extends AppModel {
 //info
 		$dataCard['Info'] = $data['Applicant'];
 		$dataCard['Info']['url'] = $data['User']['url'];
+		$dataCard['Info']['id'] = $data['User']['id'];
 //certification stuff
 		foreach($data['Certification'] as $cKey => $certification) {
 			$dataCard['Certification'][$cKey] = $certification['certification_name'];

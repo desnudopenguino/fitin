@@ -2,7 +2,7 @@
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2>Culture</h2>
 		<button type="button" class="btn btn-primary" id="cultureQuestions">Answer Culture Questions</button>
-		<p><span id="match"><?php echo $match; ?></span> of <span id="total"><?php echo $total; ?> Questions Answered (<?php echo round($match / $total, 2) * 100; ?>% complete)</p>
+		<p><span id="match"><?php echo $match; ?></span> of <span id="total"><?php echo $total; ?></span> Questions Answered (<span id="percent"><?php echo round($match / $total, 2) * 100; ?></span>% complete)</p>
 		<h2>Personality</h2>
 		<button type="button" class="btn btn-primary" id="personalityQuestions">Answer Personality Questions</button>
 		<p>Personality Stats</p>

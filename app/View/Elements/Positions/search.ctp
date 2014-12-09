@@ -76,7 +76,7 @@
 					<div class="row">
 						<div class="col-md-4">
 						<?php
-							if($position_card['Applied']) {
+							if(isset($position_card['Applied'])) {
 								$disabled = "disabled";
 							} else { $disabled = ""; }
 							echo $this->Html->link('<i class="glyphicon glyphicon-send"></i> Apply', array(

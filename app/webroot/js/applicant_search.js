@@ -11,7 +11,7 @@ console.log(id);
 		async: true,
 		success: function() {
 			$(id).addClass('disabled');
-			$(id).text('<i class="glyphicon glyphicon-send"></i> Applied');
+			$(id).html('<i class="glyphicon glyphicon-send"></i> Applied');
 			
 		}});
 	return false;

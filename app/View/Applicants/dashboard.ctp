@@ -7,6 +7,7 @@
 		</ul>
 	</div>
 	<div class="col-md-6 col-md-offset-1" id="dashboardContent">
+		<?php echo $this->element('dashboard_welcome'); ?>
 	</div>
 </div>
 <?php echo $this->Html->script('applicant_dashboard'); ?>

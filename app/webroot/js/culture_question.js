@@ -9,6 +9,22 @@ function loadRandomCultureQuestion() {
 	});
 }
 
+function updateStats(next) {
+	//1st get the stats
+	var match = $('#match').text() + 0;
+	var total = $('#total').text() + 0;
+	var percent = $('#percent').text + 0;
+	//if match < total add to match, update percent
+	if (match < total && next) {
+		match ++;
+	} else if(!next) {
+		match --;
+	}
+	percent = Math.round(match/total * 100);
+	$('#match').html(match);
+	$('#percent').html(percent);
+}
+
 //call to load culture question 
 $(document).on('click',"#cultureQuestions", function() {
 	loadRandomCultureQuestion();
@@ -27,6 +43,7 @@ $(document).on('click',"#undoCultureQuestion", function() {
 		async: true,
 		success: function(result) {
 			$('#cultureContent').html(result);
+			updateStats(false);
 		}
 	});
 	return false;
@@ -45,7 +62,8 @@ $(document).on('submit','#saveUserCultureAnswerForm', function(e) {
 		data: $(this).serialize(),
 		success: function(result) {
 			loadRandomCultureQuestion();
+			updateStats(true);
 		}
-	});
+	}
 	return false;	
 });

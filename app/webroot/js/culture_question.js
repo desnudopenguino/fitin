@@ -11,9 +11,9 @@ function loadRandomCultureQuestion() {
 
 function updateStats(next) {
 	//1st get the stats
-	var match = $('#match').text() + 0;
-	var total = $('#total').text() + 0;
-	var percent = $('#percent').text + 0;
+	var match = parseInt($('#match').text());
+	var total = parseInt($('#total').text());
+	var percent = parseInt($('#percent').text);
 	//if match < total add to match, update percent
 	if (match < total && next) {
 		match ++;

@@ -42,6 +42,9 @@ debug($applications);
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
 			$positionCard['Results'] = $this->DataCard->compare($applicantCard, $positionCard);
 			$positionCard['Culture'] = $this->Applicant->User->UserCultureAnswer->compareCulture($auth_id,$position['Position']['employer_id']);
+			if(in_array($position['Position']['id'], $applications)) {
+				$positionCard['Applied'] = true;
+			}
 			$positionCards[] = $positionCard;
 		}
 		$positionCards = $this->DataCard->sortByJobMatch($positionCards);

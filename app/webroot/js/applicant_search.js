@@ -12,7 +12,7 @@ console.log(id);
 		success: function() {
 			$(id).addClass('disabled');
 			$(id).html('<i class="glyphicon glyphicon-send"></i> Applied');
-			
+			$(id).parent().parent().parent().prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Success!</strong> You have applied to this position.</div>');
 		}});
 	return false;
 });

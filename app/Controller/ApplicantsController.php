@@ -34,7 +34,6 @@ class ApplicantsController extends AppController {
 	public function search() {
 		$auth_id = $this->Auth->user('id');
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
-debug($applications);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
 		$positions = $this->Position->findAllIds();
 		$positionCards = array();

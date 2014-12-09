@@ -64,6 +64,6 @@ $(document).on('submit','#saveUserCultureAnswerForm', function(e) {
 			loadRandomCultureQuestion();
 			updateStats(true);
 		}
-	}
+	});
 	return false;	
 });

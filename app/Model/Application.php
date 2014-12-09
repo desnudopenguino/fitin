@@ -29,6 +29,15 @@ Class Application extends AppModel {
 
 		return $applications;
 	}
+
+	public function findApplicantIds($applicant_id = null) {
+		$applications = $this->find('list', array(
+			'conditions' => array(
+				'Application.applicant_id' => $applicant_id),
+			'fields' => array(
+				'position_id')));
+		return $applications;
+	}
 	
 	public function findApplicantActive($applicant_id = null) {
 		$applications = $this->find('all', array(

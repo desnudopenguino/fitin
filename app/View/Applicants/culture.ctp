@@ -9,7 +9,7 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1" id="cultureContent">
 		<p>Choose a set of questions to answer on the left</p>
-		<p>Disclaimer: There are no right or wrong answers. No one will see your answers. Be honest, choose the answer closest to your feelings.</p>
+		<p><strong>Disclaimer:</strong> There are no right or wrong answers. No one will see your answers. Be honest, choose the answer closest to your feelings.</p>
 	</div>
 </div>
 <?php echo $this->Html->script('culture_question'); ?>

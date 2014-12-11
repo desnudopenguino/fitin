@@ -130,7 +130,7 @@ class UsersController extends AppController {
 	}
 
 //add - contact data form after registration
-	public function add($id = null) {
+	public function add() {
 		switch($this->Auth->user('roleId')) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
@@ -144,7 +144,7 @@ class UsersController extends AppController {
 
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
-					"action" => "add"));
+					"action" => "add", $this->Auth->user('id')));
 				break;
 		}
 	}

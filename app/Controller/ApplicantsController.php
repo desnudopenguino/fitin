@@ -85,7 +85,7 @@ debug($applicant);
 			if($this->Applicant->save($this->request->data)) {
 				$this->Applicant->User->Address->save($this->request->data['User']['Address']);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
-				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 				$this->Session->setFlash(__('The Applicant Information has been saved'),
 					'alert', array(
 						'plugin' => 'BoostCake',
@@ -126,7 +126,7 @@ debug($applicant);
 				if($this->Applicant->User->save($this->request->data['User'])) {
 					$this->Applicant->User->read(null, $id);
 					$this->Auth->login($this->Applicant->User->data['User']);
-					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+					$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 				}
 				$this->Session->setFlash(__('The Applicant Information has been saved'),
 					'alert', array(

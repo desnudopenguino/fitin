@@ -171,22 +171,24 @@ Class Applicant extends AppModel {
 		return $total;
 	}
 
+	public function afterFind($results, $primayr = false) {
+		foreach($results as $key => $result) {
+			if(empty($result['Applicant']['display_name'])) {
+				$results[$key]['Applicant']['display_name'] = $result['User']['email'];
+			}
+		}
+		return $results;
+	}
+
 	public function findDashboard($id = null) {
 		$dashboard_data = $this->find('first', array(
 			'conditions' => array(
 				'Applicant.user_id' => $id),
 			'contain' => array(
 				'User')));
-		$this->checkDisplayName($dashboard_data);
-
 		return $dashboard_data;
 	}
 
-	public function checkDisplayName($applicant_array) {
-		if(empty($applicant_array['Applicant']['display_name'])) {
-			$applicant_array['Applicant']['display_name'] = $applicant_array['User']['email'];
-		} 
-	}
 
 	public function findProfile($id = null) {
 		$profile_data = $this->find('first', array(
@@ -211,7 +213,6 @@ Class Applicant extends AppModel {
 					'Degree',
 					'Organization',
 					'Industry'))));
-		$this->checkDisplayName($profile_data);
 		return $profile_data;
 	}
 

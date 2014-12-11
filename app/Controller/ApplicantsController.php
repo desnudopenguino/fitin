@@ -119,7 +119,6 @@ debug($applicant);
 		$this->Applicant->User->id = $id;
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
-debug($this->request->data);
 			if($this->Applicant->save($this->request->data['Applicant'])) {
 				$this->Applicant->User->save($this->request->data['User']);
 				$this->Applicant->User->Address->save($this->request->data['Address']);

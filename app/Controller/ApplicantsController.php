@@ -126,7 +126,7 @@ debug($applicant);
 				if($this->Applicant->User->save($this->request->data['User'])) {
 					$this->Applicant->User->read(null, $id);
 					$this->Auth->login($this->Applicant->User->data['User']);
-					$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
+					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 				}
 				$this->Session->setFlash(__('The Applicant Information has been saved'),
 					'alert', array(

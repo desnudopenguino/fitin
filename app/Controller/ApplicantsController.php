@@ -120,9 +120,11 @@ debug($applicant);
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			if($this->Applicant->save($this->request->data['Applicant'])) {
-				$this->Applicant->User->save($this->request->data['User']);
 				$this->Applicant->User->Address->save($this->request->data['Address']);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
+				if($this->Applicant->User->save($this->request->data['User'])) {
+					$this->Auth->login($this->Applicant->User->read(null,$id));
+				}
 				$this->Session->setFlash(__('The Applicant Information has been saved'),
 					'alert', array(
 						'plugin' => 'BoostCake',

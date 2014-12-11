@@ -141,7 +141,7 @@ debug($applicant);
 		}
 		$this->set('applicant', $this->Applicant->findProfile($user['User']['id']));
 
-		if($this->Auth->loggedIn() && $this->Auth->user('roleId') == 1) {
+		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 1) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));
 		}
 	}

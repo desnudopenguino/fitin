@@ -26,9 +26,5 @@ Class PhoneNumber extends AppModel {
 		}
 		return true;
 	}
-
-	public function buildEmpty() {
-		return '### ### ####';
-	}
 }
 ?>

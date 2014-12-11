@@ -212,9 +212,6 @@ Class Applicant extends AppModel {
 					'Organization',
 					'Industry'))));
 		$this->checkDisplayName($profile_data);
-		if(empty($profile_data['User']['PhoneNumber'])) {
-			$profile_data['User']['PhoneNumber'] = $this->User->PhoneNumber->buildEmpty();
-		}
 		return $profile_data;
 	}
 

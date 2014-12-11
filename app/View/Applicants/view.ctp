@@ -7,10 +7,17 @@
 		<div class="well">
 			<h2><?php echo $applicant['Applicant']['display_name']; ?></h2>
 			<p>Phone:
-				<?php echo $applicant['User']['PhoneNumber']['phone_number']; ?>
+			<?php if(!empty($applicant['User']['PhoneNumber'])) {
+				echo $applicant['User']['PhoneNumber']['phone_number']; 
+			}?>
 			</p>
-			<p>
-				<?php echo $applicant['User']['Address']['city']; ?>, <?php echo $applicant['User']['Address']['State']['short_name']; ?> <?php echo $applicant['User']['Address']['zip']; ?>
+			<p>Address:
+			<?php if(!empty($applicant['User']['Address'])) {
+				echo $applicant['User']['Address']['street']; ?><br>
+				<?php echo $applicant['User']['Address']['city']; ?>,
+				<?php echo $applicant['User']['Address']['State']['short_name']; ?>
+				<?php echo $applicant['User']['Address']['zip']; 
+			}?>
 			</p>
 			<p><?php echo $applicant['User']['email']; ?></p>
 		</div>

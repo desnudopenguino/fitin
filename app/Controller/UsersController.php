@@ -53,7 +53,9 @@ class UsersController extends AppController {
 								case 2: //Applicant
 												$this->User->Applicant->create();
 												$this->User->Applicant->save(array('Applicant' => array(
-													'user_id' => $userId
+													'user_id' => $userId,
+													'first_name' => 'New',
+													'last_name' => 'User'
 													)));
 												break;
 								case 3: //Recruiter

@@ -67,24 +67,14 @@ class ApplicantsController extends AppController {
 debug($applicant);
 		$this->set('applicant', $applicant);
 
-		$this->Applicant->read(null, $id);
+		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
 
-		if(!empty($applicant['User']['Address']['id'])) {
-			$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
-		} else {
-			$this->Applicant->User->Address->create();
-		}
-
-		if(!empty($applicant['User']['PhoneNumber']['id'])) {
-			$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
-		} else {
-			$this->Applicant->User->PhoneNumber->create();
-		}
+		$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
-			if($this->Applicant->save($this->request->data)) {
-				$this->Applicant->User->Address->save($this->request->data['User']['Address']);
-				$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
+			if($this->Applicant->save($this->request->data['Applicant'])) {
+				$this->Applicant->User->Address->save($this->request->data['Address']);
+				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 				$this->Session->setFlash(__('The Applicant Information has been saved'),
 					'alert', array(

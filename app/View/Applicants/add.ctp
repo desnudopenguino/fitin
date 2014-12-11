@@ -10,6 +10,7 @@
 				'class' => 'well form-horizontal'
 			)); ?>
 		<fieldset>
+			<h2>Please Fill out these fields before continuing</h2>
 			<legend>Name</legend>
 			<?php 
 				echo $this->Form->Input('User.status_id', array(

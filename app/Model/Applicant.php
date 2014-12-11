@@ -176,9 +176,9 @@ Class Applicant extends AppModel {
 debug($result);
 debug($result['Applicant']);
 debug($result['User']);
-/*			if(empty($result['Applicant']['display_name'])) {
+			if(empty($result['Applicant']['display_name'])) {
 				$results[$key]['Applicant']['display_name'] = $result['User']['email'];
-			}*/
+			}
 		}
 		return $results;
 	}

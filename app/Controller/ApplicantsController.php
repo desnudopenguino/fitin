@@ -118,6 +118,7 @@ debug($applicant);
 		$this->Applicant->User->PhoneNumber->create();
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
+debug($this->request->data);
 			if($this->Applicant->save($this->request->data)) {
 				$this->Applicant->User->Address->save($this->request->data);
 				$this->Applicant->User->PhoneNumber->save($this->request->data);

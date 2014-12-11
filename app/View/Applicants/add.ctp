@@ -12,32 +12,32 @@
 		<fieldset>
 			<legend>Name</legend>
 			<?php 
-				echo $this->Form->Input('Applicant.User.status_id', array(
+				echo $this->Form->Input('User.status_id', array(
 					'type' => 'hidden',
 					'value' => $new_applicant_status));
-				echo $this->Form->Input('Applicant.first_name', array(
+				echo $this->Form->Input('first_name', array(
 					'label' => 'First Name'
 					)); 
-				echo $this->Form->Input('Applicant.mi', array(
+				echo $this->Form->Input('mi', array(
 					'label' => 'Middle Initial'
 					)); 
-				echo $this->Form->Input('Applicant.last_name', array(
+				echo $this->Form->Input('last_name', array(
 					'label' => 'Last Name'
 					)); ?>
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>
 			<?php 
-				echo $this->Form->input('Applicant.User.PhoneNumber.user_id', array(
+				echo $this->Form->input('PhoneNumber.user_id', array(
 					'type' => 'hidden',
 					'value' => $user_id));
-				echo $this->Form->input('Applicant.User.PhoneNumber.phone_type_id', array(
+				echo $this->Form->input('PhoneNumber.phone_type_id', array(
 					'type' => 'select',
 					'label' => 'Phone Type',
 					'options' => $phone_types
 					));
 		
-				echo $this->Form->Input('Applicant.User.PhoneNumber.phone_number', array(
+				echo $this->Form->Input('PhoneNumber.phone_number', array(
 					'type' => 'text',
 					'label' => 'Phone Number'
 					));
@@ -46,23 +46,23 @@
 		<fieldset>
 			<legend>Address</legend>
 			<?php
-				echo $this->Form->input('Applicant.User.Address.user_id', array(
+				echo $this->Form->input('Address.user_id', array(
 					'type' => 'hidden',
 					'value' => $user_id));
-				echo $this->Form->input('Applicant.User.Address.street', array(
+				echo $this->Form->input('Address.street', array(
 					'type' => 'text',
 					'label' => 'Street'
 					));
-				echo $this->Form->input('Applicant.User.Address.city', array(
+				echo $this->Form->input('Address.city', array(
 					'type' => 'text',
 					'label' => 'City'
 					));
-				echo $this->Form->input('Applicant.User.Address.state_id', array(
+				echo $this->Form->input('Address.state_id', array(
 					'type' => 'select',
 					'label' => 'State',
 					'options' => $states
 					));
-				echo $this->Form->input('Applicant.User.Address.zip', array(
+				echo $this->Form->input('Address.zip', array(
 					'type' => 'text'
 					));
 			?>

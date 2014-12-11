@@ -18,7 +18,7 @@ function updateStats(next) {
 	if (match < total && next) {
 		match ++;
 		if(match == total) {
-			$('#cultureContent').prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Congratulations!</strong> You have completed all the current culture questions.</div>');
+			$('#cultureContent').parent().prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Congratulations!</strong> You have completed all the current culture questions.</div>');
 		}
 	} else if(!next) {
 		match --;

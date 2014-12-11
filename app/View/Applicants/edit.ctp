@@ -12,11 +12,11 @@
 		<fieldset>
 			<legend>Name</legend>
 			<?php 
-				echo $this->Form->Input('Applicant.first_name', array(
+				echo $this->Form->Input('User.Applicant.first_name', array(
 					'label' => 'First Name'));
-				echo $this->Form->Input('Applicant.mi', array(
+				echo $this->Form->Input('User.Applicant.mi', array(
 					'label' => 'Middle Initial'));
-				echo $this->Form->Input('Applicant.last_name', array(
+				echo $this->Form->Input('User.Applicant.last_name', array(
 					'label' => 'Last Name')); ?>
 		</fieldset>
 		<fieldset>

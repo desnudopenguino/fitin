@@ -175,6 +175,7 @@ Class Applicant extends AppModel {
 		foreach($results as $key => $result) {
 debug($result);
 debug($result['Applicant']);
+debug($result['User']);
 /*			if(empty($result['Applicant']['display_name'])) {
 				$results[$key]['Applicant']['display_name'] = $result['User']['email'];
 			}*/

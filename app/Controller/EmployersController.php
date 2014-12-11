@@ -22,7 +22,6 @@ class EmployersController extends AppController {
 			$this->State->findAllLongNames());
 
 		$this->set('new_employer_status', $this->Auth->user('status_id') + 2);
-		$this->set('user_id', $id);
 
 		$this->Employer->User->Address->create();
 
@@ -30,6 +29,8 @@ class EmployersController extends AppController {
 		$this->Employer->User->id = $id;
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
+			$organization = $this->Organization->checkAndCreate($this->request->data,1);
+			$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
 			if($this->Employer->save($this->request->data['Employer'])) {
 				$this->Employer->User->Address->save($this->request->data['Address']);
 				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);

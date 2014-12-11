@@ -68,13 +68,8 @@ class AppController extends Controller {
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 
 //user status is < 3, make them fill out the form!
-		if($this->Auth->loggedIn() && $this->Auth->user('status_id') < 3 && $this->request->params['action'] != 'logout') { 
+		if($this->Auth->loggedIn() && $this->Auth->user('status_id') < 3 && ($this->request->params['action'] != 'logout' || $this->request->params['action'] != 'add')) { 
 			switch($this->Auth->user('role_id')) {
-				case 0: //Admin
-					$this->redirect(array("controller" => "users", 
-						"action" => "index"));
-					break;
-
 				case 1: //Employer
 					$this->redirect(array("controller" => "employers", 
 						"action" => "dashboard"));

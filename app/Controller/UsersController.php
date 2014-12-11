@@ -67,7 +67,7 @@ class UsersController extends AppController {
 							}
 							if($validUser) {
 								$this->Auth->login();
-								return $this->redirect(array('controller' => 'users', 'action' => 'dashboard'));
+								return $this->redirect(array('controller' => 'users', 'action' => 'add'));
 							}
             } else {
 	            $this->Session->setFlash(
@@ -127,6 +127,26 @@ class UsersController extends AppController {
 	public function logout() {
 		$this->Auth->logout();
 		$this->redirect(array("controller" => "pages", "action" => "display","home")); 
+	}
+
+//add - contact data form after registration
+	public function add($id = null) {
+		switch($this->Auth->user('roleId')) {
+			case 0: //Admin
+				$this->redirect(array("controller" => "users", 
+					"action" => "index"));
+				break;
+
+			case 1: //Employer
+				$this->redirect(array("controller" => "employers", 
+					"action" => "dashboard"));
+				break;
+
+			case 2: //Applicant
+				$this->redirect(array("controller" => "applicants", 
+					"action" => "add"));
+				break;
+		}
 	}
 
 //dashboard

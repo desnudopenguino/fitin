@@ -98,6 +98,41 @@ debug($applicant);
 		}
 	}
 
+//add action occurrs after registration/every login after that if the user doesn't have the data filled out.
+	public function add($id = null) {
+		$this->Applicant->id = $id;
+		if(!$this->Applicant->exists()) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+		$this->set('phone_types',
+			$this->PhoneType->findAll());
+
+		$this->set('states',
+			$this->State->findAllLongNames());
+
+			$this->Applicant->User->Address->create();
+
+			$this->Applicant->User->PhoneNumber->create();
+		
+		if($this->request->is('post') || $this->request->is('put')) { 
+			if($this->Applicant->save($this->request->data)) {
+				$this->Applicant->User->Address->save($this->request->data['User']['Address']);
+				$this->Applicant->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
+				$this->Session->setFlash(__('The Applicant Information has been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-success'));
+			} else {
+				$this->Session->setFlash(__('The Applicant Information has not been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'));
+			}
+		}
+
+		//redirect to profile 
+	}
+
 // View - public view of applicant data
 	public function view($url = null) {
 		$user = $this->Applicant->User->findByUrl($url);

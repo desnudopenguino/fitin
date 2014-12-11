@@ -12,7 +12,10 @@
 		<h2>Please Fill out these fields before continuing</h2>
 		<fieldset>
 			<legend>Company Info</legend>
-			<?php 
+			<?php
+				echo $this->Form->Input('User.status_id', array(
+					'type' => 'hidden',
+					'value' => $new_employer_status));
 				echo $this->Form->Input('Organization.organization_name', array(
 					'label' => 'Company Name'));
 

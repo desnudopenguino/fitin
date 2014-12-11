@@ -68,15 +68,15 @@ debug($applicant);
 		$this->set('applicant', $applicant);
 
 		if(!empty($applicant['User']['Address']['id'])) {
-			$this->Applicant->User->Address->id = $applicant['User']['Address']['id'];
+			$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
 		} else {
-	
+			$this->Applicant->User->Address->create();
 		}
 
 		if(!empty($applicant['User']['PhoneNumber']['id'])) {
-			$this->Applicant->User->PhoneNumber->id = $applicant['User']['PhoneNumber']['id'];
+			$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
 		} else {
-
+			$this->Applicant->User->PhoneNumber->create();
 		}
 		
 		if($this->request->is('post') || $this->request->is('put')) { 

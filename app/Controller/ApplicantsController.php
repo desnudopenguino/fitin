@@ -124,7 +124,7 @@ debug($applicant);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				if($this->Applicant->User->save($this->request->data['User'])) {
 					$this->Applicant->User->read(null, $id);
-debug($this->Applicant->User->data());
+debug($this->Applicant->User->data);
 					$this->Auth->login($this->Applicant->User->read(null,$id));
 				}
 				$this->Session->setFlash(__('The Applicant Information has been saved'),

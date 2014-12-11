@@ -111,10 +111,11 @@ debug($applicant);
 			$this->State->findAllLongNames());
 
 		$this->set('new_applicant_status', $this->Auth->user('status_id') + 2);
+		$this->set('user_id', $id);
 
-			$this->Applicant->User->Address->create();
+		$this->Applicant->User->Address->create();
 
-			$this->Applicant->User->PhoneNumber->create();
+		$this->Applicant->User->PhoneNumber->create();
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			if($this->Applicant->save($this->request->data)) {
@@ -131,8 +132,6 @@ debug($applicant);
 						'class' => 'alert-danger'));
 			}
 		}
-
-		//redirect to profile 
 	}
 
 // View - public view of applicant data

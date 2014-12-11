@@ -9,10 +9,36 @@ class EmployersController extends AppController {
 		$this->Auth->allow('view');
 	}
 
-	function add($userArray) {
-		$this->Employer->create();
-		if ($this->Employer->save($userArray)) {
+//add action occurrs after registration/every login after that if the user doesn't have the data filled out.
+	public function add($id = null) {
+		$this->Employer->id = $id;
+		if(!$this->Employer->exists()) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+		$this->set('phone_types',
+			$this->PhoneType->findAll());
 
+		$this->set('states',
+			$this->State->findAllLongNames());
+
+		$this->set('new_employer_status', $this->Auth->user('status_id') + 2);
+		$this->set('user_id', $id);
+
+		$this->Employer->User->Address->create();
+
+		$this->Employer->User->PhoneNumber->create();
+		$this->Employer->User->id = $id;
+		
+		if($this->request->is('post') || $this->request->is('put')) { 
+			if($this->Employer->save($this->request->data['Employer'])) {
+				$this->Employer->User->Address->save($this->request->data['Address']);
+				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);
+				if($this->Employer->User->save($this->request->data['User'])) {
+					$this->Employer->User->read(null, $id);
+					$this->Auth->login($this->Employer->User->data['User']);
+					$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+				}
+			}
 		}
 	}
 

@@ -49,7 +49,7 @@ Class User extends AppModel {
 			)
 		),
 
-		'roleId' => array(
+		'role_id' => array(
 			'required' => array(
 				'rule' => array('naturalNumber'),
 				'message' => "Role is not valid"

@@ -10,7 +10,7 @@ class UsersController extends AppController {
 
 //index
     public function index() {
-			if($this->Auth->user('roleId') == 0) {
+			if($this->Auth->user('role_id') == 0) {
 				$this->set('users', $this->User->find('all'));
 			} else {
 				throw new NotFoundException("Not Found");
@@ -23,7 +23,7 @@ class UsersController extends AppController {
 				if(empty($user)) {
   	    	throw new NotFoundException(__('Invalid user'));
 				}
-				switch($user['User']['roleId']) {
+				switch($user['User']['role_id']) {
 					case 1: // Employer
 						$this->redirect(array('controller' => 'employers', 'action' => 'view',$url));
 						break;
@@ -45,7 +45,7 @@ class UsersController extends AppController {
 						if ($this->User->save($this->request->data)) {
 							$userId = $this->User->getLastInsertId();
 							$validUser = true;
-							switch($this->request->data['User']['roleId']) { //create usertype in case here
+							switch($this->request->data['User']['role_id']) { //create usertype in case here
 								case 1: //Employer
 												$this->User->Employer->create();
 												$this->User->Employer->save(array('Employer' => array('user_id' => $userId)));
@@ -131,7 +131,7 @@ class UsersController extends AppController {
 
 //add - contact data form after registration
 	public function add() {
-		switch($this->Auth->user('roleId')) {
+		switch($this->Auth->user('role_id')) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
 					"action" => "index"));
@@ -153,7 +153,7 @@ class UsersController extends AppController {
 	//doesn't do much, just redirects to dash depending on user role
 	public function dashboard() {
 		$User = $this->Auth->user();
-		switch($User['roleId']) {
+		switch($User['role_id']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
 					"action" => "index"));
@@ -174,7 +174,7 @@ class UsersController extends AppController {
 //profile
 	public function profile() {
 		$User = $this->Auth->user();
-		switch($User['roleId']) {
+		switch($User['role_id']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
 					"action" => "index"));
@@ -195,7 +195,7 @@ class UsersController extends AppController {
 //culture
 	public function culture() {
 		$User = $this->Auth->user();
-		switch($User['roleId']) {
+		switch($User['role_id']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
 					"action" => "index"));
@@ -216,7 +216,7 @@ class UsersController extends AppController {
 //search
 	public function search() {
 		$User = $this->Auth->user();
-		switch($User['roleId']) {
+		switch($User['role_id']) {
 			case 0: //Admin
 				$this->redirect(array("controller" => "users", 
 					"action" => "index"));

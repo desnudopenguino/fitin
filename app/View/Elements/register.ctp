@@ -13,7 +13,7 @@
 	<legend>Register</legend>
 	<?php echo $this->Form->input('User.email');
 		echo $this->Form->input('User.password');
-		echo $this->Form->input('roleId', array(
+		echo $this->Form->input('role_id', array(
 			'options' => array('1' => 'Employer','2' => 'Applicant'),
 			'label' => "Role"
 			)

@@ -64,6 +64,7 @@ class ApplicantsController extends AppController {
 			$this->State->findAllLongNames());
 
 		$applicant = $this->Applicant->findEdit($id);
+debug($applicant);
 		$this->set('applicant', $applicant);
 
 		$this->Applicant->User->Address->id = $applicant['User']['Address']['id'];

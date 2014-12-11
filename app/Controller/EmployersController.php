@@ -115,6 +115,7 @@ class EmployersController extends AppController {
 				$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 				$this->Employer->User->Address->save($this->request->data['User']['Address']);
 				$this->Employer->Company->checkAndCreate($organization);
+				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
 				$this->Session->setFlash(__('The Employer Information has been saved'),
 					'alert', array(
 						'plugin' => 'BoostCake',

@@ -102,7 +102,6 @@ debug($applicant);
 			$this->State->findAllLongNames());
 
 		$this->set('new_applicant_status', $this->Auth->user('status_id') + 2);
-		$this->set('user_id', $id);
 
 		$this->Applicant->User->Address->create();
 
@@ -118,15 +117,6 @@ debug($applicant);
 					$this->Auth->login($this->Applicant->User->data['User']);
 					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 				}
-				$this->Session->setFlash(__('The Applicant Information has been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-success'));
-			} else {
-				$this->Session->setFlash(__('The Applicant Information has not been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-danger'));
 			}
 		}
 	}

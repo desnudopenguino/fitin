@@ -110,9 +110,6 @@ debug($applicant);
 		$this->set('states',
 			$this->State->findAllLongNames());
 
-debug($this->Auth->user());
-
-
 		$this->set('new_applicant_status', $this->Auth->user('status_id') + 2);
 		$this->set('user_id', $id);
 

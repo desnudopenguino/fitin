@@ -66,6 +66,12 @@ class AppController extends Controller {
 		$this->Security->requireSecure(); 
 		$this->Security->blackHoleCallback = 'forceSSL'; // commented out because hopefully apache redirects now
 		$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
+
+//user status is < 3, make them fill out the form!
+		if($this->Auth->user['status_id'] < 3 && $this->Auth->loggedIn()) {
+			$this->redirect(array('controller' => 'users', 'action' => 'add', $this->Auth->user('id')));
+		}
+	
 	}
 	public function beforeRender() { 
 		$this->set('userData', $this->Auth->user());

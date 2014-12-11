@@ -1,5 +1,4 @@
 <div class="row">
-<?php debug($this->Auth->user()); ?>
 	<div class="col-md-10 col-md-offset-1 well">
 		<h1>Admin Panel</h1>
 		<table class="table table-striped">

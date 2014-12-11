@@ -9,7 +9,7 @@
 				),
 				'class' => 'well form-horizontal'
 			)); ?>
-			<h2>Please Fill out these fields before continuing</h2>
+		<h2>Please Fill out these fields before continuing</h2>
 		<fieldset>
 			<legend>Name</legend>
 			<?php 

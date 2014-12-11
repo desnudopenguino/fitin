@@ -128,7 +128,7 @@ debug($this->Auth->user());
 				if($this->Applicant->User->save($this->request->data['User'])) {
 					$this->Applicant->User->read(null, $id);
 debug($this->Applicant->User->data['User']);
-					$this->Auth->login($this->Applicant->User->read(null,$id));
+					$this->Auth->login($this->Applicant->User->data['User']);
 				}
 				$this->Session->setFlash(__('The Applicant Information has been saved'),
 					'alert', array(

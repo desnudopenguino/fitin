@@ -100,7 +100,6 @@ debug($applicant);
 
 //add action occurrs after registration/every login after that if the user doesn't have the data filled out.
 	public function add($id = null) {
-debug($this->Auth->user());
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid User'));

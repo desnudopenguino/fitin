@@ -67,8 +67,17 @@ class ApplicantsController extends AppController {
 debug($applicant);
 		$this->set('applicant', $applicant);
 
-		$this->Applicant->User->Address->id = $applicant['User']['Address']['id'];
-		$this->Applicant->User->PhoneNumber->id = $applicant['User']['PhoneNumber']['id'];
+		if(!empty($applicant['User']['Address']['id'])) {
+			$this->Applicant->User->Address->id = $applicant['User']['Address']['id'];
+		} else {
+	
+		}
+
+		if(!empty($applicant['User']['PhoneNumber']['id'])) {
+			$this->Applicant->User->PhoneNumber->id = $applicant['User']['PhoneNumber']['id'];
+		} else {
+
+		}
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			if($this->Applicant->save($this->request->data)) {

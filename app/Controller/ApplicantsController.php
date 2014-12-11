@@ -110,6 +110,8 @@ debug($applicant);
 		$this->set('states',
 			$this->State->findAllLongNames());
 
+		$this->set('new_applicant_status', $this->Auth->user('status_id') + 2);
+
 			$this->Applicant->User->Address->create();
 
 			$this->Applicant->User->PhoneNumber->create();

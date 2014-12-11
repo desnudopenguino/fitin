@@ -12,6 +12,9 @@
 		<fieldset>
 			<legend>Name</legend>
 			<?php 
+				echo $this->Fonm->Input('Applicant.User.status_id', array(
+					'type' => 'hidden',
+					'value' => $new_applicant_status));
 				echo $this->Form->Input('Applicant.first_name', array(
 					'label' => 'First Name'
 					)); 

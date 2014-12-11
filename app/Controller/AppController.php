@@ -65,6 +65,7 @@ class AppController extends Controller {
 	public function beforeFilter() {
 		$this->Security->requireSecure(); 
 		$this->Security->blackHoleCallback = 'forceSSL'; // commented out because hopefully apache redirects now
+			$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 
 //user status is < 3, make them fill out the form!
 		if($this->Auth->loggedIn() && $this->Auth->user('status_id') < 3) { 
@@ -86,7 +87,6 @@ class AppController extends Controller {
 			}
 
 		} else {
-			$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 		}
 	
 	}

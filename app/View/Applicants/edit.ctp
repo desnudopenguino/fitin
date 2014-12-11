@@ -13,14 +13,11 @@
 			<legend>Name</legend>
 			<?php 
 				echo $this->Form->Input('Applicant.first_name', array(
-					'label' => 'First Name',
-					'value' => $applicant['Applicant']['first_name'])); 
+					'label' => 'First Name'));
 				echo $this->Form->Input('Applicant.mi', array(
-					'label' => 'Middle Initial',
-					'value' => $applicant['Applicant']['mi'])); 
+					'label' => 'Middle Initial'));
 				echo $this->Form->Input('Applicant.last_name', array(
-					'label' => 'Last Name',
-					'value' => $applicant['Applicant']['last_name'])); ?>
+					'label' => 'Last Name')); ?>
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>

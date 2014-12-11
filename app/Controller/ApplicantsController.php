@@ -67,6 +67,8 @@ class ApplicantsController extends AppController {
 debug($applicant);
 		$this->set('applicant', $applicant);
 
+		$this->Applicant->read(null, $id);
+
 		if(!empty($applicant['User']['Address']['id'])) {
 			$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
 		} else {

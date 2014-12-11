@@ -67,7 +67,7 @@ class AppController extends Controller {
 		$this->Security->blackHoleCallback = 'forceSSL'; // commented out because hopefully apache redirects now
 
 //user status is < 3, make them fill out the form!
-		if($this->Auth->loggedIn() && $this->Auth->user['status_id'] < 3) { 
+		if($this->Auth->loggedIn() && $this->Auth->user('status_id') < 3) { 
 			switch($this->Auth->user('role_id')) {
 				case 0: //Admin
 					$this->redirect(array("controller" => "users", 

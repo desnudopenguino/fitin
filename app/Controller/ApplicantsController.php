@@ -119,9 +119,10 @@ debug($applicant);
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 debug($this->request->data);
-			if($this->Applicant->save($this->request->data)) {
-				$this->Applicant->User->Address->save($this->request->data);
-				$this->Applicant->User->PhoneNumber->save($this->request->data);
+			if($this->Applicant->saveAll($this->request->data)) {
+//				$this->Applicant->User->save($this->request->data['Applicant']['User']);
+//				$this->Applicant->User->Address->save($this->request->data['Applicant']['User']['Address']);
+//				$this->Applicant->User->PhoneNumber->save($this->request->data['Applicant']['User']['PhoneNumber']);
 				$this->Session->setFlash(__('The Applicant Information has been saved'),
 					'alert', array(
 						'plugin' => 'BoostCake',

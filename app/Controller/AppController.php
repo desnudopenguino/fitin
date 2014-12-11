@@ -68,9 +68,9 @@ class AppController extends Controller {
 
 //user status is < 3, make them fill out the form!
 		if($this->Auth->loggedIn() && $this->Auth->user['status_id'] < 3) { 
-			$this->redirect(array('controller' => 'users', 'action' => 'add', $this->Auth->user('id')));
+			$this->redirect(array('controller' => 'users', 'action' => 'add'));
 		} else {
-			$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
+//			$this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'dashboard');//redirects logged in users
 		}
 	
 	}

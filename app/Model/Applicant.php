@@ -173,7 +173,7 @@ Class Applicant extends AppModel {
 
 	public function afterFind($results, $primayr = false) {
 		foreach($results as $key => $result) {
-			if(empty($result['Applicant']['display_name'])) {
+			if(empty($result['Applicant']['display_name'])&& !empty($result['User'])) {
 				$results[$key]['Applicant']['display_name'] = $result['User']['email'];
 			}
 		}

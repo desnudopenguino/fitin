@@ -57,6 +57,8 @@ Class Position extends AppModel {
 				'PositionSkill' => array(
 					'Skill'))
 		));
+
+		$data = $this->cleanRequirements($data);
 		
 		$dataCard = array();
 		$dataCard['Info'] = array();
@@ -115,6 +117,8 @@ Class Position extends AppModel {
 					'WorkFunction'),
 				'PositionSkill' => array(
 					'Skill'))));
+
+		$position = $this->cleanRequirements($position);
 
 		$position['Position']['PositionIndustry'] = $position['PositionIndustry'];
 		unset($position['PositionIndustry']);	

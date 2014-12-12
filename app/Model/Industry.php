@@ -10,7 +10,8 @@ Class Industry extends AppModel {
 	public function findAll() {
 		return $this->find('list', array(
 			'fields' => array(
-				'Industry.id', 'Industry.industry_type')));
+				'Industry.id', 'Industry.industry_type'),
+			'order' => array('Industry.industry_type')));
 	}
 }
 ?>

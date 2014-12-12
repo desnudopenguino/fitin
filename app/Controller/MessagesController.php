@@ -11,16 +11,7 @@ class MessagesController extends AppController {
 		
 		if($this->request->is('post') && !empty($this->request->data['Message']['message'] )) {
 			if($this->Message->save($this->request->data)) {
-				$this->Session->setFlash(__('The message has been sent'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-success'));
-			}
-			else{
-				$this->Session->setFlash(__('The message has not been sent'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-danger'));
+				$this->redirect(array('controller' => 'users', 'action' => 'dashboard'));
 			}
 		}
 	}

@@ -7,6 +7,7 @@
 </div>
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
+		<?php if(isset($results)) { ?>
 		<div class="row ">
 			<div class="col-md-5">
 				<div class="row">
@@ -54,6 +55,7 @@
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 		<h3>Position Info: </h3>
 		<div>
 		<h4>Responsibilities:</h4>

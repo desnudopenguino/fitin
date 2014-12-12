@@ -8,7 +8,8 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
 		<h3>Position Info:</h3>
-		<h4>Responsibilities</h4>
+		Job match &amp; Culture match will go here
+		<h4>Responsibilities:</h4>
 		<p><?php echo $position['Position']['responsibilities']; ?></p>
 		<div class="row">
 			<div class="col-md-4">

@@ -12,10 +12,32 @@
 		<div class="row col-md-5">
 			<?php echo $this->element('Culture/match'); ?>
 		</div>
-		<div class="row">
+		<div class="row col-md-5">
+			<div class="col-md-6">
+				Apply
+			</div>
+			<div class="col-md-6">
+				<?php 
+					echo $this->Form->create('Message', array(
+						'action' => 'compose',
+						'class' => 'form-inline'));
 
+					echo $this->Form->input('receiver_id', array(
+						'type' => 'hidden',
+						'value' => $position['Position']['employer_id']));
+
+					echo $this->Form->input('title', array(
+						'type' => 'hidden',
+						'value' => $position_card['Position']['title']));
+
+					echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
+						'class' => 'btn btn-primary',
+						'type' => 'submit'));
+
+					echo $this->Form->end(); 
+				?>
+			</div>
 		<div>
-		apply and message forms
 		<h4>Responsibilities:</h4>
 		<p><?php echo $position['Position']['responsibilities']; ?></p>
 		<div class="row">

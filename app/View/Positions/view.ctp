@@ -7,8 +7,6 @@
 </div>
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<h3>Position Info:</h3>
-		Job match &amp; Culture match will go here
 		<div class="row col-md-5">
 			<?php echo $this->element('Culture/match'); ?>
 		</div>
@@ -28,7 +26,7 @@
 
 					echo $this->Form->input('title', array(
 						'type' => 'hidden',
-						'value' => $position_card['Position']['title']));
+						'value' => $position['Position']['title']));
 
 					echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
 						'class' => 'btn btn-primary',

@@ -35,6 +35,7 @@
 					echo $this->Form->end(); 
 				?>
 			</div>
+		</div>
 		<h3>Position Info: </h3>
 		<div>
 		<h4>Responsibilities:</h4>

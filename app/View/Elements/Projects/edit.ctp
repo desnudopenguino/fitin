@@ -1,4 +1,12 @@
 <div class="modal fade" id="editProjectModal_<?php echo $project['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editProjectLabel" aria-hidden="true">
+<?php $skills = '';
+	$end = count($project['ProjectSkill']);
+foreach($project['ProjectSkill'] as $sKey => $project_skill) {
+	$skills .= $project_skill['Skill']['skill_type'];
+	if($sKey != $end) {
+		$skills .= ', ';
+	}
+} ?>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -76,6 +84,10 @@
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $project['responsibilities']));
+
+						echo $this->Form->input('ProjectSkill.skill_names', array(
+							'type' => 'textarea',
+							'value' => $skills));
 						?>
 				</fieldset>
       </div>

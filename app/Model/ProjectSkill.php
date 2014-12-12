@@ -31,7 +31,7 @@ debug($skills);
 			$skill = $this->Skill->checkAndCreate($project_skill);
 //			unset($data['ProjectSkill'][$sKey]['Skill']);
 			if(!in_array($skill['Skill']['id'], $skills)) {
-//				$data['ProjectSkill'][$sKey]['skill_id'] = $skill['Skill']['id'];
+				$data['ProjectSkill'][$sKey]['skill_id'] = $skill['Skill']['id'];
 //				unset($skills[array_search($skill['Skill']['id'],$skills)]);
 			} else {
 //				unset($skills[array_search($skill['Skill']['id'],$skills)]);

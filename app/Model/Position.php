@@ -127,7 +127,7 @@ Class Position extends AppModel {
 	}
 
 	public function findById($id = null) {
-		return $this->find('first', array(
+		$position = $this->find('first', array(
 			'conditions' => array(
 				'Position.id' => $id),
 			'contain' => array(
@@ -142,6 +142,16 @@ Class Position extends AppModel {
 					'Company' => array(
 						'Organization')))));
 	
-	}
+		$position['Position']['Employer'] = $position['Employer'];
+		unset($position['Employer']);
+		$position['Position']['PositionIndustry'] = $position['PositionIndustry'];
+		unset($position['PositionIndustry']);
+		$position['Position']['PositionFunction'] = $position['PositionFunction'];
+		unset($position['PositionFunction']);
+		$position['Position']['PositionSkill'] = $position['PositionSkill'];
+		unset($position['PositionSkill']);
+
+		return $position;
+	}	
 }
 ?>

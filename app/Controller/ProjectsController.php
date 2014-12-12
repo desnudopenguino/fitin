@@ -70,8 +70,6 @@ class ProjectsController extends AppController {
 		}
 
 		if($this->request->is('post') || $this->request->is('put')) {
-			//clear out project skills, then add them back
-			$this->Project->ProjectSkill->deleteProjectSkills($id);
 			$this->request->data = $this->Project->ProjectSkill->checkAndCreate($this->request->data);
 			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];

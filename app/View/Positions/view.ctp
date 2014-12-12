@@ -39,7 +39,7 @@
 		</div>	
 		<h3>Department Info:</h3>
 		<p>
-			<?php echo $position['Position']['Employer']['department_name']; ?>
+			<?php echo $position['Position']['Employer']['department_description']; ?>
 		</p>
 		<h3>Company Info:</h3>
 		<p>

@@ -6,8 +6,8 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-10 col-md-offset-1 clearfix">
-		<div class="row col-md-5">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="row col-md-5 clearfix">
 			<?php echo $this->element('Culture/match'); ?>
 		</div>
 		<div class="row col-md-5">

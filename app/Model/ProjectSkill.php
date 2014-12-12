@@ -21,7 +21,8 @@ Class ProjectSkill extends AppModel {
 
 	public function checkAndCreate($data) {
 		$data = $this->explode($data);
-
+		$skills = $this->findProjectSkills($data['Project']['id']);
+debug($skills);
 		foreach($data['ProjectSkill'] as $sKey => $project_skill) {
 			$skill = $this->Skill->checkAndCreate($project_skill);
 			unset($data['ProjectSkill'][$sKey]['Skill']);
@@ -30,15 +31,13 @@ Class ProjectSkill extends AppModel {
 		return $data;
 	} 
 
-	public function deleteProjectSkills($project_id) {
+	public function findProjectSkills($project_id) {
 		$skills = $this->find('list', array(
 			'fields' => array(
-				'ProjectSkill.id'),
+				'ProjectSkill.id','ProjectSkill.skill_id'),
 			'conditions' => array(
 				'ProjectSkill.project_id' => $project_id)));
-debug($skills);
-		foreach($skills as $key => $skill) {
-		}
+		return $skills;
 	}
 }
 ?>

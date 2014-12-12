@@ -18,7 +18,16 @@
 			<div class="col-md-5">
 				<div class="row">
 					<div class="col-md-6">
-						Apply
+						<?php
+							if(isset($position['Applied'])) {
+								$disabled = "disabled";
+								$text = "Applied";
+							} else { $disabled = ""; $text = "Apply"; }
+							echo $this->Html->link('<i class="glyphicon glyphicon-send"></i> '.$text, array(
+								'controller' => 'applications', 'action' => 'apply', $position['Position']['id']),
+								array('class' => 'btn btn-primary apply '. $disabled,
+									'id' => 'apply_'.$position_card['Position']['id'],
+									'escape' => false)); ?>
 					</div>
 					<div class="col-md-6">
 						<?php 

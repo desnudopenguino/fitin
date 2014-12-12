@@ -42,10 +42,15 @@
 						foreach($project['ProjectIndustry'] as $pKey => $industry) {
 							echo $this->Form->input('ProjectIndustry.'.$pKey.'.id', array(
 								'value' => $project['ProjectIndustry'][$pKey]['id']));
+							if($pKey == 0) {
+								$label = 'Industry';
+							} else {
+								$label = false;
+							}
 						
 							echo $this->Form->input('ProjectIndustry.'.$pKey.'.industry_id', array(
 								'type' => 'select',
-								'label' => 'Industry',
+								'label' => $label,
 								'empty' => 'Select an Industry',
 								'options' => $industries,
 								'value' => $project['ProjectIndustry'][$pKey]['industry_id']));
@@ -54,10 +59,15 @@
 						foreach($project['ProjectFunction'] as $pKey => $function) {
 							echo $this->Form->input('ProjectFunction.'.$pKey.'.id', array(
 								'value' => $project['ProjectFunction'][$pKey]['id']));
+							if($pKey == 0) {
+								$label = 'Function';
+							} else { 
+								$label = false;
+							}
 
 							echo $this->Form->input('ProjectFunction.'.$pKey.'.work_function_id', array(
 								'type' => 'select',
-								'label' => 'Function',
+								'label' => $label,
 								'empty' => 'Select an Function',
 								'options' => $functions,
 								'value' => $project['ProjectFunction'][$pKey]['work_function_id']));

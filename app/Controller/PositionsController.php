@@ -5,6 +5,10 @@ class PositionsController extends AppController {
 
 	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer','Industry','WorkFunction');
 
+	public function beforeFilter() {
+		$this->Auth->allow('view');
+	}
+
 	public function add() {
 		if($this->request->is('post')) {
 			$this->request->data = $this->Position->PositionSkill->checkAndCreate($this->request->data);

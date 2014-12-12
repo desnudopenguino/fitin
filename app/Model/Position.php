@@ -49,8 +49,7 @@ Class Position extends AppModel {
 				'Position.id' => $id),
 			'contain' => array(
 				'Employer' => array(
-					'User',
-					'Company'),
+					'User'),
 				'PositionIndustry' => array(
 					'Industry'),
 				'PositionFunction' => array(
@@ -139,7 +138,8 @@ Class Position extends AppModel {
 				'PositionSkill' => array(
 					'Skill'),
 				'Employer' => array(
-					'User'))));
+					'User',
+					'Company'))));
 	
 	}
 }

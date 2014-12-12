@@ -164,7 +164,7 @@ Class Position extends AppModel {
 			}
 		}
 		foreach($data['PositionFunction'] as $key => $function) {
-			if($function['function_id'] == null) {
+			if($function['work_function_id'] == null) {
 				unset($data['PositionFunction'][$key]);
 			}
 		}

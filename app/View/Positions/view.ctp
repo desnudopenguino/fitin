@@ -96,4 +96,3 @@
 		</p>
 	</div>
 </div>
-<?php debug($position); ?>

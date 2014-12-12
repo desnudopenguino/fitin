@@ -10,7 +10,7 @@
 		<h3>Position Info:</h3>
 		Job match &amp; Culture match will go here
 		<div class="row col-md-5">
-			<?php echo $this->element('Culture/result'); ?>
+			<?php echo $this->element('Culture/match'); ?>
 		</div>
 		<div class="row">
 

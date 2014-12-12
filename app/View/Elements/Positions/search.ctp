@@ -7,7 +7,10 @@
 				</div>
 				<div class="col-md-8 col-md-offset-1">
 					<div class="row">
-						<?php echo $this->element('Culture/match'); ?>
+						<?php echo 
+							$this->set('results', $position_card['Results']);
+							$this->set('culture', $position_card['Culture']);
+							$this->element('Culture/match'); ?>
 					</div>
 				</div>
 			</div>

@@ -26,7 +26,7 @@
 							echo $this->Html->link('<i class="glyphicon glyphicon-send"></i> '.$text, array(
 								'controller' => 'applications', 'action' => 'apply', $position['Position']['id']),
 								array('class' => 'btn btn-primary apply '. $disabled,
-									'id' => 'apply_'.$position_card['Position']['id'],
+									'id' => 'apply_'.$position['Position']['id'],
 									'escape' => false)); ?>
 					</div>
 					<div class="col-md-6">

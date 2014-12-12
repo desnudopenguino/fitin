@@ -1,3 +1,7 @@
 .culture-choice {
 	white-space: normal !important;
 }
+
+.progress-bar {
+	overflow: visible;
+}

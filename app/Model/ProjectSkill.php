@@ -12,7 +12,9 @@ Class ProjectSkill extends AppModel {
 		unset($data['ProjectSkill']['skill_names']);
 
 		foreach($skills as $skill) {
-			$data['ProjectSkill'][]['Skill']['skill_type'] = $skill;
+			if($skill != '') {
+				$data['ProjectSkill'][]['Skill']['skill_type'] = $skill;
+			}
 		}
 		return $data;
 	}
@@ -21,13 +23,9 @@ Class ProjectSkill extends AppModel {
 		$data = $this->explode($data);
 
 		foreach($data['ProjectSkill'] as $sKey => $project_skill) {
-			if($project_skill != '') {
-				$skill = $this->Skill->checkAndCreate($project_skill);
-				unset($data['ProjectSkill'][$sKey]['Skill']);
-				$data['ProjectSkill'][$sKey]['skill_id'] = $skill['Skill']['id'];
-			} else {
-				unset($data['ProjectSkill'][$sKey]);
-			}
+			$skill = $this->Skill->checkAndCreate($project_skill);
+			unset($data['ProjectSkill'][$sKey]['Skill']);
+			$data['ProjectSkill'][$sKey]['skill_id'] = $skill['Skill']['id'];
 		}
 		return $data;
 	} 

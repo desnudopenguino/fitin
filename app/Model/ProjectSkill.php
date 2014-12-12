@@ -29,5 +29,16 @@ Class ProjectSkill extends AppModel {
 		}
 		return $data;
 	} 
+
+	public function deleteProjectSkills($project_id) {
+		$skills = $this->find('list', array(
+			'fields' => array(
+				'ProjectSkill.id'),
+			'conditions' => array(
+				'ProjectSkill.project_id' => $project_id)));
+debug($skills);
+		foreach($skills as $key => $skill) {
+		}
+	}
 }
 ?>

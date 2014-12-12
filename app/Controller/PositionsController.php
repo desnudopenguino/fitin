@@ -129,7 +129,17 @@ class PositionsController extends AppController {
 		if(!$this->Position->exists()) {
 			throw new NotFoundException(__('Invalid Position'));
 		}
-		$this->set('position', $this->Position->findById($id));
+		$position = $this->Position->findById($id);
+		$this->set('position', $position);
+		//build data cards and compare them
+		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
+			$applicant_id = $this->Auth->user('id');
+			$applicant_card = $this->Applicant->loadDataCard($applicant_id);
+			$position_card = $this->Position->loadDataCard($id);
+			
+			$this->set('results', $this->DataCard->compare($applicant_card,$position_card));
+			$this->set('culture', $this->UserCultureAnswer->compareCultureAnswer($applicant_id,$position['Position']['employer_id'));
+		}
 	}
  }
 ?>

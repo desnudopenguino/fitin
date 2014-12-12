@@ -10,7 +10,8 @@
 		<div class="row ">
 			<div class="col-md-5">
 				<div class="row">
-					<?php echo $this->element('Culture/match'); ?>
+					<?php
+						echo $this->element('Culture/match'); ?>
 				</div>
 			</div>
 		</div>

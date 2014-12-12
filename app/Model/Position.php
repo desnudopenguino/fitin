@@ -142,7 +142,7 @@ Class Position extends AppModel {
 					'Company' => array(
 						'Organization')))));
 
-		$position = $this->clearRequirements($position);
+		$position = $this->cleanRequirements($position);
 	
 		$position['Position']['Employer'] = $position['Employer'];
 		unset($position['Employer']);

@@ -11,7 +11,7 @@ class MessagesController extends AppController {
 		
 		if($this->request->is('post') && !empty($this->request->data['Message']['message'] )) {
 			if($this->Message->save($this->request->data)) {
-				$this->redirect($this->refer());
+				$this->redirect(array('controller' => 'users', 'action' => 'dashboard'));
 			}
 		}
 	}

@@ -139,7 +139,8 @@ Class Position extends AppModel {
 					'Skill'),
 				'Employer' => array(
 					'User',
-					'Company'))));
+					'Company' => array(
+						'Organization')))));
 	
 	}
 }

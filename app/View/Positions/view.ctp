@@ -55,7 +55,11 @@
 				</div>
 			</div>
 		</div>
-		<?php } ?>
+		<?php } else {
+			echo $this->Html->link('<i class="glyphicon glyphicon-login"></i> Login to apply', array(
+				'controller' => 'users', 'action' => 'login'),
+				array('class' => 'btn btn-primary',
+					'escape' => false)); } ?>
 		<h3>Position Info: </h3>
 		<div>
 		<h4>Responsibilities:</h4>

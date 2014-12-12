@@ -22,7 +22,7 @@
 				<h4>Functions:</h4>
 				<ul class="list-group">
 				<?php foreach($position['Position']['PositionFunction'] as $function) { ?>
-					<li class="list-group-item"><?php echo $function['Function']['function_type']; ?></li>
+					<li class="list-group-item"><?php echo $function['WorkFunction']['function_type']; ?></li>
 				<?php } ?>
 				</ul>
 			</div>

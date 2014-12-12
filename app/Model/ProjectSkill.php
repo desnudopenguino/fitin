@@ -36,11 +36,11 @@ debug($skills);
 			}else {
 				unset($skills[array_search($skill['Skill']['id'],$skills)]);
 			}
-
+/*
 			foreach($skills as $key =>$skill) {
 				$this->id = $key;
 				$this->delete();
-			}
+			}*/
 		}
 		return $data;
 	} 

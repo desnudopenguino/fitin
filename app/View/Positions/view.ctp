@@ -14,23 +14,23 @@
 				<h4>Industries:</h4>
 				<ul class="list-group">
 				<?php foreach($position['Position']['PositionIndustry'] as $industry) { ?>
-					<li class="list-group-item"><?php echo "Item"; ?></li>
+					<li class="list-group-item"><?php echo $industry['Industry']['industry_type']; ?></li>
 				<?php } ?>
 				</ul>
 			</div>
 			<div class="col-md-4">
 				<h4>Functions:</h4>
 				<ul class="list-group">
-				<?php foreach($position['Position']['PositionIndustry'] as $industry) { ?>
-					<li class="list-group-item"><?php echo "Item"; ?></li>
+				<?php foreach($position['Position']['PositionFunction'] as $function) { ?>
+					<li class="list-group-item"><?php echo $function['Function']['function_type']; ?></li>
 				<?php } ?>
 				</ul>
 			</div>
 			<div class="col-md-4">
 				<h4>Skills:</h4>
 				<ul class="list-group">
-				<?php foreach($position['Position']['PositionIndustry'] as $industry) { ?>
-					<li class="list-group-item"><?php echo "Item"; ?></li>
+				<?php foreach($position['Position']['PositionSkill'] as $skill) { ?>
+					<li class="list-group-item"><?php echo $skill['Skill']['skill_type']; ?></li>
 				<?php } ?>
 				</ul>
 			</div>

@@ -163,6 +163,11 @@ Class Position extends AppModel {
 				unset($data['PositionIndustry'][$key]);
 			}
 		}
+		foreach($data['PositionFunction'] as $key => $function) {
+			if($function['function_id'] == null) {
+				unset($data['PositionFunction'][$key]);
+			}
+		}
 		return $data;
 	}
 }

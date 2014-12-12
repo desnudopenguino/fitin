@@ -68,7 +68,9 @@ class ProjectsController extends AppController {
 		if($this->Project->data['Project']['applicant_id'] != $this->Auth->user('id')) {
 			throw new NotFoundException(__('Invalid Project'));
 		}
+
 		if($this->request->is('post') || $this->request->is('put')) {
+			$this->request->data = $this->Project->ProjectSkill->checkAndCreate($this->request->data);
 			$organization = $this->Organization->checkAndCreate($this->request->data, 1);
 			$this->request->data['Project']['organization_id'] = $organization['Organization']['id'];
 			if($this->Project->saveAll($this->request->data)) {

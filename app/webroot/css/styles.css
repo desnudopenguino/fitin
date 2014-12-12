@@ -4,4 +4,7 @@
 
 .progress-bar {
 	overflow: visible;
+	text-align: left;
+	padding-left: 1em;
+	
 }

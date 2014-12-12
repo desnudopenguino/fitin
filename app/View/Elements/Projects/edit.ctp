@@ -1,8 +1,6 @@
 <div class="modal fade" id="editProjectModal_<?php echo $project['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editProjectLabel" aria-hidden="true">
 <?php $skills = '';
 	$end = count($project['ProjectSkill']) - 1;
-debug($end);
-debug($project['ProjectSkill']);
 foreach($project['ProjectSkill'] as $sKey => $project_skill) {
 	$skills .= $project_skill['Skill']['skill_type'];
 	if($sKey != $end) {

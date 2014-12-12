@@ -12,12 +12,27 @@
 		<div class="row">
 			<div class="col-md-4">
 				<h4>Industries:</h4>
+				<ul class="list-group">
+				<?php foreach($position['Position']['PositionIndustry'] as $industry) { ?>
+					<li class="list-group-item"><?php echo "Item"; ?></li>
+				<?php } ?>
+				</ul>
 			</div>
 			<div class="col-md-4">
 				<h4>Functions:</h4>
+				<ul class="list-group">
+				<?php foreach($position['Position']['PositionIndustry'] as $industry) { ?>
+					<li class="list-group-item"><?php echo "Item"; ?></li>
+				<?php } ?>
+				</ul>
 			</div>
 			<div class="col-md-4">
 				<h4>Skills:</h4>
+				<ul class="list-group">
+				<?php foreach($position['Position']['PositionIndustry'] as $industry) { ?>
+					<li class="list-group-item"><?php echo "Item"; ?></li>
+				<?php } ?>
+				</ul>
 			</div>
 		</div>	
 		<h3>Department Info:</h3>

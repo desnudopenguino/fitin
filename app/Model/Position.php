@@ -141,6 +141,13 @@ Class Position extends AppModel {
 					'User',
 					'Company' => array(
 						'Organization')))));
+
+//check if any position requirements are null
+		foreach($position['PositionIndustry'] as $key => $industry) {
+			if($industry['industry_id'] == null) {
+				unset($position['PositionIndustry'][$key]);
+			}
+		}
 	
 		$position['Position']['Employer'] = $position['Employer'];
 		unset($position['Employer']);

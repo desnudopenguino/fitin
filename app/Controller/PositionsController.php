@@ -138,7 +138,7 @@ class PositionsController extends AppController {
 			$position_card = $this->Position->loadDataCard($id);
 			
 			$this->set('results', $this->DataCard->compare($applicant_card,$position_card));
-			$this->set('culture', $this->UserCultureAnswer->compareCultureAnswer($applicant_id,$position['Position']['employer_id']));
+			$this->set('culture', $this->UserCultureAnswer->compareCulture($applicant_id,$position['Position']['employer_id']));
 		}
 	}
  }

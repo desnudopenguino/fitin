@@ -28,6 +28,7 @@ debug($data);
 debug($skills);
 		}
 		foreach($data['ProjectSkill'] as $sKey => $project_skill) {
+			unset($data['ProjectSkill'][$sKey]['Skill']);
 			$skill = $this->Skill->checkAndCreate($project_skill);
 			if(!in_array($skill['Skill']['id'], $skills)) {
 				$data['ProjectSkill'][$sKey]['skill_id'] = $skill['Skill']['id'];
@@ -35,7 +36,6 @@ debug($skills);
 			} else {
 				unset($skills[array_search($skill['Skill']['id'],$skills)]);
 			}
-			unset($data['ProjectSkill'][$sKey]['Skill']);
 		}
 		foreach($skills as $key =>$skill) {
 			$this->id = $key;

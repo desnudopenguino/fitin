@@ -41,6 +41,7 @@ debug($skills);
 			$this->id = $key;
 			$this->delete();
 		}
+debug($data);
 		return $data;
 	} 
 

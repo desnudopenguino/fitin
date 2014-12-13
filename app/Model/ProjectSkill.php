@@ -42,7 +42,6 @@ Class ProjectSkill extends AppModel {
 			$this->id = $key;
 			$this->delete();
 		}
-debug($data);
 		return $data;
 	} 
 

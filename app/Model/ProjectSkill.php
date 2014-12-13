@@ -35,7 +35,7 @@ debug($skills);
 			} else {
 				unset($skills[array_search($skill['Skill']['id'],$skills)]);
 			}
-//			unset($data['ProjectSkill'][$sKey]['Skill']);
+			unset($data['ProjectSkill'][$sKey]['Skill']);
 		}
 		foreach($skills as $key =>$skill) {
 			$this->id = $key;

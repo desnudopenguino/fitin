@@ -21,11 +21,9 @@ Class ProjectSkill extends AppModel {
 
 	public function checkAndCreate($data) {
 		$data = $this->explode($data);
-debug($data);
 		$skills = array();
 		if(isset($data['Project']['id'])) {
 			$skills = $this->findProjectSkills($data['Project']['id']);
-debug($skills);
 		}
 		foreach($data['ProjectSkill'] as $sKey => $project_skill) {
 			unset($data['ProjectSkill'][$sKey]['Skill']);

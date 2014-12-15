@@ -135,6 +135,7 @@ class ApplicantsController extends AppController {
 
 	public function message() {
 		App::uses('CakeEmail','Lib');
+		$email = new CakeEmail();
 		$this->autoRender = false;
 	}
  }

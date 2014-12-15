@@ -41,10 +41,8 @@
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<?php if($userData) {
+				<?php if($user_data) {
 						echo $this->element('nav');
-					} ?>
-				<?php if($userData) {
 						echo $this->element('loggedIn');
 					} else {
 						echo $this->element('login');

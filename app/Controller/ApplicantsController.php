@@ -139,7 +139,8 @@ class ApplicantsController extends AppController {
 		$Email->from(array('message@fitin.today' => 'FitIn.Today'));
 		$Email->to('atownsend@unluckysandpiper.com');
 		$Email->subject('About');
-		$Email->send('My message');
+		$Email->message("test test testy test");
+		$Email->send();
 		$this->autoRender = false;
 	}
  }

@@ -135,7 +135,7 @@ class ApplicantsController extends AppController {
 
 	public function message() {
 		App::uses('CakeEmail','Network/Email');
-		$email = new Email();
+		$email = new CakeEmail();
 		$this->autoRender = false;
 	}
  }

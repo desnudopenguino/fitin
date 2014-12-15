@@ -132,5 +132,15 @@ class ApplicantsController extends AppController {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));
 		}
 	}
+
+	public function message() {
+		App::uses('CakeEmail', 'Network/Email');
+		$Email = new CakeEmail();
+		$Email->from(array('message@fitin.today' => 'FitIn.Today'));
+		$Email->to('atownsend@unluckysandpiper.com');
+		$Email->subject('About');
+		$Email->send('My message');
+		$this->autoRender = false;
+	}
  }
 ?>

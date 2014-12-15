@@ -32,7 +32,7 @@ Class Company extends AppModel {
 			'contain' => array(
 				'Organization' => array(
 					'Employer'),
-				'Employer as Owner'
+				'Employer'
 				
 			)));
 		return $company;

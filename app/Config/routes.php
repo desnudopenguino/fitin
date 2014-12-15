@@ -35,7 +35,7 @@
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 
 	Router::connect('/for/*',array('controller' => 'positions', 'action' => 'view'));
-	Router::connect('/at',array('controller' => 'companies', 'action' => 'view'));
+	Router::connect('/at/*',array('controller' => 'companies', 'action' => 'view'));
 
 	//change the url for users to "with" so fitin.today/with/<userhash> and the userhash can be personalized for a price
 	Router::connectNamed(array('url'));

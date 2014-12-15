@@ -3,5 +3,10 @@
 
 class CompaniesController extends AppController {
 
+	public function view($id = null) {
+		$this->Company->id = $id;
+
+		$this->set('company', $this->Company->findView($id));
+	}
 }
 ?>

@@ -134,13 +134,7 @@ class ApplicantsController extends AppController {
 	}
 
 	public function message() {
-		use Cake/Network/Email/Email;
-		$Email = new Email();
-		$Email->from(array('message@fitin.today' => 'FitIn.Today'));
-		$Email->to('atownsend@unluckysandpiper.com');
-		$Email->subject('About');
-		$Email->message("test test testy test");
-		$Email->send();
+		Email::deliver('atownsend@unluckysandpiper.com', "Email Test", "This is an email test", array('from' => 'messager@fitin.today'));
 		$this->autoRender = false;
 	}
  }

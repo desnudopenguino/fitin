@@ -24,5 +24,14 @@ Class Company extends AppModel {
 			$this->save(array('Company' => array('organization_id' => $data['Organization']['id'])));
 		}
 	}
+
+	public function findView($id = null) {
+		$company = $this->find('first', array(
+			'conditions' => array(
+				'Company.id' => $id),
+			'contain' => array(
+			)));
+		return $company;
+	}
 }
 ?>

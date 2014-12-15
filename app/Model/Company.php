@@ -31,7 +31,14 @@ Class Company extends AppModel {
 				'Company.id' => $id),
 			'contain' => array(
 				'Organization' => array(
-					'Employer'),
+					'Employer' => array(
+						'Position' => array(
+							'PositionIndustry' => array(
+								'Industry'),
+							'PositionFunction' => array(
+								'WorkFunction'),
+							'PositionSkill' => array(
+								'Skill')))),
 				'Employer'
 				
 			)));

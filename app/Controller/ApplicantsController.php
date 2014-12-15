@@ -134,7 +134,7 @@ class ApplicantsController extends AppController {
 	}
 
 	public function message() {
-		Email::deliver('atownsend@unluckysandpiper.com', "Email Test", "This is an email test", array('from' => 'messager@fitin.today'));
+		App::uses('CakeEmail','Lib');
 		$this->autoRender = false;
 	}
  }

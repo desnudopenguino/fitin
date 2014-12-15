@@ -2,7 +2,7 @@
 <div class="panel-heading">
 	<h3 class="panel-title">Please login</h3>
 </div>
-<div class="panel-bodylogin">
+<div class="panel-body">
 	<form accept-charset="UTF-8" role="form">
    	<fieldset>
 			<div class="form-group">

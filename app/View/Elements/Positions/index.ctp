@@ -38,7 +38,7 @@
 							} ?>
 							<h3>Skills</h3>
 							<?php $end = count($position['PositionSkill']) - 1;
-								foreach($position['PositionSkill'] as $positionSkill) {
+								foreach($position['PositionSkill'] as $sKey => $positionSkill) {
 									echo $positionSkill['Skill']['skill_type']; 
 									if($sKey != $end) {
 										echo ", ";

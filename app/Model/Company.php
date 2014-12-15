@@ -30,7 +30,6 @@ Class Company extends AppModel {
 			'conditions' => array(
 				'Company.id' => $id),
 			'contain' => array(
-				'Employer',
 				'Organization' => array(
 					'Employer' => array(
 						'Position' => array(

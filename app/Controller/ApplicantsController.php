@@ -134,8 +134,8 @@ class ApplicantsController extends AppController {
 	}
 
 	public function message() {
-		App::uses('CakeEmail', 'Network/Email');
-		$Email = new CakeEmail();
+		use Cake/Network/Email/Email;
+		$Email = new Email();
 		$Email->from(array('message@fitin.today' => 'FitIn.Today'));
 		$Email->to('atownsend@unluckysandpiper.com');
 		$Email->subject('About');

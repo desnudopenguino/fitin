@@ -5,7 +5,7 @@
 	</div>
 	<div class="panel-body">
 		<?php echo $this->Form->create('User', array(
-			'action' => 'login'
+			'action' => 'login',
 			'method' => 'post',
 			'inputDefaults' => array(
 				'dev' => 'form-group',

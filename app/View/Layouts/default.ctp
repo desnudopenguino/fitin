@@ -45,7 +45,7 @@
 						echo $this->element('nav');
 						echo $this->element('loggedIn');
 					} else {
-						echo $this->element('login');
+						echo $this->element('nav_login');
 					} ?>
 	    </div>
 	  </div>

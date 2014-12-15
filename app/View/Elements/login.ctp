@@ -1,21 +1,32 @@
-<?php
-	echo $this->Form->create('User',array(
-		'action' => 'login',
-		'method' => 'post',
-		'class' => 'navbar-form navbar-right',
-		'inputDefaults' => array(
-			'div' => 'form-group',
-			'label' => false,
-			'wrapInput' => false,
-			'class' => 'form-control'
-		)
-	));
-	echo $this->Form->input('User.email', array('placeholder' => 'Email'));
-	echo $this->Form->input('User.password', array('placeholder' => 'Password'));
-	echo $this->Form->button('<i class="glyphicon glyphicon-log-in"></i> Login', array(
-		'div' => 'form-group',
-		'type' => 'submit',
-		'class' => 'btn btn-default')
-	);
-	echo $this->Form->end();
-?>
+<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+<!-- This is a very simple parallax effect achieved by simple CSS 3 multiple backgrounds, made by http://twitter.com/msurguy -->
+
+<div class="container">
+    <div class="row vertical-offset-100">
+    	<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Please login</h3>
+			 	</div>
+			  	<div class="panel-bodylogin">
+			    	<form accept-charset="UTF-8" role="form">
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="E-mail" name="email" type="text">
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
+			    		</div>
+			    		<div class="checkbox">
+			    	    	<label>
+			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+			    	    	</label>
+			    	    </div>
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

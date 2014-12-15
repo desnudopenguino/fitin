@@ -28,13 +28,13 @@
 							<?php  foreach($position['PositionIndustry'] as $positionIndustry) {
 								if(!empty($positionIndustry['industry_id'])) { ?>
 								 <p><?php echo $positionIndustry['Industry']['industry_type']; ?></p>
-								<?}
+								<?php }
 							} ?>
 							<h3>Functions</h3>
 							<?php  foreach($position['PositionFunction'] as $positionFunction) {
 								if(!empty($positionFunction['work_function_id'])) { ?>
 									<p><?php echo $positionFunction['WorkFunction']['function_type']; ?></p>
-								<?}
+								<?php }
 							} ?>
 							<h3>Skills</h3>
 							<?php $end = count($position['PositionSkill']) - 1;

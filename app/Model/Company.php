@@ -40,6 +40,8 @@ Class Company extends AppModel {
 							'PositionSkill' => array(
 								'Skill'
 		)))))));
+		$company['Company']['Organization'] = $company['Organization'];
+		unset($company['Organization']);
 		return $company;
 	}
 }

@@ -75,8 +75,9 @@ class AppController extends Controller {
 					$this->redirect(array("controller" => "users", "action" => "add"));
 		}
 	}
+
 	public function beforeRender() { 
-		$this->set('userData', $this->Auth->user());
+		$this->set('user_data', $this->Auth->user());
 	}
 
 	//force SSL connection

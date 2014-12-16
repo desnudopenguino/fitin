@@ -134,13 +134,7 @@ class ApplicantsController extends AppController {
 	}
 
 	public function message() {
-		App::uses('CakeEmail','Network/Email');
-		$email = new CakeEmail();
-		$email->from('atownsend@unluckysandpiper.com');
-		$email->to('atownsend@unluckysandpiper.com');
-		$email->subject('test');
-		$email->send('this is a test');
-		$this->autoRender = false;
+
 	}
  }
 ?>

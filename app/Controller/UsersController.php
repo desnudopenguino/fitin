@@ -104,7 +104,7 @@ class UsersController extends AppController {
 								case 3: //Recruiter
 												break;
 								default://default, other action (if someone tries to hack it)
-												$this->delete($userId);
+												$this->User->delete($userId);
 												$validUser = false;
 												break;
 							}
@@ -114,6 +114,8 @@ class UsersController extends AppController {
 								$Email->to('atownsend@unluckysandpiper.com');
 								$Email->subject('Test Add User to Fitin.Today');
 								$Email->send('It worked!');
+							} else {
+		            $this->Session->setFlash( __('User Created, but the $validUser was set to false for some reason'));
 							}
             } else {
 	            $this->Session->setFlash( __('The user could not be saved. Please, try again.'));

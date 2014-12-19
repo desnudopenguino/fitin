@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail','Network/Email');
 
 class UsersController extends AppController {
 
@@ -108,14 +109,14 @@ class UsersController extends AppController {
 												break;
 							}
 							if($validUser) {
-	            $this->Session->setFlash(
-  	              __('User Created')
-    	        );
+		            $this->Session->setFlash( __('User Created'));
+								$Email = new CakeEmail('gmail');
+								$Email->to('atownsend@unluckysandpiper.com');
+								$Email->subject('Test Add User to Fitin.Today');
+								$Email->send('It worked!');
 							}
             } else {
-	            $this->Session->setFlash(
-  	              __('The user could not be saved. Please, try again.')
-    	        );
+	            $this->Session->setFlash( __('The user could not be saved. Please, try again.'));
 						}
         }
     }

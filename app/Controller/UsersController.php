@@ -77,6 +77,48 @@ class UsersController extends AppController {
         }
     }
 
+//add is admin created account
+    public function add() {
+				if($this->Auth->user['role_id'] != 0) {
+  	    	throw new ForbiddenException(__('Permission Denied'));
+				}
+        if ($this->request->is('post')) {
+						$this->User->create();
+						if ($this->User->save($this->request->data)) {
+							$userId = $this->User->getLastInsertId();
+							$validUser = true;
+							switch($this->request->data['User']['role_id']) { //create usertype in case here
+								case 1: //Employer
+												$this->User->Employer->create();
+												$this->User->Employer->save(array('Employer' => array('user_id' => $userId)));
+												break;
+								case 2: //Applicant
+												$this->User->Applicant->create();
+												$this->User->Applicant->save(array('Applicant' => array(
+													'user_id' => $userId,
+													'first_name' => 'New',
+													'last_name' => 'User'
+													)));
+												break;
+								case 3: //Recruiter
+												break;
+								default://default, other action (if someone tries to hack it)
+												$this->delete($userId);
+												$validUser = false;
+												break;
+							}
+							if($validUser) {
+								$this->Auth->login();
+								return $this->redirect(array('controller' => 'users', 'action' => 'add'));
+							}
+            } else {
+	            $this->Session->setFlash(
+  	              __('The user could not be saved. Please, try again.')
+    	        );
+						}
+        }
+    }
+
 //edit
     public function edit($id = null) {
         $this->User->id = $id;

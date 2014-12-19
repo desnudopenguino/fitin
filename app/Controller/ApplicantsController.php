@@ -89,10 +89,13 @@ class ApplicantsController extends AppController {
 	}
 
 //add action occurrs after registration/every login after that if the user doesn't have the data filled out.
-	public function add($id = null) {
+	public function contact($id = null) {
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid User'));
+		}
+		if($this->Auth->user('id') != $id) {
+			throw new ForbiddenException(__('Permission denied'));
 		}
 		$this->set('phone_types',
 			$this->PhoneType->findAll());

@@ -108,8 +108,9 @@ class UsersController extends AppController {
 												break;
 							}
 							if($validUser) {
-								$this->Auth->login();
-								return $this->redirect(array('controller' => 'users', 'action' => 'add'));
+	            $this->Session->setFlash(
+  	              __('User Created')
+    	        );
 							}
             } else {
 	            $this->Session->setFlash(
@@ -172,7 +173,7 @@ class UsersController extends AppController {
 	}
 
 //add - contact data form after registration
-	public function add() {
+	public function contact() {
 		$user_id = $this->Auth->user('id');
 		switch($this->Auth->user('role_id')) {
 			case 0: //Admin
@@ -182,12 +183,12 @@ class UsersController extends AppController {
 
 			case 1: //Employer
 				$this->redirect(array("controller" => "employers", 
-					"action" => "add", $user_id));
+					"action" => "contact", $user_id));
 				break;
 
 			case 2: //Applicant
 				$this->redirect(array("controller" => "applicants", 
-					"action" => "add", $user_id));
+					"action" => "contact", $user_id));
 				break;
 		}
 	}

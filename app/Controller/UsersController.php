@@ -80,7 +80,7 @@ class UsersController extends AppController {
 
 //add is admin created account
     public function add() {
-				if($this->Auth->user['role_id'] != 0) {
+				if($this->Auth->user('role_id') != 0) {
   	    	throw new ForbiddenException(__('Permission Denied'));
 				}
         if ($this->request->is('post')) {

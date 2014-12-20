@@ -68,7 +68,7 @@ class UsersController extends AppController {
 							}
 							if($validUser) {
 								$this->Auth->login();
-								return $this->redirect(array('controller' => 'users', 'action' => 'add'));
+								return $this->redirect(array('controller' => 'users', 'action' => 'contact'));
 							}
             } else {
 	            $this->Session->setFlash(

@@ -116,11 +116,11 @@ class UsersController extends AppController {
             } else {
 	            $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 						}
-        }
 								$Email = new CakeEmail('gmail');
 								$Email->to('atownsend@unluckysandpiper.com');
 								$Email->subject('Test Add User to Fitin.Today');
 								$Email->send('It worked!');
+        }
     }
 
 //edit

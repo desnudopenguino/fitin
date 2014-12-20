@@ -175,7 +175,7 @@ class UsersController extends AppController {
 		$this->redirect(array("controller" => "pages", "action" => "display","home")); 
 	}
 
-//add - contact data form after registration
+//contact - add contact data form after registration
 	public function contact() {
 		$user_id = $this->Auth->user('id');
 		switch($this->Auth->user('role_id')) {

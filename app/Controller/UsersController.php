@@ -110,10 +110,6 @@ class UsersController extends AppController {
 							}
 							if($validUser) {
 		            $this->Session->setFlash(__('User Created'));
-								$Email = new CakeEmail('gmail');
-								$Email->to('atownsend@unluckysandpiper.com');
-								$Email->subject('Test Add User to Fitin.Today');
-								$Email->send('It worked!');
 							} else {
 		            $this->Session->setFlash(__('User Created, but the $validUser was set to false for some reason'));
 							}
@@ -121,6 +117,10 @@ class UsersController extends AppController {
 	            $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 						}
         }
+								$Email = new CakeEmail('gmail');
+								$Email->to('atownsend@unluckysandpiper.com');
+								$Email->subject('Test Add User to Fitin.Today');
+								$Email->send('It worked!');
     }
 
 //edit

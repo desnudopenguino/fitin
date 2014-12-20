@@ -88,7 +88,7 @@ class ApplicantsController extends AppController {
 		}
 	}
 
-//add action occurrs after registration/every login after that if the user doesn't have the data filled out.
+//contact action occurrs after registration/every login after that if the user doesn't have the data filled out
 	public function contact($id = null) {
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {

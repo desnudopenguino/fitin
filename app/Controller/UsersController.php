@@ -290,7 +290,7 @@ class UsersController extends AppController {
 		$Email = new CakeEmail();
 		$Email->to('atownsend@unluckysandpiper.com');
 		$Email->subject('Test Add User to Fitin.Today');
-		$email->config('gmail');
+		$Email->config('gmail');
 		$Email->send('It worked!');
 		$this->autoRender = false;
 	}

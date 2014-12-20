@@ -287,9 +287,10 @@ class UsersController extends AppController {
 	}
 
 	public function messageTest() {
-		$Email = new CakeEmail('gmail');
+		$Email = new CakeEmail();
 		$Email->to('atownsend@unluckysandpiper.com');
 		$Email->subject('Test Add User to Fitin.Today');
+		$email->config('gmail');
 		$Email->send('It worked!');
 		$this->autoRender = false;
 	}

@@ -11,11 +11,11 @@ class UsersController extends AppController {
 
 //index
     public function index() {
-			if($this->Auth->user('role_id') == 0) {
-				$this->set('users', $this->User->find('all'));
+			if($this->Auth->user('role_id') != 0) {
 			} else {
-				throw new NotFoundException("Not Found");
+				throw new ForbiddenException("Permission Denied");
 			}
+			$this->set('users', $this->User->find('all'));
     }
 
 //view

@@ -2,7 +2,7 @@
 class EmailConfig {
 	public $gmail = array(
 		'host' => 'ssl://smtp.gmail.com',
-		'port' => 456,
+		'port' => 465,
 		'timeout' => 30000,
 		'username' => 'info@fitin.today',
 		'password' => 'PM#Zs%j#AG*M ',

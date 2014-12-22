@@ -293,14 +293,5 @@ class UsersController extends AppController {
 	public function privacy() {
 
 	}
-
-	public function messageTest() {
-		$Email = new CakeEmail();
-		$Email->to('atownsend@unluckysandpiper.com');
-		$Email->subject('Test Add User to Fitin.Today');
-		$Email->config('gmail');
-		$Email->send('It worked!');
-		$this->autoRender = false;
-	}
 }
 ?>

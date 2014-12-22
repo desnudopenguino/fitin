@@ -13,5 +13,15 @@ Class Request extends AppModel {
 		}
 		return true;
 	}
+
+	public function findConfirm($url = null) {
+		$request = $this->find('first', array(
+			'conditions' => array(
+				'Request.url' => $url),
+			'contain' => array(
+				'User')));
+
+		return $request;
+	}
 }
 ?>

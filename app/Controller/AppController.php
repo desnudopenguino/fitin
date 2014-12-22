@@ -75,7 +75,8 @@ class AppController extends Controller {
 		if($this->Auth->loggedIn()
 			&& $this->Auth->user('status_id') < 3
 			&& $this->request->params['action'] != 'logout' 
-			&& $this->request->params['action'] != 'contact') { 
+			&& $this->request->params['action'] != 'contact',
+			&& $this->request->params['action'] != 'confirm') { 
 				$this->redirect(array("controller" => "users", "action" => "contact"));
 		}
 	}

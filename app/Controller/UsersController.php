@@ -67,6 +67,14 @@ class UsersController extends AppController {
 							}
 							if($validUser) {
 								$this->Auth->login();
+								
+								$Email = new CakeEmail();
+								$Email->to($this->Auth->user('email'));
+								$Email->subject('Test Add User to Fitin.Today');
+								$Email->config('gmail');
+								$Email->send('Welcome to FitIn.Today!');
+								$this->autoRender = false;
+
 								return $this->redirect(array('controller' => 'users', 'action' => 'contact'));
 							}
             } else {

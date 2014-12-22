@@ -67,12 +67,15 @@ class UsersController extends AppController {
 							}
 							if($validUser) {
 								$this->Auth->login();
-								
+								$this->User->Request->create();
+								$this->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+								$request_id = $this->User->Request->getInsertId();
+								$request = $this->User->Request->findById($request_id);
 								$Email = new CakeEmail();
 								$Email->to($this->Auth->user('email'));
-								$Email->subject('Test Add User to Fitin.Today');
+								$Email->subject('FitIn.Today Email Confirmation');
 								$Email->config('gmail');
-								$Email->send('Welcome to FitIn.Today!');
+								$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n http://dev.fitin.today/bucky/confirm/".$request['Request']['url']."");
 								$this->autoRender = false;
 
 								return $this->redirect(array('controller' => 'users', 'action' => 'contact'));

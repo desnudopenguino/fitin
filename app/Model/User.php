@@ -24,6 +24,7 @@ Class User extends AppModel {
 
 	public $hasMany = array(
 		'UserCultureAnswer',
+		'Request',
 		'Message' => array(
 			'foreignKey' => 'receiver_id'),
 		'Message' => array(

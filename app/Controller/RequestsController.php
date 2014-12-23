@@ -10,5 +10,16 @@ class RequestsController extends AppController {
 		$request['User']['status_id'] = $request['User']['status_id'] + 1;
 		$this->Request->User->save($request);
 	}
- }
+
+	public function reset($url = null) {
+		$request = $this->Request->findReset($url);
+		if($this->request->is('post')) {
+			$this->Request->User->id = $request['User']['id'];
+
+			if($this->Request->User->save($this->request->data)) {
+
+			}
+		}
+	}
+}
 ?>

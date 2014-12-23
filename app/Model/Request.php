@@ -19,7 +19,19 @@ Class Request extends AppModel {
 			'conditions' => array(
 				'Request.url' => $url),
 			'contain' => array(
-				'User')));
+				'User' => array(
+					'fields' => array(
+						'User.id','User.status_id')))));
+
+		return $request;
+	}
+
+	public function findReset($url = null) {
+		$request = $this->find('first', array(
+			'conditions' => array(
+				'Request.url' => $url),
+			'fields' => array(
+				'Request.user_id')));
 
 		return $request;
 	}

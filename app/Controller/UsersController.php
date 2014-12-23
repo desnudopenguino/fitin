@@ -319,7 +319,7 @@ class UsersController extends AppController {
 				$Email->to($user['User']['email']);
 				$Email->subject('FitIn.Today Password Reset');
 				$Email->config('gmail');
-				$Email->send("Follow the URL below to reset your password. If you did not request a password change, please delete this email. \n\n http://dev.fitin.today/bucky/confirm/".$request['Request']['url']."");
+				$Email->send("Follow the URL below to reset your password. If you did not request a password change, please delete this email. \n\n http://dev.fitin.today/bucky/reset/".$request['Request']['url']."");
 				$this->Session->setFlash(__('An email with directions to reset your password has been sent'),
 					'alert', array(
 						'plugin' => 'BoostCake',

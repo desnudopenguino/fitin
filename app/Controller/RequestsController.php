@@ -45,8 +45,8 @@ class RequestsController extends AppController {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 
-		$this->Request->save(array('Request' => array('active' => 0)));
 		if($this->request->is('post')) {
+			$this->Request->save(array('Request' => array('active' => 0)));
 			$this->Request->User->id = $request['Request']['user_id'];
 
 			if($this->Request->User->save($this->request->data)) {

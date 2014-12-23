@@ -13,7 +13,8 @@
 			<legend>Reset Password</legend>
 			<?php
 				echo $this->Form->input('password');
-				echo $this->Form->input('reset_password'); 
+				echo $this->Form->input('password_confirm', array(
+					'type' => 'password')); 
 				echo $this->Form->button('Reset Password', array(
 					'div' => 'form-group',
 					'type' => 'submit',

@@ -3,6 +3,11 @@
 
 class RequestsController extends AppController {
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('confirm','reset');
+	}
+
 	public function confirm($url = null) {
 		//load the request & it's user
 		$request = $this->Request->findConfirm($url);

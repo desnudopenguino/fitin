@@ -316,7 +316,7 @@ class UsersController extends AppController {
 				$request_id = $this->User->Request->getInsertId();
 				$request = $this->User->Request->findById($request_id);
 				$Email = new CakeEmail();
-				$Email->to($this->Auth->user('email'));
+				$Email->to($user['User']['email']);
 				$Email->subject('FitIn.Today Password Reset');
 				$Email->config('gmail');
 				$Email->send("Follow the URL below to reset your password. If you did not request a password change, please delete this email. \n\n http://dev.fitin.today/bucky/confirm/".$request['Request']['url']."");

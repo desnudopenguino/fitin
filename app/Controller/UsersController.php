@@ -301,7 +301,7 @@ class UsersController extends AppController {
 
 		if($this->request->is('post')) {
 debug($this->request->data);
-			$user = $this->User->findByEmail($this->request->data['User']['email']);
+			$user = $this->User->findByEmail($this->request->data['PasswordReset']['email']);
 			$this->User->id = $user['User']['id'];
 			if(empty($user)) {
 				$this->Session->setFlash(__('Invalid Email'),

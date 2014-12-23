@@ -11,7 +11,7 @@ class RequestsController extends AppController {
 	public function confirm($url = null) {
 		//load the request & it's user
 		$request = $this->Request->findConfirm($url);
-		$this->Request->id = $request['Request']['id'];
+		$this->Request->read(null,$request['Request']['id']);
 		if(!$this->Request->exists()) {
 			throw new NotFoundException(__('Invalid Request'));
 		}
@@ -19,6 +19,8 @@ class RequestsController extends AppController {
 		if($request['Request']['request_type_id'] != 1) {
 			throw new NotFoundException(__('Invalid Request'));
 		}
+
+		$this->Request->save(array('Request' => array('active' => 0)));
 		//update the user with status_id + 1
 		$request['User']['status_id'] = $request['User']['status_id'] + 1;
 		$this->Request->User->save($request);
@@ -26,7 +28,7 @@ class RequestsController extends AppController {
 
 	public function passwordReset($url = null) {
 		$request = $this->Request->findReset($url);
-		$this->Request->id = $request['Request']['id'];
+		$this->Request->read(null,$request['Request']['id']);
 		if(!$this->Request->exists()) {
 			throw new NotFoundException(__('Invalid Request'));
 		}
@@ -35,6 +37,7 @@ class RequestsController extends AppController {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 
+		$this->Request->save(array('Request' => array('active' => 0)));
 		if($this->request->is('post')) {
 			$this->Request->User->id = $request['Request']['user_id'];
 

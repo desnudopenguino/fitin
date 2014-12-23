@@ -24,7 +24,7 @@ class RequestsController extends AppController {
 		$this->Request->User->save($request);
 	}
 
-	public function reset($url = null) {
+	public function passwordReset($url = null) {
 		$request = $this->Request->findReset($url);
 		$this->Request->id = $request['Request']['id'];
 		if(!$this->Request->exists()) {

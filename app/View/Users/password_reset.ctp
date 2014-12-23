@@ -12,9 +12,9 @@
 			'class' => 'well'
 	)); ?>
 		<fieldset>
-			<legend>Register</legend>
+			<legend>Reset Password</legend>
 			<?php echo $this->Form->input('email');
-				echo $this->Form->button('Reset Password', array(
+				echo $this->Form->button('Continue', array(
 					'div' => 'form-group',
 					'type' => 'submit',
 					'class' => 'btn btn-lg btn-success btn-block'));

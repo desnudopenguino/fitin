@@ -6,7 +6,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
       parent::beforeFilter();
-      $this->Auth->allow('login','register','view');
+      $this->Auth->allow('login','register','view','passwordReset');
     }
 
 //index
@@ -295,6 +295,18 @@ class UsersController extends AppController {
 //privacy
 	public function privacy() {
 
+	}
+
+	public function passwordReset() {
+		$this->User->Request->create();
+		$this->User->Request->save(array('Request' => array('request_type_id' => 2)));	
+		$request_id = $this->User->Request->getInsertId();
+		$request = $this->User->Request->findById($request_id);
+		$Email = new CakeEmail();
+		$Email->to($this->Auth->user('email'));
+		$Email->subject('FitIn.Today Password Reset');
+		$Email->config('gmail');
+		$Email->send("Follow the URL below to reset your password. If you did not request a password change, pleasedelete this email. \n\n http://dev.fitin.today/bucky/confirm/".$request['Request']['url']."");
 	}
 }
 ?>

@@ -31,9 +31,7 @@ Class Request extends AppModel {
 	public function findReset($url = null) {
 		$request = $this->find('first', array(
 			'conditions' => array(
-				'Request.url' => $url),
-			'fields' => array(
-				'Request.id','Request.user_id')));
+				'Request.url' => $url)));
 
 		return $request;
 	}

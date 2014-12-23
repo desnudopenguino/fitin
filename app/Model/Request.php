@@ -8,7 +8,9 @@ Class Request extends AppModel {
 
 	public function beforeSave($options = array()) {
 		if(empty($this->data[$this->alias]['id'])) {
-			$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
+			if(empty($this->data[$this->alias]['user_id'])) {
+				$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
+			}
 			$this->data[$this->alias]['url'] = md5(time()."".$this->data[$this->alias]['user_id']);
 		}
 		return true;

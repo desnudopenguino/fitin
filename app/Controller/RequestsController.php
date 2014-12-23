@@ -36,7 +36,7 @@ class RequestsController extends AppController {
 		}
 
 		if($this->request->is('post')) {
-			$this->Request->User->id = $request['User']['id'];
+			$this->Request->User->id = $request['Request']['user_id'];
 
 			if($this->Request->User->save($this->request->data)) {
 				$this->Session->setFlash(__('<strong>Success:</strong> Password updated!'), 'alert', array(

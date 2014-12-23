@@ -16,7 +16,7 @@ class RequestsController extends AppController {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 
-		if($request['Request']['request_type'] != 1) {
+		if($request['Request']['request_type_id'] != 1) {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 		//update the user with status_id + 1
@@ -31,7 +31,7 @@ class RequestsController extends AppController {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 
-		if($request['Request']['request_type'] != 2) {
+		if($request['Request']['request_type_id'] != 2) {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 

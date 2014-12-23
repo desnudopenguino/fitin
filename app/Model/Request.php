@@ -33,7 +33,7 @@ Class Request extends AppModel {
 			'conditions' => array(
 				'Request.url' => $url),
 			'fields' => array(
-				'Request.user_id')));
+				'Request.id','Request.user_id')));
 
 		return $request;
 	}

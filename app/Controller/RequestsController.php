@@ -17,7 +17,15 @@ class RequestsController extends AppController {
 			$this->Request->User->id = $request['User']['id'];
 
 			if($this->Request->User->save($this->request->data)) {
-
+				$this->Session->setFlash(__('<strong>Success:</strong> Password updated!'), 'alert', array(
+					'plugin' => 'BoostCake',
+					'class' => 'alert-success'
+				));
+			} else {
+				$this->Session->setFlash(__('<strong>Failure:</strong> Please try again.'), 'alert', array(
+					'plugin' => 'BoostCake',
+					'class' => 'alert-danger'
+				));
 			}
 		}
 	}

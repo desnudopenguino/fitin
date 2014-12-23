@@ -6,6 +6,10 @@ class RequestsController extends AppController {
 	public function confirm($url = null) {
 		//load the request & it's user
 		$request = $this->Request->findConfirm($url);
+		$this->Request->id = $request['Request']['id'];
+		if(!$this->Request->exists()) {
+			throw new NotFoundException(__('Invalid Request'));
+		}
 		//update the user with status_id + 1
 		$request['User']['status_id'] = $request['User']['status_id'] + 1;
 		$this->Request->User->save($request);
@@ -13,6 +17,10 @@ class RequestsController extends AppController {
 
 	public function reset($url = null) {
 		$request = $this->Request->findReset($url);
+		$this->Request->id = $request['Request']['id'];
+		if(!$this->Request->exists()) {
+			throw new NotFoundException(__('Invalid Request'));
+		}
 		if($this->request->is('post')) {
 			$this->Request->User->id = $request['User']['id'];
 

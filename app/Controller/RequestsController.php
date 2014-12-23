@@ -16,6 +16,10 @@ class RequestsController extends AppController {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 
+		if($request['Request']['active'] == 0) {
+			throw new NotFoundException(__('Invalid Request'));
+		}
+
 		if($request['Request']['request_type_id'] != 1) {
 			throw new NotFoundException(__('Invalid Request'));
 		}
@@ -30,6 +34,10 @@ class RequestsController extends AppController {
 		$request = $this->Request->findReset($url);
 		$this->Request->read(null,$request['Request']['id']);
 		if(!$this->Request->exists()) {
+			throw new NotFoundException(__('Invalid Request'));
+		}
+
+		if($request['Request']['active'] == 0) {
 			throw new NotFoundException(__('Invalid Request'));
 		}
 

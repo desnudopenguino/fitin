@@ -298,15 +298,34 @@ class UsersController extends AppController {
 	}
 
 	public function passwordReset() {
-		$this->User->Request->create();
-		$this->User->Request->save(array('Request' => array('request_type_id' => 2)));	
-		$request_id = $this->User->Request->getInsertId();
-		$request = $this->User->Request->findById($request_id);
-		$Email = new CakeEmail();
-		$Email->to($this->Auth->user('email'));
-		$Email->subject('FitIn.Today Password Reset');
-		$Email->config('gmail');
-		$Email->send("Follow the URL below to reset your password. If you did not request a password change, pleasedelete this email. \n\n http://dev.fitin.today/bucky/confirm/".$request['Request']['url']."");
+
+		if($this->request->is('post')) {
+			$user = $this->User->findByEmail($this->request->data['User']['email']);
+			$this->User->id = $user['User']['id'];
+			if(empty($user)) {
+				$this->Session->setFlash(__('Invalid Email'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'));
+			} else {
+				$this->User->Request->create();
+				$this->User->Request->save(array(
+					'Request' => array(
+						'request_type_id' => 2,
+						'user_id' => $user['User']['id'])));	
+				$request_id = $this->User->Request->getInsertId();
+				$request = $this->User->Request->findById($request_id);
+				$Email = new CakeEmail();
+				$Email->to($this->Auth->user('email'));
+				$Email->subject('FitIn.Today Password Reset');
+				$Email->config('gmail');
+				$Email->send("Follow the URL below to reset your password. If you did not request a password change, please delete this email. \n\n http://dev.fitin.today/bucky/confirm/".$request['Request']['url']."");
+				$this->Session->setFlash(__('An email with directions to reset your password has been sent'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-success'));
+			}
+		}
 	}
 }
 ?>

@@ -300,7 +300,6 @@ class UsersController extends AppController {
 	public function passwordReset() {
 
 		if($this->request->is('post')) {
-debug($this->request->data);
 			$user = $this->User->findByEmail($this->request->data['PasswordReset']['email']);
 			$this->User->id = $user['User']['id'];
 			if(empty($user)) {

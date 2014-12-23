@@ -5,7 +5,7 @@ class RequestsController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('confirm','reset');
+		$this->Auth->allow('confirm','passwordReset');
 	}
 
 	public function confirm($url = null) {

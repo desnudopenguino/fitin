@@ -75,7 +75,7 @@ class UsersController extends AppController {
 								$Email->to($this->Auth->user('email'));
 								$Email->subject('FitIn.Today Email Confirmation');
 								$Email->config('gmail');
-								$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n http://dev.fitin.today/bucky/confirm/".$request['Request']['url']."");
+								$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". $this->webroot ."confirm/". $request['Request']['url']);
 								$this->autoRender = false;
 
 								return $this->redirect(array('controller' => 'users', 'action' => 'contact'));
@@ -318,7 +318,7 @@ class UsersController extends AppController {
 				$Email->to($user['User']['email']);
 				$Email->subject('FitIn.Today Password Reset');
 				$Email->config('gmail');
-				$Email->send("Follow the URL below to reset your password. If you did not request a password change, please delete this email. \n\n http://dev.fitin.today/bucky/passwordReset/".$request['Request']['url']."");
+				$Email->send("Follow the URL below to reset your password. If you did not request a password change, please delete this email. \n\n ". $this->webroot ."passwordReset/".$request['Request']['url']."");
 				$this->Session->setFlash(__('An email with directions to reset your password has been sent'),
 					'alert', array(
 						'plugin' => 'BoostCake',

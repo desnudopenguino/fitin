@@ -39,7 +39,7 @@ class UsersController extends AppController {
 	}
 
 //register replaces add
-    public function register() {
+	public function register() {
         if ($this->request->is('post')) {
 						$this->User->create();
 						if ($this->User->save($this->request->data)) {

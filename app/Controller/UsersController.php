@@ -190,18 +190,15 @@ class UsersController extends AppController {
 		$user_id = $this->Auth->user('id');
 		switch($this->Auth->user('role_id')) {
 			case 0: //Admin
-				$this->redirect(array("controller" => "users", 
-					"action" => "index"));
+				$this->redirect(array("controller" => "users", "action" => "index"));
 				break;
 
 			case 1: //Employer
-				$this->redirect(array("controller" => "employers", 
-					"action" => "contact", $user_id));
+				$this->redirect(array("controller" => "employers", "action" => "contact", $user_id));
 				break;
 
 			case 2: //Applicant
-				$this->redirect(array("controller" => "applicants", 
-					"action" => "contact", $user_id));
+				$this->redirect(array("controller" => "applicants", "action" => "contact", $user_id));
 				break;
 		}
 	}
@@ -212,18 +209,15 @@ class UsersController extends AppController {
 		$User = $this->Auth->user();
 		switch($User['role_id']) {
 			case 0: //Admin
-				$this->redirect(array("controller" => "users", 
-					"action" => "index"));
+				$this->redirect(array("controller" => "users", "action" => "index"));
 				break;
 
 			case 1: //Employer
-				$this->redirect(array("controller" => "employers", 
-					"action" => "dashboard"));
+				$this->redirect(array("controller" => "employers", "action" => "dashboard"));
 				break;
 
 			case 2: //Applicant
-				$this->redirect(array("controller" => "applicants", 
-					"action" => "dashboard"));
+				$this->redirect(array("controller" => "applicants", "action" => "dashboard"));
 				break;
 		}
 	}
@@ -233,18 +227,15 @@ class UsersController extends AppController {
 		$User = $this->Auth->user();
 		switch($User['role_id']) {
 			case 0: //Admin
-				$this->redirect(array("controller" => "users", 
-					"action" => "index"));
+				$this->redirect(array("controller" => "users", "action" => "index"));
 				break;
 
 			case 1: //Employer
-				$this->redirect(array("controller" => "employers", 
-					"action" => "profile"));
+				$this->redirect(array("controller" => "employers", "action" => "profile"));
 				break;
 
 			case 2: //Applicant
-				$this->redirect(array("controller" => "applicants", 
-					"action" => "profile"));
+				$this->redirect(array("controller" => "applicants", "action" => "profile"));
 				break;
 		}
 	}
@@ -254,18 +245,15 @@ class UsersController extends AppController {
 		$User = $this->Auth->user();
 		switch($User['role_id']) {
 			case 0: //Admin
-				$this->redirect(array("controller" => "users", 
-					"action" => "index"));
+				$this->redirect(array("controller" => "users", "action" => "index"));
 				break;
 
 			case 1: //Employer
-				$this->redirect(array("controller" => "employers", 
-					"action" => "culture"));
+				$this->redirect(array("controller" => "employers", "action" => "culture"));
 				break;
 
 			case 2: //Applicant
-				$this->redirect(array("controller" => "applicants", 
-					"action" => "culture"));
+				$this->redirect(array("controller" => "applicants", "action" => "culture"));
 				break;
 		}
 	}
@@ -275,18 +263,15 @@ class UsersController extends AppController {
 		$User = $this->Auth->user();
 		switch($User['role_id']) {
 			case 0: //Admin
-				$this->redirect(array("controller" => "users", 
-					"action" => "index"));
+				$this->redirect(array("controller" => "users", "action" => "index"));
 				break;
 
 			case 1: //Employer
-				$this->redirect(array("controller" => "employers", 
-					"action" => "search"));
+				$this->redirect(array("controller" => "employers", "action" => "search"));
 				break;
 
 			case 2: //Applicant
-				$this->redirect(array("controller" => "applicants", 
-					"action" => "search"));
+				$this->redirect(array("controller" => "applicants", "action" => "search"));
 				break;
 		}
 	}
@@ -305,12 +290,7 @@ class UsersController extends AppController {
 
 		if($this->request->is('post')) {
 			$user = $this->User->findByEmail($this->request->data['PasswordReset']['email']);
-			if(empty($user)) {
-				$this->Session->setFlash(__('Invalid Email'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-danger'));
-			} else {
+			if(!empty($user)) {
 				$this->User->Request->create();
 				$this->User->Request->save(array(
 					'Request' => array(
@@ -323,11 +303,9 @@ class UsersController extends AppController {
 				$Email->subject('FitIn.Today Password Reset');
 				$Email->config('gmail');
 				$Email->send("Follow the URL below to reset your password. If you did not request a password change, please delete this email. \n\n ". Router::fullbaseUrl() ."/passwordReset/".$request['Request']['url']."");
-				$this->Session->setFlash(__('An email with directions to reset your password has been sent'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-success'));
 			}
+			$this->Session->setFlash(__('An email with directions to reset your password has been sent'),
+				'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 		}
 	}
 }

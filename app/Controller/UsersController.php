@@ -311,10 +311,10 @@ class UsersController extends AppController {
 
 	public function join($url = null) {
 		$user = $this->User->findIdByUrl($url);
-debug($user);
 		if(!empty($user)) {
-//			$this->Session->write('referral',$user);
+			$this->Session->write('referral',$user['User']['id']);
 		}
+debug($this->Session);
 		$this->autoRender = false;
 	}
 }

@@ -75,6 +75,7 @@ Class User extends AppModel {
 		$referral_id = CakeSession::read('referral');
 		if(!empty($referral_id)) {
 			$this->data[$this->alias]['referral_id'] = $referral_id;
+			CakeSession::delete('referral');
 		}
     return true;
 	}

@@ -71,7 +71,7 @@ Class User extends AppModel {
 			$this->data[$this->alias]['url'] = md5($this->data[$this->alias]['email']);
 		}
 // check/set referral for user
-		if(isset($this->Session->read('referral'))) {
+		if($this->Session->read('referral') !== NULL) {
 			$this->data[$this->alias]['referral_id'] = $this->Session->read('referral');
 		}
     return true;

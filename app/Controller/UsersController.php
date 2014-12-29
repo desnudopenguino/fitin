@@ -314,8 +314,7 @@ class UsersController extends AppController {
 		if(!empty($user)) {
 			$this->Session->write('referral',$user['User']['id']);
 		}
-debug($this->Session->read('referral'));
-		$this->autoRender = false;
+		$this->redirect(array("controller" => "pages", "action" => "display", "home"));
 	}
 }
 ?>

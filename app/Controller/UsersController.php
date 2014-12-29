@@ -308,5 +308,14 @@ class UsersController extends AppController {
 				'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 		}
 	}
+
+	public function join($url = null) {
+		$user = $this->User->findIdByUrl($url);
+debug($user);
+		if(!empty($user)) {
+//			$this->Session->write('referral',$user);
+		}
+		$this->autoRender = false;
+	}
 }
 ?>

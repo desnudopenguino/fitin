@@ -44,6 +44,8 @@
 	Router::connect('/confirm/:url', array('controller' => 'requests', 'action' => 'confirm'), array('pass' => array("url")));
 	Router::connect('/passwordReset', array('controller' => 'users', 'action' => 'passwordReset'));
 	Router::connect('/passwordReset/:url', array('controller' => 'requests', 'action' => 'passwordReset'), array('pass' => array("url")));
+
+	Router::connect('/join/:url', array('controller' => 'users', 'action' => 'join', array('url')));
 	//admin route
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'index'));
 

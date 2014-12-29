@@ -1,4 +1,3 @@
-<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Please login</h3>

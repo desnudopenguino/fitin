@@ -71,8 +71,10 @@ Class User extends AppModel {
 			$this->data[$this->alias]['url'] = md5($this->data[$this->alias]['email']);
 		}
 // check/set referral for user
-		if($this->Session->read('referral') !== NULL) {
-			$this->data[$this->alias]['referral_id'] = $this->Session->read('referral');
+		App::uses('CakeSession', 'Model/Datasource');
+		$referral_id = CakeSession::read('referral');
+		if(!empty($referral_id)) {
+			$this->data[$this->alias]['referral_id'] = $referral_id;
 		}
     return true;
 	}

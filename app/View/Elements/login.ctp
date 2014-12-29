@@ -23,5 +23,8 @@
 			?>
 		</fieldset>
 		<?php echo $this->Form->end(); ?>
+		<?php echo $this->Html->link('Forgot Password?', array(
+			'controller' => 'users',
+			'action' => 'passwordReset')); ?>
 	</div>
 </div>

@@ -72,5 +72,14 @@ Class User extends AppModel {
 		}
     return true;
 	}
+
+	public function findIdByUrl($url = null) {
+		$user = $this->find('first', array(
+			'conditions' => array(
+				'User.url' => $url)
+			'fields' => array(
+				'User.id')));
+		return $user;
+	}
 }
 ?>

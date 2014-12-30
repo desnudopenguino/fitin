@@ -32,6 +32,9 @@ Class Company extends AppModel {
 			'contain' => array(
 				'Organization' => array(
 					'Employer' => array(
+						'User' => array(
+							'fields' => array(
+								'User.url')),
 						'Position' => array(
 							'PositionIndustry' => array(
 								'Industry'),

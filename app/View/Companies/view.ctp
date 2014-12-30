@@ -8,8 +8,6 @@
 		<?php foreach($company['Company']['Organization']['Employer'] as $employer) { 
 			$this->set('employer', $employer);
 			echo $this->element('Employers/list');	
-			
 		} ?>
 	</div>
 </div>
-<?php debug($company); ?>

@@ -4,7 +4,7 @@
 		<p><?php echo $company['Company']['description']; ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
-		<h2>Department List</h2>
+		<h2>Departments:</h2>
 		<?php foreach($company['Company']['Organization']['Employer'] as $employer) { 
 			$this->set('employer', $employer);
 			echo $this->element('Employers/list');	

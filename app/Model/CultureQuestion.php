@@ -53,5 +53,12 @@ Class CultureQuestion extends AppModel {
 	public function findAll() {
 		return $this->find('list');
 	}
+
+	public function findIndex() {
+		$questions = $this->find('all', array(
+			'contain' => array(
+				'CultureQuestionAnswer')));
+		return $questions;
+	}
 }
 ?>

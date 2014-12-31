@@ -102,8 +102,9 @@ class ApplicantsController extends AppController {
 
 		$this->set('states',
 			$this->State->findAllLongNames());
-
-		$this->set('new_applicant_status', $this->Auth->user('status_id') + 2);
+		$user_status_id = $this->Applicant->User->findStatusId($id);
+debug($user_status_id);
+		$this->set('new_applicant_status', 2);
 
 		$this->Applicant->User->Address->create();
 

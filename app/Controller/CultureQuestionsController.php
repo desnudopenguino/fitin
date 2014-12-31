@@ -25,5 +25,9 @@ class CultureQuestionsController extends AppController {
 		}
 		$this->render('question');
 	}
+
+	public function index() {
+		$this->set('questions', $this->findIndex());	
+	}
  }
 ?>

@@ -88,7 +88,8 @@ Class UserCultureAnswer extends AppModel {
 		foreach($answers as $answer) {
 			$sorted_answers[$answer['CultureQuestion']['id']] = $answer;
 		}
-		return $sorted_answers;
+		//return $sorted_answers;
+		return $answers;
 	}
 
 	public function findUserAnswerIdList($user_id = null) {

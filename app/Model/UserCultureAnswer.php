@@ -75,7 +75,7 @@ Class UserCultureAnswer extends AppModel {
 	}
 
 	public function findUserAnswers($user_id = null) {
-		return $this->find('all', array(
+		$answers = $this->find('all', array(
 			'conditions' => array(
 				'UserCultureAnswer.user_id' => $user_id),
 			'contain' => array(
@@ -84,6 +84,13 @@ Class UserCultureAnswer extends AppModel {
 						'CultureQuestion.culture_question_type_id'))),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
+debug($answers);
+		$sorted_answers = array();
+		foreach($answers as $answer) {
+			$sorted_answers[$answer['CultureQuestion']['id']] = $answer;
+		}
+
+		return $sorted_answers;
 	}
 
 	public function findUserAnswerIdList($user_id = null) {

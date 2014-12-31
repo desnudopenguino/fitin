@@ -12,7 +12,7 @@
 			</tr>
 		<?php foreach($users as $user) { 
 			$this->set('user', $user);
-			$this->element('Users/row');
+			echo $this->element('Users/row');
 		 } ?>
 		</table>
 	</div>

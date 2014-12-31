@@ -35,7 +35,8 @@ Class UserCultureAnswer extends AppModel {
 			$culture[$cultureType['CultureQuestionType']['id']]['percent'] = 0.0;
 		}
 
-		foreach($employerCulture as $qkey => $question) {
+// OLD COMPARISON
+/*		foreach($employerCulture as $qkey => $question) {
 			foreach($culture as $cKey => $cval) {
 				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
 					$culture[$cKey]['total'] = $culture[$cKey]['total'] + 1;
@@ -49,6 +50,21 @@ Class UserCultureAnswer extends AppModel {
 					$culture[$cKey]['match'] = $culture[$cKey]['match'] + 1;
 					unset($applicantCulture[$aKey]);
 				}
+			}
+		}
+*/
+// NEW COMPARISON
+		foreach($employerCulture as $qKey => $question) {
+			foreach($culture as $cKey => $cval) {
+				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
+					$culture[$cKey]['total'] = $culture[$cKey]['total'] + 1;
+				}
+			}
+
+			$count++;
+			if(!empty($applicantCulture[$qKey]) &&
+				$question['UserCultureAnswer']['culture_question_answer_id'] == $applicantCulture[$qKey]['UserCultureAnswer']['culture_question_answer_id']) {
+					$culture[$cKey]['match'] = $culture[$cKey]['match'] + 1;
 			}
 		}
 		

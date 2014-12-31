@@ -88,5 +88,14 @@ Class User extends AppModel {
 				'User.id')));
 		return $user;
 	}
+
+	public function findStatusId($id) {
+		$user = $this->find('first', array(
+			'conditions' => array(
+				'User.id' => $id),
+			'fields' => array(
+				'User.status_id')));
+		return $user;
+	}
 }
 ?>

@@ -84,12 +84,10 @@ Class UserCultureAnswer extends AppModel {
 						'CultureQuestion.culture_question_type_id'))),
 			'fields' => array(
 				'UserCultureAnswer.culture_question_id','UserCultureAnswer.culture_question_answer_id')));
-debug($answers);
 		$sorted_answers = array();
 		foreach($answers as $answer) {
 			$sorted_answers[$answer['CultureQuestion']['id']] = $answer;
 		}
-debug($sorted_answers);
 		return $sorted_answers;
 	}
 

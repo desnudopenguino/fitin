@@ -30,6 +30,9 @@ class EmployersController extends AppController {
 
 		$this->Employer->User->PhoneNumber->create();
 		$this->Employer->User->id = $id;
+
+		$user_status_id = $this->Employer->User->findStatusId($id);
+		debug($user_status_id);
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$organization = $this->Organization->checkAndCreate($this->request->data,1);

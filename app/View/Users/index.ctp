@@ -10,16 +10,10 @@
 				<th>url</th>
 				<th>Joined Date</th>
 			</tr>
-		<?php foreach($users as $user) { ?>
-			<tr>
-				<td><?php echo $user['User']['id']; ?></th>
-				<td><?php echo $user['User']['email']; ?></th>
-				<td><?php echo $user['User']['role_id']; ?></th>
-				<td><?php echo $user['User']['status_id']; ?></th>
-				<td><?php echo $user['User']['url']; ?></th>
-				<td><?php echo $user['User']['created']; ?></th>
-			</tr>
-		<?php } ?>
+		<?php foreach($users as $user) { 
+			$this->set('user', $user);
+			$this->element('Users/row');
+		 } ?>
 		</table>
 	</div>
 </div>

@@ -48,6 +48,7 @@
 	Router::connect('/join/:url', array('controller' => 'users', 'action' => 'join', array('url')));
 	//admin route
 	Router::connect('/admin/users', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/admin/culture', array('controller' => 'cultureQuestions', 'action' => 'index'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

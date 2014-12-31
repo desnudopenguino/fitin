@@ -89,7 +89,7 @@ debug($answers);
 		foreach($answers as $answer) {
 			$sorted_answers[$answer['CultureQuestion']['id']] = $answer;
 		}
-
+debug($sorted_answers);
 		return $sorted_answers;
 	}
 

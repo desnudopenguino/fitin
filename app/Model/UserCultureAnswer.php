@@ -67,7 +67,6 @@ Class UserCultureAnswer extends AppModel {
 		$culture['Total']['total'] = $total;
 		$culture['Total']['match'] = $match;
 		$culture['Total']['percent'] = $percent;
-debug($culture);
 		return $culture;
 	}
 

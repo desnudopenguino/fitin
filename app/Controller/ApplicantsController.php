@@ -103,10 +103,6 @@ class ApplicantsController extends AppController {
 		$this->set('states',
 			$this->State->findAllLongNames());
 
-		$user_status_id = $this->Applicant->User->findStatusId($id);
-
-		$this->set('new_applicant_status', $user_status_id['User']['status_id'] + 2);
-
 		$this->Applicant->User->Address->create();
 
 		$this->Applicant->User->PhoneNumber->create();
@@ -116,6 +112,8 @@ class ApplicantsController extends AppController {
 			if($this->Applicant->save($this->request->data['Applicant'])) {
 				$this->Applicant->User->Address->save($this->request->data['Address']);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
+				$user_status_id = $this->Applicant->User->findStatusId($id);
+				$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 2;
 				if($this->Applicant->User->save($this->request->data['User'])) {
 					$this->Applicant->User->read(null, $id);
 					$this->Auth->login($this->Applicant->User->data['User']);

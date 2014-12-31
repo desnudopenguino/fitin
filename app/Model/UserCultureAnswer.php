@@ -70,7 +70,7 @@ Class UserCultureAnswer extends AppModel {
 		$culture['Total']['total'] = $total;
 		$culture['Total']['match'] = $match;
 		$culture['Total']['percent'] = $percent;
-
+debug($culture);
 		return $culture;
 	}
 
@@ -88,8 +88,8 @@ Class UserCultureAnswer extends AppModel {
 		foreach($answers as $answer) {
 			$sorted_answers[$answer['CultureQuestion']['id']] = $answer;
 		}
-		//return $sorted_answers;
-		return $answers;
+		return $sorted_answers;
+		//return $answers;
 	}
 
 	public function findUserAnswerIdList($user_id = null) {

@@ -21,6 +21,8 @@
 	<td><?php echo $user['User']['email']; ?></th>
 	<td><?php echo $user['User']['role_id']; ?></th>
 	<td><?php echo $user['User']['status_id']; ?></th>
-	<td><?php echo $user['User']['url']; ?></th>
+	<td><?php echo $this->Html->link($user['User']['url'], array(
+			'controller' => 'users',
+			'action' => 'view', $user['User']['url'])); ?></th>
 	<td><?php echo $user['User']['created']; ?></th>
 </tr>

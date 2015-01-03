@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-heading" role="tab" id="headingPositions">
-		<a data-toggle="collapse" data-parent="#resume" href="#collapsePositions" aria-expanded="true" aria-controls="collapsePositions">Work Experience Positionsamp; Positions</a>
+		<a data-toggle="collapse" data-parent="#resume" href="#collapsePositions" aria-expanded="true" aria-controls="collapsePositions">Positions</a>
 	</div>
 	<div id="collapsePositions" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPositions">
 		<div class="panel-body">

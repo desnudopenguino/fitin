@@ -66,5 +66,5 @@
 				)
 			); ?> 
 	</div>
-	<h4 class="text-center" color="#666666">Copyright &copy; FitInToday 2014</h4>
+	<h4 class="text-center" color="#666666">Copyright &copy; FitInToday 2015</h4>
 </div>

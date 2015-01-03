@@ -36,6 +36,18 @@
 							'value' => $position['max_work_experience'],
 							'label' => 'Maximum years of experience'));
 
+						echo $this->Form->input('min_degree', array(
+							'type' => 'select',
+							'label' => 'Minimum Degree',
+							'options' => $Degree,
+							'value' => $position['min_degree']));
+
+						echo $this->Form->input('max_degree', array(
+							'type' => 'select',
+							'label' => 'Maximum Degree',
+							'options' => $Degree,
+							'value' => $position['max_degree']));
+
 						echo $this->Form->input('PositionIndustry.0.id', array(
 							'value' => $position['PositionIndustry'][0]['id']));
 

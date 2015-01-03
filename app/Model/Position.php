@@ -69,6 +69,8 @@ Class Position extends AppModel {
 		$dataCard['Skill'] = array();
 		$dataCard['MinimumExperience'] = $data['Position']['min_work_experience'];
 		$dataCard['MaximumExperience'] = $data['Position']['max_work_experience'];
+		$dataCard['MinDegree'] = $data['Position']['min_degree']
+		$dataCard['MaxDegree'] = $data['Position']['max_degree']
 
 		$dataCard['Info'] = $data['Position'];
 		$dataCard['Info']['url'] = $data['Employer']['User']['url'];

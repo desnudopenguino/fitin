@@ -14,10 +14,9 @@ Class Education extends AppModel {
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
 		'gpa' => array(
-			'rule' => array('notEmpty'),
 			'required' => true,
-			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
+			'allowEmpty' => true,
+			'rule' => array('decimal',1))
 	);
 
 

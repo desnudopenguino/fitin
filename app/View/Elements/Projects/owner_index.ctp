@@ -1,6 +1,6 @@
 <div class="row panel panel-default">
 	<div class="panel-heading">
-		<h2>Projects
+		<h2>Work Experience &amp; Projects
 			<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createProjectModal"><i class="glyphicon glyphicon-plus"></i> Create Project</button>
 		</h2>
 	</div>

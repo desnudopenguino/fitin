@@ -1,5 +1,4 @@
 <div class="row">
-	<?php debug($position); ?>
 	<div class="col-md-10 col-md-offset-1">
 		<h2>
 			<?php echo $position['Position']['title'] ." in ". $position['Position']['Employer']['department_name'] ." department at ". $position['Position']['Employer']['Company']['Organization']['organization_name']; ?>

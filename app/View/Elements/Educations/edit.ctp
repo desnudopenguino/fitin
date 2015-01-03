@@ -38,6 +38,7 @@
 							'placeholder' => 'ex: 2000-01-01',
 							'value' => $education['graduation_date'])); 
 						echo $this->Form->input('gpa', array(
+							'label' => 'GPA',
 							'type' => 'text',
 							'value' => $education['gpa'])); ?>
 				</fieldset>

@@ -12,13 +12,8 @@ Class Education extends AppModel {
 			'rule' => array('notEmpty'),
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
-		'gpa' => array(
-//			'required' => true,
-			'allowEmpty' => true) /*,
-			'rule' => array('decimal',1))*/
+			'message' => 'Please fill out this field')
 	);
-
 
 	public function beforeSave($options = array()) {
 		if(empty($this->data[$this->alias]['id'])) {

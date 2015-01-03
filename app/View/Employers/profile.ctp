@@ -2,8 +2,14 @@
 	$this->set('positions', $employer['Position']);?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
-		<h2><?php 
-				echo $employer['User']['email']; ?><?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', array(
+		<h2><?php
+				if(!empty($employer['Organization'])) {
+					echo $employer['Organization']['organization_name']; 
+				} else {
+					echo $employer['User']['email'];
+				} ?>
+				
+				<?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', array(
 					'controller' => 'employers', 'action' => 'edit', $employer['User']['id']),
 					array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
 		</h2>

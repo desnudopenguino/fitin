@@ -53,7 +53,7 @@ class PagesController extends AppController {
 		$path = func_get_args();
 
 		//remove the default layout
-		$this->layout = false;
+//		$this->layout = false;
 
 		$count = count($path);
 		if (!$count) {

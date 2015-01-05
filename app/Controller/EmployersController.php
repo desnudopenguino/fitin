@@ -55,7 +55,7 @@ class EmployersController extends AppController {
 			$this->State->findAllLongNames());
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$this->request->data['User']['role_id'] = 2;
+			$this->request->data['User']['role_id'] = 1;
 			if($this->Employer->User->save($this->request->data['User'])) {
 				$user_id = $this->Employer->User->getLastInsertID();
 				$this->Auth->login($this->Employer->User->data['User']);

@@ -6,6 +6,8 @@ Class Organization extends AppModel {
 
 	public $hasMany = array('Project','Education','Certification','Employer');
 
+	public $hasOne = array('Company');
+
 	public $validate = array(
 		'organization_name' => array(
 			'rule' => array('notEmpty'),

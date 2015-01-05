@@ -135,10 +135,7 @@ class ApplicantsController extends AppController {
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->request->data['User']['role_id'] = 2;
 			if($this->Applicant->User->save($this->request->data['User'])) {
-				//get the id of the users just saved
 				$user_id = $this->Applicant->User->getLastInsertID();
-				$this->Applicant->User->id = $user_id;
-				$this->Applicant->User->read(null, $user_id);
 				$this->Auth->login($this->Applicant->User->data['User']);
 				$this->Applicant->User->Address->save($this->request->data['Address']);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);

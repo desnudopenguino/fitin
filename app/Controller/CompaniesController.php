@@ -3,6 +3,10 @@
 
 class CompaniesController extends AppController {
 
+	public function beforeFilter() {
+		$this->Auth->allow('view');
+	}
+
 	public function view($id = null) {
 		$this->Company->id = $id;
 

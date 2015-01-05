@@ -7,6 +7,7 @@ class CompaniesController extends AppController {
 		$this->Company->id = $id;
 
 		$this->set('company', $this->Company->findView($id));
+debug($this->referer());
 	}
 }
 ?>

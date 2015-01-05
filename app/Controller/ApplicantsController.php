@@ -123,6 +123,34 @@ class ApplicantsController extends AppController {
 		}
 	}
 
+// register will replace contact. user goes here from the splash page if they are registering for applicant
+	public function register() {
+
+		$this->set('phone_types',
+			$this->PhoneType->findAll());
+
+		$this->set('states',
+			$this->State->findAllLongNames());
+		
+		if($this->request->is('post') || $this->request->is('put')) { 
+			if($this->Applicant->User->save($this->request->data['User'])) {
+				//get the id of the users just saved
+				$user_id = $this->Applicant->User->getLastInsertID();
+				$this->Applicant->User->id = $user_id;
+				$this->Applicant->User->read(null, $user_id);
+				$this->Applicant->User->Address->create();
+				$this->Applicant->User->Address->save($this->request->data['Address']);
+				$this->Applicant->User->PhoneNumber->create();
+				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
+				$this->request->data['Applicant']['user_id'] = $user_id;
+				if($this->Applicant->save($this->request->data['Applicant'])) {
+					$this->Auth->login($this->Applicant->User->data['User']);
+					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+				}
+			}
+		}
+	}
+
 // View - public view of applicant data
 	public function view($url = null) {
 		$user = $this->Applicant->User->findByUrl($url);
@@ -134,10 +162,6 @@ class ApplicantsController extends AppController {
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 1) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));
 		}
-	}
-
-	public function message() {
-
 	}
  }
 ?>

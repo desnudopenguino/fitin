@@ -137,13 +137,15 @@ class ApplicantsController extends AppController {
 			if($this->Applicant->User->save($this->request->data['User'])) {
 				//get the id of the users just saved
 				$user_id = $this->Applicant->User->getLastInsertID();
+debug($user_id);
 				$this->Applicant->User->id = $user_id;
 				$this->Applicant->User->read(null, $user_id);
 				$this->request->data['Address']['user_id'] = $user_id;
-				$this->Applicant->User->Address->save($this->request->data['Address']);
+//				$this->Applicant->User->Address->save($this->request->data['Address']);
 				$this->request->data['PhoneNumber']['user_id'] = $user_id;
-				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
+//				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->request->data['Applicant']['user_id'] = $user_id;
+debug($this->request->data);
 				if($this->Applicant->save($this->request->data['Applicant'])) {
 					$this->Auth->login($this->Applicant->User->data['User']);
 					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));

@@ -110,9 +110,9 @@ Class Position extends AppModel {
 			'contain' => array(
 				'Employer' => array(
 					'Organization' => array(
-						'Company'))),
-			'conditions' => array(
-				'Company.id' => $company_id)));
+						'Company' => array(
+							'conditions' => array(
+								'Company.id' => $company_id)))))));
 		} else {
 			return $this->find('all', array(
 				'fields' => array(

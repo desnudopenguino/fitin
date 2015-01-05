@@ -6,7 +6,7 @@ class ApplicantsController extends AppController {
 	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion');
 
 	public function beforeFilter() {
-		$this->Auth->allow('view');
+		$this->Auth->allow('view','register');
 	}
 
 // Dashboard - logged in page

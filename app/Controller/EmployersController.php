@@ -46,6 +46,38 @@ class EmployersController extends AppController {
 		}
 	}
 
+	public function register() {
+
+		$this->set('phone_types',
+			$this->PhoneType->findAll());
+
+		$this->set('states',
+			$this->State->findAllLongNames());
+		
+		if($this->request->is('post') || $this->request->is('put')) { 
+			$this->request->data['User']['role_id'] = 2;
+			if($this->Employer->User->save($this->request->data['User'])) {
+				$user_id = $this->Employer->User->getLastInsertID();
+				$this->Auth->login($this->Employer->User->data['User']);
+				$this->Employer->User->Address->save($this->request->data['Address']);
+				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);
+				$this->request->data['Employer']['user_id'] = $user_id;
+				if($this->Employer->save($this->request->data['Employer'])) {
+					$this->User->Request->create();
+					$this->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+					$request_id = $this->User->Request->getInsertId();
+					$request = $this->User->Request->findById($request_id);
+					$Email = new CakeEmail();
+					$Email->to($this->Auth->user('email'));
+					$Email->subject('FitIn.Today Email Confirmation');
+					$Email->config('gmail');
+					$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+					$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+				}
+			}
+		}
+	}
+
 	function dashboard() {
 		$this->set('employer', $this->Employer->findDashboard($this->Auth->user('id')));
 	}

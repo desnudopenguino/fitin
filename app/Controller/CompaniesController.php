@@ -13,5 +13,9 @@ class CompaniesController extends AppController {
 		$this->set('company', $this->Company->findView($id));
 debug($this->referer());
 	}
+
+	public function index() {
+		$this->set('companies', $this->Company->find('all'));	
+	}
 }
 ?>

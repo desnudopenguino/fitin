@@ -138,9 +138,9 @@ class ApplicantsController extends AppController {
 				$user_id = $this->Applicant->User->getLastInsertID();
 				$this->Applicant->User->id = $user_id;
 				$this->Applicant->User->read(null, $user_id);
-				$this->Applicant->User->Address->create();
+				$this->request->data['Address']['user_id'] = $user_id;
 				$this->Applicant->User->Address->save($this->request->data['Address']);
-				$this->Applicant->User->PhoneNumber->create();
+				$this->request->data['PhoneNumber']['user_id'] = $user_id;
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->request->data['Applicant']['user_id'] = $user_id;
 				if($this->Applicant->save($this->request->data['Applicant'])) {

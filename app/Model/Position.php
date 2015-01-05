@@ -105,7 +105,7 @@ Class Position extends AppModel {
 		$company_id = CakeSession::read('company');
 debug($company_id);
 		if(!empty($company_id)) {
-			return $this->find('all', array(
+			$ids = $this->find('all', array(
 			'fields' => array(
 				'Position.id', 'Position.employer_id'),
 			'contain' => array(
@@ -115,10 +115,12 @@ debug($company_id);
 							'conditions' => array(
 								'Company.id' => $company_id)))))));
 		} else {
-			return $this->find('all', array(
+			$ids = $this->find('all', array(
 				'fields' => array(
 					'Position.id', 'Position.employer_id')));
 		}
+debug($ids);
+		return $ids;
 	}
 
 	public function findBlock($id = null) {

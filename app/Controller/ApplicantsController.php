@@ -133,6 +133,7 @@ class ApplicantsController extends AppController {
 			$this->State->findAllLongNames());
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
+			$this->request->data['User']['role_id'] = 2;
 			if($this->Applicant->User->save($this->request->data['User'])) {
 				//get the id of the users just saved
 				$user_id = $this->Applicant->User->getLastInsertID();

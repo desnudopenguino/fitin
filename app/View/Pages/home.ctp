@@ -42,7 +42,10 @@
 				<div class="inner cover">
 					<h1 class="cover-heading">Hi.</h1>
 					<p class="lead">FitIn is a company culture matching tool that matches job seekers and employers based on sociology. Find a place you FitIn. </p>
-					<p class="lead"><a class="btn btn-lg btn-info" href="#">Register as a Job Seeker</a></p><p class="lead"><a class="btn btn-lg btn-info" href="#">Register as an Employer</a></p>
+					<p class="lead">
+					<?php echo $this->Html->link("Register as a Job Seeker", array('controller' => 'applicants', 'action' => 'register', array('class' => 'btn btn-lg btn-info'));
+						echo $this->Html->link("Register as an Employer", array('controller' => 'employers', 'action' => 'register', array('class' => 'btn btn-lg btn-info')); ?>
+					</p>
 				</div>
 				<div class="mastfoot">
 					<div class="inner">

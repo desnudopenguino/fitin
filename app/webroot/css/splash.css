@@ -32,7 +32,7 @@ a:hover {
 html,
 .bodysplash {
 /*css for full size background image in filezilla-images*/
-  background: url(sftp://syncsum@barnacle.arvixe.com/home/syncsum/public_html/templates/tmpl_syncsum/images/splash%20cover.jpg) no-repeat center center fixed; 
+  background: url('../img/splash.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

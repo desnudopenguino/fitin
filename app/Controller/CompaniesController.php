@@ -10,8 +10,11 @@ class CompaniesController extends AppController {
 	public function view($id = null) {
 		$this->Company->id = $id;
 
+		if($this->referer() == '/') {
+			$this->Session->write('company', $id);
+		}
+
 		$this->set('company', $this->Company->findView($id));
-debug($this->referer());
 	}
 
 	public function index() {

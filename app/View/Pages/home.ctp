@@ -27,14 +27,11 @@
 					<div class="inner">
 						<h3 class="masthead-brand">FitIn.Today</h3>
 						<ul class="nav masthead-nav">
-							<li class="active">
-								<a href="#">Login</a>
+							<li>
+								<a href="http://pr.fitin.today/about.html" target="_blank">About Us</a>
 							</li>
 							<li>
-								<a href="http://pr.fitin.today/about.html">About Us</a>
-							</li>
-							<li>
-								<a href="http://pr.fitin.today">Blog</a>
+								<a href="http://pr.fitin.today" target="_blank">Blog</a>
 							</li>
 							<li>
 								<a href="">Login</a>

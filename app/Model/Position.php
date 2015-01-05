@@ -106,8 +106,8 @@ Class Position extends AppModel {
 debug($company_id);
 		if(!empty($company_id)) {
 			$ids = $this->find('all', array(
-			'fields' => array(
-				'Position.id', 'Position.employer_id'),
+//			'fields' => array(
+//				'Position.id', 'Position.employer_id'),
 			'contain' => array(
 				'Employer' => array(
 					'Organization' => array(

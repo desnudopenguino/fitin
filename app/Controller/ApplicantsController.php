@@ -141,10 +141,10 @@ class ApplicantsController extends AppController {
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->request->data['Applicant']['user_id'] = $user_id;
 				if($this->Applicant->save($this->request->data['Applicant'])) {
-					$this->User->Request->create();
-					$this->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-					$request_id = $this->User->Request->getInsertId();
-					$request = $this->User->Request->findById($request_id);
+					$this->Applicant->User->Request->create();
+					$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+					$request_id = $this->Applicant->User->Request->getInsertId();
+					$request = $this->Applicant->User->Request->findById($request_id);
 					$Email = new CakeEmail();
 					$Email->to($this->Auth->user('email'));
 					$Email->subject('FitIn.Today Email Confirmation');

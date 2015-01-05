@@ -63,10 +63,10 @@ class EmployersController extends AppController {
 				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->request->data['Employer']['user_id'] = $user_id;
 				if($this->Employer->save($this->request->data['Employer'])) {
-					$this->User->Request->create();
-					$this->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-					$request_id = $this->User->Request->getInsertId();
-					$request = $this->User->Request->findById($request_id);
+					$this->Employer->User->Request->create();
+					$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+					$request_id = $this->Employer->User->Request->getInsertId();
+					$request = $this->Employer->User->Request->findById($request_id);
 					$Email = new CakeEmail();
 					$Email->to($this->Auth->user('email'));
 					$Email->subject('FitIn.Today Email Confirmation');

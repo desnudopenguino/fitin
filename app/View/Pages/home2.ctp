@@ -1,3 +1,4 @@
+<?php echo $this->Html->css('splash.css',null,array('inline' => false)); ?>
 <div class="site-wrapper bodysplash">
 	<div class="site-wrapper-inner">
 		<div class="cover-container">

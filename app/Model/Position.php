@@ -103,6 +103,7 @@ Class Position extends AppModel {
 	public function findAllIds() {
 		App::uses('CakeSession', 'Model/Datasource');
 		$company_id = CakeSession::read('company');
+debug($company_id);
 		if(!empty($company_id)) {
 			return $this->find('all', array(
 			'fields' => array(

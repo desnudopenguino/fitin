@@ -148,7 +148,7 @@ debug($user_id);
 debug($this->request->data);
 				if($this->Applicant->save($this->request->data['Applicant'])) {
 					$this->Auth->login($this->Applicant->User->data['User']);
-					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+//					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 				}
 			}
 		}

@@ -7,16 +7,10 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
 		echo $this->Html->css(array("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"));
-		//echo $this->Html->css('styles');
 		echo $this->Html->css('splash.css');
 		echo $this->Html->script(array("https://code.jquery.com/jquery-2.1.1.min.js"));
 		echo $this->Html->script(array("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"));
-
-		//echo $this->fetch('meta');
-		//echo $this->fetch('css');
-		//echo $this->fetch('script');
 	?>
 </head>
 <body>

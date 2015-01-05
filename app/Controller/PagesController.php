@@ -52,6 +52,9 @@ class PagesController extends AppController {
 	public function display() {
 		$path = func_get_args();
 
+		//remove the default layout
+		$this->layout = false;
+
 		$count = count($path);
 		if (!$count) {
 			return $this->redirect('/');

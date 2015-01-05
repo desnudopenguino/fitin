@@ -1,5 +1,6 @@
 <?php
- App::uses('AppController', 'Controller');
+	App::uses('AppController', 'Controller');
+	App::uses('CakeEmail','Network/Email');
 
 class EmployersController extends AppController {
 

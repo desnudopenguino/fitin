@@ -50,6 +50,8 @@
 	Router::connect('/admin/users', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/admin/culture', array('controller' => 'cultureQuestions', 'action' => 'index'));
 
+	Router:connect('/test', array('controller' => 'pages', 'action' => 'display', 'test'));
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

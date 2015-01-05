@@ -6,7 +6,7 @@ class EmployersController extends AppController {
 	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion');
 
 	public function beforeFilter() {
-		$this->Auth->allow('view');
+		$this->Auth->allow('view','register');
 	}
 
 //add action occurrs after registration/every login after that if the user doesn't have the data filled out.

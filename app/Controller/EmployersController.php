@@ -64,6 +64,8 @@ class EmployersController extends AppController {
 //get the id of the user just created then login the user
 				$user_id = $this->Employer->User->getLastInsertID();
 				$this->Auth->login($this->Employer->User->data['User']);
+//check/create the company
+				$this->Employer->Company->checkAndCreate($organization);
 //save the contact info
 				$this->Employer->User->Address->save($this->request->data['Address']);
 				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);

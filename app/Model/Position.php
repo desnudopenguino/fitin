@@ -111,12 +111,17 @@ debug($company_id);
 			'contain' => array(
 				'Employer' => array(
 					'Organization' => array(
-						'Company')))));
+						'Company'))),
+			'conditions' => array(
+			));
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(
 					'Position.id', 'Position.employer_id')));
 		}
+Configure::write('debug',2);
+$log = $this->Model->getDataSource()->getLog(false, false);
+debug($log);
 debug($ids);
 		return $ids;
 	}

@@ -121,7 +121,7 @@ debug($company_id);
 					'Position.id', 'Position.employer_id')));
 		}
 Configure::write('debug',2);
-$log = $this->Model->getDataSource()->getLog(false, false);
+$log = $this->getDataSource()->getLog(false, false);
 debug($log);
 debug($ids);
 		return $ids;

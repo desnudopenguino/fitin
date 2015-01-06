@@ -112,8 +112,9 @@ debug($company_id);
 				'Employer' => array(
 					'Organization' => array(
 						'Company' => array(
-							'conditions' => array(
-								'Company.id' => $company_id)))))));
+							'conditions')))),
+			'conditions' => array(
+				'Company.id' => $company_id)));
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(

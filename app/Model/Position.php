@@ -111,9 +111,7 @@ debug($company_id);
 			'contain' => array(
 				'Employer' => array(
 					'Organization' => array(
-						'Company'))),
-			'conditions' => array(
-				'Company.id' => $company_id)));
+						'Company')))));
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(

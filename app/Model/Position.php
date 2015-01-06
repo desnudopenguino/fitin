@@ -111,8 +111,7 @@ debug($company_id);
 			'contain' => array(
 				'Employer' => array(
 					'Organization' => array(
-						'Company' => array(
-							'conditions')))),
+						'Company'))),
 			'conditions' => array(
 				'Company.id' => $company_id)));
 		} else {

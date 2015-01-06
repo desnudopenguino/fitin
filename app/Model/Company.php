@@ -47,5 +47,17 @@ Class Company extends AppModel {
 		unset($company['Organization']);
 		return $company;
 	}
+
+	public function findPositions($id = null) {
+		return $this->find('all', array(
+			'conditions' => array(
+				'Company.id' => $id),
+			'contain' => array(
+				'Organization' => array(
+					'Employer' => array(
+						'Position' => array(
+							'fields' => array(
+								'Position.id','Position.employer_id')))))));
+	}
 }
 ?>

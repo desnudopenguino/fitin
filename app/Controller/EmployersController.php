@@ -64,14 +64,14 @@ class EmployersController extends AppController {
 //get the id of the user just created then login the user
 				$user_id = $this->Employer->User->getLastInsertID();
 				$this->Auth->login($this->Employer->User->data['User']);
-//check/create the company
-				$this->Employer->Company->checkAndCreate($organization);
 //save the contact info
 				$this->Employer->User->Address->save($this->request->data['Address']);
 				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->request->data['Employer']['user_id'] = $user_id;
 //save the employer
 				if($this->Employer->save($this->request->data['Employer'])) {
+//check/create the company
+				$this->Employer->Company->checkAndCreate($organization);
 //create email validation request
 					$this->Employer->User->Request->create();
 					$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	

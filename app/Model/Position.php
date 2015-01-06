@@ -110,10 +110,12 @@ debug($company_id);
 //				'Position.id', 'Position.employer_id'),
 			'contain' => array(
 				'Employer' => array(
-					'Organization' => array(
-						'Company' => array( 
-							'conditions' => array(
-								'Company.id' => $company_id)))))));
+					'contain' => array(
+						'Organization' => array(
+							'contain' => array(
+								'Company' => array( 
+									'conditions' => array(
+										'Company.id' => $company_id)))))))));
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(

@@ -105,7 +105,6 @@ Class Position extends AppModel {
 	public function findAllIds() {
 		App::uses('CakeSession', 'Model/Datasource');
 		$company_id = CakeSession::read('company');
-debug($company_id);
 		if(!empty($company_id)) {
 			$ids = $this->Employer->Organization->Company->findPositions($company_id);
 		} else {
@@ -113,10 +112,6 @@ debug($company_id);
 				'fields' => array(
 					'Position.id', 'Position.employer_id')));
 		}
-Configure::write('debug',2);
-$log = $this->getDataSource()->getLog(false, false);
-debug($log);
-debug($ids);
 		return $ids;
 	}
 

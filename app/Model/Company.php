@@ -49,7 +49,7 @@ Class Company extends AppModel {
 	}
 
 	public function findPositions($id = null) {
-		$positions = $this->find('all', array(
+		$positions = $this->find('first', array(
 			'conditions' => array(
 				'Company.id' => $id),
 			'contain' => array(

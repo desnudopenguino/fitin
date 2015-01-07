@@ -49,7 +49,7 @@ Class Company extends AppModel {
 	}
 
 	public function findPositions($id = null) {
-		return $this->find('all', array(
+		$positions = $this->find('all', array(
 			'conditions' => array(
 				'Company.id' => $id),
 			'contain' => array(
@@ -58,6 +58,13 @@ Class Company extends AppModel {
 						'Position' => array(
 							'fields' => array(
 								'Position.id','Position.employer_id')))))));
+		$positions_return = array();
+		foreach($positions['Organization']['Employer'] as $employer) {
+			foreach($employer['Position'] as $position) {
+				$positions_return[] = array('Position' => array('id' => $position['id'], 'employer_id' => $position['employer_id']));
+			}
+		}
+		return $positions_return;
 	}
 }
 ?>

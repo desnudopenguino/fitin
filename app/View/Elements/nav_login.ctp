@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav navbar-right">
 	<li>
-		<?php echo $this->Html->link('<i class="glyphicon glyphicon-cog"></i> Settings', array('controller' => 'users', 'action' => 'settings'), array('escape' => false)); ?>
+		<?php echo $this->Html->link('<i class="glyphicon glyphicon-login"></i> Login', array('controller' => 'users', 'action' => 'login'), array('escape' => false)); ?>
 	</li>
 </ul>

@@ -214,7 +214,7 @@ Class Applicant extends AppModel {
 					'Organization',
 					'Industry')),
 			'order' => array(
-					'Education.Degree.id')));
+					'Education.degree_id desc')));
 		return $profile_data;
 	}
 

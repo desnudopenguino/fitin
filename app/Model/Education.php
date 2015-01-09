@@ -39,7 +39,9 @@ Class Education extends AppModel {
 			'contain' => array(
 				'Degree',
 				'Organization',
-				'Industry')));
+				'Industry'),
+			'order' => array(
+				'Education.Degree.id desc')));
 
 		$education['Education']['Degree'] = $education['Degree'];
 		unset($education['Degree']);

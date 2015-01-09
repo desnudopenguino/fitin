@@ -11,9 +11,7 @@ Class Degree extends AppModel {
 	public function findAll() {
 		return $this->find('list', array(
 			'fields' => array(
-				'Degree.id', 'Degree.degree_type'),
-			'order' => array(
-				'Degree_id desc')));
+				'Degree.id', 'Degree.degree_type')));
 	}
 }
 ?>

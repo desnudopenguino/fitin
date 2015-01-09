@@ -29,7 +29,9 @@ Class Education extends AppModel {
 			'contain' => array(
 				'Degree',
 				'Organization',
-				'Industry')));
+				'Industry'),
+			'order' => array(
+				'Education.Degree.id asc')));
 	}
 
 	public function findRow($id = null) {
@@ -39,9 +41,7 @@ Class Education extends AppModel {
 			'contain' => array(
 				'Degree',
 				'Organization',
-				'Industry'),
-			'order' => array(
-				'Education.Degree.id desc')));
+				'Industry')));
 
 		$education['Education']['Degree'] = $education['Degree'];
 		unset($education['Degree']);

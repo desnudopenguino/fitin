@@ -29,9 +29,7 @@ Class Education extends AppModel {
 			'contain' => array(
 				'Degree',
 				'Organization',
-				'Industry'),
-			'order' => array(
-				'Education.degree_id desc')));
+				'Industry')));
 	}
 
 	public function findRow($id = null) {

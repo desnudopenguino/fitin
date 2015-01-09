@@ -208,8 +208,8 @@ Class Applicant extends AppModel {
 					'ProjectSkill' => array(
 						'Skill'),
 					'order'=> array(
-						'start_date' => 'desc')),
-					#$order = array('geo_distance' => 'IS NULL ASC', 'House.geo_distance' => 'ASC');
+						'start_date' => 'IS NULL asc',
+						'Project.start_date' => 'desc')),
 				'Certification' => array(
 					'Organization'),
 				'Education' => array(

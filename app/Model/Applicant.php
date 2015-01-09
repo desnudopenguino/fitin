@@ -208,8 +208,8 @@ Class Applicant extends AppModel {
 					'ProjectSkill' => array(
 						'Skill'),
 					'order'=> array(
-						'ISNULL(Project.start_date)' => 'asc',
-						'Project.start_date' => 'desc')),
+						'Project.start_date' => 'desc',
+						'ISNULL(Project.start_date)' => 'asc')),
 				'Certification' => array(
 					'Organization'),
 				'Education' => array(

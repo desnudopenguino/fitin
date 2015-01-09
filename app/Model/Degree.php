@@ -13,7 +13,7 @@ Class Degree extends AppModel {
 			'fields' => array(
 				'Degree.id', 'Degree.degree_type'),
 			'order' => array(
-				'Degree.id desc')));
+				'Degree_id desc')));
 	}
 }
 ?>

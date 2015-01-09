@@ -28,7 +28,7 @@
 								<a href="http://pr.fitin.today" target="_blank">Blog</a>
 							</li>
 							<li>
-								<?php echo $this->Html->link('login', array('controller' => 'users', 'action' => 'login')); ?>
+								<?php echo $this->Html->link('Login', array('controller' => 'users', 'action' => 'login')); ?>
 							</li>
 						</ul>
 					</div>

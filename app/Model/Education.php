@@ -2,7 +2,8 @@
 App::uses('AppModel', 'Model');
 
 Class Education extends AppModel {
-
+	$order = "Degree.id desc"; #sort results by degree type (PhD, Md, Bs, AA, HS, etc)
+	
 	public $belongsTo = array(
 		'Applicant','Degree','Organization','Industry'
 	);

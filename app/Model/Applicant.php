@@ -212,7 +212,9 @@ Class Applicant extends AppModel {
 				'Education' => array(
 					'Degree',
 					'Organization',
-					'Industry'))));
+					'Industry',
+					'order' => array(
+							'degree_id desc')))));
 		return $profile_data;
 	}
 

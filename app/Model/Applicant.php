@@ -206,7 +206,7 @@ Class Applicant extends AppModel {
 					'ProjectFunction' => array(
 						'WorkFunction'),
 					'ProjectSkill' => array(
-						'Skill')
+						'Skill'),
 					'order'=> array(
 						'start_date desc')),
 				'Certification' => array(

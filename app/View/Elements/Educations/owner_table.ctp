@@ -9,7 +9,7 @@
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
-		Thing1 </br><?php debug($educations); ?></br>
+		Thing2 </br><?php debug($educations); ?></br>
 		<?php foreach($educations as $education) { 
 			$this->set('education', $education);
 			echo $this->element('Educations/row');

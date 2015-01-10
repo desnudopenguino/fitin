@@ -6,10 +6,6 @@ Class Project extends AppModel {
 	public $belongsTo = array(
 		'Applicant',
 		'Organization'
-		'Degree' => array(
-			'foreignKey' => 'min_degree'),
-		'Degree' => array(
-			'foreignKey' => 'max_degree')
 	);
 
 	public $hasMany = array(

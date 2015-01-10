@@ -4,7 +4,11 @@ App::uses('AppModel', 'Model');
 Class Position extends AppModel {
 
 	public $belongsTo = array(
-		'Employer'
+		'Employer',
+		'Degree' => array(
+			'foreignKey' => 'min_degree'),
+		'Degree' => array(
+			'foreignKey' => 'max_degree')
 	);
 
 	public $hasMany = array(

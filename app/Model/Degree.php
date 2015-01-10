@@ -4,9 +4,11 @@ App::uses('AppModel', 'Model');
 Class Degree extends AppModel {
 	public $hasMany = array(
 		'Education',
-		'Position' => array(
+		'MinDegree' => array(
+			'className' => 'Position',
 			'foreignKey' => 'min_degree'),
-		'Position' => array(
+		'MaxDegree' => array(
+			'className' => 'Position',
 			'foreignKey' => 'max_degree')
 	);
 

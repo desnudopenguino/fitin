@@ -38,6 +38,7 @@ Class Employer extends AppModel {
 						'State'),
 					'PhoneNumber'),
 				'Position' => array(
+					'Degree',
 					'PositionIndustry' => array(
 						'Industry'),
 					'PositionFunction' => array(

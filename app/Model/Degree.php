@@ -3,9 +3,11 @@ App::uses('AppModel', 'Model');
 
 Class Degree extends AppModel {
 	public $hasMany = array(
-		'Education' => array(
-			'className' => 'Education'
-		)
+		'Education',
+		'Project' => array(
+			'foreignKey' => 'min_degree'),
+		'Project' => array(
+			'foreignKey' => 'max_degree')
 	);
 
 	public function findAll() {

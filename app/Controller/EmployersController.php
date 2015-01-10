@@ -4,7 +4,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion','Degree');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view','register');
@@ -103,6 +103,8 @@ class EmployersController extends AppController {
 		$this->set('functions', $this->WorkFunction->find('list', array(
 			'fields' => array(
 				'WorkFunction.id','WorkFunction.function_type'))));
+	
+		$this->set('degrees', $this->Degree->findAll());
 	}
 
 	function culture() {

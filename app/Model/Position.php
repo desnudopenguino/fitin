@@ -5,9 +5,11 @@ Class Position extends AppModel {
 
 	public $belongsTo = array(
 		'Employer',
-		'Degree' => array(
+		'MinDegree' => array(
+			'className' => 'Degree',
 			'foreignKey' => 'min_degree'),
-		'Degree' => array(
+		'MaxDegree' => array(
+			'className' => 'Degree',
 			'foreignKey' => 'max_degree')
 	);
 

@@ -23,7 +23,9 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<div class="panel-group" id="resume" role="tablist" aria-multiselectable="true">
-			<?php echo $this->element('Positions/index'); ?>
+			<?php 
+				$this->set('degrees', $degrees);
+				echo $this->element('Positions/index'); ?>
 		</div>
 	</div>
 </div>

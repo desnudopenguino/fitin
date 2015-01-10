@@ -1,4 +1,5 @@
 <div id="position_<?php echo $position['id']; ?>" class="panel panel-default">
+<?php debug($position); ?>
 	<div class="panel-heading">
 		<div class="panel-title">
 			<?php echo $position['title']; ?>

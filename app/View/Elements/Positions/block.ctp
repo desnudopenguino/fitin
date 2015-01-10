@@ -32,8 +32,8 @@
 					</p>
 				<h3>Education</h3>
 					<p>
-						<?php echo $degrees[$position['min_degree']]['degree_type']; ?> to
-						<?php echo $degrees[$position['max_degree']]['degree_type']; ?>
+						<?php echo $degrees[$position['min_degree']]; ?> to
+						<?php echo $degrees[$position['max_degree']]; ?>
 					</p>
 				<h3>Industry</h3>
 				<?php  foreach($position['PositionIndustry'] as $positionIndustry) {

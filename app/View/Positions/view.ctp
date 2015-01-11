@@ -3,7 +3,7 @@
 		<h2>
 			<?php echo  $position['Position']['title'] ." in ".
 						$position['Position']['Employer']['department_name'] ." department at ".
-						$position['Position']['Employer']['Company']['Organization']['organization_name']; ?>
+						$position['Position']['Employer']['Organization']['organization_name']; ?>
 		</h2>
 	</div>
 </div>
@@ -98,7 +98,7 @@
 		</p>
 		<h3>Company Info:</h3>
 		<p>
-			<?php echo $position['Position']['Employer']['Company']['description']; ?>
+			<?php echo $position['Position']['Employer']['Organization']['Company']['description']; ?>
 		</p>
 	</div>
 </div>

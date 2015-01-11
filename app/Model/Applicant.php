@@ -206,13 +206,17 @@ Class Applicant extends AppModel {
 					'ProjectFunction' => array(
 						'WorkFunction'),
 					'ProjectSkill' => array(
-						'Skill')),
+						'Skill'),
+					'order' => array(
+						'Project.end_date IS NULL DESC', 'Project.end_date DESC')),
 				'Certification' => array(
 					'Organization'),
 				'Education' => array(
 					'Degree',
 					'Organization',
-					'Industry'))));
+					'Industry',
+					'order' => array(
+							'degree_id desc')))));
 		return $profile_data;
 	}
 

@@ -176,7 +176,7 @@ Class Position extends AppModel {
 	}	
 
 // removes null position industries and position functions from the list.
-	function cleanRequirements($data) {
+	private function cleanRequirements($data) {
 		foreach($data['PositionIndustry'] as $key => $industry) {
 			if($industry['industry_id'] == null) {
 				unset($data['PositionIndustry'][$key]);
@@ -188,6 +188,34 @@ Class Position extends AppModel {
 			}
 		}
 		return $data;
+	}
+
+	public function findAll() {
+		$positions = $this->find('all', array(
+			'contain' => array(
+				'PositionIndustry' => array(
+					'Industry'),
+				'PositionFunction' => array(
+					'WorkFunction'),
+				'PositionSkill' => array(
+					'Skill'),
+				'Employer' => array(
+					'User',
+					'Company' => array(
+						'Organization')))));
+
+		$positions = $this->cleanRequirements($positions);
+	
+		$positions['Position']['Employer'] = $positions['Employer'];
+		unset($positions['Employer']);
+		$positions['Position']['PositionIndustry'] = $positions['PositionIndustry'];
+		unset($positions['PositionIndustry']);
+		$positions['Position']['PositionFunction'] = $positions['PositionFunction'];
+		unset($positions['PositionFunction']);
+		$positions['Position']['PositionSkill'] = $positions['PositionSkill'];
+		unset($positions['PositionSkill']);
+
+		return $positions;
 	}
 }
 ?>

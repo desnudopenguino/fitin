@@ -158,8 +158,8 @@ Class Position extends AppModel {
 					'Skill'),
 				'Employer' => array(
 					'User',
-					'Company' => array(
-						'Organization')))));
+					'Organization' => array(
+						'Company')))));
 
 		$position = $this->cleanRequirements($position);
 	

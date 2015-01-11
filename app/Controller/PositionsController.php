@@ -86,6 +86,9 @@ class PositionsController extends AppController {
 	}
 
 	public function index() {
+		if($this->Auth->user('role_id') != 0 ) {
+			throw new NotFoundException(__('Invalid Position'));
+		}
 		$this->set('positions', $this->Position->find('all'));
 	}
 

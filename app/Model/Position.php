@@ -203,18 +203,20 @@ Class Position extends AppModel {
 					'User',
 					'Company' => array(
 						'Organization')))));
+		
+		foreach($positions as $pKey => $position) {
 
-		$positions = $this->cleanRequirements($positions);
+			$positions[$pKey] = $this->cleanRequirements($position);
 	
-		$positions['Position']['Employer'] = $positions['Employer'];
-		unset($positions['Employer']);
-		$positions['Position']['PositionIndustry'] = $positions['PositionIndustry'];
-		unset($positions['PositionIndustry']);
-		$positions['Position']['PositionFunction'] = $positions['PositionFunction'];
-		unset($positions['PositionFunction']);
-		$positions['Position']['PositionSkill'] = $positions['PositionSkill'];
-		unset($positions['PositionSkill']);
-
+			$positions[$pKey]['Position']['Employer'] = $position['Employer'];
+			unset($positions[$pKey]['Employer']);
+			$positions[$pKey]['Position']['PositionIndustry'] = $position['PositionIndustry'];
+			unset($positions[$pKey]['PositionIndustry']);
+			$positions[$pKey]['Position']['PositionFunction'] = $position['PositionFunction'];
+			unset($positions[$pKey]['PositionFunction']);
+			$positions[$pKey]['Position']['PositionSkill'] = $position['PositionSkill'];
+			unset($positions[$pKey]['PositionSkill']);
+		}
 		return $positions;
 	}
 }

@@ -3,7 +3,7 @@
 
 class ProjectsController extends AppController {
 
-	public $uses = array('Project','Organization','WorkFunction','Industry');
+	public $uses = array('Project','Organization','WorkFunction','Industry','Degree');
 
 	public function add() {
 		if($this->request->is('post')) {
@@ -36,6 +36,7 @@ class ProjectsController extends AppController {
 			$this->Session->delete('Message.flash');
 			$this->disableCache();		
 			$this->set('project', $this->Project->findBlock($this->Project->id));
+			$this->set('degrees', $this->Degree->findAll());
 			$this->layout = false;
 			$this->render('/Elements/Projects/block');
 		}

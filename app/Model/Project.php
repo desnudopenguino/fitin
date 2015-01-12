@@ -1,5 +1,5 @@
 <?php
-App::uses('AppModel', 'Model');
+App::uses('AppModel','Model');
 
 Class Project extends AppModel {
 

@@ -39,13 +39,13 @@
 						echo $this->Form->input('min_degree', array(
 							'type' => 'select',
 							'label' => 'Minimum Degree',
-							'options' => $Degree,
+							'options' => $degrees,
 							'value' => $position['min_degree']));
 
 						echo $this->Form->input('max_degree', array(
 							'type' => 'select',
 							'label' => 'Maximum Degree',
-							'options' => $Degree,
+							'options' => $degrees,
 							'value' => $position['max_degree']));
 
 						echo $this->Form->input('PositionIndustry.0.id', array(

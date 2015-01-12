@@ -4,7 +4,13 @@ App::uses('AppModel', 'Model');
 Class Position extends AppModel {
 
 	public $belongsTo = array(
-		'Employer'
+		'Employer',
+		'MinDegree' => array(
+			'className' => 'Degree',
+			'foreignKey' => 'min_degree'),
+		'MaxDegree' => array(
+			'className' => 'Degree',
+			'foreignKey' => 'max_degree')
 	);
 
 	public $hasMany = array(
@@ -152,8 +158,8 @@ Class Position extends AppModel {
 					'Skill'),
 				'Employer' => array(
 					'User',
-					'Company' => array(
-						'Organization')))));
+					'Organization' => array(
+						'Company')))));
 
 		$position = $this->cleanRequirements($position);
 	
@@ -170,7 +176,7 @@ Class Position extends AppModel {
 	}	
 
 // removes null position industries and position functions from the list.
-	function cleanRequirements($data) {
+	private function cleanRequirements($data) {
 		foreach($data['PositionIndustry'] as $key => $industry) {
 			if($industry['industry_id'] == null) {
 				unset($data['PositionIndustry'][$key]);
@@ -182,6 +188,36 @@ Class Position extends AppModel {
 			}
 		}
 		return $data;
+	}
+
+	public function findAll() {
+		$positions = $this->find('all', array(
+			'contain' => array(
+				'PositionIndustry' => array(
+					'Industry'),
+				'PositionFunction' => array(
+					'WorkFunction'),
+				'PositionSkill' => array(
+					'Skill'),
+				'Employer' => array(
+					'User',
+					'Organization' => array(
+						'Company')))));
+		
+		foreach($positions as $pKey => $position) {
+
+			$positions[$pKey] = $this->cleanRequirements($position);
+	
+			$positions[$pKey]['Position']['Employer'] = $position['Employer'];
+			unset($positions[$pKey]['Employer']);
+			$positions[$pKey]['Position']['PositionIndustry'] = $position['PositionIndustry'];
+			unset($positions[$pKey]['PositionIndustry']);
+			$positions[$pKey]['Position']['PositionFunction'] = $position['PositionFunction'];
+			unset($positions[$pKey]['PositionFunction']);
+			$positions[$pKey]['Position']['PositionSkill'] = $position['PositionSkill'];
+			unset($positions[$pKey]['PositionSkill']);
+		}
+		return $positions;
 	}
 }
 ?>

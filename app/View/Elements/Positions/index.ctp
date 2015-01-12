@@ -21,13 +21,13 @@
 						<div class="col-md-5 col-md-offset-1">
 							<h3>Experience</h3>
 								<p>
-									<?php echo $position['']; ?> to
+									<?php echo $position['min_work_experience']; ?> to
 									<?php echo $position['max_work_experience']; ?> years of experience
 								</p>
 							<h3>Education</h3>
 								<p>
-									<?php echo $position['min_degree']; ?> to
-									<?php echo $position['max_degree']; ?>
+									<?php echo $degrees[$position['min_degree']]; ?> to
+									<?php echo $degrees[$position['max_degree']]; ?>
 								</p>
 							<h3>Industry</h3>
 							<?php  foreach($position['PositionIndustry'] as $positionIndustry) {

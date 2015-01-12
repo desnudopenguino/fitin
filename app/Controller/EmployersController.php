@@ -4,7 +4,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion','Degree');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view','register');
@@ -103,6 +103,8 @@ class EmployersController extends AppController {
 		$this->set('functions', $this->WorkFunction->find('list', array(
 			'fields' => array(
 				'WorkFunction.id','WorkFunction.function_type'))));
+	
+		$this->set('degrees', $this->Degree->findAll());
 	}
 
 	function culture() {
@@ -183,6 +185,7 @@ class EmployersController extends AppController {
 			throw new NotFoundException(__('Invalid User'));
 		}
 		$this->set('employer', $this->Employer->findProfile($user['User']['id']));
+		$this->set('degrees', $this->Degree->findAll());
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));
 		}

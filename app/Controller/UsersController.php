@@ -316,5 +316,10 @@ class UsersController extends AppController {
 		}
 		$this->redirect(array("controller" => "pages", "action" => "display", "home"));
 	}
+
+// the checkout function, that loads the account types and levels and stuff.
+	public function checkout() {
+	
+	}
 }
 ?>

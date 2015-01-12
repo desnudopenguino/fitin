@@ -109,6 +109,7 @@
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $position['responsibilities']));
+						debug($position);
 						?>
 				</fieldset>
       </div>

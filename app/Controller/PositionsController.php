@@ -79,6 +79,7 @@ class PositionsController extends AppController {
 					$this->set('position', $this->Position->findBlock($this->Position->id));
 					$this->set('industries', $this->Industry->findAll());
 					$this->set('functions', $this->WorkFunction->findAll());
+					$this->set('degrees', $this->Degree->findAll());
 					$this->render('/Elements/Positions/block');
 				}
 			}

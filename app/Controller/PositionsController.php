@@ -33,6 +33,7 @@ class PositionsController extends AppController {
 		$this->set('position', $this->Position->findBlock($this->Position->id));
 		$this->set('industries', $this->Industry->findAll());
 		$this->set('functions', $this->WorkFunction->findAll());
+		$this->set('degrees', $this->Degree->findAll());
 		if ($this->request->is('ajax')) {
 //remove the flash message if it is ajax. 
 			$this->Session->delete('Message.flash');

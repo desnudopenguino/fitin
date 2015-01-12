@@ -3,7 +3,7 @@
 
 class PositionsController extends AppController {
 
-	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer','Industry','WorkFunction');
+	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer','Industry','WorkFunction', 'Degree');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view');

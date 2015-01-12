@@ -322,9 +322,8 @@ class UsersController extends AppController {
 
 // the checkout function, that loads the account types and levels and stuff.
 	public function checkout() {
-		debug($this->request->data);
 		if($this->request->is('post')) {
-			exit;	
+		debug($this->request->data);
 		}
 	}
 }

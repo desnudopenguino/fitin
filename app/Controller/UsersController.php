@@ -4,10 +4,13 @@ App::uses('CakeEmail','Network/Email');
 
 class UsersController extends AppController {
 
-    public function beforeFilter() {
-      parent::beforeFilter();
-      $this->Auth->allow('login','register','view','passwordReset','join');
-    }
+	public $components = array(
+		'Stripe.Stripe' );	
+	
+  public function beforeFilter() {
+    parent::beforeFilter();
+    $this->Auth->allow('login','register','view','passwordReset','join');
+  }
 
 //index
     public function index() {

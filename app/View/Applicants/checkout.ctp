@@ -26,9 +26,9 @@
 				  <script
 				    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 				    data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"
-				    data-name="Demo Site"
-				    data-description="2 widgets ($20.00)"
-				    data-amount="2000">
+				    data-name="Premium Monthly Membership"
+				    data-description="Premium Monthly Membership ($5.00/Mo)"
+				    data-amount="500">
 				  </script>
 					<?php echo $this->Form->end(); ?>
 				</div>
@@ -41,9 +41,9 @@
 				  <script
 				    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 				    data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"
-				    data-name="Demo Site"
-				    data-description="2 widgets ($20.00)"
-				    data-amount="2000">
+				    data-name="Premium Annual Membership"
+				    data-description="Premium Annual Membership ($50.00/Yr)"
+				    data-amount="5000">
 				  </script>
 					<?php echo $this->Form->end(); ?>
 				</div>

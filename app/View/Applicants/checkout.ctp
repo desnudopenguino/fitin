@@ -3,6 +3,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
+					<div class="well">
+						<h2 class="muted">Passive</h2>
+						<p><span class="label">Free</span></p>
+						<ul>
+							<li>Free access</li>
+							<li>Access to paid Employer listings</li>
+						</ul>
+						<p>Text About Passive Applicant</p>
+						<hr>
+						<h3>Free Forever</h3>
+						<hr>
+						<p><button class="btn btn-large" disabled>Free</button></p>
 					<?php echo $this->Form->create('User', array(
 						'controller' => 'users', 'action' => 'checkout')); ?>
 					<?php $this->Form->unlockField('stripeToken'); 

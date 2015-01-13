@@ -35,7 +35,7 @@
 <?php echo $this->Form->end(); ?>
 <script type="text/javascript">
 jQuery(function($) {
-  $('#payment-form').submit(function(event) {
+  $('#UserCheckoutForm').submit(function(event) {
     var $form = $(this);
 
     // Disable the submit button to prevent repeated clicks

@@ -4,7 +4,7 @@
 	'controller' => 'users', 'action' => 'checkout')); ?>
   <span class="payment-errors"></span>
 	<?php echo $this->Form->input('Stripe.token', array(
-		'hidden' => true,
+		'type' => 'hidden',
 		'id' => 'stripeToken')); ?>
   <div class="form-row">
     <label>

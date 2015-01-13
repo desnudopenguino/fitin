@@ -1,4 +1,5 @@
-<form action="" method="POST" id="payment-form">
+<?php echo $this->Form->create('User', array(
+	'controller' => 'users', 'action' => 'checkout')); ?>
   <script src="https://checkout.stripe.com/checkout.js" ></script>
 
 
@@ -35,7 +36,7 @@
   </div>
 
   <button type="submit">Submit Payment</button>
-</form>
+<?php echo $this->Form->end(); ?>
 <script type="text/javascript">
 jQuery(function($) {
   $('#payment-form').submit(function(event) {

@@ -169,5 +169,10 @@ class ApplicantsController extends AppController {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));
 		}
 	}
+
+// checkout view - shows all the different user levels
+	public function checkout() {
+		
+	}
  }
 ?>

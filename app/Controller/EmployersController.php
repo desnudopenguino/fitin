@@ -190,5 +190,9 @@ class EmployersController extends AppController {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));
 		}
 	}
+
+	public function checkout() {
+	
+	}
 }
 ?>

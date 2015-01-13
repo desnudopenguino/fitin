@@ -3,7 +3,9 @@
 <?php echo $this->Form->create('User', array(
 	'controller' => 'users', 'action' => 'checkout')); ?>
   <span class="payment-errors"></span>
-	<?php echo $this->Form->input('Stripe.token', array(
+	<?php
+		$this->Form->unlockField('Stripe.token');
+		echo $this->Form->input('Stripe.token', array(
 		'type' => 'hidden',
 		'id' => 'stripeToken')); ?>
   <div class="form-row">

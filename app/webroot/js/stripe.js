@@ -13,7 +13,7 @@ var stripeResponseHandler = function(status, response) {
 		$('#stripeToken').val(token);
 //		form.append($('<input type="hidden" name="data[Stripe][token]" />').val(token));
 		// and re-submit
-		form.get(0).submit();
+//		form.get(0).submit();
 	}
 };
 

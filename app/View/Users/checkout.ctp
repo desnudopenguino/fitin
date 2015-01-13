@@ -1,15 +1,11 @@
-<?php echo $this->Form->create('User', array(
-	'controller' => 'users', 'action' => 'checkout')); ?>
-  <script src="https://checkout.stripe.com/checkout.js" ></script>
-
-
+<?php echo $this->Html->script("https://checkout.stripe.com/checkout.js", null, array('inline' => false));
 <script type="text/javascript">
   // This identifies your website in the createToken call below
   Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
   // ...
 </script>
-
-
+<?php echo $this->Form->create('User', array(
+	'controller' => 'users', 'action' => 'checkout')); ?>
   <span class="payment-errors"></span>
 
   <div class="form-row">

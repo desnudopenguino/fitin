@@ -1,7 +1,7 @@
 Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
 var stripeResponseHandler = function(status, response) {
-	var $form = $('#payment-form');
+	var $form = $('#UserCheckoutForm');
 	if (response.error) {
 		// Show the errors on the form
 		$form.find('.payment-errors').text(response.error.message);
@@ -18,6 +18,7 @@ var stripeResponseHandler = function(status, response) {
 
 jQuery(function($) {
 	$('#UserCheckoutForm').submit(function(e) {
+console.log('form submit pressed');
 		var $form = $(this);
 		// Disable the submit button to prevent repeated clicks
 		$form.find('button').prop('disabled', true);

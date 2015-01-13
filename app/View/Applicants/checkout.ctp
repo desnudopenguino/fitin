@@ -14,19 +14,6 @@
 					<h3>Free Forever</h3>
 					<hr>
 					<p><button class="btn btn-large" disabled>Free</button></p>
-					<?php echo $this->Form->create('User', array(
-						'controller' => 'users', 'action' => 'checkout')); ?>
-					<?php $this->Form->unlockField('stripeToken'); 
-						$this->Form->unlockField('stripeTokenType'); 
-						$this->Form->unlockField('stripeEmail'); ?>
-					 <script
-					   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				  	 data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"
-					   data-name="Demo Site"
-					   data-description="2 widgets ($20.00)"
-					   data-amount="2000">
-					 </script>
-					<?php echo $this->Form->end(); ?>
 				</div>
 				<div class="col-md-3 col-md-offset-1 well">
 					<h2 class="muted">Monthly Premium</h2>
@@ -39,8 +26,11 @@
 					<h3>$5.00/Month</h3>
 					<hr>
 					<?php echo $this->Form->create('User', array(
-						'controller' => 'users', 'action' => 'checkout')); ?>
-					<?php $this->Form->unlockField('stripeToken'); 
+						'controller' => 'users', 'action' => 'checkout')); 
+						echo $this->Form->input('stripePlan', array(
+							'type' => 'hidden',
+							'value' => 'AppPremMon'));
+						$this->Form->unlockField('stripeToken'); 
 						$this->Form->unlockField('stripeTokenType'); 
 						$this->Form->unlockField('stripeEmail'); ?>
 				  <script
@@ -63,8 +53,11 @@
 					<h3>$50.00/Year</h3>
 					<hr>
 					<?php echo $this->Form->create('User', array(
-						'controller' => 'users', 'action' => 'checkout')); ?>
-					<?php $this->Form->unlockField('stripeToken'); 
+						'controller' => 'users', 'action' => 'checkout')); 
+						echo $this->Form->input('stripePlan', array(
+							'type' => 'hidden',
+							'value' => 'AppPremYr'));
+						$this->Form->unlockField('stripeToken'); 
 						$this->Form->unlockField('stripeTokenType'); 
 						$this->Form->unlockField('stripeEmail'); ?>
 				  <script

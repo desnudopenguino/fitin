@@ -1,4 +1,4 @@
-<?php echo $this->Html->script("https://checkout.stripe.com/checkout.js", array('inline' => false)); ?>
+<?php echo $this->Html->script("https://js.stripe.com/v2/", array('inline' => false)); ?>
 <?php echo $this->Html->script("stripe.js", array('inline' => false)); ?>
 <?php echo $this->Form->create('User', array(
 	'controller' => 'users', 'action' => 'checkout')); ?>

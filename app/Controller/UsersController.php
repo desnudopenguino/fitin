@@ -331,17 +331,6 @@ class UsersController extends AppController {
 				'plan' => 'AppPremMon');
 			$result = $this->Stripe->customerCreate($stripe_customer_data);
 debug($result);
-//save the customer id from the $result
-/*			if(isset($result['stripe_id'])) {
-				$stripe_charge_data = array(
-					'stripeCustomer' => $result['stripe_id'],
-					'amount' => '5.00',
-					'description' => 'Test Charge');
-				$charge_result = $this->Stripe->charge($stripe_charge_data);
-//probably don't have to save the charge id, since everything is managed well in stripe
-				debug($charge_result);
-			}*/
-
 		}
 	}
 }

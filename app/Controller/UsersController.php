@@ -324,7 +324,14 @@ class UsersController extends AppController {
 	public function checkout() {
 		if($this->request->is('post')) {
 			debug($this->request->data);
-			debug($_POST);
+			$stripe_data = array(
+				'stripeToken' => $this->request->data['stripeToken'],
+				'email' => $this->request->data['stripeEmail'],
+				'description' => 'Test',
+				'plan' => 'Test Plan');
+			$result = $this->Stripe->customerCreate($stripe_data);
+
+			debug($result);
 		}
 	}
 }

@@ -2,7 +2,7 @@
 	<div class="col-md-10 col-md-offset-1">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 well">
+				<div class="col-md-4 well">
 					<h2 class="muted">Passive</h2>
 					<p><span class="label">Free</span></p>
 					<ul>
@@ -15,7 +15,7 @@
 					<hr>
 					<p><button class="btn btn-large" disabled>Free</button></p>
 				</div>
-				<div class="col-md-3 col-md-offset-1 well">
+				<div class="col-md-4 well">
 					<h2 class="muted">Monthly Premium</h2>
 					<p><span class="label">Budget</span></p>
 					<ul>
@@ -42,7 +42,7 @@
 				  </script>
 					<?php echo $this->Form->end(); ?>
 				</div>
-				<div class="col-md-3 col-md-offset-1 well">
+				<div class="col-md-4 well">
 					<h2 class="muted">Yearly Premium</h2>
 					<p><span class="label">Budget</span></p>
 					<ul>

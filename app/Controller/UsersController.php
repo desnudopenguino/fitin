@@ -328,7 +328,7 @@ class UsersController extends AppController {
 				'stripeToken' => $this->request->data['stripeToken'],
 				'email' => $this->request->data['stripeEmail'],
 				'description' => 'Test',
-				'plan' => 'Test Plan');
+				'plan' => 'AppPremMon');
 			$result = $this->Stripe->customerCreate($stripe_data);
 
 			debug($result);

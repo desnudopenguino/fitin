@@ -1,18 +1,5 @@
 <?php echo $this->Html->script("https://checkout.stripe.com/checkout.js", array('inline' => false)); ?>
-<script type="text/javascript">
-  Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-  $('#UserCheckoutForm').submit(function(event) {
-    var $form = $(this);
-
-    // Disable the submit button to prevent repeated clicks
-    $form.find('button').prop('disabled', true);
-
-    Stripe.card.createToken($form, stripeResponseHandler);
-
-    // Prevent the form from submitting with the default action
-    return false;
-  });
-</script>
+<?php echo $this->Html->script("stripe.js", array('inline' => false)); ?>
 <?php echo $this->Form->create('User', array(
 	'controller' => 'users', 'action' => 'checkout')); ?>
   <span class="payment-errors"></span>

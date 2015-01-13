@@ -1,4 +1,4 @@
-<?php echo $this->Html->script("https://checkout.stripe.com/checkout.js", null, array('inline' => false));
+<?php echo $this->Html->script("https://checkout.stripe.com/checkout.js", null, array('inline' => false)); ?>
 <script type="text/javascript">
   // This identifies your website in the createToken call below
   Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');

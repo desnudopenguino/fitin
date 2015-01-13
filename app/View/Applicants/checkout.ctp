@@ -43,8 +43,8 @@
 					<?php echo $this->Form->end(); ?>
 				</div>
 				<div class="col-md-3 col-md-offset-1 well">
-					<h2 class="muted">Yearly Premium</h2>
-					<p><span class="label">Budget</span></p>
+					<h2 class="muted">Annual Premium</h2>
+					<p><span class="label">Best Deal</span></p>
 					<ul>
 						<li>Full, Premium access to all Employer listings</li>
 					</ul>

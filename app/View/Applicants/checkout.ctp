@@ -52,7 +52,7 @@
 				  </script>
 					<?php echo $this->Form->end(); ?>
 				</div>
-				<div class="col-md-3 col-md-offset-1">
+				<div class="col-md-3 col-md-offset-1 well">
 					<h2 class="muted">Yearly Premium</h2>
 					<p><span class="label">Budget</span></p>
 					<ul>

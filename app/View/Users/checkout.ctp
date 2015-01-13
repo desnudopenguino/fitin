@@ -1,6 +1,8 @@
 <?php echo $this->Form->create('User', array(
 	'controller' => 'users', 'action' => 'checkout')); ?>
-	<?php $this->Form->unlockField('stripeToken'); ?>
+	<?php $this->Form->unlockField('stripeToken'); 
+		$this->Form->unlockField('stripeTokenType'); 
+		$this->Form->unlockField('stripeEmail'); ?>
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"

@@ -330,6 +330,7 @@ class UsersController extends AppController {
 				'description' => 'Test',
 				'plan' => 'AppPremMon');
 			$result = $this->Stripe->customerCreate($stripe_customer_data);
+debug($result);
 //save the customer id from the $result
 			if(isset($result['stripe_id'])) {
 				$stripe_charge_data = array(

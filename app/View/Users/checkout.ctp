@@ -4,9 +4,10 @@
 	'controller' => 'users', 'action' => 'checkout')); ?>
   <span class="payment-errors"></span>
 	<?php
-		$this->Form->unlockField('Stripe.token');
-		echo $this->Form->input('Stripe.token', array(
+		$this->Form->unlockField('stripeToken');
+		echo $this->Form->input('stripeToken', array(
 		'type' => 'hidden',
+		'name' => 'stripeToken',
 		'id' => 'stripeToken')); ?>
   <div class="form-row">
     <label>

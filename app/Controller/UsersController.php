@@ -340,7 +340,7 @@ class UsersController extends AppController {
 						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				}
 			}
-		} else if($this->request->user('id')) {
+		} else if($this->Auth->user('id')) {
 			$User = $this->Auth->user();
 			switch($User['role_id']) {
 				case 1: //Employer

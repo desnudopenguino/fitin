@@ -293,7 +293,9 @@ debug($customer->subscriptions->data[0]->id);
 		$subscription_id = $customer->subscriptions->data[0]->id;
 		$subscription = $customer->subscriptions->retrieve($subscription_id);
 		$subscription->plan('AppPass');
-		$subscription->save();
+		if($subscription->save()) {
+			$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
+		}
 	}
 
 //privacy

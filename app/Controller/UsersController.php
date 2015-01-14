@@ -292,7 +292,7 @@ debug($customer->subscriptions->data[0]->id);
 //code to downgrade user to Passive Applicant
 		$subscription_id = $customer->subscriptions->data[0]->id;
 		$subscription = $customer->subscriptions->retrieve($subscription_id);
-		$subscription->plan('AppPass');
+		$subscription->plan = 'AppPass';
 		if($subscription->save()) {
 			$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
 		}

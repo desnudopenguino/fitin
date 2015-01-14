@@ -281,6 +281,10 @@ class UsersController extends AppController {
 
 //settings
 	public function settings() {
+		if(empty($this->Auth->user())) {
+			throw new ForbiddenException('Please Login to access this page');
+		}
+		$this->set('settings', $this->User->findSettings($this->Auth->user('id')));
 
 	}
 

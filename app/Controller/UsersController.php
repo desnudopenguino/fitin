@@ -337,6 +337,17 @@ class UsersController extends AppController {
 						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				}
 			}
+		} else {
+			$User = $this->Auth->user();
+			switch($User['role_id']) {
+				case 1: //Employer
+					$this->redirect(array("controller" => "employers", "action" => "checkout"));
+					break;
+
+				case 2: //Applicant
+					$this->redirect(array("controller" => "applicants", "action" => "checkout"));
+					break;
+			}
 		}
 	}
 }

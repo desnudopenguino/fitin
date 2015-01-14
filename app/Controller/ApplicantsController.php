@@ -172,7 +172,6 @@ class ApplicantsController extends AppController {
 
 // checkout view - shows all the different user levels
 	public function checkout() {
-		
 	}
  }
 ?>

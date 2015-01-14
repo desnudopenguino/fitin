@@ -125,7 +125,9 @@ Class User extends AppModel {
 	public function findCustomer($user_id) {
 		$customer = $this->Customer->find('first', array(
 			'conditions' => array(
-				'Customer.user_id' => $user_id)));
+				'Customer.user_id' => $user_id),
+			'fields' => array(
+				'Customer.id')));
 		return $customer;
 	}
 }

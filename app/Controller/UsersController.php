@@ -331,6 +331,8 @@ class UsersController extends AppController {
 			$result = $this->Stripe->customerCreate($stripe_customer_data);
 			$this->User->Customer->create();
 			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
+				//update the user
+				$this->User->updateUserLevel($this->request->data['User']['stripePlan']);
 				debug($result);
 			}
 		}

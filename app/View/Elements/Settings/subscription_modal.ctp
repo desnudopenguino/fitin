@@ -7,8 +7,8 @@
         <h4 class="modal-title">Change Subscription</h4>
       </div>
 			<?php 
-				echo $this->Form->create('Customer',array(
-					'action' => 'update',
+				echo $this->Form->create('User',array(
+					'action' => 'updateSubscription',
 					'method' => 'post',
 					'inputDefaults' => array(
 						'div' => 'form-group',

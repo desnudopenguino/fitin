@@ -288,11 +288,12 @@ class UsersController extends AppController {
 		$this->set('settings', $settings);
 		$customer = $this->Stripe->customerRetrieve($settings['Customer']['customer_id']);
 debug($customer);
-debug($customer->subscriptions);
-debug($customer->subscriptions->data);
-debug($customer->subscriptions->data[0]);
 debug($customer->subscriptions->data[0]->id);
-
+//code to downgrade user to Passive Applicant
+		$subscription_id = $customer->subscriptions->data[0]->id;
+		$subscription = $customer->subscriptions->retrieve($subscription_id);
+		$subscription->plan('AppPass');
+		$subscription->save();
 	}
 
 //privacy

@@ -4,6 +4,10 @@ App::uses('AppModel', 'Model');
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 Class User extends AppModel {
+
+	public $belongsTo = array(
+		'UserLevel');
+
 	public $hasOne = array( 
 		'Customer',
 		'Applicant',
@@ -136,7 +140,8 @@ Class User extends AppModel {
 			'conditions' => array(
 				'User.id' => $user_id),
 			'contain' => array(
-				'Customer')));
+				'Customer',
+				'UserLevel')));
 	}
 }
 ?>

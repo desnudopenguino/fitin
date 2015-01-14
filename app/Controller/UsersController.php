@@ -333,7 +333,8 @@ class UsersController extends AppController {
 			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
 				//update the user
 				if($this->User->updateUserLevel($this->Auth->user('id'),$this->request->data['User']['stripePlan'])) {
-					debug($result);
+					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),
+						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				}
 			}
 		}

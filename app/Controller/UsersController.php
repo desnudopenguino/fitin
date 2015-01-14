@@ -291,6 +291,7 @@ debug($customer);
 debug($customer->subscriptions);
 debug($customer->subscriptions->data);
 debug($customer->subscriptions->data[0]);
+debug($customer->subscriptions->data[0]->id);
 
 	}
 

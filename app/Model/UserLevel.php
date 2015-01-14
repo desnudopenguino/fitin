@@ -19,7 +19,7 @@ Class UserLevel extends AppModel {
 	}
 
 	public function findApplicantPlans() {
-		return $this->find('list' array(
+		return $this->find('list', array(
 			'conditions' => array(
 				'id' => '>= 20',
 				'id' => '< 30'),
@@ -29,7 +29,7 @@ Class UserLevel extends AppModel {
 	}
 	
 	public function findEmployerPlans() {
-		return $this->find('list' array(
+		return $this->find('list', array(
 			'conditions' => array(
 				'id' => '>= 10',
 				'id' => '< 20'),

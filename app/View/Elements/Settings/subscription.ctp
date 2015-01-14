@@ -12,7 +12,7 @@
 			<tr>
 				<td><?php echo $settings['UserLevel']['description']; ?></td>
 				<td>$<?php echo $settings['UserLevel']['price']; ?></td>
-				<td><?php echo $settings['UserLevel']['duracion']; ?></td>
+				<td><?php echo $settings['UserLevel']['duration']; ?></td>
 			</tr>
 		</table>
 	</div>

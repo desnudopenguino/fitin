@@ -130,5 +130,13 @@ Class User extends AppModel {
 				'Customer.id')));
 		return $customer;
 	}
+	
+	public function findSettings($user_id) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'User.id' => $user_id),
+			'contain' => array(
+				'Customer')));
+	}
 }
 ?>

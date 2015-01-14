@@ -287,15 +287,13 @@ class UsersController extends AppController {
 		$settings = $this->User->findSettings($this->Auth->user('id'));
 		$this->set('settings', $settings);
 		$customer = $this->Stripe->customerRetrieve($settings['Customer']['customer_id']);
-debug($customer);
-debug($customer->subscriptions->data[0]->id);
 //code to downgrade user to Passive Applicant
-		$subscription_id = $customer->subscriptions->data[0]->id;
-		$subscription = $customer->subscriptions->retrieve($subscription_id);
-		$subscription->plan = 'AppPass';
-		if($subscription->save()) {
-			$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
-		}
+//		$subscription_id = $customer->subscriptions->data[0]->id;
+//		$subscription = $customer->subscriptions->retrieve($subscription_id);
+//		$subscription->plan = 'AppPass';
+//		if($subscription->save()) {
+//			$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
+//		}
 	}
 
 //privacy

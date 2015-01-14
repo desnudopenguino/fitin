@@ -289,6 +289,7 @@ class UsersController extends AppController {
 		$customer = $this->Stripe->customerRetrieve($settings['Customer']['customer_id']);
 debug($customer);
 debug($customer->subscriptions);
+debug($customer->subscriptions->0);
 
 	}
 

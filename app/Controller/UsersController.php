@@ -284,7 +284,10 @@ class UsersController extends AppController {
 		if(empty($this->Auth->user())) {
 			throw new ForbiddenException('Please Login to access this page');
 		}
-		$this->set('settings', $this->User->findSettings($this->Auth->user('id')));
+		$settings = $this->User->findSettings($this->Auth->user('id'));
+		$this->set('settings', $settings);
+		$customer = $this->Stripe->customerRetrieve($settings['Customer']['customer_id']);
+debug($customer);
 
 	}
 

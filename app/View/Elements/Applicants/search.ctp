@@ -2,10 +2,10 @@
 	<div class="accordion">
 		<div class="accordion-group">
 			<div class="accordion-heading clearfix">
-				<div class="col-md-3">
+				<div class="col-md-5">
 					<h2><?php echo $applicant_card['DataCard']['Info']['display_name']; ?></h2>
 				</div>
-				<div class="col-md-8 col-md-offset-1">
+				<div class="col-md-6 col-md-offset-1">
 					<div class="row">
 						<div class="col-md-11" title="<?php echo $applicant_card['Results']['percent']; ?>% Job Match">
 							<div class="progress">

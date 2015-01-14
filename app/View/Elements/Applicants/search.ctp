@@ -77,7 +77,7 @@
 						</table>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<?php
 								echo $this->Html->link('View Profile','/with/'. $applicant_card['DataCard']['Info']['url'],
 								array(

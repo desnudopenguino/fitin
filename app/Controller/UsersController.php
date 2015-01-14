@@ -287,13 +287,6 @@ class UsersController extends AppController {
 		$settings = $this->User->findSettings($this->Auth->user('id'));
 		$this->set('settings', $settings);
 		$customer = $this->Stripe->customerRetrieve($settings['Customer']['customer_id']);
-//code to downgrade user to Passive Applicant
-//		$subscription_id = $customer->subscriptions->data[0]->id;
-//		$subscription = $customer->subscriptions->retrieve($subscription_id);
-//		$subscription->plan = 'AppPass';
-//		if($subscription->save()) {
-//			$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
-//		}
 	}
 
 //privacy
@@ -363,6 +356,23 @@ class UsersController extends AppController {
 					$this->redirect(array("controller" => "applicants", "action" => "checkout"));
 					break;
 			}
+		}
+	}
+	
+	public function updateSubscription() {
+		if(empty($this->Auth->user())) {
+			throw new NotFoundException("User does not exist");
+		}
+
+		if($this->request->is('post')) {
+debug($this->request->data);
+/*			$subscription_id = $customer->subscriptions->data[0]->id;
+			$subscription = $customer->subscriptions->retrieve($subscription_id);
+			$subscription->plan = ;
+			if($subscription->save()) {
+				$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
+			}
+*/			
 		}
 	}
 }

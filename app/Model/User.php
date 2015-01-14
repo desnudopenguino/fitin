@@ -5,21 +5,11 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 Class User extends AppModel {
 	public $hasOne = array( 
-		'Applicant' => array(
-			'className' => 'Applicant',
-			'dependent' => true,
-			'foreignKey' => 'user_id'
-		),
+		'Customer',
+		'Applicant',
 		'Employer',
-		'Address' => array(
-			'className' => 'Address',
-			'dependent' => true,
-			'foreignKey' => 'user_id'
-		),
-		'PhoneNumber' => array(
-			'className' => 'PhoneNumber',
-			'dependent' => true
-		)
+		'Address',
+		'PhoneNumber'
 	);
 
 	public $hasMany = array(

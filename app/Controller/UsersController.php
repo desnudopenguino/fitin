@@ -323,13 +323,13 @@ class UsersController extends AppController {
 // the checkout function, that loads the account types and levels and stuff.
 	public function checkout() {
 		if($this->request->is('post')) {
-			debug($this->request->data);
 			$stripe_customer_data = array(
 				'stripeToken' => $this->request->data['stripeToken'],
 				'email' => $this->request->data['stripeEmail'],
 				'description' => 'Test',
 				'plan' => $this->request->data['User']['stripePlan']);
 			$result = $this->Stripe->customerCreate($stripe_customer_data);
+			
 debug($result);
 		}
 	}

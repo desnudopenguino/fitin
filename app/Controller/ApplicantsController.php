@@ -12,11 +12,17 @@ class ApplicantsController extends AppController {
 
 // Dashboard - logged in page
 	public function dashboard() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->set('applicant', $this->Applicant->findDashboard($this->Auth->user('id')));
 	}
 
 // Profile - contains profile data for user, logged in page
 	public function profile() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->set('applicant', $this->Applicant->findProfile($this->Auth->user('id')));
 		$this->set('degrees', $this->Degree->findAll());
 		$this->set('concentrations', $this->Industry->findAll());
@@ -27,12 +33,18 @@ class ApplicantsController extends AppController {
 
 // Culture - allows user to answer corporate culture questions
 	public function culture() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->set('match', sizeof($this->UserCultureAnswer->findUserAnswers($this->Auth->user('id'))));
 		$this->set('total', sizeof($this->CultureQuestion->findAll()));
 	}
 
 // Search - search page, applicant gets matched up with open positions based on skills & culture match
 	public function search() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$auth_id = $this->Auth->user('id');
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
@@ -54,6 +66,9 @@ class ApplicantsController extends AppController {
 
 // Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid User'));
@@ -91,6 +106,9 @@ class ApplicantsController extends AppController {
 
 //contact action occurrs after registration/every login after that if the user doesn't have the data filled out
 	public function contact($id = null) {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->Applicant->id = $id;
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid User'));
@@ -172,6 +190,9 @@ class ApplicantsController extends AppController {
 
 // checkout view - shows all the different user levels
 	public function checkout() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 	}
  }
 ?>

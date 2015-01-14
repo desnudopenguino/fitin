@@ -121,5 +121,12 @@ Class User extends AppModel {
 			return false; 
 		}
 	}
+
+	public function findCustomer($user_id) {
+		$customer = $this->Customer->find('first', array(
+			'conditions' => array(
+				'Customer.user_id' => $user_id)));
+		return $customer;
+	}
 }
 ?>

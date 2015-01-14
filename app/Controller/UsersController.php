@@ -322,7 +322,10 @@ class UsersController extends AppController {
 
 // the checkout function, that loads the account types and levels and stuff.
 	public function checkout() {
-		if($this->request->is('post')) {
+		if($this->User->findCustomer($this->Auth->user('id'))) {
+			throw new ForbiddenException("You already have a subscription with Fitin.today, Go to your settings to change it");
+		}	
+		if($this->request->is('post') && $this->Auth->user('id')) {
 			$stripe_customer_data = array(
 				'stripeToken' => $this->request->data['stripeToken'],
 				'email' => $this->request->data['stripeEmail'],
@@ -337,7 +340,7 @@ class UsersController extends AppController {
 						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				}
 			}
-		} else {
+		} else if($this->request->user('id')) {
 			$User = $this->Auth->user();
 			switch($User['role_id']) {
 				case 1: //Employer

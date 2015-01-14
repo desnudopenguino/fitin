@@ -330,7 +330,7 @@ class UsersController extends AppController {
 				'plan' => $this->request->data['User']['stripePlan']);
 			$result = $this->Stripe->customerCreate($stripe_customer_data);
 			$this->User->Customer->create();
-			if($this->User->Customes->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
+			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
 				debug($result);
 			}
 		}

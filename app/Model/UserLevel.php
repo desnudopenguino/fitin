@@ -19,7 +19,6 @@ Class UserLevel extends AppModel {
 			default:
 				$plans = $this->findAllPlans();
 		}
-		//rebuild $plans
 		$return_plans = array();
 		foreach($plans as $plan) {
 			$return_plans[$plan['UserLevel']['stripe_plan']] = $plan['UserLevel']['description'] . ": $".$plan['UserLevel']['price'] ."/". $plan['UserLevel']['duration'];

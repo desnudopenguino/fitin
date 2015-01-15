@@ -22,7 +22,7 @@ Class UserLevel extends AppModel {
 		//rebuild $plans
 		$return_plans = array();
 		foreach($plans as $plan) {
-			$return_plans[$plan['UserLevel']['stripe_plan']] = $plan['UserLevel']['description'] . ": $".$plan['UserLevel']['price'];
+			$return_plans[$plan['UserLevel']['stripe_plan']] = $plan['UserLevel']['description'] . ": $".$plan['UserLevel']['price'] ."/". $plan['UserLevel']['duration'];
 		}
 		
 		return $return_plans;

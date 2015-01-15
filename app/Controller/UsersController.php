@@ -286,8 +286,7 @@ class UsersController extends AppController {
 		}
 		$settings = $this->User->findSettings($this->Auth->user('id'));
 		$this->set('settings', $settings);
-debug($this->User->UserLevel->findPlans($this->Auth->user('role_id')));
-		//$customer = $this->Stripe->customerRetrieve($settings['Customer']['customer_id']);
+		$this->set('plans', $this->User->UserLevel->findPlans($this->Auth->user('role_id')));
 	}
 
 //privacy

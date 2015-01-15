@@ -25,7 +25,8 @@ Class UserLevel extends AppModel {
 				'id' => '< 30'),
 			'fields' => array(
 				'UserLevel.stripe_plan',
-				'User.description'. ' $'.'User.price')));
+				'User.description',
+				'User.price')));
 	}
 	
 	public function findEmployerPlans() {
@@ -35,7 +36,8 @@ Class UserLevel extends AppModel {
 				'id' => '< 20'),
 			'fields' => array(
 				'UserLevel.stripe_plan',
-				'User.description'. ' $'.'User.price')));
+				'User.description',
+				'User.price')));
 	}
 }
 ?>

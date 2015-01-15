@@ -366,12 +366,14 @@ class UsersController extends AppController {
 
 		if($this->request->is('post')) {
 			$this->render(false);
-			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($this->Auth->user('id')));
+			$new_plan = $this->request->data['User']['stripe_plan'];
+			$user_id = $this->Auth->user('id');
+			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
 			$subscription_id = $customer->subscriptions->data[0]->id;
 			$subscription = $customer->subscriptions->retrieve($subscription_id);
-			$subscription->plan = $this->request->data['User']['stripe_plan'];
+			$subscription->plan = $new_plan;
 			if($subscription->save()) {
-				$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
+				$this->User->updateUserLevel($user_id, $new_plan);
 				$this->Session->setFlash(__('Your account has been upgraded. Thank you'),
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				$this->redirect(array("controller" => "users", "action" => "settings"));

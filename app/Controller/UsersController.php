@@ -366,6 +366,8 @@ class UsersController extends AppController {
 
 		if($this->request->is('post')) {
 			$this->render(false);
+			debug($this->User->findCustomerId($this->Auth->user('id')));
+			//$customer = $this->Stripe->customerRetrieve('cus_2x62nI9WxHsL37');
 			$subscription_id = $customer->subscriptions->data[0]->id;
 			$subscription = $customer->subscriptions->retrieve($subscription_id);
 			$subscription->plan = $this->request->data['User']['stripe_plan'];

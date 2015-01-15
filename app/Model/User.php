@@ -141,7 +141,7 @@ Class User extends AppModel {
 				'Customer.user_id' => $user_id),
 			'fields' => array(
 				'Customer.customer_id')));
-		return $customer;
+		return $customer['Customer']['customer_id'];
 	}
 	
 	public function findSettings($user_id) {

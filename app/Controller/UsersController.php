@@ -365,15 +365,15 @@ class UsersController extends AppController {
 		}
 
 		if($this->request->is('post')) {
-debug($this->request->data);
-$this->render(false);
-/*			$subscription_id = $customer->subscriptions->data[0]->id;
+			$this->render(false);
+			$subscription_id = $customer->subscriptions->data[0]->id;
 			$subscription = $customer->subscriptions->retrieve($subscription_id);
-			$subscription->plan = ;
+			$subscription->plan = $this->request->data['User']['stripe_plan'];
 			if($subscription->save()) {
 				$this->User->updateUserLevel($this->Auth->user('id'), "AppPass");
+				$this->Session->setFlash(__('Your account has been upgraded. Thank you'),
+					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 			}
-*/			
 		}
 	}
 }

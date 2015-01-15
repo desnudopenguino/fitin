@@ -7,8 +7,8 @@ Class UserLevel extends AppModel {
 	public $hasMany = array(
 		'User');
 
-	public function findPlans() {
-		switch(Authcomponent::user('role_id')) {
+	public function findPlans($role_id) {
+		switch($role_id) {
 			case 1:
 				return $this->findEmployerPlans();
 				break;

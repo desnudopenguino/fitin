@@ -33,7 +33,7 @@ Class UserLevel extends AppModel {
 			'conditions' => array(
 				'and' => array(
 					'id >= ' => '20',
-					'id < ' => '30'))));
+					'id < ' => '29'))));
 	}
 	
 	public function findEmployerPlans() {
@@ -41,7 +41,7 @@ Class UserLevel extends AppModel {
 			'conditions' => array(
 				'and' => array(
 					'id >= ' => '10',
-					'id < ' => '20'))));
+					'id < ' => '18'))));
 	}
 
 	public function findAllPlans() {

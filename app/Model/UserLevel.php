@@ -8,14 +8,24 @@ Class UserLevel extends AppModel {
 		'User');
 
 	public function findPlans($role_id) {
+		$plans = array();
 		switch($role_id) {
 			case 1:
-				return $this->findEmployerPlans();
+				$plans = $this->findEmployerPlans();
 				break;
 			case 2:
-				return $this->findApplicantPlans();
+				$plans = $this->findApplicantPlans();
 				break;
+			default:
+				$plans = $this->findAllPlans();
 		}
+		//rebuild $plans
+		$return_plans = array();
+		foreach($plans as $plan) {
+			$return_plans[$plan['UserLevel']['stripe_plan']] = $plan['UserLevel']['description'] . ": $".$plan['UserLevel']['price'];
+		}
+		
+		return $return_plans;
 	}
 
 	public function findApplicantPlans() {
@@ -32,6 +42,10 @@ Class UserLevel extends AppModel {
 				'and' => array(
 					'id >= ' => '10',
 					'id < ' => '20'))));
+	}
+
+	public function findAllPlans() {
+		return $this->find('all');
 	}
 }
 ?>

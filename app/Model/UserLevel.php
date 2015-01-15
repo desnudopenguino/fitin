@@ -37,6 +37,7 @@ Class UserLevel extends AppModel {
 					'id >= ' => '10',
 					'id < ' => '20')),
 			'fields' => array(
+				'UserLevel.id',
 				'UserLevel.stripe_plan',
 				'UserLevel.description',
 				'UserLevel.price')));

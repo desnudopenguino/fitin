@@ -22,8 +22,8 @@ Class UserLevel extends AppModel {
 		return $this->find('list', array(
 			'conditions' => array(
 				'and' => array(
-					'id' => '>= 20',
-					'id' => '< 30')),
+					'id >= ' => '20',
+					'id < ' => '30')),
 			'fields' => array(
 				'UserLevel.stripe_plan',
 				'UserLevel.description',
@@ -34,8 +34,8 @@ Class UserLevel extends AppModel {
 		return $this->find('list', array(
 			'conditions' => array(
 				'and' => array(
-					'id' => '>= 10',
-					'id' => '< 20')),
+					'id >= ' => '10',
+					'id < ' => '20')),
 			'fields' => array(
 				'UserLevel.stripe_plan',
 				'UserLevel.description',

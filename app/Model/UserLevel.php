@@ -19,28 +19,19 @@ Class UserLevel extends AppModel {
 	}
 
 	public function findApplicantPlans() {
-		return $this->find('list', array(
+		return $this->find('all', array(
 			'conditions' => array(
 				'and' => array(
 					'id >= ' => '20',
-					'id < ' => '30')),
-			'fields' => array(
-				'UserLevel.stripe_plan',
-				'UserLevel.description',
-				'UserLevel.price')));
+					'id < ' => '30'))));
 	}
 	
 	public function findEmployerPlans() {
-		return $this->find('list', array(
+		return $this->find('all', array(
 			'conditions' => array(
 				'and' => array(
 					'id >= ' => '10',
-					'id < ' => '20')),
-			'fields' => array(
-				'UserLevel.id',
-				'UserLevel.stripe_plan',
-				'UserLevel.description',
-				'UserLevel.price')));
+					'id < ' => '20'))));
 	}
 }
 ?>

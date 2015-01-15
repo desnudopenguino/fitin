@@ -1,4 +1,3 @@
-<?php $plans = array(); ?>
 <div class="modal fade" id="updateCustomerModal" tabindex="-1" role="dialog" arial-labelledby="updateCustomerLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

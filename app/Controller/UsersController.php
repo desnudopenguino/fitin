@@ -333,12 +333,15 @@ class UsersController extends AppController {
 		if($this->request->is('post') && $this->Auth->user('id')) {
 			$stripe_customer_data = array(
 				'stripeToken' => $this->request->data['stripeToken'],
-				'email' => $this->request->data['stripeEmail'],
-				'description' => 'Test',
-				'plan' => $this->request->data['User']['stripePlan']);
+				'email' => $this->Auth->user('email'),
+				'description' => 'User_'.$this->Auth->user('id'));
 			$result = $this->Stripe->customerCreate($stripe_customer_data);
 			$this->User->Customer->create();
 			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
+				$customer = $this->Stripe->customerRetrieve($result['stripe_id']);
+				$customer->subscriptions->create(array(
+					'plan' => $this->request->data['User']['stripePlan'],
+					'coupon' => $this->Auth->user('coupon')));
 				//update the user
 				if($this->User->updateUserLevel($this->Auth->user('id'),$this->request->data['User']['stripePlan'])) {
 					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),

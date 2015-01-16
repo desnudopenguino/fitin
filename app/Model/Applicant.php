@@ -245,9 +245,9 @@ Class Applicant extends AppModel {
 			'contain' => array(
 				'User' => array(
 					'fields' => array(
-						'User.email'),
-					'conditions' => array(
-						'User.user_level_id > ' => 20)))));
+						'User.email'))),
+			'conditions' => array(
+				'User.user_level_id > ' => 20)));
 	}
 }
 ?>

@@ -8,6 +8,10 @@ class RequestsController extends AppController {
 		$this->Auth->allow('confirm','passwordReset');
 	}
 
+	/**
+		* confirm action sets the user status to +1 
+		* this action, with the url, is an email confirmation verification 
+		*/
 	public function confirm($url = null) {
 		//load the request & it's user
 		$request = $this->Request->findConfirm($url);
@@ -26,10 +30,17 @@ class RequestsController extends AppController {
 
 		$this->Request->save(array('Request' => array('active' => 0)));
 		//update the user with status_id + 1
-		$request['User']['status_id'] = $request['User']['status_id'] + 1;
-		$this->Request->User->save($request);
+		if($request['User']['status_id'] == 1 || $request['User']['status_id'] == 3) {
+			$request['User']['status_id'] = $request['User']['status_id'] + 1;
+			$this->Request->User->save($request);
+		}
 	}
 
+	/**
+		* passwordReset allows the user to reset their password
+		* it checks if the request is valid, then allows the user
+		* to change their password.
+		*/
 	public function passwordReset($url = null) {
 		$request = $this->Request->findReset($url);
 		$this->Request->read(null,$request['Request']['id']);

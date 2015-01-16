@@ -60,7 +60,7 @@ class EmployersController extends AppController {
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->request->data['User']['role_id'] = 1;
-			$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 3;
+			$this->request->data['User']['status_id'] = 3;
 			if($this->Employer->User->save($this->request->data['User'])) {
 //create the organization
 				$organization = $this->Organization->checkAndCreate($this->request->data,1);

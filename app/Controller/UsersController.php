@@ -349,7 +349,7 @@ class UsersController extends AppController {
 				}
 				//update the user
 				if($this->User->updateUserLevel($this->Auth->user('id'),$this->request->data['User']['stripePlan'])) {
-					$this->Auth->login($this->User->read(null,$this->Auth->user('id'));
+					$this->Auth->login($this->User->read(null,$this->Auth->user('id')));
 					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),
 						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				}
@@ -383,6 +383,7 @@ class UsersController extends AppController {
 			$subscription->plan = $new_plan;
 			if($subscription->save()) {
 				$this->User->updateUserLevel($user_id, $new_plan);
+				$this->Auth->login($this->User->read(null,$this->Auth->user('id')));
 				$this->Session->setFlash(__('Your account has been upgraded. Thank you'),
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				$this->redirect(array("controller" => "users", "action" => "settings"));

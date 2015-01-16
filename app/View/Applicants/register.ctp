@@ -15,7 +15,6 @@
 			<?php
 				echo $this->Form->input('User.email');
 				echo $this->Form->input('User.password');
-				echo $this->Form->input('User.coupon');
 			?>
 			<legend>Name</legend>
 			<?php 

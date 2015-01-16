@@ -48,11 +48,7 @@ class ApplicantsController extends AppController {
 		$auth_id = $this->Auth->user('id');
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
-		if($this->Auth->user('user_level_id') == 20) {
-			$positions = $this->Position->findAllPremiumIds();
-		} else {
-			$positions = $this->Position->findAllIds();
-		}
+		$positions = $this->Position->findAllIds();
 		$positionCards = array();
 		foreach($positions as $position) {
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
@@ -190,13 +186,6 @@ class ApplicantsController extends AppController {
 
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 1) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));
-		}
-	}
-
-// checkout view - shows all the different user levels
-	public function checkout() {
-		if($this->Auth->user('role_id') != 2) {
-			throw new ForbiddenException("Not Allowed");
 		}
 	}
  }

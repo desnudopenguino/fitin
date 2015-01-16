@@ -138,11 +138,7 @@ class EmployersController extends AppController {
 		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
-			if($this->Auth->user('user_level_id') == 10) {
-				$applicants = $this->Applicant->findAllPremiumIds();
-			} else {
-				$applicants = $this->Applicant->findAllIds();
-			}
+			$applicants = $this->Applicant->findAllIds();
 
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
@@ -209,12 +205,6 @@ class EmployersController extends AppController {
 		$this->set('degrees', $this->Degree->findAll());
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));
-		}
-	}
-
-	public function checkout() {
-		if($this->Auth->user('role_id') != 1) {
-			throw new ForbiddenException("Not Allowed");
 		}
 	}
 }

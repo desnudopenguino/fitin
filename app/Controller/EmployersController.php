@@ -137,9 +137,12 @@ class EmployersController extends AppController {
 		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
-		
-			$applicants = $this->Applicant->find('all', array(
-				'fields' => array('Applicant.user_id')));
+	
+			if($this->Auth->user('usel_level_id') == 10) {
+				$applicants = $this->Applicant->findAllPremiumIds();
+			} else {
+				$applicants = $this->Applicant->findAllIds();
+			}
 
 			$applicantCards = array();
 			foreach($applicants as $applicant) {

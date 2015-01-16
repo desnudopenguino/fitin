@@ -231,5 +231,21 @@ Class Applicant extends AppModel {
 					'PhoneNumber'
 						))));
 	}
+
+	public function findAllIds() {
+		return $this->find('all', array(
+			'fields' => array(
+				'Applicant.user_id')));
+	}
+	
+	public function findAllPremiumIds() {
+		return $this->find('all', array(
+			'fields' => array(
+				'Applicant.user_id'),
+			'contain' => array(
+				'User' => array(
+					'conditions' => array(
+						'User.user_level_id > ' => 20)))));
+	}
 }
 ?>

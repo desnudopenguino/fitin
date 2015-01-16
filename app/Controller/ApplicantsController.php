@@ -49,7 +49,7 @@ class ApplicantsController extends AppController {
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
 		if($this->Auth->user('user_level_id') == 20) {
-			$positions= $this->Position->findAllPremiumIds();
+			$positions = $this->Position->findAllPremiumIds();
 debug($positions);
 		} else {
 			$positions = $this->Position->findAllIds();

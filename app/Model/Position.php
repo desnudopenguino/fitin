@@ -121,6 +121,23 @@ Class Position extends AppModel {
 		return $ids;
 	}
 
+	public function findAllPremiumIds() {
+		App::uses('CakeSession', 'Model/Datasource');
+		$company_id = CakeSession::read('company');
+		if(!empty($company_id)) {
+			$ids = $this->Employer->Organization->Company->findPositions($company_id);
+		} else {
+			$ids = $this->find('all', array(
+				'fields' => array(
+					'Position.id', 'Position.employer_id'),
+				'contain' => array(
+					'Employer' => array(
+						'conditions' => array(
+							'Employer.user_level_id > ' => 10)))));
+		}
+		return $ids;
+	}
+
 	public function findBlock($id = null) {
 		$position = $this->find('first', array(
 			'conditions' => array(

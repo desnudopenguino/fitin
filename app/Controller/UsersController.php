@@ -339,9 +339,13 @@ class UsersController extends AppController {
 			$this->User->Customer->create();
 			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
 				$customer = $this->Stripe->customerRetrieve($result['stripe_id']);
-				$customer->subscriptions->create(array(
-					'plan' => $this->request->data['User']['stripePlan'],
-					'coupon' => $this->Auth->user('coupon')));
+				try {
+					$customer->subscriptions->create(array(
+						'plan' => $this->request->data['User']['stripePlan'],
+						'coupon' => $this->Auth->user('coupon')));
+				} catch (Exceptyon $e ) {
+					debug($e);
+				}
 				//update the user
 				if($this->User->updateUserLevel($this->Auth->user('id'),$this->request->data['User']['stripePlan'])) {
 					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),

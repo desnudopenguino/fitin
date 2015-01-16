@@ -140,6 +140,7 @@ class EmployersController extends AppController {
 	
 			if($this->Auth->user('usel_level_id') == 10) {
 				$applicants = $this->Applicant->findAllPremiumIds();
+debug($applicants);
 			} else {
 				$applicants = $this->Applicant->findAllIds();
 			}

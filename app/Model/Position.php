@@ -129,12 +129,17 @@ Class Position extends AppModel {
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(
-					'Position.id', 'Position.employer_id'),
+					'Position.id', 'Position.employer_id'
+				),
 				'contain' => array(
 					'Employer' => array(
-						'User')),
+						'User'
+					)
+				),
 				'conditions' => array(
-					'User.user_level_id > ' => 10)));
+					'User.user_level_id > ' => 10
+				)
+			));
 		}
 		return $ids;
 	}

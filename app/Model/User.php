@@ -6,7 +6,6 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 Class User extends AppModel {
 
 	public $hasOne = array( 
-		'Customer',
 		'Applicant',
 		'Employer',
 		'Address',

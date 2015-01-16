@@ -132,7 +132,9 @@ Class Position extends AppModel {
 					'Position.id', 'Position.employer_id'),
 				'contain' => array(
 					'Employer' => array(
-						'User')),
+						'User' => array(
+							'fields' => array(
+								'User.id')))),
 				'conditions' => array(
 					'User.user_level_id > ' => 10)));
 		}

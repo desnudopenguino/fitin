@@ -12,7 +12,7 @@
 			'class' => 'well'
 	)); ?>
 		<fieldset>
-			<legend>Reset Password</legend>
+			<legend>Confirm Email</legend>
 			<?php 
 				echo $this->Form->button('Send Email Confirmation', array(
 					'div' => 'form-group',

@@ -50,6 +50,7 @@ class ApplicantsController extends AppController {
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
 		if($this->Auth->user('user_level_id') == 20) {
 			$positions= $this->Position->findAllPremiumIds();
+debug($positions);
 		} else {
 			$positions = $this->Position->findAllIds();
 		}

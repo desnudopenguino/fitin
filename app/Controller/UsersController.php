@@ -387,10 +387,10 @@ class UsersController extends AppController {
 				$this->User->updateUserLevel($user_id, $new_plan);
 				$login = $this->User->read(null,$user_id);
 debug($login);
-				$this->Auth->login($this->User->read(null,$user_id));
+				$this->Auth->login($login['User']);
 				$this->Session->setFlash(__('Your account has been upgraded. Thank you'),
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
-//				$this->redirect(array("controller" => "users", "action" => "settings"));
+				$this->redirect(array("controller" => "users", "action" => "settings"));
 			}
 		}
 	}

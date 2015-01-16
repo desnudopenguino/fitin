@@ -327,14 +327,15 @@ class UsersController extends AppController {
 
 // the checkout function, that loads the account types and levels and stuff.
 	public function checkout() {
-		if($this->User->findCustomer($this->Auth->user('id'))) {
+		$user_id = $this->Auth->user('id');
+		if($this->User->findCustomer($user_id)) {
 			throw new ForbiddenException("You already have a subscription with Fitin.today, Go to your settings to change it");
 		}	
-		if($this->request->is('post') && $this->Auth->user('id')) {
+		if($this->request->is('post') && $user_id) {
 			$stripe_customer_data = array(
 				'stripeToken' => $this->request->data['stripeToken'],
 				'email' => $this->Auth->user('email'),
-				'description' => 'User_'.$this->Auth->user('id'));
+				'description' => 'User_'.$user_id);
 			$result = $this->Stripe->customerCreate($stripe_customer_data);
 			$this->User->Customer->create();
 			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
@@ -348,13 +349,13 @@ class UsersController extends AppController {
 						'plan' => $this->request->data['User']['stripePlan']));
 				}
 				//update the user
-				if($this->User->updateUserLevel($this->Auth->user('id'),$this->request->data['User']['stripePlan'])) {
-					$this->Auth->login($this->User->read(null,$this->Auth->user('id')));
+				if($this->User->updateUserLevel($user_id,$this->request->data['User']['stripePlan'])) {
+					$this->Auth->login($this->User->read(null,$user_id));
 					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),
 						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				}
 			}
-		} else if($this->Auth->user('id')) {
+		} else if($user_id) {
 			$User = $this->Auth->user();
 			switch($User['role_id']) {
 				case 1: //Employer
@@ -383,7 +384,7 @@ class UsersController extends AppController {
 			$subscription->plan = $new_plan;
 			if($subscription->save()) {
 				$this->User->updateUserLevel($user_id, $new_plan);
-				$this->Auth->login($this->User->read(null,$this->Auth->user('id')));
+				$this->Auth->login($this->User->read(null,$user_id));
 				$this->Session->setFlash(__('Your account has been upgraded. Thank you'),
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				$this->redirect(array("controller" => "users", "action" => "settings"));

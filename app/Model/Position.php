@@ -128,6 +128,8 @@ Class Position extends AppModel {
 			$ids = $this->Employer->Organization->Company->findPositions($company_id);
 		} else {
 			$ids = $this->find('all', array(
+				'fields' => array(
+					'Position.id','Position.employer_id'),
 				'contain' => array(
 					'Employer' => array(
 						'User' => array(
@@ -138,6 +140,12 @@ Class Position extends AppModel {
 					)
 				)
 			));
+		}
+
+		foreach($ids as $iKey => $id) {
+			if(empty($ids[$iKey]['Employer']['User'])) {
+				unset($ids[$iKey]);
+			}
 		}
 		return $ids;
 	}

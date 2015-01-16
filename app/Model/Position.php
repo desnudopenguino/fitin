@@ -130,11 +130,12 @@ Class Position extends AppModel {
 			$ids = $this->find('all', array(
 				'contain' => array(
 					'Employer' => array(
-						'User'
+						'User' => array(
+							'conditions' => array(
+								'User.user_level_id > ' => 10
+							)
+						)
 					)
-				),
-				'conditions' => array(
-					'User.user_level_id > ' => 10
 				)
 			));
 		}

@@ -340,9 +340,10 @@ class UsersController extends AppController {
 			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
 				$customer = $this->Stripe->customerRetrieve($result['stripe_id']);
 				try {
-					$customer->subscriptions->create(array(
+					$subscription =$customer->subscriptions->create(array(
 						'plan' => $this->request->data['User']['stripePlan'],
 						'coupon' => $this->Auth->user('coupon')));
+debug($subscription);
 				} catch (Exceptyon $e ) {
 					debug($e);
 				}

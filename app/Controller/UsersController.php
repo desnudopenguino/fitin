@@ -331,6 +331,8 @@ class UsersController extends AppController {
 			$Email->subject('FitIn.Today Email Confirmation');
 			$Email->config('gmail');
 			$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+			$this->Session->setFlash(__('A confirmation email has been sent'),
+				'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 		}
 	}
 

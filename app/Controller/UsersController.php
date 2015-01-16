@@ -321,16 +321,17 @@ class UsersController extends AppController {
 		* confirm is the action that a user goes to to request an email confirmation
 		*/
 	public function confirm() {
-		$this->User->Request->create();
-		$this->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-		$request_id = $this->User->Request->getInsertId();
-		$request = $this->User->Request->findById($request_id);
-		$Email = new CakeEmail();
-		$Email->to($this->Auth->user('email'));
-		$Email->subject('FitIn.Today Email Confirmation');
-		$Email->config('gmail');
-		$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
-
+		if($this->request->is('post') {
+			$this->User->Request->create();
+			$this->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+			$request_id = $this->User->Request->getInsertId();
+			$request = $this->User->Request->findById($request_id);
+			$Email = new CakeEmail();
+			$Email->to($this->Auth->user('email'));
+			$Email->subject('FitIn.Today Email Confirmation');
+			$Email->config('gmail');
+			$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+		}
 	}
 
 	public function join($url = null) {

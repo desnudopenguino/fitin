@@ -344,6 +344,8 @@ class UsersController extends AppController {
 						'plan' => $this->request->data['User']['stripePlan'],
 						'coupon' => $this->Auth->user('coupon')));
 				} catch (Exception $e ) {
+					$subscription =$customer->subscriptions->create(array(
+						'plan' => $this->request->data['User']['stripePlan']));
 				}
 				//update the user
 				if($this->User->updateUserLevel($this->Auth->user('id'),$this->request->data['User']['stripePlan'])) {

@@ -30,7 +30,6 @@ class RequestsController extends AppController {
 
 		$this->Request->save(array('Request' => array('active' => 0)));
 		//update the user with status_id + 1
-debug($this->Html->url('/'));
 debug($request);
 		if($request['User']['status_id'] == 1 || $request['User']['status_id'] == 3) {
 			$request['User']['status_id'] = $request['User']['status_id'] + 1;

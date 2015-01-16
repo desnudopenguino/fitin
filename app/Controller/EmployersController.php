@@ -137,7 +137,7 @@ class EmployersController extends AppController {
 		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
-debug($this->Auth->user);	
+debug($this->Auth->user());	
 			if($this->Auth->user('usel_level_id') == 10) {
 				$applicants = $this->Applicant->findAllPremiumIds();
 debug($applicants);

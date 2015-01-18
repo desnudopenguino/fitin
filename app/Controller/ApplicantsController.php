@@ -185,8 +185,10 @@ class ApplicantsController extends AppController {
 		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		if($user['status_id'] < 4) {
-			throw new ForbiddenException(__('Invalid User'));
+		if($user['User']['status_id'] < 4) {
+			if($this->Auth->user() && $this->Auth->user('role_id') != 0	)
+				throw new ForbiddenException(__('Invalid User'));
+			}
 		}
 		$this->set('applicant', $this->Applicant->findProfile($user['User']['id']));
 

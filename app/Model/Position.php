@@ -129,7 +129,6 @@ Class Position extends AppModel {
 				unset($ids[$iKey]);
 			}
 		}
-debug($ids);
 		return $ids;
 	}
 
@@ -160,7 +159,6 @@ debug($ids);
 				unset($ids[$iKey]);
 			}
 		}
-debug($ids);
 		return $ids;
 	}
 

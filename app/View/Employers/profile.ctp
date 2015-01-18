@@ -14,10 +14,17 @@
 					array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
 		</h2>
 		<p>Phone:
-			<?php echo $employer['User']['PhoneNumber']['phone_number']; ?>
+			<?php if(!empty($applicant['User']['PhoneNumber'])) {
+				echo $applicant['User']['PhoneNumber']['phone_number']; 
+			}?>
 		</p>
-		<p><?php echo $employer['User']['Address']['street']; ?><br>
-			<?php echo $employer['User']['Address']['city']; ?>, <?php echo $employer['User']['Address']['State']['short_name']; ?> <?php echo $employer['User']['Address']['zip']; ?>
+		<p>Address:
+			<?php if(!empty($applicant['User']['Address'])) {
+				echo $applicant['User']['Address']['street']; ?><br>
+				<?php echo $applicant['User']['Address']['city']; ?>,
+				<?php echo $applicant['User']['Address']['State']['short_name']; ?>
+				<?php echo $applicant['User']['Address']['zip']; 
+			}?>
 		</p>
 		<p><?php echo $employer['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",

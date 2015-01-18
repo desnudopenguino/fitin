@@ -12,6 +12,9 @@ class EmployersController extends AppController {
 
 //add action occurrs after registration/every login after that if the user doesn't have the data filled out.
 	public function contact($id = null) {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->Employer->id = $id;
 		if(!$this->Employer->exists()) {
 			throw new NotFoundException(__('Invalid User'));
@@ -57,6 +60,7 @@ class EmployersController extends AppController {
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->request->data['User']['role_id'] = 1;
+			$this->request->data['User']['status_id'] = 3;
 			if($this->Employer->User->save($this->request->data['User'])) {
 //create the organization
 				$organization = $this->Organization->checkAndCreate($this->request->data,1);
@@ -90,10 +94,16 @@ class EmployersController extends AppController {
 	}
 
 	function dashboard() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->set('employer', $this->Employer->findDashboard($this->Auth->user('id')));
 	}
 
 	function profile() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->set('employer', $this->Employer->findProfile($this->Auth->user('id')));
 
 		$this->set('industries', $this->Industry->find('list', array(
@@ -108,11 +118,17 @@ class EmployersController extends AppController {
 	}
 
 	function culture() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->set('match', sizeof($this->UserCultureAnswer->findUserAnswers($this->Auth->user('id'))));
 		$this->set('total', sizeof($this->CultureQuestion->findAll()));
 	}
 
 	function search() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->set('positions', $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),
@@ -122,9 +138,11 @@ class EmployersController extends AppController {
 		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
-		
-			$applicants = $this->Applicant->find('all', array(
-				'fields' => array('Applicant.user_id')));
+			if($this->Auth->user('user_level_id') == 10) {
+				$applicants = $this->Applicant->findAllPremiumIds();
+			} else {
+				$applicants = $this->Applicant->findAllIds();
+			}
 
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
@@ -141,6 +159,9 @@ class EmployersController extends AppController {
 
 // Edit - edit the contact/personal info for the user (address, phone, name)
 	public function edit($id = null) {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$this->Employer->read(null,$id);
 		if(!$this->Employer->exists()) {
 			throw new NotFoundException(__('Invalid User'));
@@ -188,6 +209,12 @@ class EmployersController extends AppController {
 		$this->set('degrees', $this->Degree->findAll());
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));
+		}
+	}
+
+	public function checkout() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
 		}
 	}
 }

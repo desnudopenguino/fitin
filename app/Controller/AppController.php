@@ -72,13 +72,13 @@ class AppController extends Controller {
 
 	public function checkUserInfoExists() {
 //if user status is < 3, make them fill out the form!
-/*		if($this->Auth->loggedIn()
+		if($this->Auth->loggedIn()
 			&& $this->Auth->user('status_id') < 3
 			&& $this->request->params['action'] != 'logout' 
 			&& $this->request->params['action'] != 'contact'
 			&& $this->request->params['action'] != 'confirm') { 
 				$this->redirect(array("controller" => "users", "action" => "contact"));
-		}*/
+		}
 	}
 
 	public function beforeRender() { 

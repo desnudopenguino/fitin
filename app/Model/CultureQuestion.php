@@ -15,7 +15,7 @@ Class CultureQuestion extends AppModel {
 		return $this->find('first', array(
 			'order' => array('rand()'),
 			'contain' => array(
-				'CultureQuestionAnswer')/*,
+				'CultureQuestionAnswer')/*, //Disable to replicate issue 144.
 			'conditions' => array(
 				'NOT' => array('CultureQuestion.id' => $answers))*/
 		));
@@ -36,9 +36,9 @@ Class CultureQuestion extends AppModel {
 				'CultureQuestionAnswer',
 				'UserCultureAnswer' => array(
 					'fields' => array(
-						'UserCultureAnswer.modified'),
+						'UserCultureAnswer.modified'),/* //Disable to replicate issue 144.
 					'conditions' => array(
-						'UserCultureAnswer.user_id' => $user_id),
+						'UserCultureAnswer.user_id' => $user_id),*/
 					'order' => array(
 						'UserCultureAnswer.modified ASC')))));
 	}	

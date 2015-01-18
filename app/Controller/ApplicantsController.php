@@ -45,6 +45,9 @@ class ApplicantsController extends AppController {
 		if($this->Auth->user('role_id') != 2) {
 			throw new ForbiddenException("Not Allowed");
 		}
+		if($this->Auth->user('status_id') < 4) {
+			throw new ForbiddenException('Please confirm your email to access this page: <a href="/confirm">Email Confirmation</a>');
+		}
 		$auth_id = $this->Auth->user('id');
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
@@ -181,6 +184,9 @@ class ApplicantsController extends AppController {
 		$user = $this->Applicant->User->findByUrl($url);
 		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
+		}
+		if($user['status_id'] < 4) {
+			throw new ForbiddenException(__('Invalid User'));
 		}
 		$this->set('applicant', $this->Applicant->findProfile($user['User']['id']));
 

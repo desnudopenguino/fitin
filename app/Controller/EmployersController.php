@@ -129,6 +129,9 @@ class EmployersController extends AppController {
 		if($this->Auth->user('role_id') != 1) {
 			throw new ForbiddenException("Not Allowed");
 		}
+		if($this->Auth->user('status_id') < 4) {
+			throw new ForbiddenException('Please confirm your email to access this page: <a href="/confirm">Email Confirmation</a>');
+		}
 		$this->set('positions', $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),
@@ -200,6 +203,9 @@ class EmployersController extends AppController {
 		$user = $this->Employer->User->findByUrl($url);
 		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
+		}
+		if($user['status_id'] < 4) {
+			throw new ForbiddenException(__('Invalid User'));
 		}
 		$this->set('employer', $this->Employer->findProfile($user['User']['id']));
 		$this->set('degrees', $this->Degree->findAll());

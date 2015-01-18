@@ -116,7 +116,18 @@ Class Position extends AppModel {
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(
-					'Position.id', 'Position.employer_id')));
+					'Position.id', 'Position.employer_id'),
+				'contain' => array(
+					'Employer' => array(
+						'User' => array(
+							'conditions' => array(
+								'User.status_id' => 4))))));
+		}
+
+		foreach($ids as $iKey => $id) {
+			if(empty($ids[$iKey]['Employer']['User'])) {
+				unset($ids[$iKey]);
+			}
 		}
 		return $ids;
 	}
@@ -134,7 +145,8 @@ Class Position extends AppModel {
 					'Employer' => array(
 						'User' => array(
 							'conditions' => array(
-								'User.user_level_id > ' => 10
+								'User.user_level_id > ' => 10,
+								'User.status_id' => 4
 							)
 						)
 					)

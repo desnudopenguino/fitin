@@ -235,7 +235,11 @@ Class Applicant extends AppModel {
 	public function findAllIds() {
 		return $this->find('all', array(
 			'fields' => array(
-				'Applicant.user_id')));
+				'Applicant.user_id'),
+			'contain' => array(
+				'User'),
+			'conditions' => array(
+				'User.status_id' => 4)));
 	}
 	
 	public function findAllPremiumIds() {
@@ -247,7 +251,8 @@ Class Applicant extends AppModel {
 					'fields' => array(
 						'User.email'))),
 			'conditions' => array(
-				'User.user_level_id > ' => 20)));
+				'User.user_level_id > ' => 20,
+				'User.status_id' => 4)));
 	}
 }
 ?>

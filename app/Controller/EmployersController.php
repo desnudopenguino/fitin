@@ -130,7 +130,7 @@ class EmployersController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 		if($this->Auth->user('status_id') < 4) {
-			throw new ForbiddenException('Please confirm your email to access this page: <a href="/confirm">Email Confirmation</a>');
+			throw new ForbiddenException('Please confirm your email to access this page.');
 		}
 		$this->set('positions', $this->Employer->Position->find('list', array(
 			'conditions' => array(

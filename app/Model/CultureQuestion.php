@@ -15,9 +15,10 @@ Class CultureQuestion extends AppModel {
 		return $this->find('first', array(
 			'order' => array('rand()'),
 			'contain' => array(
-				'CultureQuestionAnswer'),
+				'CultureQuestionAnswer')/*,
 			'conditions' => array(
-				'NOT' => array('CultureQuestion.id' => $answers))));
+				'NOT' => array('CultureQuestion.id' => $answers))*/
+		));
 	}
 
 	public function findById($id = null) {

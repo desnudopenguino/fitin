@@ -139,8 +139,7 @@ class PositionsController extends AppController {
 			throw new NotFoundException(__('Invalid Position'));
 		}
 		$position = $this->Position->findById($id);
-debug($position);
-		if($position['Employer']['User']['status_id'] != 4) {
+		if($position['Position']['Employer']['User']['status_id'] != 4) {
 			throw new NotFoundException(__('Invalid Position'));
 		}
 		$this->set('position', $position);

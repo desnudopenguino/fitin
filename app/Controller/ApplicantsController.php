@@ -46,7 +46,7 @@ class ApplicantsController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 		if($this->Auth->user('status_id') < 4) {
-			throw new ForbiddenException('Please confirm your email to access this page: <a href="/confirm">Email Confirmation</a>');
+			throw new ForbiddenException(__('Please confirm your email to access this page'));
 		}
 		$auth_id = $this->Auth->user('id');
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);

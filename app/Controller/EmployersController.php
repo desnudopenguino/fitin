@@ -204,7 +204,7 @@ class EmployersController extends AppController {
 		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		if($user['status_id'] < 4) {
+		if($user['User']['status_id'] < 4) {
 			throw new ForbiddenException(__('Invalid User'));
 		}
 		$this->set('employer', $this->Employer->findProfile($user['User']['id']));

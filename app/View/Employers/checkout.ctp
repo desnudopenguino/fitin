@@ -79,7 +79,7 @@ data-amount="1000000">
 <h2 class="muted">Nonprofit</h2>
 <p><span class="label">Best Deal</span></p>
 <ul>
-<li>Full, Premium access to all Employer listings</li>
+<li>Free Premium access to all Employer listings</li>
 </ul>
 <p>Nonprofit</p>
 <hr>

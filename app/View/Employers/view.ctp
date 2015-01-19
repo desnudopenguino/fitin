@@ -10,10 +10,16 @@
 					echo $employer['User']['email'];
 				} ?></h2>
 			<p>Phone:
-				<?php echo $employer['User']['PhoneNumber']['phone_number']; ?>
+				<?php if(!empty($employer['User']['PhoneNumber'])) {
+					echo $employer['User']['PhoneNumber']['phone_number']; 
+				}?>
 			</p>
-			<p>
-				<?php echo $employer['User']['Address']['city']; ?>, <?php echo $employer['User']['Address']['State']['short_name']; ?> <?php echo $employer['User']['Address']['zip']; ?>
+			<p>Location:
+				<?php if(!empty($employer['User']['Address'])) { ?>
+					<?php echo $employer['User']['Address']['city']; ?>,
+					<?php echo $employer['User']['Address']['State']['short_name']; ?>
+					<?php echo $employer['User']['Address']['zip']; 
+				}?>
 			</p>
 			<p><?php echo $employer['User']['email']; ?></p>
 		</div>

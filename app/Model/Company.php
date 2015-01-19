@@ -77,7 +77,7 @@ debug($positions);
 					'Position' => array(
 						'id' => $position['id'],
 						'employer_id' => $position['employer_id']),
-					'Employer' => $positions['Organization']['Employer']);
+					'Employer' => $positions['Organization']['Employer'][0]);
 			}
 		}
 debug($positions_return);

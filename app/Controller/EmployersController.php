@@ -107,8 +107,6 @@ class EmployersController extends AppController {
 		$this->set('employer', $this->Employer->findProfile($this->Auth->user('id')));
 		$employer = $this->Employer->findProfile($this->Auth->user('id'));
 
-		debug($employer['User']);
-
 		$this->set('industries', $this->Industry->find('list', array(
 			'fields' => array(
 				'Industry.id','Industry.industry_type'))));

@@ -19,7 +19,7 @@
 				echo $employer['User']['PhoneNumber']['phone_number']; 
 			}?>
 		</p>
-		<p>Address:
+		<p>Location:
 			<?php if(!empty($employer['User']['Address'])) {
 				echo $employer['User']['Address']['street']; ?><br>
 				<?php echo $employer['User']['Address']['city']; ?>,

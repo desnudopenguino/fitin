@@ -70,7 +70,6 @@ Class Company extends AppModel {
 							'fields' => array(
 								'Position.id','Position.employer_id')))))));
 		$positions_return = array();
-debug($positions);
 		foreach($positions['Organization']['Employer'] as $employer) {
 			foreach($employer['Position'] as $position) {
 				$positions_return[] = array(
@@ -80,7 +79,6 @@ debug($positions);
 					'Employer' => $positions['Organization']['Employer'][0]);
 			}
 		}
-debug($positions_return);
 		return $positions_return;
 	}
 }

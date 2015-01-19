@@ -57,7 +57,6 @@ class ApplicantsController extends AppController {
 		} else {
 			$positions = $this->Position->findAllIds();
 		}
-debug($positions);
 		$positionCards = array();
 		foreach($positions as $position) {
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);

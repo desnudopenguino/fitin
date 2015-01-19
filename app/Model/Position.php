@@ -116,13 +116,14 @@ Class Position extends AppModel {
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(
-					'Position.id', 'Position.employer_id','User.status_id'),
+					'Position.id', 'Position.employer_id'),
 				'contain' => array(
 					'Employer' => array(
 						'User' => array(
 							'conditions' => array(
 								'User.status_id' => 4))))));
 		}
+debug($ids);
 
 		foreach($ids as $iKey => $id) {
 			if(empty($ids[$iKey]['Employer']['User'])) {

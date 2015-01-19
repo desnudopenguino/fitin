@@ -1,6 +1,6 @@
 <div class="row">
 	<?php debug($user);
-		if($user['status_id'] == 1 || $user['status_id'] == 3) {
+		if($user['User']['status_id'] == 1 || $user['User']['status_id'] == 3) {
 			echo $this->element('Settings/confirm_email');
 		} ?>
 

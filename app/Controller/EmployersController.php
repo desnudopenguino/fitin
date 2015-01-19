@@ -143,6 +143,7 @@ class EmployersController extends AppController {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
 			$applicants = $this->Applicant->findAllIds();
+debug($applicants);
 
 			$applicantCards = array();
 			foreach($applicants as $applicant) {

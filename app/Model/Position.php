@@ -215,6 +215,7 @@ Class Position extends AppModel {
 
 // removes null position industries and position functions from the list.
 	private function cleanRequirements($data) {
+debug($data);
 		foreach($data['PositionIndustry'] as $key => $industry) {
 			if($industry['industry_id'] == null) {
 				unset($data['PositionIndustry'][$key]);

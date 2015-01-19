@@ -285,9 +285,10 @@ class UsersController extends AppController {
 			throw new ForbiddenException('Please Login to access this page');
 		}
 		$user_id = $this->Auth->user('id');
+		$user_role = $this->Auth->user('role_id');
 		$settings = $this->User->findSettings($user_id);
 		$this->set('settings', $settings);
-		$this->set('plans', $this->User->UserLevel->findPlans($user_id));
+		$this->set('plans', $this->User->UserLevel->findPlans($user_role));
 		$this->set('user', $this->User->findStatusId($user_id));
 	}
 

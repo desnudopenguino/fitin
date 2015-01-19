@@ -84,6 +84,7 @@ class ApplicantsController extends AppController {
 
 		$applicant = $this->Applicant->findEdit($id);
 		$this->set('applicant', $applicant);
+debug($applicant);
 
 		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
 

@@ -281,6 +281,7 @@ class UsersController extends AppController {
 		if(empty($this->Auth->user())) {
 			throw new ForbiddenException('Please Login to access this page');
 		}
+		$this->set('user', $this->User->findStatusId($this->Auth->user('id')));
 	}
 
 //privacy

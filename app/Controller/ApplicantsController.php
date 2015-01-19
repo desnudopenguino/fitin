@@ -163,7 +163,6 @@ class ApplicantsController extends AppController {
 				$this->Applicant->User->Address->save($this->request->data['Address']);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->request->data['Applicant']['user_id'] = $user_id;
-debug($this->request->data);
 				if($this->Applicant->save($this->request->data['Applicant'])) {
 					$this->Applicant->User->Request->create();
 					$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
@@ -174,7 +173,7 @@ debug($this->request->data);
 					$Email->subject('FitIn.Today Email Confirmation');
 					$Email->config('gmail');
 					$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
-//					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 				}
 			}
 		}

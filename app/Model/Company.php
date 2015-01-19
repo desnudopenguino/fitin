@@ -45,7 +45,6 @@ Class Company extends AppModel {
 							'PositionSkill' => array(
 								'Skill'
 		)))))));
-debug($company);
 		foreach($company['Organization']['Employer'] as $eKey => $employer) {
 			if(empty($employer['User'])) {
 				unset($company['Organization']['Employer'][$eKey]);
@@ -54,7 +53,6 @@ debug($company);
 		$company['Company']['Organization'] = $company['Organization'];
 		unset($company['Organization']);
 
-debug($company);
 		return $company;
 	}
 

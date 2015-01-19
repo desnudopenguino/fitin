@@ -116,7 +116,7 @@ Class Position extends AppModel {
 		} else {
 			$ids = $this->find('all', array(
 				'fields' => array(
-					'Position.id', 'Position.employer_id'),
+					'Position.id', 'Position.employer_id','User.status_id'),
 				'contain' => array(
 					'Employer' => array(
 						'User' => array(

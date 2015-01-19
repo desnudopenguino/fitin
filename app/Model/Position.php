@@ -123,7 +123,6 @@ Class Position extends AppModel {
 					'User' => array(
 						'conditions' => array(
 							'User.status_id' => 4))))));
-debug($ids);
 
 		return $this->cleanPositionIds($ids);
 	}

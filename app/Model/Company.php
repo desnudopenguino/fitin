@@ -46,9 +46,9 @@ Class Company extends AppModel {
 								'Skill'
 		)))))));
 
-		foreach($company['Company']['Organization']['Employer'] as $eKey => $employer) {
+		foreach($company['Organization']['Employer'] as $eKey => $employer) {
 			if(empty($employer)) {
-				unset($company['Company']['Organization']['Employer'][$eKey]);
+				unset($company['Organization']['Employer'][$eKey]);
 			}
 		}
 		$company['Company']['Organization'] = $company['Organization'];

@@ -108,9 +108,7 @@ Class Position extends AppModel {
 		return array('DataCard' => $dataCard);
 	}
 
-	public function findCompanyIds() {
-		App::uses('CakeSession', 'Model/Datasource');
-		$company_id = CakeSession::read('company');
+	public function findCompanyIds($company_id) {
 		$ids = $this->Employer->Organization->Company->findPositions($company_id);
 
 		return $this->cleanPositionIds($ids);

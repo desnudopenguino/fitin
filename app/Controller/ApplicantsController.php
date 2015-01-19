@@ -84,7 +84,6 @@ class ApplicantsController extends AppController {
 
 		$applicant = $this->Applicant->findEdit($id);
 		$this->set('applicant', $applicant);
-debug($applicant);
 
 		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
 
@@ -164,6 +163,7 @@ debug($applicant);
 				$this->Applicant->User->Address->save($this->request->data['Address']);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->request->data['Applicant']['user_id'] = $user_id;
+debug($this->request->data);
 				if($this->Applicant->save($this->request->data['Applicant'])) {
 					$this->Applicant->User->Request->create();
 					$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	

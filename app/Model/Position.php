@@ -110,7 +110,6 @@ Class Position extends AppModel {
 
 	public function findCompanyIds($company_id) {
 		$ids = $this->Employer->Organization->Company->findPositions($company_id);
-debug($ids);
 		return $this->cleanPositionIds($ids);
 	}
 

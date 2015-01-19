@@ -23,7 +23,7 @@
 					</ul>
 					<p>Text about Monthly Premium</p>
 					<hr>
-					<h3>$5.00/Month</h3>
+					<h3>$5/Month</h3>
 					<hr>
 					<?php echo $this->Form->create('User', array(
 						'controller' => 'users', 'action' => 'checkout'));
@@ -52,7 +52,7 @@
 </ul>
 <p>Text about Annual Premium</p>
 <hr>
-<h3>$50.00/Year</h3>
+<h3>$50/Year</h3>
 <hr>
 <?php echo $this->Form->create('User', array(
 'controller' => 'users', 'action' => 'checkout'));

@@ -23,7 +23,7 @@
 </ul>
 <p>Text about Premium</p>
 <hr>
-<h3>$3,000.00/Year</h3>
+<h3>$3,000/Year</h3>
 <hr>
 <?php echo $this->Form->create('User', array(
 'controller' => 'users', 'action' => 'checkout'));
@@ -53,7 +53,7 @@ data-amount="300000">
 </ul>
 <p>Text about Enterprise</p>
 <hr>
-<h3>$10,000.00/Year</h3>
+<h3>$10,000/Year</h3>
 <hr>
 <?php echo $this->Form->create('User', array(
 'controller' => 'users', 'action' => 'checkout'));

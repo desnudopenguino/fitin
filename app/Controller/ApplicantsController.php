@@ -54,6 +54,8 @@ class ApplicantsController extends AppController {
 		$company_id = $this->Session->read('company');
 		if($company_id != null) {
 			$positions = $this->Position->findCompanyIds($company_id);
+		} else if($this->Auth->user('user_level_id') == 20) {
+			$positions = $this->Position->findAllPremiumIds();
 		} else {
 			$positions = $this->Position->findAllIds();
 		}
@@ -198,6 +200,14 @@ class ApplicantsController extends AppController {
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 1) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));
 		}
+	}
+// checkout view - shows all the different user levels
+	public function checkout() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
+
+		$this->set('email', $this->Auth->user('email'));
 	}
  }
 ?>

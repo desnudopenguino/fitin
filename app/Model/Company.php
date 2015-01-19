@@ -75,7 +75,7 @@ Class Company extends AppModel {
 				$positions_return[] = array('Position' => array('id' => $position['id'], 'employer_id' => $position['employer_id']));
 			}
 		}
-debug($positions);
+debug($positions_return);
 		return $positions_return;
 	}
 }

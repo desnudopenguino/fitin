@@ -111,6 +111,7 @@ Class Position extends AppModel {
 	public function findAllIds() {
 		App::uses('CakeSession', 'Model/Datasource');
 		$company_id = CakeSession::read('company');
+debug($company_id);
 		if(!empty($company_id)) {
 			$ids = $this->Employer->Organization->Company->findPositions($company_id);
 		} else {
@@ -123,7 +124,6 @@ Class Position extends AppModel {
 							'conditions' => array(
 								'User.status_id' => 4))))));
 		}
-debug($ids);
 
 		foreach($ids as $iKey => $id) {
 			if(empty($ids[$iKey]['Employer']['User'])) {

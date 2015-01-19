@@ -20,6 +20,7 @@
 <p><span class="label">Budget</span></p>
 <ul>
 <li>Full, Premium access to all Employer listings</li>
+<li>Custom URL for your job postings</li>
 </ul>
 <p>Text about Premium</p>
 <hr>

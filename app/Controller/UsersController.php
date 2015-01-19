@@ -350,7 +350,7 @@ class UsersController extends AppController {
 	public function checkout() {
 		$user_id = $this->Auth->user('id');
 		if($this->User->findCustomer($user_id)) {
-			throw new ForbiddenException("You already have a subscription with Fitin.today, Go to your settings to chang
+			throw new ForbiddenException("You already have a subscription with Fitin.today, Go to your settings to change it");
 		}
 		if($this->request->is('post') && $user_id) {
 			$stripe_customer_data = array(
@@ -373,7 +373,7 @@ class UsersController extends AppController {
 				if($this->User->updateUserLevel($user_id,$this->request->data['User']['stripePlan'])) {
 					$login = $this->User->read(null,$user_id);
 					$this->Auth->login($login['User']);
-					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Than
+					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),
 						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				}
 			}

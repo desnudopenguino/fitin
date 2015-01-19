@@ -13,7 +13,8 @@
 <hr>
 <h3>Free Forever</h3>
 <hr>
-<p><button type="button" class="btn btn-primary" disabled="disabled">Free</b-                               </div>
+<p><button type="button" class="btn btn-primary" disabled="disabled">Free</button></p>
+</div>
 <div class="col-md-2 col-md-offset-1 well">
 <h2 class="muted">Premium</h2>
 <p><span class="label">Budget</span></p>

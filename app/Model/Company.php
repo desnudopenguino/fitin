@@ -47,7 +47,7 @@ Class Company extends AppModel {
 		)))))));
 debug($company);
 		foreach($company['Organization']['Employer'] as $eKey => $employer) {
-			if(empty($employer)) {
+			if(empty($employer['User'])) {
 				unset($company['Organization']['Employer'][$eKey]);
 			}
 		}

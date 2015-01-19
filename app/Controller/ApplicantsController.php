@@ -51,7 +51,12 @@ class ApplicantsController extends AppController {
 		$auth_id = $this->Auth->user('id');
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
-		$positions = $this->Position->findAllIds();
+		$company_id = $this->Session->read('company');
+		if($company_id != null) {
+			$positions = $this->Position->findCompanyIds($company_id);
+		} else {
+			$positions = $this->Position->findAllIds();
+		}
 		$positionCards = array();
 		foreach($positions as $position) {
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);

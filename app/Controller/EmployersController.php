@@ -105,6 +105,7 @@ class EmployersController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 		$this->set('employer', $this->Employer->findProfile($this->Auth->user('id')));
+		debug($this->Employer->findProfile($this->Auth->user('id')));
 
 		$this->set('industries', $this->Industry->find('list', array(
 			'fields' => array(

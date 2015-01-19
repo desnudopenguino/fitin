@@ -4,7 +4,7 @@ App::uses('CakeEmail','Network/Email');
 
 class UsersController extends AppController {
 
-	public $componets = array(
+	public $components = array(
 		'Stripe.Stripe');
 
   public function beforeFilter() {

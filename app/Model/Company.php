@@ -69,13 +69,13 @@ Class Company extends AppModel {
 						'Position' => array(
 							'fields' => array(
 								'Position.id','Position.employer_id')))))));
-debug($positions);
 		$positions_return = array();
 		foreach($positions['Organization']['Employer'] as $employer) {
 			foreach($employer['Position'] as $position) {
 				$positions_return[] = array('Position' => array('id' => $position['id'], 'employer_id' => $position['employer_id']));
 			}
 		}
+debug($positions);
 		return $positions_return;
 	}
 }

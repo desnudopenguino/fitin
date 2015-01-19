@@ -9,7 +9,7 @@
 <li>Free access</li>
 <li>Access to paid Employer listings</li>
 </ul>
-<p>Text About Passive Applicant</p>
+<p>Passive Applicant</p>
 <hr>
 <h3>Free Forever</h3>
 <hr>
@@ -22,7 +22,7 @@
 <li>Full, Premium access to all Employer listings</li>
 <li>Custom URL for your account and job postings</li>
 </ul>
-<p>Text about Premium</p>
+<p>Premium Employer</p>
 <hr>
 <h3>$3,000/Year</h3>
 <hr>
@@ -52,7 +52,7 @@ data-amount="300000">
 <li>Full, Premium access to all Employer listings</li>
 <li>Up to 20 department accounts included</li>
 </ul>
-<p>Text about Enterprise</p>
+<p>Enterprise Employer</p>
 <hr>
 <h3>$10,000/Year</h3>
 <hr>
@@ -81,7 +81,7 @@ data-amount="1000000">
 <ul>
 <li>Full, Premium access to all Employer listings</li>
 </ul>
-<p>Text about Nonprofit</p>
+<p>Nonprofit</p>
 <hr>
 <h3>Free</h3>
 <hr>

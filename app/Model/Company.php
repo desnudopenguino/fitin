@@ -59,12 +59,13 @@ Class Company extends AppModel {
 	public function findPositions($id = null) {
 		$positions = $this->find('first', array(
 			'conditions' => array(
-				'Company.id' => $id,
-				'User.status_id' => 4),
+				'Company.id' => $id),
 			'contain' => array(
 				'Organization' => array(
 					'Employer' => array(
-						'User',
+						'User' => array(
+							'conditions' => array(
+								'User.status_id' => 4)),
 						'Position' => array(
 							'fields' => array(
 								'Position.id','Position.employer_id')))))));

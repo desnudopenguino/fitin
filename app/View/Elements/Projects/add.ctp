@@ -26,7 +26,11 @@
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
 							'label' => 'Company'));
-		
+						
+						echo $this->Form->input('website', array(
+							'type' => 'text',
+							'label' => 'Website'));
+						
 						echo $this->Form->input('start_date', array(
 							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text'));

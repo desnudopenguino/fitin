@@ -72,17 +72,6 @@ Cache::config('default', array('engine' => 'File'));
 
 //BoostCake Bootstrap plugin
 CakePlugin::load('BoostCake');
-CakePlugin::load('Stripe');
-Configure::write('Stripe.TestSecret', 'sk_test_8AzqUrKRSP4sZs7bH0xfRPCC ');
-Configure::write('Stripe.mode', 'Test');
-Configure::write('Stripe.currency', 'usd');
-Configure::write('Stripe.fields', array(
-    'stripe_id' => 'id',
-    'stripe_last4' => array('card' => 'last4'),
-    'stripe_address_zip_check' => array('card' => 'address_zip_check'),
-    'stripe_cvc_check' => array('card' => 'cvc_check'),
-    'stripe_amount' => 'amount'
-));
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:

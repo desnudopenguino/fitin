@@ -4,9 +4,6 @@ App::uses('CakeEmail','Network/Email');
 
 class UsersController extends AppController {
 
-	public $components = array(
-		'Stripe.Stripe' );	
-	
   public function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow('login','register','view','passwordReset','join');
@@ -284,9 +281,7 @@ class UsersController extends AppController {
 		if(empty($this->Auth->user())) {
 			throw new ForbiddenException('Please Login to access this page');
 		}
-		$settings = $this->User->findSettings($this->Auth->user('id'));
-		$this->set('settings', $settings);
-		$this->set('plans', $this->User->UserLevel->findPlans($this->Auth->user('role_id')));
+		$this->set('user', $this->User->findStatusId($this->Auth->user('id')));
 	}
 
 //privacy
@@ -342,75 +337,6 @@ class UsersController extends AppController {
 			$this->Session->write('referral',$user['User']['id']);
 		}
 		$this->redirect(array("controller" => "pages", "action" => "display", "home"));
-	}
-
-// the checkout function, that loads the account types and levels and stuff.
-	public function checkout() {
-		$user_id = $this->Auth->user('id');
-		if($this->User->findCustomer($user_id)) {
-			throw new ForbiddenException("You already have a subscription with Fitin.today, Go to your settings to change it");
-		}	
-		if($this->request->is('post') && $user_id) {
-			$stripe_customer_data = array(
-				'stripeToken' => $this->request->data['stripeToken'],
-				'email' => $this->Auth->user('email'),
-				'description' => 'User_'.$user_id);
-			$result = $this->Stripe->customerCreate($stripe_customer_data);
-			$this->User->Customer->create();
-			if($this->User->Customer->save(array('Customer' => array('customer_id' => $result['stripe_id'])))) {
-				$customer = $this->Stripe->customerRetrieve($result['stripe_id']);
-				try {
-					$subscription =$customer->subscriptions->create(array(
-						'plan' => $this->request->data['User']['stripePlan'],
-						'coupon' => $this->Auth->user('coupon')));
-				} catch (Exception $e ) {
-					$subscription =$customer->subscriptions->create(array(
-						'plan' => $this->request->data['User']['stripePlan']));
-				}
-				//update the user
-				if($this->User->updateUserLevel($user_id,$this->request->data['User']['stripePlan'])) {
-					$login = $this->User->read(null,$user_id);
-					$this->Auth->login($login['User']);
-					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),
-						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
-				}
-			}
-		} else if($user_id) {
-			$User = $this->Auth->user();
-			switch($User['role_id']) {
-				case 1: //Employer
-					$this->redirect(array("controller" => "employers", "action" => "checkout"));
-					break;
-
-				case 2: //Applicant
-					$this->redirect(array("controller" => "applicants", "action" => "checkout"));
-					break;
-			}
-		}
-	}
-	
-	public function updateSubscription() {
-		if(empty($this->Auth->user())) {
-			throw new NotFoundException("User does not exist");
-		}
-
-		if($this->request->is('post')) {
-			$this->render(false);
-			$new_plan = $this->request->data['User']['stripe_plan'];
-			$user_id = $this->Auth->user('id');
-			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
-			$subscription_id = $customer->subscriptions->data[0]->id;
-			$subscription = $customer->subscriptions->retrieve($subscription_id);
-			$subscription->plan = $new_plan;
-			if($subscription->save()) {
-				$this->User->updateUserLevel($user_id, $new_plan);
-				$login = $this->User->read(null,$user_id);
-				$this->Auth->login($login['User']);
-				$this->Session->setFlash(__('Your account has been upgraded. Thank you'),
-					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
-				$this->redirect(array("controller" => "users", "action" => "settings"));
-			}
-		}
 	}
 }
 ?>

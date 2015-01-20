@@ -1,5 +1,6 @@
 <?php
-	$this->set('positions', $employer['Position']);?>
+	$this->set('positions', $employer['Position']);
+?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2><?php
@@ -14,10 +15,17 @@
 					array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
 		</h2>
 		<p>Phone:
-			<?php echo $employer['User']['PhoneNumber']['phone_number']; ?>
+			<?php if(!empty($employer['User']['PhoneNumber'])) {
+				echo $employer['User']['PhoneNumber']['phone_number']; 
+			}?>
 		</p>
-		<p><?php echo $employer['User']['Address']['street']; ?><br>
-			<?php echo $employer['User']['Address']['city']; ?>, <?php echo $employer['User']['Address']['State']['short_name']; ?> <?php echo $employer['User']['Address']['zip']; ?>
+		<p>Location:
+			<?php if(!empty($employer['User']['Address'])) {
+				echo $employer['User']['Address']['street']; ?><br>
+				<?php echo $employer['User']['Address']['city']; ?>,
+				<?php echo $employer['User']['Address']['State']['short_name']; ?>
+				<?php echo $employer['User']['Address']['zip']; 
+			}?>
 		</p>
 		<p><?php echo $employer['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",

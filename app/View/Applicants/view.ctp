@@ -11,9 +11,8 @@
 				echo $applicant['User']['PhoneNumber']['phone_number']; 
 			}?>
 			</p>
-			<p>Address:
-			<?php if(!empty($applicant['User']['Address'])) {
-				echo $applicant['User']['Address']['street']; ?><br>
+			<p>Location:
+			<?php if(!empty($applicant['User']['Address'])) { ?>
 				<?php echo $applicant['User']['Address']['city']; ?>,
 				<?php echo $applicant['User']['Address']['State']['short_name']; ?>
 				<?php echo $applicant['User']['Address']['zip']; 

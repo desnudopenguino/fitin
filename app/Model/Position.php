@@ -108,17 +108,22 @@ Class Position extends AppModel {
 		return array('DataCard' => $dataCard);
 	}
 
+	public function findCompanyIds($company_id) {
+		$ids = $this->Employer->Organization->Company->findPositions($company_id);
+		return $this->cleanPositionIds($ids);
+	}
+
 	public function findAllIds() {
-		App::uses('CakeSession', 'Model/Datasource');
-		$company_id = CakeSession::read('company');
-		if(!empty($company_id)) {
-			$ids = $this->Employer->Organization->Company->findPositions($company_id);
-		} else {
-			$ids = $this->find('all', array(
-				'fields' => array(
-					'Position.id', 'Position.employer_id')));
-		}
-		return $ids;
+		$ids = $this->find('all', array(
+			'fields' => array(
+				'Position.id', 'Position.employer_id'),
+			'contain' => array(
+				'Employer' => array(
+					'User' => array(
+						'conditions' => array(
+							'User.status_id' => 4))))));
+
+		return $this->cleanPositionIds($ids);
 	}
 
 	public function findAllPremiumIds() {
@@ -134,14 +139,18 @@ Class Position extends AppModel {
 					'Employer' => array(
 						'User' => array(
 							'conditions' => array(
-								'User.user_level_id > ' => 10
+								'User.user_level_id > ' => 10,
+								'User.status_id' => 4
 							)
 						)
 					)
 				)
 			));
 		}
+		return $this->cleanPositionIds($ids);
+	}
 
+	public function cleanPositionIds($ids) {
 		foreach($ids as $iKey => $id) {
 			if(empty($ids[$iKey]['Employer']['User'])) {
 				unset($ids[$iKey]);
@@ -206,6 +215,7 @@ Class Position extends AppModel {
 
 // removes null position industries and position functions from the list.
 	private function cleanRequirements($data) {
+//debug($data);
 		foreach($data['PositionIndustry'] as $key => $industry) {
 			if($industry['industry_id'] == null) {
 				unset($data['PositionIndustry'][$key]);

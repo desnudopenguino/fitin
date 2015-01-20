@@ -34,7 +34,9 @@ Class Company extends AppModel {
 					'Employer' => array(
 						'User' => array(
 							'fields' => array(
-								'User.url')),
+								'User.url'),
+							'conditions' => array(
+								'User.status_id' => 4)),
 						'Position' => array(
 							'PositionIndustry' => array(
 								'Industry'),
@@ -43,8 +45,14 @@ Class Company extends AppModel {
 							'PositionSkill' => array(
 								'Skill'
 		)))))));
+		foreach($company['Organization']['Employer'] as $eKey => $employer) {
+			if(empty($employer['User'])) {
+				unset($company['Organization']['Employer'][$eKey]);
+			}
+		}
 		$company['Company']['Organization'] = $company['Organization'];
 		unset($company['Organization']);
+
 		return $company;
 	}
 
@@ -55,13 +63,20 @@ Class Company extends AppModel {
 			'contain' => array(
 				'Organization' => array(
 					'Employer' => array(
+						'User' => array(
+							'conditions' => array(
+								'User.status_id' => 4)),
 						'Position' => array(
 							'fields' => array(
 								'Position.id','Position.employer_id')))))));
 		$positions_return = array();
 		foreach($positions['Organization']['Employer'] as $employer) {
 			foreach($employer['Position'] as $position) {
-				$positions_return[] = array('Position' => array('id' => $position['id'], 'employer_id' => $position['employer_id']));
+				$positions_return[] = array(
+					'Position' => array(
+						'id' => $position['id'],
+						'employer_id' => $position['employer_id']),
+					'Employer' => $positions['Organization']['Employer'][0]);
 			}
 		}
 		return $positions_return;

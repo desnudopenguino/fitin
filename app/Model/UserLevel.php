@@ -3,7 +3,7 @@
 App::uses('AppModel', 'Model');
 
 Class UserLevel extends AppModel {
-	
+
 	public $hasMany = array(
 		'User');
 
@@ -23,7 +23,7 @@ Class UserLevel extends AppModel {
 		foreach($plans as $plan) {
 			$return_plans[$plan['UserLevel']['stripe_plan']] = $plan['UserLevel']['description'] . ": $".$plan['UserLevel']['price'] ."/". $plan['UserLevel']['duration'];
 		}
-		
+
 		return $return_plans;
 	}
 
@@ -34,7 +34,7 @@ Class UserLevel extends AppModel {
 					'id >= ' => '20',
 					'id < ' => '29'))));
 	}
-	
+
 	public function findEmployerPlans() {
 		return $this->find('all', array(
 			'conditions' => array(

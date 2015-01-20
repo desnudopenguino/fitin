@@ -105,6 +105,7 @@ class EmployersController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 		$this->set('employer', $this->Employer->findProfile($this->Auth->user('id')));
+		$employer = $this->Employer->findProfile($this->Auth->user('id'));
 
 		$this->set('industries', $this->Industry->find('list', array(
 			'fields' => array(
@@ -129,6 +130,9 @@ class EmployersController extends AppController {
 		if($this->Auth->user('role_id') != 1) {
 			throw new ForbiddenException("Not Allowed");
 		}
+		if($this->Auth->user('status_id') < 4) {
+			throw new ForbiddenException('Please confirm your email to access this page.');
+		}
 		$this->set('positions', $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),
@@ -139,9 +143,9 @@ class EmployersController extends AppController {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
 			if($this->Auth->user('user_level_id') == 10) {
-				$applicants = $this->Applicant->findAllPremiumIds();
+        $applicants = $this->Applicant->findAllPremiumIds();
 			} else {
-				$applicants = $this->Applicant->findAllIds();
+        $applicants = $this->Applicant->findAllIds();
 			}
 
 			$applicantCards = array();
@@ -205,6 +209,9 @@ class EmployersController extends AppController {
 		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
+		if($user['User']['status_id'] < 4) {
+			throw new ForbiddenException(__('Invalid User'));
+		}
 		$this->set('employer', $this->Employer->findProfile($user['User']['id']));
 		$this->set('degrees', $this->Degree->findAll());
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
@@ -216,6 +223,8 @@ class EmployersController extends AppController {
 		if($this->Auth->user('role_id') != 1) {
 			throw new ForbiddenException("Not Allowed");
 		}
+
+		$this->set('email', $this->Auth->user('email'));
 	}
 }
 ?>

@@ -5,8 +5,8 @@ App::uses('CakeEmail','Network/Email');
 class UsersController extends AppController {
 
 	public $components = array(
-		'Stripe.Stripe' );	
-	
+		'Stripe.Stripe');
+
   public function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow('login','register','view','passwordReset','join');
@@ -284,9 +284,12 @@ class UsersController extends AppController {
 		if(empty($this->Auth->user())) {
 			throw new ForbiddenException('Please Login to access this page');
 		}
-		$settings = $this->User->findSettings($this->Auth->user('id'));
+		$user_id = $this->Auth->user('id');
+		$user_role = $this->Auth->user('role_id');
+		$settings = $this->User->findSettings($user_id);
 		$this->set('settings', $settings);
-		$this->set('plans', $this->User->UserLevel->findPlans($this->Auth->user('role_id')));
+		$this->set('plans', $this->User->UserLevel->findPlans($user_role));
+		$this->set('user', $this->User->findStatusId($user_id));
 	}
 
 //privacy
@@ -349,7 +352,7 @@ class UsersController extends AppController {
 		$user_id = $this->Auth->user('id');
 		if($this->User->findCustomer($user_id)) {
 			throw new ForbiddenException("You already have a subscription with Fitin.today, Go to your settings to change it");
-		}	
+		}
 		if($this->request->is('post') && $user_id) {
 			$stripe_customer_data = array(
 				'stripeToken' => $this->request->data['stripeToken'],
@@ -364,8 +367,8 @@ class UsersController extends AppController {
 						'plan' => $this->request->data['User']['stripePlan'],
 						'coupon' => $this->Auth->user('coupon')));
 				} catch (Exception $e ) {
-					$subscription =$customer->subscriptions->create(array(
-						'plan' => $this->request->data['User']['stripePlan']));
+				$subscription =$customer->subscriptions->create(array(
+					'plan' => $this->request->data['User']['stripePlan']));
 				}
 				//update the user
 				if($this->User->updateUserLevel($user_id,$this->request->data['User']['stripePlan'])) {
@@ -388,7 +391,7 @@ class UsersController extends AppController {
 			}
 		}
 	}
-	
+
 	public function updateSubscription() {
 		if(empty($this->Auth->user())) {
 			throw new NotFoundException("User does not exist");

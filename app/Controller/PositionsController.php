@@ -139,6 +139,9 @@ class PositionsController extends AppController {
 			throw new NotFoundException(__('Invalid Position'));
 		}
 		$position = $this->Position->findById($id);
+		if($position['Position']['Employer']['User']['status_id'] != 4) {
+			throw new NotFoundException(__('Invalid Position'));
+		}
 		$this->set('position', $position);
 		//build data cards and compare them
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {

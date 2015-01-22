@@ -27,7 +27,12 @@
 				<h3>Responsibilities</h3>
 				<p><?php echo $project['responsibilities']; ?></p>
 				<?php if(!empty($project['website'])) {?>
-					 <p><?php echo $this->Html->link( 'External Project Website', array($project['website']), array('full_base' => true	) );?></p>
+					 <p>
+						<?php echo $this->Html->link(
+							'External Project Website',
+							array($project['website'])
+						);?>
+					</p>
 				<?php } ?>
 			</div>
 			<div class="col-md-5 col-md-offset-1">

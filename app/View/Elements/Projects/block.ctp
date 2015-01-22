@@ -30,8 +30,8 @@
 					 <p>
 						<?php echo $this->Html->link(
 							'External Project Website',
-							array($project['website'])
-						);?>
+							$project['website']);
+						?>
 					</p>
 				<?php } ?>
 			</div>

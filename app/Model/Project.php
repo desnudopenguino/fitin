@@ -40,7 +40,12 @@ Class Project extends AppModel {
 		if($this->data[$this->alias]['end_date'] == 'Current') {
 			$this->data[$this->alias]['end_date'] = null;
 		}
-		$this->data['Project']['website'] = parse_url($this->data['Project']['website'],PHP_URL_SCHEME);
+		//parse and check url.
+		$proto_scheme = parse_url($this->data['Project']['website'],PHP_URL_SCHEME);
+		if((!stristr($proto_scheme,'http')) || (!stristr($proto_scheme,'http'))){
+			$this->data['Project']['website'] = 'http://'.$this->data['Project']['website'];
+		}
+    }
 		return true;
 	}
 

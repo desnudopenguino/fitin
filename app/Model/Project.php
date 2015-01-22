@@ -45,7 +45,6 @@ Class Project extends AppModel {
 		if((!stristr($proto_scheme,'http')) || (!stristr($proto_scheme,'http'))){
 			$this->data['Project']['website'] = 'http://'.$this->data['Project']['website'];
 		}
-    }
 		return true;
 	}
 

@@ -27,7 +27,7 @@
 				<h3>Responsibilities</h3>
 				<p><?php echo $project['responsibilities']; ?></p>
 				<?php if(!empty($project['website'])) {?>
-					 <p><a href="<?php echo $project['website']; ?>">Website</a></p>
+					 <p><?php echo $this->Html->link( 'External Project Website', $project['website'] );?></p>
 				<?php } ?>
 			</div>
 			<div class="col-md-5 col-md-offset-1">

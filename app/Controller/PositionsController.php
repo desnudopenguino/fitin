@@ -36,7 +36,7 @@ class PositionsController extends AppController {
 		$this->set('functions', $this->WorkFunction->findAll());
 		$this->set('degrees', $this->Degree->findAll());
 		if ($this->request->is('ajax')) {
-//remove the flash message if it is ajax. 
+			//remove the flash message if it is ajax. 
 			$this->Session->delete('Message.flash');
 			$this->disableCache();		
 			$this->layout = false;

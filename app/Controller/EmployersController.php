@@ -142,7 +142,11 @@ class EmployersController extends AppController {
 		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
-			$applicants = $this->Applicant->findAllIds();
+			if($this->Auth->user('user_level_id') == 10) {
+        $applicants = $this->Applicant->findAllPremiumIds();
+			} else {
+        $applicants = $this->Applicant->findAllIds();
+			}
 
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
@@ -213,6 +217,14 @@ class EmployersController extends AppController {
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));
 		}
+	}
+
+	public function checkout() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
+
+		$this->set('email', $this->Auth->user('email'));
 	}
 }
 ?>

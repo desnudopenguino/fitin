@@ -6,7 +6,8 @@
 			<span class="smaller pull-right">
 				<?php echo $project['start_date']; ?> - 
 				<?php echo $project['end_date']; ?>
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProjectModal_<?php echo $project['id']; ?>"><i class="glyphicon glyphicon-edit"></i></button>
+				
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProjectModal_<?php echo $project['id']; ?>" style="margin-left: 1em;"><i class="glyphicon glyphicon-edit"></i></button>
 				<?php echo $this->Form->create('Project', array(
 						'url' => '/projects/delete/'. $project['id'],
 						'method' => 'post',
@@ -25,6 +26,14 @@
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Responsibilities</h3>
 				<p><?php echo $project['responsibilities']; ?></p>
+				<?php if(!empty($project['website'])) {?>
+					 <p>
+						<?php echo $this->Html->link(
+							'External Project Website',
+							$project['website']);
+						?>
+					</p>
+				<?php } ?>
 			</div>
 			<div class="col-md-5 col-md-offset-1">
 				<h3>Industry</h3>

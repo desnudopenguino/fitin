@@ -17,7 +17,8 @@ Class CultureQuestion extends AppModel {
 			'contain' => array(
 				'CultureQuestionAnswer'),
 			'conditions' => array(
-				'NOT' => array('CultureQuestion.id' => $answers))));
+				'NOT' => array('CultureQuestion.id' => $answers))
+		));
 	}
 
 	public function findById($id = null) {

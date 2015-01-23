@@ -29,6 +29,7 @@ foreach($project['ProjectSkill'] as $sKey => $project_skill) {
 					<?php 
 						echo $this->Form->input('Project.id', array(
 							'value' => $project['id']));
+						
 						echo $this->Form->input('title', array(
 							'type' => 'text',
 							'value' => $project['title']));
@@ -36,7 +37,11 @@ foreach($project['ProjectSkill'] as $sKey => $project_skill) {
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
 							'value' => $project['Organization']['organization_name']));
-		
+						
+						echo $this->Form->input('Project.website', array(
+							'type' => 'text',
+							'value' => $project['website']));
+						
 						echo $this->Form->input('start_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',

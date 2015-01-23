@@ -41,5 +41,14 @@ Class PositionSkill extends AppModel {
 		}
 		return $data;
 	}
+
+	public function findPositionSkills($position_id) {
+		$skills = $this->find('list', array(
+			'fields' => array(
+				'PositionSkill.id','PositionSkill.skill_id'),
+			'conditions' => array(
+				'PositionSkill.position_id' => $position_id)));
+		return $skills;
+	}
 }
 ?>

@@ -1,4 +1,12 @@
 <div class="modal fade" id="editPositionModal_<?php echo $position['id']; ?>" tabindex="-1" role="dialog" arial-labelledby="editPositionLabel" aria-hidden="true">
+<?php $skills = '';
+	$end = count($position['PositionSkill']) - 1;
+foreach($position['PositionSkill'] as $sKey => $position_skill) {
+	$skills .= $position_skill['Skill']['skill_type'];
+	if($sKey != $end) {
+		$skills .= ', ';
+	}
+} ?>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -109,22 +117,11 @@
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $position['responsibilities']));
-						$skill_end = end($position['PositionSkill']);
-						$skill_end = key($position['PositionSkill']);
-						$skill_names = '';
-						foreach($position['PositionSkill'] as $sKey => $skill) {
-							$skill_names .= $skill['Skill']['skill_type'];
-debug($sKey);
-debug($skill_end);
-							if($sKey != $skill_end) {
-								$skill_names .= ', ';
-							}
-						}
 
 						echo $this->Form->input('PositionSkill.skill_names', array(
 							'type' => 'textarea',
 							'label' => 'Skills',
-							'value' => $skill_names));
+							'value' => $skill));
 						?>
 				</fieldset>
       </div>

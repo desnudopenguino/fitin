@@ -117,6 +117,7 @@
 								$skill_names .= ', ';
 							}
 						}
+debug($skill_names);
 
 						echo $this->Form->input('PositionSkill.skill_names', array(
 							'type' => 'textarea',

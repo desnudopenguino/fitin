@@ -77,7 +77,7 @@ class PositionsController extends AppController {
 				if($this->request->is('ajax')) {
 					$this->disableCache();
 					$this->layout= false;
-					$this->set('position', $this->Position->findBlock($this->Position->id));
+					$this->set('position', $this->Position->findAdd($this->Position->id));
 					$this->set('industries', $this->Industry->findAll());
 					$this->set('functions', $this->WorkFunction->findAll());
 					$this->set('degrees', $this->Degree->findAll());

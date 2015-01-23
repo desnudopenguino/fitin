@@ -120,6 +120,7 @@
 
 						echo $this->Form->input('PositionSkill.skills_names', array(
 							'type' => 'textarea',
+							'label' => 'Skills',
 							'value' => $skill_names));
 						?>
 				</fieldset>

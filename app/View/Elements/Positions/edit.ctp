@@ -110,6 +110,7 @@
 							'type' => 'textarea',
 							'value' => $position['responsibilities']));
 						$skill_end = end($position['PositionSkill']);
+						$skill_end = key($position['PositionSkill']);
 						$skill_names = '';
 						foreach($position['PositionSkill'] as $sKey => $skill) {
 							$skill_names .= $skill['Skill']['skill_type'];

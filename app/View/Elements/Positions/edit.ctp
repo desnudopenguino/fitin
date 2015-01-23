@@ -113,7 +113,7 @@
 						$skill_end = end($position['PositionSkill']);
 						$skill_names = '';
 						foreach($position['PositionSkill'] as $sKey => $skill) {
-							$skill_names .= $skill['skill_name'];
+							$skill_names .= $skill['Skill']['skill_type'];
 							if($sKey != $skill_end) {
 								$skill_names .= ', ';
 							}

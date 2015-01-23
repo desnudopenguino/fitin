@@ -121,7 +121,7 @@ foreach($position['PositionSkill'] as $sKey => $position_skill) {
 						echo $this->Form->input('PositionSkill.skill_names', array(
 							'type' => 'textarea',
 							'label' => 'Skills',
-							'value' => $skill));
+							'value' => $skills));
 						?>
 				</fieldset>
       </div>

@@ -6,9 +6,9 @@
 		<ul class="nav nav-pills nav-stacked">
 			<li><a class="dashboard-nav" href="#" id="inbox-btn">Messages</a></li>
 			<li><a class="dashboard-nav" href="#" id="applications-btn">Applications</a></li>
-			<li><?php echo $this->Html->link('Premium Services', array(
+			<?php /*<li><?php echo $this->Html->link('Premium Services', array(
         'controller' => 'users', 'action' => 'checkout'), array(
-        'class' => 'dashboard-nav')); ?></li>
+        'class' => 'dashboard-nav')); ?></li> */ ?>
 			<li><?php echo $this->Html->link('Settings', array(
 				'controller' => 'users', 'action' => 'settings'), array(
 				'class' => 'dashboard-nav')); ?></li>

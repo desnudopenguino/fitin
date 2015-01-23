@@ -184,7 +184,7 @@ Class Position extends AppModel {
 		$position['Position']['PositionSkill'] = $position['PositionSkill'];
 		unset($position['PositionSkill']);	
 
-		return $position;
+		return $position['Position'];
 	}
 
 	public function findRawById($id = null) {

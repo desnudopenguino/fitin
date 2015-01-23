@@ -17,6 +17,13 @@
 					<div class="col-md-5 col-md-offset-1">
 						<h3>Responsibilities</h3>
 						<p><?php echo $project['responsibilities']; ?></p>
+					 <p>
+						<?php echo $this->Html->link(
+							'External Project Website',
+							$project['website'], array(
+							'target' => '_blank'));
+						?>
+					</p>
 					</div>
 					<div class="col-md-5 col-md-offset-1">
 						<h3>Industry</h3>

@@ -109,7 +109,18 @@
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $position['responsibilities']));
-						//debug($position);
+						
+						$skill_end = end($position['PositionSkill']);
+						foreach($position['PositionSkill'] as $sKey => $skill) {
+							$skill_names .= $skill['skill_name'];
+							if($sKey != $skill_end) {
+								$skill_names .= ', ';
+							}
+						}
+
+						echo $this->Form->input('PositionSkill.skills_names', array(
+							'type' => 'textarea',
+							'value' => $skill_names));
 						?>
 				</fieldset>
       </div>

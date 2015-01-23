@@ -18,13 +18,28 @@ Class PositionSkill extends AppModel {
 
 	public function checkAndCreate($data) {
 		$data = $this->explode($data);
-
-		foreach($data['PositionSkill'] as $sKey => $project_skill) {
-			$skill = $this->Skill->checkAndCreate($project_skill);
+		$skills = array();
+		if(isset($data['Position']['id'])) {
+			$skills = $this->findPositionSkills($data['Position']['id']);
+		}
+		foreach($data['PositionSkill'] as $sKey => $position_skill) {
 			unset($data['PositionSkill'][$sKey]['Skill']);
-			$data['PositionSkill'][$sKey]['skill_id'] = $skill['Skill']['id'];
+			$skill = $this->Skill->checkAndCreate($position_skill);
+			if(!in_array($skill['Skill']['id'], $skills)) {
+				$data['PositionSkill'][$sKey]['skill_id'] = $skill['Skill']['id'];
+				unset($skills[array_search($skill['Skill']['id'],$skills)]);
+			} else {
+				unset($skills[array_search($skill['Skill']['id'],$skills)]);
+			}
+			if(empty($data['PositionSkill'][$sKey])) {
+				unset($data['PositionSkill'][$sKey]);
+			}
+		}
+		foreach($skills as $key =>$skill) {
+			$this->id = $key;
+			$this->delete();
 		}
 		return $data;
-	} 
+	}
 }
 ?>

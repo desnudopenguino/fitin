@@ -73,6 +73,7 @@ class PositionsController extends AppController {
 			throw new NotFoundException(__('Invalid Position'));
 		}
 		if($this->request->is('post') || $this->request->is('put')) {
+			$this->request->data = $this->Position->PositionSkill->checkAndCreate($this->request->data);
 			if($this->Position->saveAll($this->request->data)) {
 				if($this->request->is('ajax')) {
 					$this->disableCache();

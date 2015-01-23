@@ -109,15 +109,15 @@
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
 							'value' => $position['responsibilities']));
-						
+					debug($position);	
 						$skill_end = end($position['PositionSkill']);
+						$skill_names = '';
 						foreach($position['PositionSkill'] as $sKey => $skill) {
 							$skill_names .= $skill['skill_name'];
 							if($sKey != $skill_end) {
 								$skill_names .= ', ';
 							}
 						}
-debug($skill_names);
 
 						echo $this->Form->input('PositionSkill.skill_names', array(
 							'type' => 'textarea',

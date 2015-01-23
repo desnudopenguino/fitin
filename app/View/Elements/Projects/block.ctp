@@ -30,7 +30,8 @@
 					 <p>
 						<?php echo $this->Html->link(
 							'External Project Website',
-							$project['website']);
+							$project['website'], array(
+							'target' => '_blank'));
 						?>
 					</p>
 				<?php } ?>

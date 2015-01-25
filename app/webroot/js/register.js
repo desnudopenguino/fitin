@@ -5,13 +5,13 @@ $(document).ready(function() {
 			required: true, email: true
 			},
 			"data[User][email_confirmation]": { 
-				required: true, equalTo: "#email",
+				required: true, equalTo: "#data[User][email]",
 			}, 
 			"data[User][password]": { 
 				required: true,
 			}, 
 			"data[User][password_confirmation]": { 
-				required: true, equalTo: "#password",
+				required: true, equalTo: "#data[User][password]",
 			}
 		},
 		submitHandler: function(form) {
@@ -24,13 +24,13 @@ $(document).ready(function() {
 			required: true, email: true
 			},
 			"data[User][email_confirmation]": { 
-				required: true, equalTo: "#email",
+				required: true, equalTo: "#data[User][email]",
 			}, 
 			"data[User][password]": { 
 				required: true,
 			}, 
 			"data[User][password_confirmation]": { 
-				required: true, equalTo: "#password",
+				required: true, equalTo: "#data[User][password]",
 			}
 		},
 		submitHandler: function(form) {

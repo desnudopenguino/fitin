@@ -2,16 +2,16 @@ $(document).ready(function() {
 	$("#EmployerRegisterForm").validate({
 		debug: true,
 		rules: {
-			email: {
+			"data[User][email]": {
 			required: true, email: true
 			},
-			confirm_email: { 
+			"data[User][email_confirmation]": { 
 				required: true, equalTo: "#email",
 			}, 
-			password: { 
+			"data[User][password]": { 
 				required: true,
 			}, 
-			confirm_password: { 
+			"data[User][password_confirmation]": { 
 				required: true, equalTo: "#password",
 			}
 		},

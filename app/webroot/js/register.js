@@ -15,7 +15,9 @@ $(document).ready(function() {
 			}
 		},
 		submitHandler: function(form) {
-			form.submit();	
+			//form.submit();	
+			alert('valid form submitted'); // for demo
+            return false; // for demo
 		}	
 	});
 	

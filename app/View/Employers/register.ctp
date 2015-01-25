@@ -13,6 +13,7 @@
 		<fieldset>
 			<legend> Login info</legend>
 			<?php
+				echo $this->Html->script('http://jqueryvalidation.org/files/lib/jquery-1.11.1.js');
 				echo $this->Html->script('register');
 				echo $this->Form->input('User.email');
 				echo $this->Form->input('User.email_confirmation');

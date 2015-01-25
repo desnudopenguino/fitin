@@ -1,6 +1,10 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
 		<?php 
+			//load validation resources
+			echo $this->Html->script('jquery.validate.min'); //load validation plugin.
+			echo $this->Html->script('register'); //load registration jquery script.
+			//create form
 			echo $this->Form->create('Employer', array(
 				'inputDefaults' => array(
 					'div' => 'form-group',
@@ -13,8 +17,7 @@
 		<fieldset>
 			<legend> Login info</legend>
 			<?php
-				echo $this->Html->script('http://jqueryvalidation.org/files/lib/jquery-1.11.1.js');
-				echo $this->Html->script('register');
+				
 				echo $this->Form->input('User.email');
 				echo $this->Form->input('User.email_confirmation');
 				echo $this->Form->input('User.password');

@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$("#EmployerRegisterForm").validate({
+		debug: true,
 		rules: {
 			email: {
 			required: true, email: true

@@ -14,9 +14,11 @@
 			<legend> Login info</legend>
 			<?php
 				echo $this->Form->input('User.email');
-				echo $this->Form->input('User.confirm_email', 'Re-enter E-mail For Verification');
+				echo $this->Form->input('User.email_confirmation', 'Re-enter E-mail For Verification');
 				echo $this->Form->input('User.password');
-				echo $this->Form->input('User.confirm_password', 'Re-enter Password For Verification');
+				echo $this->Form->input('User.password_confirmation',
+										'Re-enter Password For Verification',
+										array('type' => 'password'));
 				echo $this->Form->input('User.coupon');
 			?>
 			<legend>Company Info</legend>

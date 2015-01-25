@@ -13,6 +13,7 @@ $(document).ready(function() {
 			confirm_password: { 
 				required: true, equalTo: "#password",
 			}
+		}
 			
 	});
 	

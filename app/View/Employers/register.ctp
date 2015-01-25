@@ -13,7 +13,7 @@
 		<fieldset>
 			<legend> Login info</legend>
 			<?php
-				echo $this->Html->script('register.js');
+				echo $this->Html->script('register');
 				echo $this->Form->input('User.email');
 				echo $this->Form->input('User.email_confirmation');
 				echo $this->Form->input('User.password');

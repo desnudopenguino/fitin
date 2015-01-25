@@ -17,7 +17,6 @@
 		<fieldset>
 			<legend> Login info</legend>
 			<?php
-				
 				echo $this->Form->input('User.email');
 				echo $this->Form->input('User.email_confirmation');
 				echo $this->Form->input('User.password');

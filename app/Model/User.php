@@ -63,8 +63,9 @@ Class User extends AppModel {
 // initially generate the url // generate default url if user_level_id is 10 or 20 in data
 		if(isset($this->data[$this->alias]['email'])) {
 			$this->data[$this->alias]['url'] = md5($this->data[$this->alias]['email']);
-		} else if($this->data[$this->alias]['user_level_id'] == 10 || 
-			$this->data[$this->alias]['user_level_id'] == 20) {
+		} else if(isset($this->data[$this->alias]['user_level_id']) && 
+			($this->data[$this->alias]['user_level_id'] == 10 || 
+			$this->data[$this->alias]['user_level_id'] == 20)) {
 				$this->data[$this->alias]['url'] = md5(AuthComponent::user('email'));
 		} 
 // check/set referral for user

@@ -9,6 +9,11 @@
 				),
 				'class' => 'well form-horizontal'
 			)); ?>
+		<legend>Custom Url</legend>
+			<?php 
+				echo $this->Form->input('User.url', array(
+					'value' => $applicant['User']['url'])); ?>
+		</fieldset>
 		<fieldset>
 			<legend>Company Info</legend>
 			<?php 

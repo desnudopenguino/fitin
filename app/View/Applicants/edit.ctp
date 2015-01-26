@@ -10,15 +10,21 @@
 				'class' => 'well form-horizontal'
 			)); ?>
 		<fieldset>
+			<legend>Custom Url</legend>
+			<?php 
+				echo $this->Form->input('User.url', array(
+					'value' => $applicant['User']['url']));
+		</fieldset>
+		<fieldset>
 			<legend>Name</legend>
 			<?php 
-				echo $this->Form->Input('first_name', array(
+				echo $this->Form->input('first_name', array(
 					'label' => 'First Name',
 					'value' => $applicant['Applicant']['first_name']));
-				echo $this->Form->Input('mi', array(
+				echo $this->Form->input('mi', array(
 					'label' => 'Middle Initial',
 					'value' => $applicant['Applicant']['mi']));
-				echo $this->Form->Input('last_name', array(
+				echo $this->Form->input('last_name', array(
 					'label' => 'Last Name',
 					'value' => $applicant['Applicant']['last_name'])); ?>
 		</fieldset>
@@ -31,7 +37,7 @@
 					'options' => $phone_types,
 					'value' => $applicant['User']['PhoneNumber']['phone_type_id']));
 		
-				echo $this->Form->Input('PhoneNumber.phone_number', array(
+				echo $this->Form->input('PhoneNumber.phone_number', array(
 					'type' => 'text',
 					'label' => 'Phone Number',
 					'value' => $applicant['User']['PhoneNumber']['phone_number']));

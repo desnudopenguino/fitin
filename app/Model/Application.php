@@ -77,7 +77,6 @@ Class Application extends AppModel {
 				unset($applications[$aKey]['Position']);
 			}
 		}
-debug($applications);
 		return $applications;
 	}
 }

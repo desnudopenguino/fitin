@@ -26,6 +26,10 @@
 			<?php echo $this->Html->link('Forgot Password?', array(
 				'controller' => 'users',
 				'action' => 'passwordReset')); ?>
+			or
+			<?php echo $this->Html->link('Register', array(
+				'controller' => 'pages',
+				'action' => 'display', 'home')); ?>
 		</p>
 	</div>
 </div>

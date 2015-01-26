@@ -6,7 +6,10 @@ class PositionsController extends AppController {
 	public $uses = array('Position','Applicant','DataCard','UserCultureAnswer','Industry','WorkFunction', 'Degree');
 
 	public function beforeFilter() {
+		parent::beforeFilter();
 		$this->Auth->allow('view');
+		$this->Security->unlockedActions = array(
+			'dataCard');
 	}
 
 	public function add() {
@@ -130,13 +133,15 @@ class PositionsController extends AppController {
 	}
 
 	public function dataCard($id = null) {
-		$this->set('position_card', $this->Position->loadDataCard($id));
 
-//		if($this->request->is('ajax')) {
-					$this->disableCache();
-					$this->layout= false;
-					$this->render('/Elements/Employers/dataCard');	
-//		}
+		if($this->request->is('ajax')) {
+			$this->set('position_card', $this->Position->loadDataCard($id));
+			$this->disableCache();
+			$this->layout = false;
+			$this->render('/Elements/Employers/dataCard');	
+		} else {
+			throw new NotFoundException('Invalid Request');
+		}
 	}
 
 	public function view($id = null) {

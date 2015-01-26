@@ -73,6 +73,7 @@ Class Application extends AppModel {
 			unset($applications[$aKey]['Applicant']);
 			unset($applications[$aKey]['Position']);
 		}
+debug($applications);
 		return $applications;
 	}
 }

@@ -19,6 +19,9 @@
 		<fieldset>
 			<legend>Company Info</legend>
 			<?php 
+				echo $this->Form->input('User.id', array(
+					'type' => 'hidden',
+					'value' => $employer['Employer']['user_id']));
 				echo $this->Form->Input('Organization.organization_name', array(
 					'label' => 'Company Name',
 					'value' => $employer['Organization']['organization_name']));  

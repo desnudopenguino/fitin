@@ -210,7 +210,9 @@ class EmployersController extends AppController {
 		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		if($user['User']['status_id'] < 4) {
+		if($user['User']['id'] == $this->Auth->user('id') && $user['User']['status_id'] < 4 ) {
+			throw new ForbiddenException("You must validate your email address before users can view this page");
+		} else if($user['User']['status_id'] < 4) {
 			throw new ForbiddenException(__('Invalid User'));
 		}
 		$this->set('employer', $this->Employer->findProfile($user['User']['id']));

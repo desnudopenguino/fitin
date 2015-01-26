@@ -16,7 +16,7 @@
 				echo $this->Form->input('User.email');
 				echo $this->Form->input('User.password');
 				echo $this->Form->input('User.coupon');
-				echo $this->Form->input('User.level_id', array(
+				echo $this->Form->input('User.user_level_id', array(
 					'type' => 'hidden',
 					'value' => '10'));
 			?>

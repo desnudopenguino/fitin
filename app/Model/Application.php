@@ -63,9 +63,8 @@ Class Application extends AppModel {
 				'Applicant' => array(
 					'User'),
 				'Position' => array(
-					'Employer' => array(
-						'conditions' => array(
-							'Employer.user_id' => $employer_id))))));
+					'conditions' => array(
+						'Position.employer_id' => $employer_id)))));
 		
 		
 		foreach($applications as $aKey => $application) {

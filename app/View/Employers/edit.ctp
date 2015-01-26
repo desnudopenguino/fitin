@@ -13,7 +13,7 @@
 		<legend>Custom Url</legend>
 			<?php 
 				echo $this->Form->input('User.url', array(
-					'value' => $applicant['User']['url'])); ?>
+					'value' => $employer['User']['url'])); ?>
 		</fieldset>
 		<?php } ?>
 		<fieldset>

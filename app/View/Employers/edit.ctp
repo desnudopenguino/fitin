@@ -9,7 +9,7 @@
 				),
 				'class' => 'well form-horizontal'
 			));
-			if($applicant['User']['user_level_id'] > 10) { ?>
+			if($employer['User']['user_level_id'] > 10) { ?>
 		<legend>Custom Url</legend>
 			<?php 
 				echo $this->Form->input('User.url', array(

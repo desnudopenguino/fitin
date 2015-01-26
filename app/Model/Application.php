@@ -68,7 +68,7 @@ Class Application extends AppModel {
 		
 		
 		foreach($applications as $aKey => $application) {
-			if($application['Application']['Position']['employer_id'] == null) {
+			if($applications[$aKey]['Application']['Position'] == null) {
 				unset($applications[$aKey]);
 			} else {
 				$applications[$aKey]['Application']['Applicant'] = $application['Applicant'];

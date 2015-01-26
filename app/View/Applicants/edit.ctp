@@ -18,6 +18,9 @@
 		<fieldset>
 			<legend>Name</legend>
 			<?php 
+				echo $this->Form->input('User.id', array(
+					'type' => 'hidden',
+					'value' => $applicant['Applicant']['user_id']));
 				echo $this->Form->input('first_name', array(
 					'label' => 'First Name',
 					'value' => $applicant['Applicant']['first_name']));

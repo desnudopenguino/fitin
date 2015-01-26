@@ -185,6 +185,7 @@ class EmployersController extends AppController {
 			$organization = $this->Organization->checkAndCreate($this->request->data,1);
 			$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
 			if($this->Employer->save($this->request->data['Employer'])) {
+				$this->Employer->User->save($this->request->data('User'));
 				$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
 				$this->Employer->User->Address->save($this->request->data['User']['Address']);
 				$this->Employer->Company->checkAndCreate($organization);

@@ -98,6 +98,7 @@ class ApplicantsController extends AppController {
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			if($this->Applicant->save($this->request->data['Applicant'])) {
+				$this->Applicant->User->save($this->request->data('User'));
 				$this->Applicant->User->Address->save($this->request->data['Address']);
 				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));

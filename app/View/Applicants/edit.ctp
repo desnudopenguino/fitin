@@ -8,13 +8,16 @@
 					'class' => 'form-control'
 				),
 				'class' => 'well form-horizontal'
-			)); ?>
+			)); 
+			if($applicant['User']['user_level_id'] > 20) {
+			?>
 		<fieldset>
 			<legend>Custom Url</legend>
 			<?php 
 				echo $this->Form->input('User.url', array(
 					'value' => $applicant['User']['url'])); ?>
 		</fieldset>
+		<?php } ?>
 		<fieldset>
 			<legend>Name</legend>
 			<?php 

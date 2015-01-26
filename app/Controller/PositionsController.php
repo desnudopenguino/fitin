@@ -104,8 +104,11 @@ class PositionsController extends AppController {
 
 			$positionCard = $this->Position->loadDataCard($position_id);
 		
-			$applicants = $this->Applicant->find('all', array(
-				'fields' => array('Applicant.user_id')));
+			if($this->Auth->user('user_level_id') == 10) {
+        $applicants = $this->Applicant->findAllPremiumIds();
+			} else {
+        $applicants = $this->Applicant->findAllIds();
+			}
 
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
@@ -115,6 +118,7 @@ class PositionsController extends AppController {
 				$applicantCards[] = $applicantCard;
 			}
 		
+			$applicantCards = $this->DataCard->sortByJobMatch($applicantCards);	
 			$this->set('applicant_cards', $applicantCards);
 			$this->set('position_card', $positionCard);
 		}

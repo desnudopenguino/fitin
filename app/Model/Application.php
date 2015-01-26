@@ -72,6 +72,9 @@ Class Application extends AppModel {
 			$applications[$aKey]['Application']['Position'] = $application['Position'];
 			unset($applications[$aKey]['Applicant']);
 			unset($applications[$aKey]['Position']);
+			if($application['Application']['Position']['employer_id'] == null) {
+				unset($applications[$aKey]);
+			}
 		}
 debug($applications);
 		return $applications;

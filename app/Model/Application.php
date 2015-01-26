@@ -73,7 +73,7 @@ Class Application extends AppModel {
 			unset($applications[$aKey]['Applicant']);
 			unset($applications[$aKey]['Position']);
 			if($application['Application']['Position']['employer_id'] == null) {
-				unset($applications[$aKey]);
+//				unset($applications[$aKey]);
 			}
 		}
 debug($applications);

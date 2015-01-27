@@ -50,6 +50,9 @@ class ProjectsController extends AppController {
 		if(!$this->Project->exists()) {
 			throw new NotFoundException(__('Invalid Project'));
 		}
+		if($this->Project->data['Project']['applicant_id'] != $this->Auth->user('id')) {
+			throw new NotFoundException(__('Invalid Project'));
+		}
 		if($this->Project->data['Project']['applicant_id'] == $this->Auth->user('id')) {
 			if($this->Project->delete()) {
 				if($this->request->is('ajax')) {
@@ -85,9 +88,9 @@ class ProjectsController extends AppController {
 				}
 			}
 		}
-
 	}
 
+// delete this, no real need?
 	public function index() {
 		$this->set('projects', $this->Project->find('all'));
 	}

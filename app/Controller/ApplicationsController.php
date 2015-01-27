@@ -5,6 +5,7 @@ class ApplicationsController extends AppController {
 
 	public $uses = array('Application','DataCard');
 
+//not sure if add is doing anything
 	public function add() {
 		if($this->request->is('post')) {
 			$this->Application->create();
@@ -38,6 +39,9 @@ class ApplicationsController extends AppController {
 	}
 
 	public function applicant() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		$applicant_card = $this->Application->Applicant->loadDataCard($this->Auth->user('id'));
 		$applications = $this->Application->findApplicantActive($this->Auth->user('id'));
 		foreach($applications as $aKey => $application) {
@@ -53,6 +57,9 @@ class ApplicationsController extends AppController {
 		}
 	}
 	public function employer() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
 		
 		$applications = $this->Application->findEmployerActive($this->Auth->user('id'));
 

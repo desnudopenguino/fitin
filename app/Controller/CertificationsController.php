@@ -45,12 +45,13 @@ class CertificationsController extends AppController {
 		if(!$this->Certification->exists()) {
 			throw new NotFoundException(__('Invalid Certification'));
 		}
-		if($this->Certification->data['Certification']['applicant_id'] == $this->Auth->user('id')) {
-			if($this->Certification->delete()) {
-				if($this->request->is('ajax')) {
-					$this->disableCache();
-					$this->layout = false;
-				}
+		if($this->Certification->data['Certification']['applicant_id'] != $this->Auth->user('id')) {
+			throw new NotFoundException(__('Invalid Certification'));
+		}
+		if($this->Certification->delete()) {
+			if($this->request->is('ajax')) {
+				$this->disableCache();
+				$this->layout = false;
 			}
 		}
 	}
@@ -78,7 +79,7 @@ class CertificationsController extends AppController {
 			}
 		}
 	}
-
+// remove index, not really needed
 	public function index() {
 		$this->set('certifications', $this->Certification->find('all'));
 	}

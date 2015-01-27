@@ -2,7 +2,7 @@
  App::uses('AppController', 'Controller');
 
 class PhoneNumbersController extends AppController {
-
+//remove the actions, they aren't used!
 	public function add() {
 		$this->set('phone_types',$this->PhoneNumber->PhoneType->find('list', array('fields' => array('PhoneType.id','PhoneType.phone_type'))));
 		//userid gets added to the request data (in beforesave probably

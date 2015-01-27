@@ -55,12 +55,13 @@ class PositionsController extends AppController {
 		if(!$this->Position->exists()) {
 			throw new NotFoundException(__('Invalid Position'));
 		}
-		if($this->Position->data['Position']['employer_id'] == $this->Auth->user('id')) {
-			if($this->Position->delete()) {
-				if($this->request->is('ajax')) {
-					$this->disableCache();
-					$this->layout = false;
-				}
+		if($this->Position->data['Position']['employer_id'] != $this->Auth->user('id')) {
+			throw new NotFoundException(__('Invalid Position'));
+		}
+		if($this->Position->delete()) {
+			if($this->request->is('ajax')) {
+				$this->disableCache();
+				$this->layout = false;
 			}
 		}
 	}
@@ -100,6 +101,9 @@ class PositionsController extends AppController {
 	}
 
 	public function search() {
+		if($this->Auth->user('role_id') != 1) {
+			throw new NotFoundException(__('Invalid Position'));
+		}
 		if($this->request->is('post')) {
 			$position_id = $this->request->data['Position']['id'];
 	

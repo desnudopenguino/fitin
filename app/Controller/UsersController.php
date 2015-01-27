@@ -132,7 +132,7 @@ class UsersController extends AppController {
         }
     }
 
-//edit
+//edit -- check if being used anywhere, might be marked for deletion.
     public function edit($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
@@ -152,7 +152,7 @@ class UsersController extends AppController {
         }
     }
 
-//delete
+//delete -- do we want to delete users, or just deactivate them?
     public function delete($id = null) {
         $this->request->onlyAllow('post');
 
@@ -393,9 +393,6 @@ class UsersController extends AppController {
 	}
 
 	public function updateSubscription() {
-		if(empty($this->Auth->user())) {
-			throw new NotFoundException("User does not exist");
-		}
 
 		if($this->request->is('post')) {
 			$this->render(false);

@@ -83,6 +83,9 @@ class ApplicantsController extends AppController {
 		if(!$this->Applicant->exists()) {
 			throw new NotFoundException(__('Invalid User'));
 		}
+		if($this->Auth->user('id') != $id) {
+			throw new ForbiddenException(__('Permission denied'));
+		}
 		$this->set('phone_types',
 			$this->PhoneType->findAll());
 
@@ -193,7 +196,9 @@ class ApplicantsController extends AppController {
 		if(empty($user)) {
 			throw new NotFoundException(__('Invalid User'));
 		}
-		if($user['User']['status_id'] < 4) {
+		if($user['User']['id'] == $this->Auth->user('id') && $user['User']['status_id'] < 4 ) {
+			throw new ForbiddenException("You must validate your email address before users can view this page");
+		} else if($user['User']['status_id'] < 4) {
 			throw new ForbiddenException(__('Invalid User'));
 		}
 		$this->set('applicant', $this->Applicant->findProfile($user['User']['id']));

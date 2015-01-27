@@ -48,13 +48,14 @@ class EducationsController extends AppController {
 		if(!$this->Education->exists()) {
 			throw new NotFoundException(__('Invalid Education'));
 		}
-		if($this->Education->data['Education']['applicant_id'] == $this->Auth->user('id')) {
-			if($this->Education->delete()) {
-				if($this->request->is('ajax')) {
-					$this->disableCache();
-					$this->layout = false;
-				} else {
-				}
+		if($this->Education->data['Education']['applicant_id'] != $this->Auth->user('id')) {
+			throw new NotFoundException(__('Invalid Education'));
+		}
+		if($this->Education->delete()) {
+			if($this->request->is('ajax')) {
+				$this->disableCache();
+				$this->layout = false;
+			} else {
 			}
 		}
 	}
@@ -67,21 +68,21 @@ class EducationsController extends AppController {
 		if(!$this->Education->exists()) {
 			throw new NotFoundException(__('Invalid Education'));
 		}
-
 		if($this->Education->data['Education']['applicant_id'] == $this->Auth->user('id')) {
-			if($this->request->is('post') || $this->request->is('put')) {
-				$school = $this->Organization->checkAndCreate($this->request->data, 3);
-				$this->request->data['Education']['organization_id'] = $school['Organization']['id'];
-				if($this->Education->save($this->request->data['Education'])) {
-					if($this->request->is('ajax')) {
-						$this->disableCache();
-						$this->layout= false;
-						$this->set('education', $this->Education->findRow($this->Education->id));	
-						$this->render('/Elements/Educations/row');
-					}
-				}
-			}			
+			throw new NotFoundException(__('Invalid Education'));
 		}
+		if($this->request->is('post') || $this->request->is('put')) {
+			$school = $this->Organization->checkAndCreate($this->request->data, 3);
+			$this->request->data['Education']['organization_id'] = $school['Organization']['id'];
+			if($this->Education->save($this->request->data['Education'])) {
+				if($this->request->is('ajax')) {
+					$this->disableCache();
+					$this->layout= false;
+					$this->set('education', $this->Education->findRow($this->Education->id));	
+					$this->render('/Elements/Educations/row');
+				}
+			}
+		}			
 	}
  }
 ?>

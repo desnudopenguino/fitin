@@ -170,6 +170,9 @@ class EmployersController extends AppController {
 		if(!$this->Employer->exists()) {
 			throw new NotFoundException(__('Invalid User'));
 		}
+		if($this->Auth->user('id') != $id) {
+			throw new ForbiddenException(__('Permission denied'));
+		}
 		$this->set('phone_types', $this->PhoneType->findAll());
 
 		$this->set('states', $this->State->findAllLongNames());

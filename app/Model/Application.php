@@ -88,7 +88,7 @@ Class Application extends AppModel {
 
 		if(!empty($application)) {
 			return true;
-		} else { return false;
+		} else { return false; }
 	}
 }
 ?>

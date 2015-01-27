@@ -5,7 +5,7 @@
 			echo $this->Html->script('jquery.validate.min'); //load validation plugin.
 			echo $this->Html->script('register'); //load registration jquery script.
 			//create form
-			echo $this->Form->create('Employer', array(
+			echo $this->Form->create('User', array(
 				'inputDefaults' => array(
 					'div' => 'form-group',
 					'wrapInput' => false,

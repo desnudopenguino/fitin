@@ -63,6 +63,7 @@ class EmployersController extends AppController {
 			$this->request->data['User']['status_id'] = 3;
 			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
 				$organization = $this->Organization->checkAndCreate($this->request->data,1);
+				unset($this->request->data['Organization']);
 				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
 debug($this->request->data);
 				$this->Employer->User->saveAll($this->request->data, array('validation' => false));

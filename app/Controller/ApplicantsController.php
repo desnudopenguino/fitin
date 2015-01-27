@@ -168,13 +168,13 @@ class ApplicantsController extends AppController {
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->request->data['User']['role_id'] = 2;
 			$this->request->data['User']['status_id'] = 3;
+debug($this->request->data);
 			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only'))) {
 				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
 				$user_id = $this->Applicant->User->getLastInsertID();
 				$this->Auth->login($this->Applicant->User->data['User']);
 				$this->Applicant->User->Request->create();
 				$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-debug($this->request->data);
 				$request_id = $this->Applicant->User->Request->getInsertId();
 				$request = $this->Applicant->User->Request->findById($request_id);
 				$Email = new CakeEmail();

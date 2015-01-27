@@ -2,8 +2,8 @@
 	<div class="col-md-10 col-md-offset-1">
 		<?php 
 			//load validation resources
-			echo $this->Html->script('jquery.validate.min'); //load validation plugin.
-			echo $this->Html->script('register'); //load registration jquery script.
+			//echo $this->Html->script('jquery.validate.min'); //load validation plugin.
+			//echo $this->Html->script('register'); //load registration jquery script.
 			//create form
 			echo $this->Form->create('Applicant', array(
 				'inputDefaults' => array(

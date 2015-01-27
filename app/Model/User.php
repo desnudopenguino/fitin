@@ -38,15 +38,15 @@ Class User extends AppModel {
 		),
 		
 		'email_confirmation' => array(
-			'isEmail' => array(
+/*			'isEmail' => array(
 				'rule' => array('email'),
 				'message' => "Not a valid email"
 			),
 			'isUnique' => array(
 				'rule' => array('isUnique'),
 				'message' => "An account with that email already exists"
-			),
-			'compare' => array(
+			),*/
+			'compare_emails' => array(
 				'rule' => array('compare_emails'),
 				'message' => "Email fields must match"
 			)
@@ -60,11 +60,11 @@ Class User extends AppModel {
 		),
 		
 		'password_confirmation' => array(
-			'minLength' => array(
+/*			'minLength' => array(
 				'rule' => array('minLength',8),
 				'message' => "Password minimum length is 8 characters"
-			),
-			'compare' => array(
+			),*/
+			'compare_passwords' => array(
 				'rule' => array('compare_passwords'),
 				'message' => "Password fields must match"
 			)

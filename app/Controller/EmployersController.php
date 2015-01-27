@@ -65,7 +65,6 @@ class EmployersController extends AppController {
 				$organization = $this->Organization->checkAndCreate($this->request->data,1);
 				unset($this->request->data['Organization']);
 				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-debug($this->request->data);
 				$employer = $this->request->data['Employer'];
 				unset($this->request->data['Employer']);
 				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
@@ -83,7 +82,7 @@ debug($this->request->data);
 				$Email->subject('FitIn.Today Email Confirmation');
 				$Email->config('gmail');
 				$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
-//				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
 			}
 		}
 	}

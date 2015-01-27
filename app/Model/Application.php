@@ -80,13 +80,15 @@ Class Application extends AppModel {
 		return $applications;
 	}
 
-	public function exists($applicant_id, $position_id) {
+	public function doesExist($applicant_id, $position_id) {
 		$application = $this->find('first', array(
 			'conditions' => array(
 				'Application.applicant_id' => $applicant_id,
 				'Application.position_id' => $position_id)));
 
-		debug($application);
+		if(!empty($application)) {
+			return true;
+		} else { return false;
 	}
 }
 ?>

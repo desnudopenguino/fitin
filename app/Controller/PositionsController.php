@@ -164,7 +164,7 @@ class PositionsController extends AppController {
 			$applicant_card = $this->Applicant->loadDataCard($applicant_id);
 			$position_card = $this->Position->loadDataCard($id);
 
-			$this->Position->Application->exists($applicant_id, $id);
+			$this->set('applied', $this->Position->Application->doesExist($applicant_id, $id));
 			
 			$this->set('results', $this->DataCard->compare($applicant_card,$position_card));
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($applicant_id,$position['Position']['employer_id']));

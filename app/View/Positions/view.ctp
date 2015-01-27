@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<?php
-							if(isset($position['Applied'])) {
+							if($applied) {
 								$disabled = "disabled";
 								$text = "Applied";
 							} else { $disabled = ""; $text = "Apply"; }

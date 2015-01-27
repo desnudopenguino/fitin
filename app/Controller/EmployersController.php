@@ -68,6 +68,7 @@ debug($this->request->data);
 				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
 				$user_id = $this->Employer->User->getLastInsertID();
 				$this->Auth->login($this->Employer->User->data['User']);
+debug($this->Employer->User->data);
 				$this->Employer->Company->checkAndCreate($organization);
 				$this->Employer->User->Request->create();
 				$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	

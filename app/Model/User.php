@@ -45,6 +45,10 @@ Class User extends AppModel {
 			'isUnique' => array(
 				'rule' => array('isUnique'),
 				'message' => "An account with that email already exists"
+			),
+			'isSame' => array(
+				'rule' => array('compareFields','email',
+				'message' => "Email fields must match"
 			)
 		),
 
@@ -60,6 +64,10 @@ Class User extends AppModel {
 				'rule' => array('minLength',8),
 				'message' => "Password minimum length is 8 characters"
 			)
+			'isSame' => array(
+				'rule' => array('compareFields','password',
+				'message' => "Password fields must match"
+			)
 		),
 		
 		'role_id' => array(
@@ -69,6 +77,12 @@ Class User extends AppModel {
 			)
 		)
 	);	
+
+	private function compareFields(&$data, $compareField) {
+		$value = array_values($data);
+    $comparewithvalue = $value[0];
+    return ($this->data[$this->name][$compareField] == $comparewithvalue);
+	}
 
 	public function beforeSave($options = array()) {
 // hash the password

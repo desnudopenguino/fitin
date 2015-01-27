@@ -36,6 +36,17 @@ Class User extends AppModel {
 				'message' => "An account with that email already exists"
 			)
 		),
+		
+		'confirm_email' => array(
+			'isEmail' => array(
+				'rule' => array('email'),
+				'message' => "Not a valid email"
+			),
+			'isUnique' => array(
+				'rule' => array('isUnique'),
+				'message' => "An account with that email already exists"
+			)
+		),
 
 		'password' => array(
 			'minLength' => array(
@@ -43,7 +54,14 @@ Class User extends AppModel {
 				'message' => "Password minimum length is 8 characters"
 			)
 		),
-
+		
+		'confirm_password' => array(
+			'minLength' => array(
+				'rule' => array('minLength',8),
+				'message' => "Password minimum length is 8 characters"
+			)
+		),
+		
 		'role_id' => array(
 			'required' => array(
 				'rule' => array('naturalNumber'),

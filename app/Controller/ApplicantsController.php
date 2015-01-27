@@ -174,6 +174,7 @@ class ApplicantsController extends AppController {
 				$this->Auth->login($this->Applicant->User->data['User']);
 				$this->Applicant->User->Request->create();
 				$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+debug($this->request->data);
 				$request_id = $this->Applicant->User->Request->getInsertId();
 				$request = $this->Applicant->User->Request->findById($request_id);
 				$Email = new CakeEmail();

@@ -169,33 +169,22 @@ class ApplicantsController extends AppController {
 			$this->request->data['User']['role_id'] = 2;
 			$this->request->data['User']['status_id'] = 3;
 			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only'))) {
-		/*		if($this->Applicant->User->save($this->request->data['User'])) {
-					$user_id = $this->Applicant->User->getLastInsertID();
-					$this->Auth->login($this->Applicant->User->data['User']);
-					if($this->Applicant->User->Address->save($this->request->data['Address'])) {
-						if($this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber'])) {
-							$this->request->data['Applicant']['user_id'] = $user_id;
-							if($this->Applicant->save($this->request->data['Applicant'])) {*/
-					$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
-					$user_id = $this->Applicant->User->getLastInsertID();
-					$this->Auth->login($this->Applicant->User->data['User']);
-								$this->Applicant->User->Request->create();
-								$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-								$request_id = $this->Applicant->User->Request->getInsertId();
-								$request = $this->Applicant->User->Request->findById($request_id);
-								$Email = new CakeEmail();
-								$Email->to($this->Auth->user('email'));
-								$Email->subject('FitIn.Today Email Confirmation');
-								$Email->config('gmail');
-								$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
-								$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
-							}
-						}
-					}
-			//	}
-		//	}
-	//	}
-//	}
+				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
+				$user_id = $this->Applicant->User->getLastInsertID();
+				$this->Auth->login($this->Applicant->User->data['User']);
+				$this->Applicant->User->Request->create();
+				$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+				$request_id = $this->Applicant->User->Request->getInsertId();
+				$request = $this->Applicant->User->Request->findById($request_id);
+				$Email = new CakeEmail();
+				$Email->to($this->Auth->user('email'));
+				$Email->subject('FitIn.Today Email Confirmation');
+				$Email->config('gmail');
+				$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+			}
+		}
+	}
 
 // View - public view of applicant data
 	public function view($url = null) {

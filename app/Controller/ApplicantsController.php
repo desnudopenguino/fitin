@@ -169,13 +169,16 @@ class ApplicantsController extends AppController {
 			$this->request->data['User']['role_id'] = 2;
 			$this->request->data['User']['status_id'] = 3;
 			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only'))) {
-				if($this->Applicant->User->save($this->request->data['User'])) {
+		/*		if($this->Applicant->User->save($this->request->data['User'])) {
 					$user_id = $this->Applicant->User->getLastInsertID();
 					$this->Auth->login($this->Applicant->User->data['User']);
 					if($this->Applicant->User->Address->save($this->request->data['Address'])) {
 						if($this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber'])) {
 							$this->request->data['Applicant']['user_id'] = $user_id;
-							if($this->Applicant->save($this->request->data['Applicant'])) {
+							if($this->Applicant->save($this->request->data['Applicant'])) {*/
+					$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
+					$user_id = $this->Applicant->User->getLastInsertID();
+					$this->Auth->login($this->Applicant->User->data['User']);
 								$this->Applicant->User->Request->create();
 								$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
 								$request_id = $this->Applicant->User->Request->getInsertId();
@@ -189,10 +192,10 @@ class ApplicantsController extends AppController {
 							}
 						}
 					}
-				}
-			}
-		}
-	}
+			//	}
+		//	}
+	//	}
+//	}
 
 // View - public view of applicant data
 	public function view($url = null) {

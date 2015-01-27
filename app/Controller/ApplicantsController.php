@@ -168,7 +168,7 @@ class ApplicantsController extends AppController {
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->request->data['User']['role_id'] = 2;
 			$this->request->data['User']['status_id'] = 3;
-			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only')) {
+			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only'))) {
 				if($this->Applicant->User->save($this->request->data['User'])) {
 					$user_id = $this->Applicant->User->getLastInsertID();
 					$this->Auth->login($this->Applicant->User->data['User']);

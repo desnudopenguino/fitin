@@ -37,7 +37,7 @@ Class User extends AppModel {
 			)
 		),
 		
-		'confirm_email' => array(
+		'email_confirmation' => array(
 			'isEmail' => array(
 				'rule' => array('email'),
 				'message' => "Not a valid email"
@@ -59,7 +59,7 @@ Class User extends AppModel {
 			)
 		),
 		
-		'confirm_password' => array(
+		'password_confirmation' => array(
 			'minLength' => array(
 				'rule' => array('minLength',8),
 				'message' => "Password minimum length is 8 characters"

@@ -47,7 +47,7 @@ Class User extends AppModel {
 				'message' => "An account with that email already exists"
 			),
 			'isSame' => array(
-				'rule' => array('compareFields','email'),
+				'rule' => array('compareEmails'),
 				'message' => "Email fields must match"
 			)
 		),
@@ -65,7 +65,7 @@ Class User extends AppModel {
 				'message' => "Password minimum length is 8 characters"
 			),
 			'isSame' => array(
-				'rule' => array('compareFields','password'),
+				'rule' => array('comparePassword'),
 				'message' => "Password fields must match"
 			)
 		),
@@ -78,10 +78,12 @@ Class User extends AppModel {
 		)
 	);	
 
-	private function compareFields(&$data, $compareField) {
-		$value = array_values($data);
-    $comparewithvalue = $value[0];
-    return ($this->data[$this->name][$compareField] == $comparewithvalue);
+	public function comparesPasswords() {
+		return $this->data[$this->alias]['password'] === $this->data[$this->alias]['confirm_password'];
+	}
+
+	public function comparesEmails() {
+		return $this->data[$this->alias]['email'] === $this->data[$this->alias]['confirm_email'];
 	}
 
 	public function beforeSave($options = array()) {

@@ -22,8 +22,10 @@ class ApplicationsController extends AppController {
 		$this->Application->create();
 		$this->Application->save(array('Application' => array('position_id' => $position_id)));
 		if($this->request->is('ajax')) {
-		}
 			$this->autoRender = false;	
+		} else {
+			$this->redirect(array('controller' => 'positions', 'action' => 'view',$position_id));
+		}
 	}
 //applicant initiated stop of application
 	public function cancel($id = null) {

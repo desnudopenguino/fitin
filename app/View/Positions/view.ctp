@@ -102,3 +102,4 @@
 		</p>
 	</div>
 </div>
+<?php echo $this->Html->script('applicant_search'); ?>

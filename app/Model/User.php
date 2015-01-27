@@ -46,7 +46,7 @@ Class User extends AppModel {
 				'rule' => array('isUnique'),
 				'message' => "An account with that email already exists"
 			),
-			'isSame' => array(
+			'compare' => array(
 				'rule' => array('compareEmails'),
 				'message' => "Email fields must match"
 			)
@@ -64,7 +64,7 @@ Class User extends AppModel {
 				'rule' => array('minLength',8),
 				'message' => "Password minimum length is 8 characters"
 			),
-			'isSame' => array(
+			'compare' => array(
 				'rule' => array('comparePassword'),
 				'message' => "Password fields must match"
 			)
@@ -78,11 +78,11 @@ Class User extends AppModel {
 		)
 	);	
 
-	public function comparesPasswords() {
+	public function comparePasswords() {
 		return $this->data[$this->alias]['password'] === $this->data[$this->alias]['password_confirmation'];
 	}
 
-	public function comparesEmails() {
+	public function compareEmails() {
 		return $this->data[$this->alias]['email'] === $this->data[$this->alias]['email_confirmation'];
 	}
 

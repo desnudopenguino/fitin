@@ -61,36 +61,23 @@ class EmployersController extends AppController {
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$this->request->data['User']['role_id'] = 1;
 			$this->request->data['User']['status_id'] = 3;
-			if($this->Employer->User->save($this->request->data['User'])) {
-//create the organization
+			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
 				$organization = $this->Organization->checkAndCreate($this->request->data,1);
 				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-//get the id of the user just created then login the user
+				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
 				$user_id = $this->Employer->User->getLastInsertID();
 				$this->Auth->login($this->Employer->User->data['User']);
-//save the contact info
-				if($this->Employer->User->Address->save($this->request->data['Address'])) {
-					if($this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber'])) {
-						$this->request->data['Employer']['user_id'] = $user_id;
-//save the employer
-						if($this->Employer->save($this->request->data['Employer'])) {
-//check/create the company
-							$this->Employer->Company->checkAndCreate($organization);
-//create email validation request
-							$this->Employer->User->Request->create();
-							$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-							$request_id = $this->Employer->User->Request->getInsertId();
-							$request = $this->Employer->User->Request->findById($request_id);
-//send email validation email
-							$Email = new CakeEmail();
-							$Email->to($this->Auth->user('email'));
-							$Email->subject('FitIn.Today Email Confirmation');
-							$Email->config('gmail');
-							$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
-							$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
-						}
-					}
-				}
+				$this->Employer->Company->checkAndCreate($organization);
+				$this->Employer->User->Request->create();
+				$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+				$request_id = $this->Employer->User->Request->getInsertId();
+				$request = $this->Employer->User->Request->findById($request_id);
+				$Email = new CakeEmail();
+				$Email->to($this->Auth->user('email'));
+				$Email->subject('FitIn.Today Email Confirmation');
+				$Email->config('gmail');
+				$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
 			}
 		}
 	}

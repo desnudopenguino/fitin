@@ -65,7 +65,7 @@ Class User extends AppModel {
 				'message' => "Password minimum length is 8 characters"
 			),
 			'isSame' => array(
-				'rule' => array('compareFields','password',
+				'rule' => array('compareFields','password'),
 				'message' => "Password fields must match"
 			)
 		),

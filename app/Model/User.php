@@ -79,11 +79,11 @@ Class User extends AppModel {
 	);	
 
 	public function comparesPasswords() {
-		return $this->data[$this->alias]['password'] === $this->data[$this->alias]['confirm_password'];
+		return $this->data[$this->alias]['password'] === $this->data[$this->alias]['password_confirmation'];
 	}
 
 	public function comparesEmails() {
-		return $this->data[$this->alias]['email'] === $this->data[$this->alias]['confirm_email'];
+		return $this->data[$this->alias]['email'] === $this->data[$this->alias]['email_confirmation'];
 	}
 
 	public function beforeSave($options = array()) {

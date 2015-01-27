@@ -6,6 +6,9 @@ class EducationsController extends AppController {
 	public $uses = array('Education','Organization','Degree','Industry');
 
 	public function add() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new NotFoundException(__('Invalid Action'));
+		}
 		$this->set('degrees',$this->Degree->findAll());
 		$this->set('concentrations',$this->Industry->findAll());
 		if($this->request->is('post')) {

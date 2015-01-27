@@ -6,6 +6,9 @@ class CertificationsController extends AppController {
 	public $uses = array('Certification','Organization');
 
 	public function add() {
+		if($this->Auth->user('role_id') != 2) {
+			throw new NotFoundException(__('Invalid Action'));
+		}
 		if($this->request->is('post')) {
 			$organization = $this->Organization->checkAndCreate($this->request->data,2);
 			$this->request->data['Certification']['organization_id'] = $organization['Organization']['id'];

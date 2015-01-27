@@ -70,7 +70,6 @@ class EmployersController extends AppController {
 				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
 				$employer['user_id'] = $this->Employer->User->getLastInsertID();
 				$this->Employer->save($employer);
-				//$user_id = $this->Employer->User->getLastInsertID();
 				$this->Auth->login();
 				$this->Employer->Company->checkAndCreate($organization);
 				$this->Employer->User->Request->create();

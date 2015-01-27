@@ -25,7 +25,7 @@
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",
-			"/with/".$applicant['User']['url']); ?></p>
+			"/hire/".$applicant['User']['url']); ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php echo $this->element('Projects/owner_index'); ?>	

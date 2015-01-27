@@ -47,7 +47,7 @@ Class User extends AppModel {
 				'message' => "An account with that email already exists"
 			),
 			'isSame' => array(
-				'rule' => array('compareFields','email',
+				'rule' => array('compareFields','email'),
 				'message' => "Email fields must match"
 			)
 		),

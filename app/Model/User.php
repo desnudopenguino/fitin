@@ -115,38 +115,38 @@ Class User extends AppModel {
 	}
 
 //updates the user level based on the stripe membership plan used
-       public function updateUserLevel($user_id,$user_level) {
-               $user = array($this->alias =>array());
-               $user[$this->alias]['id'] = $user_id;
-               switch($user_level) {
-                       case "EmpEnt":
-                               $user[$this->alias]['user_level_id'] = 12;
-                               break;
-                       case "EmpPrem":
-                               $user[$this->alias]['user_level_id'] = 11;
-                               break;
-                       case "AppPremYr":
-                               $user[$this->alias]['user_level_id'] = 22;
-                               break;
-                       case "AppPremMon":
-                               $user[$this->alias]['user_level_id'] = 21;
-                               break;
-                       case "AppPass":
-                               $user[$this->alias]['user_level_id'] = 20;
-                               break;
-                       case "EmpPass":
-                               $user[$this->alias]['user_level_id'] = 10;
-                               break;
-                       default:
-                               $user[$this->alias]['user_level_id'] = 0;
-                               break;
-               }
-               if($this->save($user)) {
-                       return true;
-               } else {
-                       return false;
-               }
-       }
+	public function updateUserLevel($user_id,$user_level) {
+		$user = array($this->alias =>array());
+		$user[$this->alias]['id'] = $user_id;
+		switch($user_level) {
+			case "EmpEnt":
+				$user[$this->alias]['user_level_id'] = 12;
+				break;
+			case "EmpPrem":
+				$user[$this->alias]['user_level_id'] = 11;
+				break;
+			case "AppPremYr":
+				$user[$this->alias]['user_level_id'] = 22;
+				break;
+			case "AppPremMon":
+				$user[$this->alias]['user_level_id'] = 21;
+				break;
+			case "AppPass":
+				$user[$this->alias]['user_level_id'] = 20;
+				break;
+			case "EmpPass":
+				$user[$this->alias]['user_level_id'] = 10;
+				break;
+			default:
+				$user[$this->alias]['user_level_id'] = 0;
+				break;
+		}
+		if($this->save($user)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
        public function findCustomer($user_id) {
                $customer = $this->Customer->find('first', array(

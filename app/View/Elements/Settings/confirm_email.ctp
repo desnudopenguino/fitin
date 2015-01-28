@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-10 col-md-offset-1">
+	<div class="col-md-3 col-md-offset-1">
 	<?php
 		echo $this->Form->create('Confirm',
 			array('method' => 'post',

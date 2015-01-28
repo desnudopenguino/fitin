@@ -1,5 +1,4 @@
-<?php $this->set('messages', $employer['User']['Message']);
-?>
+<?php $this->set('messages', $employer['User']['Message']); ?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2>Welcome, <?php echo $employer['User']['email']; ?></h2>

@@ -2,7 +2,7 @@
 <?php debug($applicant); ?>
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2>Welcome, <?php echo $applicant['Applicant']['display_name']; ?></h2>
-		<span class="label label-primary"><?php echo $applicant['User']['user_level_id']; ?></span>
+		<span class="label label-primary"><?php echo $applicant['User']['UserLevel']['description']; ?></span>
 		<ul class="nav nav-pills nav-stacked">
 			<li><a class="dashboard-nav" href="#" id="inbox-btn">Messages</a></li>
 			<li><a class="dashboard-nav" href="#" id="applications-btn">Applications</a></li>

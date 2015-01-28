@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
 		<?php 
-			echo $this->Form->create('Applicant', array(
+			echo $this->Form->create('User', array(
 				'inputDefaults' => array(
 					'div' => 'form-group',
 					'wrapInput' => false,
@@ -13,13 +13,13 @@
 		<fieldset>
 			<legend>Name</legend>
 			<?php 
-				echo $this->Form->Input('first_name', array(
+				echo $this->Form->Input('Applicant.first_name', array(
 					'label' => 'First Name'
 					)); 
-				echo $this->Form->Input('mi', array(
+				echo $this->Form->Input('Applicant.mi', array(
 					'label' => 'Middle Initial'
 					)); 
-				echo $this->Form->Input('last_name', array(
+				echo $this->Form->Input('Applicant.last_name', array(
 					'label' => 'Last Name'
 					)); ?>
 		</fieldset>

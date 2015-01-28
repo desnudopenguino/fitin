@@ -14,13 +14,17 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<h2><?php echo $message; ?></h2>
-<p class="error">
+<div class="row">
+	<div class="col-md-offset-1 col-md-10">
+		<h2><?php echo $message; ?></h2>
+	</div>
+</div>
+<?php /*<p class="error">
 	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
 	<?php echo __d('cake', 'An Internal Error Has Occurred.'); ?>
 </p>
 <?php
 if (Configure::read('debug') > 0):
 	echo $this->element('exception_stack_trace');
-endif;
+endif; */
 ?>

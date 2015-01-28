@@ -104,29 +104,24 @@ class EmployersController extends AppController {
 		$employer = $this->Employer->findEdit($id);
 		$this->set('employer', $employer);
 
-		$this->Employer->User->Address->id = $employer['User']['Address']['id'];
-		$this->Employer->User->PhoneNumber->id = $employer['User']['PhoneNumber']['id'];
-
-
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$organization = $this->Organization->checkAndCreate($this->request->data,1);
-			$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-			if($this->Employer->save($this->request->data['Employer'])) {
-				$this->Employer->User->save($this->request->data('User'));
-				$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
-				$this->Employer->User->Address->save($this->request->data['User']['Address']);
+			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
+				$organization = $this->Organization->checkAndCreate($this->request->data,1);
+				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
+				unset($this->request->data['Organization']);
+				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
+				$employer = $this->request->data['Employer'];
+				unset($this->request->data['Employer']);
+				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
+				$employer['user_id'] = $id;
+				$this->Employer->save($employer);
 				$this->Employer->Company->checkAndCreate($organization);
 				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
-				$this->Session->setFlash(__('The Employer Information has been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-success'));
 			} else {
 				$this->Session->setFlash(__('The Employer Information has not been saved'),
 					'alert', array(
 						'plugin' => 'BoostCake',
 						'class' => 'alert-danger'));
-	
 			}
 		}
 	}

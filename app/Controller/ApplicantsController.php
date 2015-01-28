@@ -178,7 +178,7 @@ class ApplicantsController extends AppController {
 				//$this->Applicant->User->Address->save($this->request->data['Address']);
 				//$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				//if($this->Applicant->User->save($this->request->data['User'])) {
-				$this->Applicant->User->id = $id;
+				$this->Applicant->User->read(null,$id);
 					//$this->Auth->login($this->Applicant->User->data['User']);
 					$this->Auth->login();
 					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));

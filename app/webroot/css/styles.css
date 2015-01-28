@@ -6,3 +6,10 @@
 	text-align: left;
 	padding-left: 1em;
 }
+
+
+div.required label:after {
+	content: ' *';
+	color: #990000;
+	display:inline;
+}

@@ -74,46 +74,33 @@ class ApplicantsController extends AppController {
 		$this->set('position_cards', $positionCards);
 	}
 
-// Edit - edit the contact/personal info for the user (address, phone, name)
-	public function edit($id = null) {
-		if($this->Auth->user('role_id') != 2) {
-			throw new ForbiddenException("Not Allowed");
-		}
-		$this->Applicant->id = $id;
-		if(!$this->Applicant->exists()) {
-			throw new NotFoundException(__('Invalid User'));
-		}
-		if($this->Auth->user('id') != $id) {
-			throw new ForbiddenException(__('Permission denied'));
-		}
+
+// register will replace contact. user goes here from the splash page if they are registering for applicant
+	public function register() {
+
 		$this->set('phone_types',
 			$this->PhoneType->findAll());
 
 		$this->set('states',
 			$this->State->findAllLongNames());
-
-		$applicant = $this->Applicant->findEdit($id);
-		$this->set('applicant', $applicant);
-
-		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
-
-		$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
-			if($this->Applicant->save($this->request->data['Applicant'])) {
-				$this->Applicant->User->save($this->request->data('User'));
-				$this->Applicant->User->Address->save($this->request->data['Address']);
-				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
-				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
-				$this->Session->setFlash(__('The Applicant Information has been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-success'));
-			} else {
-				$this->Session->setFlash(__('The Applicant Information has not been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-danger'));
+			$this->request->data['User']['role_id'] = 2;
+			$this->request->data['User']['status_id'] = 3;
+			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only'))) {
+				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
+				$user_id = $this->Applicant->User->getLastInsertID();
+				$this->Auth->login($this->Applicant->User->data['User']);
+				$this->Applicant->User->Request->create();
+				$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+				$request_id = $this->Applicant->User->Request->getInsertId();
+				$request = $this->Applicant->User->Request->findById($request_id);
+				$Email = new CakeEmail();
+				$Email->to($this->Auth->user('email'));
+				$Email->subject('FitIn.Today Email Confirmation');
+				$Email->config('gmail');
+				$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 			}
 		}
 	}
@@ -136,56 +123,49 @@ class ApplicantsController extends AppController {
 		$this->set('states',
 			$this->State->findAllLongNames());
 
-		$this->Applicant->User->Address->create();
-
-		$this->Applicant->User->PhoneNumber->create();
-		$this->Applicant->User->id = $id;
-		
+		$this->set('user_id', $id);
 		if($this->request->is('post') || $this->request->is('put')) { 
-			if($this->Applicant->save($this->request->data['Applicant'])) {
-				$this->Applicant->User->Address->save($this->request->data['Address']);
-				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
-				$user_status_id = $this->Applicant->User->findStatusId($id);
-				$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 2;
-				if($this->Applicant->User->save($this->request->data['User'])) {
-					$this->Applicant->User->read(null, $id);
-					$this->Auth->login($this->Applicant->User->data['User']);
-					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
-				}
+			$user_status_id = $this->Applicant->User->findStatusId($id);
+			$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 2;
+			if($this->Applicant->saveAll($this->request->data, array('validate' => 'only'))) {
+				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
+				$this->Applicant->User->read(null,$id);
+				$this->Auth->login($this->Applicant->User->data['User']);
+				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 			}
 		}
 	}
 
-// register will replace contact. user goes here from the splash page if they are registering for applicant
-	public function register() {
-
+// Edit - edit the contact/personal info for the user (address, phone, name)
+	public function edit($id = null) {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
+		$this->Applicant->id = $id;
+		if(!$this->Applicant->exists()) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+		if($this->Auth->user('id') != $id) {
+			throw new ForbiddenException(__('Permission denied'));
+		}
 		$this->set('phone_types',
 			$this->PhoneType->findAll());
 
 		$this->set('states',
 			$this->State->findAllLongNames());
-		
+
+		$applicant = $this->Applicant->findEdit($id);
+		$this->set('applicant', $applicant);
+
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$this->request->data['User']['role_id'] = 2;
-			$this->request->data['User']['status_id'] = 3;
-			if($this->Applicant->User->save($this->request->data['User'])) {
-				$user_id = $this->Applicant->User->getLastInsertID();
-				$this->Auth->login($this->Applicant->User->data['User']);
-				$this->Applicant->User->Address->save($this->request->data['Address']);
-				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
-				$this->request->data['Applicant']['user_id'] = $user_id;
-				if($this->Applicant->save($this->request->data['Applicant'])) {
-					$this->Applicant->User->Request->create();
-					$this->Applicant->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-					$request_id = $this->Applicant->User->Request->getInsertId();
-					$request = $this->Applicant->User->Request->findById($request_id);
-					$Email = new CakeEmail();
-					$Email->to($this->Auth->user('email'));
-					$Email->subject('FitIn.Today Email Confirmation');
-					$Email->config('gmail');
-					$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
-					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
-				}
+			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only'))) {
+				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
+				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
+			} else {
+				$this->Session->setFlash(__('The Applicant Information has not been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'));
 			}
 		}
 	}

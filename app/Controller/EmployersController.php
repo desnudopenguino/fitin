@@ -10,6 +10,41 @@ class EmployersController extends AppController {
 		$this->Auth->allow('view','register');
 	}
 
+	public function register() {
+		$this->set('phone_types',
+			$this->PhoneType->findAll());
+
+		$this->set('states',
+			$this->State->findAllLongNames());
+		
+		if($this->request->is('post') || $this->request->is('put')) { 
+			$this->request->data['User']['role_id'] = 1;
+			$this->request->data['User']['status_id'] = 3;
+			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
+				$organization = $this->Organization->checkAndCreate($this->request->data,1);
+				unset($this->request->data['Organization']);
+				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
+				$employer = $this->request->data['Employer'];
+				unset($this->request->data['Employer']);
+				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
+				$employer['user_id'] = $this->Employer->User->getLastInsertID();
+				$this->Employer->save($employer);
+				$this->Auth->login();
+				$this->Employer->Company->checkAndCreate($organization);
+				$this->Employer->User->Request->create();
+				$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+				$request_id = $this->Employer->User->Request->getInsertId();
+				$request = $this->Employer->User->Request->findById($request_id);
+				$Email = new CakeEmail();
+				$Email->to($this->Auth->user('email'));
+				$Email->subject('FitIn.Today Email Confirmation');
+				$Email->config('gmail');
+				$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+			}
+		}
+	}
+
 //add action occurrs after registration/every login after that if the user doesn't have the data filled out.
 	public function contact($id = null) {
 		if($this->Auth->user('role_id') != 1) {
@@ -28,67 +63,65 @@ class EmployersController extends AppController {
 		$this->set('states',
 			$this->State->findAllLongNames());
 
-		$this->Employer->User->Address->create();
-
-		$this->Employer->User->PhoneNumber->create();
-		$this->Employer->User->id = $id;
+		$this->set('user_id', $id);
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$organization = $this->Organization->checkAndCreate($this->request->data,1);
-			$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-			if($this->Employer->save($this->request->data['Employer'])) {
-				$this->Employer->User->Address->save($this->request->data['Address']);
-				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);
-				$user_status_id = $this->Employer->User->findStatusId($id);
-				$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 2;
-				if($this->Employer->User->save($this->request->data['User'])) {
-					$this->Employer->User->read(null, $id);
-					$this->Auth->login($this->Employer->User->data['User']);
-					$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
-				}
+			$user_status_id = $this->Employer->User->findStatusId($id);
+			$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 2;
+			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
+				$organization = $this->Organization->checkAndCreate($this->request->data,1);
+				unset($this->request->data['Organization']);
+				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
+				$employer = $this->request->data['Employer'];
+				unset($this->request->data['Employer']);
+				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
+				$employer['user_id'] = $id;
+				$this->Employer->save($employer);
+				$this->Employer->User->read(null, $id);
+				$this->Auth->login($this->Employer->User->data['User']);
+				$this->Employer->Company->checkAndCreate($organization);
+				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
 			}
 		}
 	}
 
-	public function register() {
+// Edit - edit the contact/personal info for the user (address, phone, name)
+	public function edit($id = null) {
+		if($this->Auth->user('role_id') != 1) {
+			throw new ForbiddenException("Not Allowed");
+		}
+		$this->Employer->read(null,$id);
+		if(!$this->Employer->exists()) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+		if($this->Auth->user('id') != $id) {
+			throw new ForbiddenException(__('Permission denied'));
+		}
+		$this->set('phone_types', $this->PhoneType->findAll());
 
-		$this->set('phone_types',
-			$this->PhoneType->findAll());
+		$this->set('states', $this->State->findAllLongNames());
 
-		$this->set('states',
-			$this->State->findAllLongNames());
-		
+		$employer = $this->Employer->findEdit($id);
+		$this->set('employer', $employer);
+
 		if($this->request->is('post') || $this->request->is('put')) { 
-			$this->request->data['User']['role_id'] = 1;
-			$this->request->data['User']['status_id'] = 3;
-			if($this->Employer->User->save($this->request->data['User'])) {
-//create the organization
+			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
 				$organization = $this->Organization->checkAndCreate($this->request->data,1);
 				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-//get the id of the user just created then login the user
-				$user_id = $this->Employer->User->getLastInsertID();
-				$this->Auth->login($this->Employer->User->data['User']);
-//save the contact info
-				$this->Employer->User->Address->save($this->request->data['Address']);
-				$this->Employer->User->PhoneNumber->save($this->request->data['PhoneNumber']);
-				$this->request->data['Employer']['user_id'] = $user_id;
-//save the employer
-				if($this->Employer->save($this->request->data['Employer'])) {
-//check/create the company
+				unset($this->request->data['Organization']);
+				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
+				$employer = $this->request->data['Employer'];
+				unset($this->request->data['Employer']);
+				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
+				$employer['user_id'] = $id;
+				$this->Employer->save($employer);
 				$this->Employer->Company->checkAndCreate($organization);
-//create email validation request
-					$this->Employer->User->Request->create();
-					$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	
-					$request_id = $this->Employer->User->Request->getInsertId();
-					$request = $this->Employer->User->Request->findById($request_id);
-//send email validation email
-					$Email = new CakeEmail();
-					$Email->to($this->Auth->user('email'));
-					$Email->subject('FitIn.Today Email Confirmation');
-					$Email->config('gmail');
-					$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
-					$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
-				}
+				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
+			} else {
+				$this->Session->setFlash(__('The Employer Information has not been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'));
 			}
 		}
 	}
@@ -158,52 +191,6 @@ class EmployersController extends AppController {
 			$applicantCards = $this->DataCard->sortByJobMatch($applicantCards);	
 			$this->set('position_card', $positionCard);
 			$this->set('applicant_cards', $applicantCards);
-		}
-	}
-
-// Edit - edit the contact/personal info for the user (address, phone, name)
-	public function edit($id = null) {
-		if($this->Auth->user('role_id') != 1) {
-			throw new ForbiddenException("Not Allowed");
-		}
-		$this->Employer->read(null,$id);
-		if(!$this->Employer->exists()) {
-			throw new NotFoundException(__('Invalid User'));
-		}
-		if($this->Auth->user('id') != $id) {
-			throw new ForbiddenException(__('Permission denied'));
-		}
-		$this->set('phone_types', $this->PhoneType->findAll());
-
-		$this->set('states', $this->State->findAllLongNames());
-
-		$employer = $this->Employer->findEdit($id);
-		$this->set('employer', $employer);
-
-		$this->Employer->User->Address->id = $employer['User']['Address']['id'];
-		$this->Employer->User->PhoneNumber->id = $employer['User']['PhoneNumber']['id'];
-
-
-		if($this->request->is('post') || $this->request->is('put')) { 
-			$organization = $this->Organization->checkAndCreate($this->request->data,1);
-			$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-			if($this->Employer->save($this->request->data['Employer'])) {
-				$this->Employer->User->save($this->request->data('User'));
-				$this->Employer->User->PhoneNumber->save($this->request->data['User']['PhoneNumber']);
-				$this->Employer->User->Address->save($this->request->data['User']['Address']);
-				$this->Employer->Company->checkAndCreate($organization);
-				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
-				$this->Session->setFlash(__('The Employer Information has been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-success'));
-			} else {
-				$this->Session->setFlash(__('The Employer Information has not been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-danger'));
-	
-			}
 		}
 	}
 

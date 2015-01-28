@@ -33,13 +33,17 @@
 		<fieldset>
 			<legend>Phone Number</legend>
 			<?php 
-				echo $this->Form->input('User.PhoneNumber.phone_type_id', array(
+				echo $this->Form->input('PhoneNumber.id', array(
+					'type' => 'hidden',
+					'value' => $employer['User']['PhoneNumber']['id']));
+				
+				echo $this->Form->input('PhoneNumber.phone_type_id', array(
 					'type' => 'select',
 					'label' => 'Phone Type',
 					'options' => $phone_types,
 					'value' => $employer['User']['PhoneNumber']['phone_type_id']));
 		
-				echo $this->Form->Input('User.PhoneNumber.phone_number', array(
+				echo $this->Form->Input('PhoneNumber.phone_number', array(
 					'type' => 'text',
 					'label' => 'Phone Number',
 					'value' => $employer['User']['PhoneNumber']['phone_number']));
@@ -48,20 +52,23 @@
 		<fieldset>
 			<legend>Address</legend>
 			<?php
-				echo $this->Form->input('User.Address.street', array(
+				echo $this->Form->input('Address.id', array(
+					'type' => 'hidden',
+					'value' => $employer['User']['Address']['id']));
+				echo $this->Form->input('Address.street', array(
 					'type' => 'text',
 					'label' => 'Street',
 					'value' => $employer['User']['Address']['street']));
-				echo $this->Form->input('User.Address.city', array(
+				echo $this->Form->input('Address.city', array(
 					'type' => 'text',
 					'label' => 'City',
 					'value' => $employer['User']['Address']['city']));
-				echo $this->Form->input('User.Address.state_id', array(
+				echo $this->Form->input('Address.state_id', array(
 					'type' => 'select',
 					'label' => 'State',
 					'options' => $states,
 					'value' => $employer['User']['Address']['state_id']));
-				echo $this->Form->input('User.Address.zip', array(
+				echo $this->Form->input('Address.zip', array(
 					'type' => 'text',
 					'value' => $employer['User']['Address']['zip']));
 			?>

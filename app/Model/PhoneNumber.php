@@ -11,19 +11,9 @@ Class PhoneNumber extends AppModel {
 		)
 	);
 
-	public $validate = array(
-		'phone_number' => array(
-			'isPhoneNumber' => array(
-				'rule' => array('phone', null, 'us'),
-				'message' => "Not a valid telephone number"
-			)
-		)	
-	);
+	public $validate = array();
 
 	public function beforeSave($options = array()) {
-		if(empty($this->data[$this->alias]['id'])) {
-			$this->data[$this->alias]['user_id'] = AuthComponent::user('id');
-		}
 		return true;
 	}
 }

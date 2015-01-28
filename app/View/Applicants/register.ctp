@@ -2,10 +2,10 @@
 	<div class="col-md-10 col-md-offset-1">
 		<?php 
 			//load validation resources
-			echo $this->Html->script('jquery.validate.min'); //load validation plugin.
-			echo $this->Html->script('register'); //load registration jquery script.
+			//echo $this->Html->script('jquery.validate.min'); //load validation plugin.
+			//echo $this->Html->script('register'); //load registration jquery script.
 			//create form
-			echo $this->Form->create('Applicant', array(
+			echo $this->Form->create('User', array(
 				'inputDefaults' => array(
 					'div' => 'form-group',
 					'wrapInput' => false,
@@ -28,13 +28,13 @@
 			?>
 			<legend>Name</legend>
 			<?php 
-				echo $this->Form->Input('first_name', array(
+				echo $this->Form->Input('Applicant.first_name', array(
 					'label' => 'First Name'
 					)); 
-				echo $this->Form->Input('mi', array(
+				echo $this->Form->Input('Applicant.mi', array(
 					'label' => 'Middle Initial'
 					)); 
-				echo $this->Form->Input('last_name', array(
+				echo $this->Form->Input('Applicant.last_name', array(
 					'label' => 'Last Name'
 					)); ?>
 		</fieldset>

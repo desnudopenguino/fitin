@@ -37,14 +37,18 @@ Class User extends AppModel {
 			)
 		),
 		
-		'confirm_email' => array(
-			'isEmail' => array(
+		'email_confirmation' => array(
+/*			'isEmail' => array(
 				'rule' => array('email'),
 				'message' => "Not a valid email"
 			),
 			'isUnique' => array(
 				'rule' => array('isUnique'),
 				'message' => "An account with that email already exists"
+			),*/
+			'compare_emails' => array(
+				'rule' => array('compare_emails'),
+				'message' => "Email fields must match"
 			)
 		),
 
@@ -55,10 +59,14 @@ Class User extends AppModel {
 			)
 		),
 		
-		'confirm_password' => array(
-			'minLength' => array(
+		'password_confirmation' => array(
+/*			'minLength' => array(
 				'rule' => array('minLength',8),
 				'message' => "Password minimum length is 8 characters"
+			),*/
+			'compare_passwords' => array(
+				'rule' => array('compare_passwords'),
+				'message' => "Password fields must match"
 			)
 		),
 		
@@ -69,6 +77,14 @@ Class User extends AppModel {
 			)
 		)
 	);	
+
+	public function compare_passwords() {
+		return ($this->data[$this->alias]['password'] === $this->data[$this->alias]['password_confirmation']);
+	}
+
+	public function compare_emails() {
+		return ($this->data[$this->alias]['email'] === $this->data[$this->alias]['email_confirmation']);
+	}
 
 	public function beforeSave($options = array()) {
 // hash the password

@@ -290,6 +290,7 @@ class UsersController extends AppController {
 		$this->set('settings', $settings);
 		$this->set('plans', $this->User->UserLevel->findPlans($user_role));
 		$this->set('user', $this->User->findStatusId($user_id));
+		$this->set('customer', $this->User->findCustomer($user_id));
 	}
 
 //privacy

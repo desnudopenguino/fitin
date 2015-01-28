@@ -80,7 +80,7 @@
 				<div class="row">
 					<div class="col-md-5">
 						<?php
-							echo $this->Html->link('View Profile','/with/'. $applicant_card['DataCard']['Info']['url'],
+							echo $this->Html->link('View Profile','/hire/'. $applicant_card['DataCard']['Info']['url'],
 							array(
 								'class' => 'btn btn-primary',
 								'escape' => false));

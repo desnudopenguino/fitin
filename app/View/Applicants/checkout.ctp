@@ -35,7 +35,7 @@
 						$this->Form->unlockField('stripeEmail'); ?>
 					<script
 						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-						data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"
+						data-key="pk_live_H5vIuAzhdJWRIFYTXpSCOAVN"
 						data-name="Monthly Membership"
 						data-label="Subscribe"
 						data-description="Monthly Membership ($5.00/Mo)"
@@ -48,32 +48,32 @@
 					<h2 class="muted">Annual Premium</h2>
 					<p><span class="label">Best Deal</span></p>
 					<ul>
-<li>Full, Premium access to all Employer listings</li>
-</ul>
-<p>Text about Annual Premium</p>
-<hr>
-<h3>$50/Year</h3>
-<hr>
-<?php echo $this->Form->create('User', array(
-'controller' => 'users', 'action' => 'checkout'));
-echo $this->Form->input('stripePlan', array(
-'type' => 'hidden',
-'value' => 'AppPremYr'));
-$this->Form->unlockField('stripeToken');
-$this->Form->unlockField('stripeTokenType');
-$this->Form->unlockField('stripeEmail'); ?>
-<script
-src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"
-data-name="Annual Membership"
-data-label="Subscribe"
-data-description="Annual Membership ($50.00/Yr)"
-data-email="<?php echo $email; ?>"
-data-amount="5000">
-</script>
-<?php echo $this->Form->end(); ?>
-</div>
-</div>
-</div>
-</div>
+						<li>Full, Premium access to all Employer listings</li>
+					</ul>
+					<p>Text about Annual Premium</p>
+					<hr>
+					<h3>$50/Year</h3>
+					<hr>
+					<?php echo $this->Form->create('User', array(
+						'controller' => 'users', 'action' => 'checkout'));
+						echo $this->Form->input('stripePlan', array(
+							'type' => 'hidden',
+							'value' => 'AppPremYr'));
+						$this->Form->unlockField('stripeToken');
+						$this->Form->unlockField('stripeTokenType');
+						$this->Form->unlockField('stripeEmail'); ?>
+					<script
+						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						data-key="pk_live_H5vIuAzhdJWRIFYTXpSCOAVN"
+						data-name="Annual Membership"
+						data-label="Subscribe"
+						data-description="Annual Membership ($50.00/Yr)"
+						data-email="<?php echo $email; ?>"
+						data-amount="5000">
+					</script>
+					<?php echo $this->Form->end(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

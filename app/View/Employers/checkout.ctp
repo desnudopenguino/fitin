@@ -36,7 +36,7 @@ $this->Form->unlockField('stripeTokenType');
 $this->Form->unlockField('stripeEmail'); ?>
 <script
 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"
+data-key="pk_live_H5vIuAzhdJWRIFYTXpSCOAVN"
 data-name="Premium Membership"
 data-label="Subscribe"
 data-description="Premium Membership ($3,000.00/Yr)"
@@ -66,7 +66,7 @@ $this->Form->unlockField('stripeTokenType');
 $this->Form->unlockField('stripeEmail'); ?>
 <script
 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-data-key="pk_test_ZYzY9psrj6Nnf0eOWJUh4tZ8"
+data-key="pk_live_H5vIuAzhdJWRIFYTXpSCOAVN"
 data-name="Enterprise Membership"
 data-label="Subscribe"
 data-description="Enterprise Membership ($10,000.00/Yr)"

@@ -16,6 +16,7 @@
 				echo $this->Form->input('User.id', array(
 					'type' => 'hidden',
 					'value' => $user_id));
+
 				echo $this->Form->input('Organization.organization_name', array(
 					'label' => 'Company Name'));
 

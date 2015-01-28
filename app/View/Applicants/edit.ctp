@@ -37,6 +37,10 @@
 		<fieldset>
 			<legend>Phone Number</legend>
 			<?php 
+				echo $this->From->input('PhoneNumber.id', array(
+					'type' => 'hidden',
+					'value' => $applicant['User']['PhoneNumber']['id']));
+	
 				echo $this->Form->input('PhoneNumber.phone_type_id', array(
 					'type' => 'select',
 					'label' => 'Phone Type',
@@ -52,6 +56,10 @@
 		<fieldset>
 			<legend>Address</legend>
 			<?php
+				echo $this->From->input('Address.id', array(
+					'type' => 'hidden',
+					'value' => $applicant['User']['Address']['id']));
+	
 				echo $this->Form->input('Address.street', array(
 					'type' => 'text',
 					'label' => 'Street',

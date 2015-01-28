@@ -157,15 +157,9 @@ class ApplicantsController extends AppController {
 		$applicant = $this->Applicant->findEdit($id);
 		$this->set('applicant', $applicant);
 
-//		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
-//		$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
-		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			if($this->Applicant->saveAll($this->request->data, array('validate' => 'only'))) {
 				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
-				//$this->Applicant->User->save($this->request->data('User'));
-				//$this->Applicant->User->Address->save($this->request->data['Address']);
-				//$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 			} else {
 				$this->Session->setFlash(__('The Applicant Information has not been saved'),

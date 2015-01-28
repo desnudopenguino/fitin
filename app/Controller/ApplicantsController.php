@@ -169,6 +169,7 @@ class ApplicantsController extends AppController {
 
 		$this->Applicant->User->id = $id;
 		
+		$this->set('user_id', $id);
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$user_status_id = $this->Applicant->User->findStatusId($id);
 			$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 2;

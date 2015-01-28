@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
 		<?php 
-			echo $this->Form->create('Applicant', array(
+			echo $this->Form->create('User', array(
 				'inputDefaults' => array(
 					'div' => 'form-group',
 					'wrapInput' => false,
@@ -24,13 +24,13 @@
 				echo $this->Form->input('User.id', array(
 					'type' => 'hidden',
 					'value' => $applicant['Applicant']['user_id']));
-				echo $this->Form->input('first_name', array(
+				echo $this->Form->input('Applicant.first_name', array(
 					'label' => 'First Name',
 					'value' => $applicant['Applicant']['first_name']));
-				echo $this->Form->input('mi', array(
+				echo $this->Form->input('Applicant.mi', array(
 					'label' => 'Middle Initial',
 					'value' => $applicant['Applicant']['mi']));
-				echo $this->Form->input('last_name', array(
+				echo $this->Form->input('Applicant.last_name', array(
 					'label' => 'Last Name',
 					'value' => $applicant['Applicant']['last_name'])); ?>
 		</fieldset>

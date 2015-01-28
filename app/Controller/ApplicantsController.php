@@ -157,8 +157,8 @@ class ApplicantsController extends AppController {
 		$applicant = $this->Applicant->findEdit($id);
 		$this->set('applicant', $applicant);
 
-		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
-		$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
+//		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
+//		$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
 		
 		if($this->request->is('post') || $this->request->is('put')) { 
 			if($this->Applicant->saveAll($this->request->data, array('validate' => 'only'))) {

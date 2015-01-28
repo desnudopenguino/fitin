@@ -22,6 +22,7 @@ Class Employer extends AppModel {
 				'Employer.user_id' => $id),
 			'contain' => array(
 				'User' => array(
+					'UserLevel',
 					'Message' => array(
 						'conditions' => array(
 							'Message.receiver_id' => $id))))));

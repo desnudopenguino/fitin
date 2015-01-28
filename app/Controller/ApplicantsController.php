@@ -158,7 +158,7 @@ class ApplicantsController extends AppController {
 		$this->set('applicant', $applicant);
 
 		if($this->request->is('post') || $this->request->is('put')) { 
-			if($this->Applicant->saveAll($this->request->data, array('validate' => 'only'))) {
+			if($this->Applicant->User->saveAll($this->request->data, array('validate' => 'only'))) {
 				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
 				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 			} else {

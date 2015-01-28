@@ -74,50 +74,6 @@ class ApplicantsController extends AppController {
 		$this->set('position_cards', $positionCards);
 	}
 
-// Edit - edit the contact/personal info for the user (address, phone, name)
-	public function edit($id = null) {
-		if($this->Auth->user('role_id') != 2) {
-			throw new ForbiddenException("Not Allowed");
-		}
-		$this->Applicant->id = $id;
-		if(!$this->Applicant->exists()) {
-			throw new NotFoundException(__('Invalid User'));
-		}
-		if($this->Auth->user('id') != $id) {
-			throw new ForbiddenException(__('Permission denied'));
-		}
-		$this->set('phone_types',
-			$this->PhoneType->findAll());
-
-		$this->set('states',
-			$this->State->findAllLongNames());
-
-		$applicant = $this->Applicant->findEdit($id);
-		$this->set('applicant', $applicant);
-
-		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
-
-		$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
-		
-		if($this->request->is('post') || $this->request->is('put')) { 
-			if($this->Applicant->save($this->request->data['Applicant'])) {
-				$this->Applicant->User->save($this->request->data('User'));
-				$this->Applicant->User->Address->save($this->request->data['Address']);
-				$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
-				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
-				$this->Session->setFlash(__('The Applicant Information has been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-success'));
-			} else {
-				$this->Session->setFlash(__('The Applicant Information has not been saved'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-danger'));
-			}
-		}
-	}
-
 
 // register will replace contact. user goes here from the splash page if they are registering for applicant
 	public function register() {
@@ -173,14 +129,49 @@ class ApplicantsController extends AppController {
 			$this->request->data['User']['status_id'] = $user_status_id['User']['status_id'] + 2;
 			if($this->Applicant->saveAll($this->request->data, array('validate' => 'only'))) {
 				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
+				$this->Applicant->User->read(null,$id);
+				$this->Auth->login($this->Applicant->User->data['User']);
+				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+			}
+		}
+	}
+
+// Edit - edit the contact/personal info for the user (address, phone, name)
+	public function edit($id = null) {
+		if($this->Auth->user('role_id') != 2) {
+			throw new ForbiddenException("Not Allowed");
+		}
+		$this->Applicant->id = $id;
+		if(!$this->Applicant->exists()) {
+			throw new NotFoundException(__('Invalid User'));
+		}
+		if($this->Auth->user('id') != $id) {
+			throw new ForbiddenException(__('Permission denied'));
+		}
+		$this->set('phone_types',
+			$this->PhoneType->findAll());
+
+		$this->set('states',
+			$this->State->findAllLongNames());
+
+		$applicant = $this->Applicant->findEdit($id);
+		$this->set('applicant', $applicant);
+
+		$this->Applicant->User->Address->read(null,$applicant['User']['Address']['id']);
+		$this->Applicant->User->PhoneNumber->read(null,$applicant['User']['PhoneNumber']['id']);
+		
+		if($this->request->is('post') || $this->request->is('put')) { 
+			if($this->Applicant->saveAll($this->request->data, array('validate' => 'only'))) {
+				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
+				//$this->Applicant->User->save($this->request->data('User'));
 				//$this->Applicant->User->Address->save($this->request->data['Address']);
 				//$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
-				//if($this->Applicant->User->save($this->request->data['User'])) {
-				$this->Applicant->User->read(null,$id);
-					$this->Auth->login($this->Applicant->User->data['User']);
-					//$this->Auth->login();
-					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
-				//}
+				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
+			} else {
+				$this->Session->setFlash(__('The Applicant Information has not been saved'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-danger'));
 			}
 		}
 	}

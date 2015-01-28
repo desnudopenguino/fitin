@@ -167,8 +167,6 @@ class ApplicantsController extends AppController {
 		$this->set('states',
 			$this->State->findAllLongNames());
 
-		$this->Applicant->User->id = $id;
-		
 		$this->set('user_id', $id);
 		if($this->request->is('post') || $this->request->is('put')) { 
 			$user_status_id = $this->Applicant->User->findStatusId($id);
@@ -179,8 +177,8 @@ class ApplicantsController extends AppController {
 				//$this->Applicant->User->PhoneNumber->save($this->request->data['PhoneNumber']);
 				//if($this->Applicant->User->save($this->request->data['User'])) {
 				$this->Applicant->User->read(null,$id);
-					//$this->Auth->login($this->Applicant->User->data['User']);
-					$this->Auth->login();
+					$this->Auth->login($this->Applicant->User->data['User']);
+					//$this->Auth->login();
 					$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 				//}
 			}

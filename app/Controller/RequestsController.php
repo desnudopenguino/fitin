@@ -33,6 +33,8 @@ class RequestsController extends AppController {
 		if($request['User']['status_id'] == 1 || $request['User']['status_id'] == 3) {
 			$request['User']['status_id'] = $request['User']['status_id'] + 1;
 			$this->Request->User->save($request);
+			$this->Request->User->read(null, $request['User']['id']);
+			$this->Auth->login($this->Request->User->data['User']);
 		}
 	}
 

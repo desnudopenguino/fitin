@@ -77,7 +77,8 @@ class EmployersController extends AppController {
 				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
 				$employer['user_id'] = $id;
 				$this->Employer->save($employer);
-				$this->Auth->login();
+				$this->Employer->User->read(null, $id);
+				$this->Auth->login($this->Employer->User->data['User']);
 				$this->Employer->Company->checkAndCreate($organization);
 				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
 			}

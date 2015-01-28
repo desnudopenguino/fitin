@@ -13,10 +13,13 @@
 		<fieldset>
 			<legend>Company Info</legend>
 			<?php
-				echo $this->Form->Input('Organization.organization_name', array(
+				echo $this->Form->input('User.id' array(
+					'type' => 'hidden',
+					'value' => $user_id));
+				echo $this->Form->input('Organization.organization_name', array(
 					'label' => 'Company Name'));
 
-				echo $this->Form->Input('Employer.department_name', array(
+				echo $this->Form->input('Employer.department_name', array(
 					'label' => 'Department')); ?>
 		</fieldset>
 		<fieldset>
@@ -27,7 +30,7 @@
 					'label' => 'Phone Type',
 					'options' => $phone_types));
 		
-				echo $this->Form->Input('PhoneNumber.phone_number', array(
+				echo $this->Form->input('PhoneNumber.phone_number', array(
 					'type' => 'text',
 					'label' => 'Phone Number'));
 			?>

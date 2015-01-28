@@ -13,7 +13,7 @@
 		<fieldset>
 			<legend>Company Info</legend>
 			<?php
-				echo $this->Form->input('User.id' array(
+				echo $this->Form->input('User.id', array(
 					'type' => 'hidden',
 					'value' => $user_id));
 				echo $this->Form->input('Organization.organization_name', array(

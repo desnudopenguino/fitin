@@ -17,26 +17,32 @@
 		<fieldset>
 			<legend> Login info</legend>
 			<?php
-				echo $this->Form->input('User.email');
-				echo $this->Form->input('User.email_confirmation');
+				echo $this->Form->input('User.email', array(
+					'placeholder' => 'e.g. mail@domain.com'));
+				echo $this->Form->input('User.email_confirmation', array(
+					'placeholder' => 'e.g. mail@domain.com'));
 				echo $this->Form->input('User.password');
-				echo $this->Form->input('User.password_confirmation', array('type' => 'password'));
+				echo $this->Form->input('User.password_confirmation', array(
+					'type' => 'password'));
 				echo $this->Form->input('User.coupon');
-				echo $this->Form->input('User.user_level_id', array(
+				echo $this->Form->Input('User.user_level_id', array(
 					'type' => 'hidden',
-					'value' => '20'));
+					'value' => '20')); 
+				
 			?>
 			<legend>Name</legend>
 			<?php 
 				echo $this->Form->Input('Applicant.first_name', array(
-					'label' => 'First Name'
-					)); 
+					'label' => 'First Name',
+					'placeholder' => 'First Name')); 
+
 				echo $this->Form->Input('Applicant.mi', array(
-					'label' => 'Middle Initial'
-					)); 
+					'label' => 'Middle Initial',
+					'placeholder' => 'Middle Initial (if applicable)')); 
+
 				echo $this->Form->Input('Applicant.last_name', array(
-					'label' => 'Last Name'
-					)); ?>
+					'label' => 'Last Name',
+					'placeholder' => 'Last Name')); ?>
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>
@@ -49,7 +55,8 @@
 		
 				echo $this->Form->Input('PhoneNumber.phone_number', array(
 					'type' => 'text',
-					'label' => 'Phone Number'
+					'label' => 'Phone Number',
+					'placeholder' => 'Phone Number (123) 456 7890'
 					));
 			?>
 		</fieldset>
@@ -58,11 +65,13 @@
 			<?php
 				echo $this->Form->input('Address.street', array(
 					'type' => 'text',
-					'label' => 'Street'
+					'label' => 'Street',
+					'placeholder' => 'e.g. 123 Main Street.'
 					));
 				echo $this->Form->input('Address.city', array(
 					'type' => 'text',
-					'label' => 'City'
+					'label' => 'City',
+					'placeholder' => 'e.g. New York City.'
 					));
 				echo $this->Form->input('Address.state_id', array(
 					'type' => 'select',
@@ -70,7 +79,8 @@
 					'options' => $states
 					));
 				echo $this->Form->input('Address.zip', array(
-					'type' => 'text'
+					'type' => 'text',
+					'placeholder' => 'e.g. 10001.'
 					));
 			?>
 		</fieldset>

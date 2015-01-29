@@ -28,8 +28,16 @@
 			}?>
 		</p>
 		<p><?php echo $employer['User']['email']; ?></p>
-		<p><?php echo $this->Html->link("My URL",
-			"/with/".$employer['User']['url']); ?></p>
+		<p><?php
+			echo $this->Html->link("My URL","/with/".$employer['User']['url']); 
+			//tooltip
+			echo "&nbsp";
+			echo $this->Html->image('tooltip.png',array(
+				'class' => 'masterTooltip',
+				'title' => 'See your public profile page. Share your unique link on your company\'s career page or job boards'
+			));
+			?>
+			</p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php echo $this->element('Positions/owner_index'); ?>

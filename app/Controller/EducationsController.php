@@ -71,7 +71,7 @@ class EducationsController extends AppController {
 		if(!$this->Education->exists()) {
 			throw new NotFoundException(__('Invalid Education'));
 		}
-		if($this->Education->data['Education']['applicant_id'] == $this->Auth->user('id')) {
+		if($this->Education->data['Education']['applicant_id'] != $this->Auth->user('id')) {
 			throw new NotFoundException(__('Invalid Education'));
 		}
 		if($this->request->is('post') || $this->request->is('put')) {

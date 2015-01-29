@@ -17,6 +17,7 @@
 					echo $this->Form->input('User.url', array(
 						'value' => $employer['User']['url'])); ?>
 		</fieldset>
+		<?php } ?>
 		<fieldset>
 			<legend>Company Info</legend>
 			<?php 
@@ -58,16 +59,19 @@
 					'label' => 'Street',
 					'value' => $employer['User']['Address']['street'],
 					'placeholder' => 'e.g. 123 Main Street.'));
+
 				echo $this->Form->input('Address.city', array(
 					'type' => 'text',
 					'label' => 'City',
 					'value' => $employer['User']['Address']['city'],
 					'placeholder' => 'e.g. New York City.'));
+
 				echo $this->Form->input('Address.state_id', array(
 					'type' => 'select',
 					'label' => 'State',
 					'options' => $states,
 					'value' => $employer['User']['Address']['state_id']));
+
 				echo $this->Form->input('Address.zip', array(
 					'type' => 'text',
 					'value' => $employer['User']['Address']['zip'],
@@ -82,3 +86,4 @@
 		<?php echo $this->Form->end(); ?>
 	</div>
 </div>
+

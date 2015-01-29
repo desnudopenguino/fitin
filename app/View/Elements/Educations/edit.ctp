@@ -32,7 +32,8 @@
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
 							'label' => 'School',
-							'value' => $education['Organization']['organization_name']));
+							'value' => $education['Organization']['organization_name'],
+							'placeholder' => 'e.g. Hill Valley HS'));
 						echo $this->Form->input('graduation_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',
@@ -40,7 +41,8 @@
 						echo $this->Form->input('gpa', array(
 							'label' => 'GPA',
 							'type' => 'text',
-							'value' => $education['gpa'])); ?>
+							'value' => $education['gpa'],
+							'placeholder' => 'e.g. 2.5 (Optional)')); ?>
 				</fieldset>
       </div>
       <div class="modal-footer">

@@ -29,13 +29,15 @@
 							'options' => $concentrations));
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
-							'label' => 'School'));
+							'label' => 'School',
+							'placeholder' => 'e.g. Hill Valley HS'));
 						echo $this->Form->input('graduation_date', array(
 							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text')); 
 						echo $this->Form->input('gpa', array(
 							'label' => 'GPA',
-							'type' => 'text')); ?>
+							'type' => 'text',
+							'placeholder' => 'e.g. 2.5 (Optional)')); ?>
 				</fieldset>
       </div>
       <div class="modal-footer">

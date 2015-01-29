@@ -32,15 +32,18 @@ foreach($project['ProjectSkill'] as $sKey => $project_skill) {
 						
 						echo $this->Form->input('title', array(
 							'type' => 'text',
-							'value' => $project['title']));
+							'value' => $project['title'],
+							'placeholder' => 'e.g. Associate Manager'));
 					
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
-							'value' => $project['Organization']['organization_name']));
+							'value' => $project['Organization']['organization_name'],
+							'placeholder' => 'e.g. Massive Dynamics'));
 						
 						echo $this->Form->input('Project.website', array(
 							'type' => 'text',
-							'value' => $project['website']));
+							'value' => $project['website'],
+							'placeholder' => 'e.g. www.google.com'));
 						
 						echo $this->Form->input('start_date', array(
 							'type' => 'text',
@@ -88,11 +91,13 @@ foreach($project['ProjectSkill'] as $sKey => $project_skill) {
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
-							'value' => $project['responsibilities']));
+							'value' => $project['responsibilities'],
+							'placeholder' => 'Project or position responsibilities and duties.'));
 
 						echo $this->Form->input('ProjectSkill.skill_names', array(
 							'type' => 'textarea',
-							'value' => $skills));
+							'value' => $skills,
+							'placeholder' => 'e.g. management, programming, C++, flexibility, energetic performer.'));
 						?>
 				</fieldset>
       </div>

@@ -35,7 +35,7 @@
 						echo $this->Form->input('expiration_date', array(
 							'type' => 'text',
 							'placeholder' => 'ex: 2000-01-01',
-							'label' => 'expiration_date '.$this->Html->image('tooltip.png',array(
+							'label' => 'Expiration Date '.$this->Html->image('tooltip.png',array(
 								'class' => 'masterTooltip',
 								'title' => 'If your certificate doesn\'t expire, leave this blank.')),
 							'value' => $certification['expiration_date'])); ?>

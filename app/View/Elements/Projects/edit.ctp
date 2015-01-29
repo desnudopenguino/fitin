@@ -59,7 +59,9 @@ foreach($project['ProjectSkill'] as $sKey => $project_skill) {
 							echo $this->Form->input('ProjectIndustry.'.$pKey.'.id', array(
 								'value' => $project['ProjectIndustry'][$pKey]['id']));
 							if($pKey == 0) {
-								$label = 'Industry';
+								$label =  'Industry '.$this->Html->image('tooltip.png',array(
+									'class' => 'masterTooltip',
+									'title' => '\'Industry\' and \'Function\' details give a better look at a job seeker\'s abilities.')),
 							} else {
 								$label = false;
 							}

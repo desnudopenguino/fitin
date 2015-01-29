@@ -31,7 +31,13 @@
 								'controller' => 'applications', 'action' => 'apply', $position['Position']['id']),
 								array('class' => 'btn btn-primary apply '. $disabled,
 									'id' => 'apply_'.$position['Position']['id'],
-									'escape' => false)); ?>
+									'escape' => false)); 
+
+							echo '&nbsp';
+							echo $this->Html->image('tooltip.png',array(
+								'class' => 'masterTooltip',
+								'title' => 'One click apply. No cover letter required.'
+							)); ?>
 					</div>
 					<div class="col-md-6">
 						<?php 

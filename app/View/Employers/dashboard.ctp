@@ -8,18 +8,14 @@
 			<?php //tooltip
 				echo $this->Html->image('tooltip.png',array(
 					'class' => 'masterTooltip',
-					'title' => 'Keep track of messages on your dashboard page.'
-				));
-			?>
+					'title' => 'Keep track of messages on your dashboard page.')); ?>
 			</a>
 			</li>
 			<li><a class="dashboard-nav" href="#" id="applications-btn">Applications
 			<?php //tooltip
 				echo $this->Html->image('tooltip.png',array(
 					'class' => 'masterTooltip',
-					'title' => 'Keep track of applications on your dashboard page. Close applications if you\'re not interested.'
-				));
-			?>
+					'title' => 'Keep track of applications on your dashboard page. Close applications if you\'re not interested.')); ?>
 			</a></li>
 			<li><?php echo $this->Html->link('Premium Services', array(
         'controller' => 'users', 'action' => 'checkout'), array(

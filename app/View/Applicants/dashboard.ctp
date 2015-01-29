@@ -3,15 +3,15 @@
 		<h2>Welcome, <?php echo $applicant['Applicant']['display_name']; ?></h2>
 		<span class="label label-primary"><?php echo $applicant['User']['UserLevel']['description']; ?></span>
 		<ul class="nav nav-pills nav-stacked">
-			<li><a class="dashboard-nav" href="#" id="inbox-btn">Messages</a>
+			<li><a class="dashboard-nav" href="#" id="inbox-btn">Messages
 				<?php echo $this->Html->image('tooltip.png',array(
 					'class' => 'masterTooltip',
-					'title' => 'Keep track of messages on your dashboard page.')); ?> 
+					'title' => 'Keep track of messages on your dashboard page.')); ?></a>
 				</li>
-			<li><a class="dashboard-nav" href="#" id="applications-btn">Applications</a>
+			<li><a class="dashboard-nav" href="#" id="applications-btn">Applications
 				<?php echo $this->Html->image('tooltip.png',array(
 					'class' => 'masterTooltip',
-					'title' => 'Keep track of applications on your dashboard page. Cancel an application if you\re no longer interested')); ?> 
+					'title' => 'Keep track of applications on your dashboard page. Cancel an application if you\re no longer interested')); ?></a>
 			</li>
 			<li><?php echo $this->Html->link('Premium Services', array(
         'controller' => 'users', 'action' => 'checkout'), array(

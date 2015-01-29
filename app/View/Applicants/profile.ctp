@@ -25,7 +25,11 @@
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>
 		<p><?php echo $this->Html->link("My URL",
-			"/hire/".$applicant['User']['url']); ?></p>
+			"/hire/".$applicant['User']['url']); 
+
+			echo $this->Html->image('tooltip.png',array(
+				'class' => 'masterTooltip',
+				'title' => 'See your public profile page. Share your unique link on your company\'s career page or job boards')); ?></p>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php echo $this->element('Projects/owner_index'); ?>	

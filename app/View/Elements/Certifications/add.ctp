@@ -21,15 +21,22 @@
 					<?php 
 						echo $this->Form->input('certification_name', array(
 							'type' => 'text',
-							'label' => 'Name'));
+							'label' => 'Name',
+							'placeholder' => 'e.g. Certificate Name'));
 						echo $this->Form->input('Organization.organization_name', array(
-							'type' => 'text'));
+							'type' => 'text',
+							'placeholder' => 'e.g. Certifying Organization'));
 						echo $this->Form->input('earned_date', array(
 							'placeholder' => 'ex: 2000-01-01',
 							'type' => 'text'));
 						echo $this->Form->input('expiration_date', array(
-							'placeholder' => 'ex: 2000-01-01',
-							'type' => 'text')); ?>
+								'placeholder' => 'ex: 2000-01-01',
+								'type' => 'text',
+								'label' => 'expiration_date '.$this->Html->image('tooltip.png',array(
+									'class' => 'masterTooltip',
+									'title' => 'If your certificate doesn\'t expire, leave this blank.'))
+								));
+					?>
 				</fieldset>
       </div>
       <div class="modal-footer">

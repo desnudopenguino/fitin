@@ -1,6 +1,13 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1 well">
-		<h2>Culture</h2>
+		<h2>Culture
+		<?php //tooltip
+			echo $this->Html->image('tooltip.png',array(
+				'class' => 'masterTooltip',
+				'title' => 'Dive into our culture matching quiz. Answer honestly to improve your matches. No-one sees your answers.'
+			));
+		?>
+		</h2>
 		<button type="button" class="btn btn-primary" id="cultureQuestions">Answer Culture Questions</button>
 		<p><span id="match"><?php echo $match; ?></span> of <span id="total"><?php echo $total; ?></span> Questions Answered (<span id="percent"><?php echo round($match / $total, 2) * 100; ?></span>% complete)</p>
 <?php /*

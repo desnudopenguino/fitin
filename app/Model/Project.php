@@ -33,17 +33,20 @@ Class Project extends AppModel {
 		);
 
 	public function beforeSave($options = array()) {
-		if(empty($this->data[$this->alias]['id'])) {
-			$this->data[$this->alias]['applicant_id'] = AuthComponent::user('id');
+		$OBJECT = $this->alias;
+		if(empty($this->data[$OBJECT]['id'])) {
+			$this->data[$OBJECT]['applicant_id'] = AuthComponent::user('id');
 		}
 
-		if($this->data[$this->alias]['end_date'] == 'Current') {
-			$this->data[$this->alias]['end_date'] = null;
+		if($this->data[$OBJECT]['end_date'] == 'Current') {
+			$this->data[$OBJECT]['end_date'] = null;
 		}
 		//parse and check url.
-		$proto_scheme = parse_url($this->data['Project']['website'],PHP_URL_SCHEME);
-		if((!stristr($proto_scheme,'http')) || (!stristr($proto_scheme,'http'))){
-			$this->data['Project']['website'] = 'http://'.$this->data['Project']['website'];
+		if(!empty($this->data[$OBJECT]['website'])) {
+			$proto_scheme = parse_url($this->data[$OBJECT]['website'],PHP_URL_SCHEME);
+			if(!stristr($proto_scheme,'http')){
+				$this->data[$OBJECT]['website'] = 'http://'.$this->data['Project']['website'];
+			}
 		}
 		return true;
 	}

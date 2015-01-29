@@ -1,4 +1,11 @@
-<h2>Resume Snapshot</h2>
+<h2>Resume Snapshot
+<?php //tooltip
+	echo $this->Html->image('tooltip.png',array(
+		'class' => 'masterTooltip',
+		'title' => 'Matches are shown based on your profile. More info means better results. Mouse over for Culture Match with each job.'
+	));
+?>
+</h2>
 <h3>Education:</h3>
 <ul class="list-group">
 	<?php foreach($applicant_card['DataCard']['Education'] as $education) { ?>
@@ -11,7 +18,14 @@
 	<li class="list-group-item"><?php echo $certification; ?></li>
 	<?php } ?>
 </ul>
-<h3>Experience:</h3>
+<h3>Experience:
+<?php //tooltip
+	echo $this->Html->image('tooltip.png',array(
+		'class' => 'masterTooltip',
+		'title' => 'Profile experience is broken down into an easy to digest experience snapshot.'
+	));
+?>
+</h3>
 <table class="table table-striped">
 	<tr>
 		<th>Type</th>

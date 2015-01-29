@@ -7,6 +7,12 @@
 				</div>
 				<div class="col-md-6 col-md-offset-1">
 					<div class="row">
+						<?php //tooltip
+							echo $this->Html->image('tooltip.png',array(
+								'class' => 'masterTooltip',
+								'title' => 'Job Match is generated based on your job listing while your culture match is based on your company\'s culture.'
+							));
+						?>
 						<div class="col-md-11" title="<?php echo $applicant_card['Results']['percent']; ?>% Job Match">
 							<div class="progress">
 								<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $applicant_card['Results']['percent']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $applicant_card['Results']['percent']; ?>%;">
@@ -80,10 +86,21 @@
 				<div class="row">
 					<div class="col-md-5">
 						<?php
+<<<<<<< HEAD
 							echo $this->Html->link('View Profile','/hire/'. $applicant_card['DataCard']['Info']['url'],
+=======
+							echo $this->Html->link(
+								'View Profile ','/with/'. $applicant_card['DataCard']['Info']['url'],
+>>>>>>> 765f7c1148f451ef68d660a5b1475a39dfcc668d
 							array(
 								'class' => 'btn btn-primary',
 								'escape' => false));
+							//tooltip
+							echo $this->Html->image('tooltip.png',array(
+								'class' => 'masterTooltip',
+								'title' => 'View more detail about an applicant.',
+								'style' => 'padding-left:0.25em'
+							));
 						?>
 					</div>
 					<div class="col-md-6">
@@ -100,10 +117,19 @@
 								'type' => 'hidden',
 								'value' => $position_card['DataCard']['Info']['title']));
 
-							echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
-								'class' => 'btn btn-primary',
-								'type' => 'submit'));
-
+							echo $this->Form->button(
+								'<i class="glyphicon glyphicon-envelope"></i> Message ',
+								array(
+									'class' => 'btn btn-primary',
+									'type' => 'submit'));
+							//tooltip
+							echo $this->Html->image(
+									'tooltip.png',
+									array(
+										'class' => 'masterTooltip',
+										'title' => 'Message an applicant directly within FitIn.',
+										'style' => 'padding-left:0.25em'
+								));
 							echo $this->Form->end(); 
 						?>
 					</div>

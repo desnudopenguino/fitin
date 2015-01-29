@@ -61,7 +61,7 @@ foreach($project['ProjectSkill'] as $sKey => $project_skill) {
 							if($pKey == 0) {
 								$label =  'Industry '.$this->Html->image('tooltip.png',array(
 									'class' => 'masterTooltip',
-									'title' => '\'Industry\' and \'Function\' details give a better look at a job seeker\'s abilities.')),
+									'title' => '\'Industry\' and \'Function\' details give a better look at a job seeker\'s abilities.'));
 							} else {
 								$label = false;
 							}

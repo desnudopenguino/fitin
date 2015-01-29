@@ -45,7 +45,7 @@
 			<?php 
 				echo $this->Form->input('PhoneNumber.id', array(
 					'type' => 'hidden',
-					'value' => $employer['User']['PhoneNumber']['id']));
+					'value' => $applicant['User']['PhoneNumber']['id']));
 				echo $this->Form->input('PhoneNumber.phone_type_id', array(
 					'type' => 'select',
 					'label' => 'Phone Type',
@@ -64,7 +64,7 @@
 			<?php
 				echo $this->Form->input('Address.id', array(
 					'type' => 'hidden',
-					'value' => $employer['User']['Address']['id']));
+					'value' => $applicant['User']['Address']['id']));
 				echo $this->Form->input('Address.street', array(
 					'type' => 'text',
 					'label' => 'Street',

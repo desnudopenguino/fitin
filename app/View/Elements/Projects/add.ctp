@@ -21,27 +21,32 @@
 					<?php 
 						echo $this->Form->input('title', array(
 							'type' => 'text',
-							'label' => 'Title of Position'));
+							'label' => 'Title of Position',
+							'placeholder' => 'e.g. Associate Manager'));
 					
 						echo $this->Form->input('Organization.organization_name', array(
 							'type' => 'text',
-							'label' => 'Company'));
+							'label' => 'Company',
+							'placeholder' => 'e.g. Massive Dynamics'));
 						
 						echo $this->Form->input('website', array(
 							'type' => 'text',
-							'label' => 'Website'));
+							'label' => 'Website',
+							'placeholder' => 'e.g. www.google.com'));
 						
 						echo $this->Form->input('start_date', array(
-							'placeholder' => 'ex: 2000-01-01',
+							'placeholder' => 'ex: 2000-01-21',
 							'type' => 'text'));
 
 						echo $this->Form->input('end_date', array(
-							'placeholder' => 'ex: 2000-01-01',
+							'placeholder' => 'ex: 2004-05-22',
 							'type' => 'text'));
 
 						echo $this->Form->input('ProjectIndustry.0.industry_id', array(
 							'type' => 'select',
-							'label' => 'Industry',
+							'label' => 'Industry '.$this->Html->image('tooltip.png',array(
+								'class' => 'masterTooltip',
+								'title' => '\'Industry\' and \'Function\' details give a better look at a job seeker\'s abilities.')),
 							'options' => $industries));
 
 						echo $this->Form->input('ProjectIndustry.1.industry_id', array(
@@ -74,10 +79,12 @@
 							'options' => $functions));
 
 						echo $this->Form->input('responsibilities', array(
-							'type' => 'textarea'));
+							'type' => 'textarea',
+							'placeholder' => 'Project or position responsibilities and duties.'));
 
 						echo $this->Form->input('ProjectSkill.skill_names', array(
-							'type' => 'textarea'));
+							'type' => 'textarea',
+							'placeholder' => 'e.g. management, programming, C++, flexibility, energetic performer.'));
 						?>
 				</fieldset>
       </div>

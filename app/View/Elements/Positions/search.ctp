@@ -75,6 +75,13 @@
 								array('class' => 'btn btn-primary apply '. $disabled,
 									'id' => 'apply_'.$position_card['DataCard']['Info']['id'],
 									'escape' => false)); ?>
+						<?php //tooltip
+							echo '&nbsp';
+							echo $this->Html->image('tooltip.png',array(
+								'class' => 'masterTooltip',
+								'title' => 'One click apply. No cover letter required.'
+							));
+						?>
 						</div>
 						<div class="col-md-4">
 							<?php
@@ -83,6 +90,13 @@
 								array(
 									'class' => 'btn btn-primary',
 									'escape' => false));
+							//tooltip
+							echo '&nbsp';
+							echo $this->Html->image('tooltip.png',array(
+								'class' => 'masterTooltip',
+								'title' => 'View more details about this position.',
+								'style' => 'padding-left:0.25em'
+							));
 							?>
 						</div>
 						<div class="col-md-4">
@@ -102,7 +116,13 @@
 								echo $this->Form->button('<i class="glyphicon glyphicon-envelope"></i> Message', array(
 									'class' => 'btn btn-primary',
 									'type' => 'submit'));
-
+								//tooltip
+								echo '&nbsp';
+								echo $this->Html->image('tooltip.png',array(
+									'class' => 'masterTooltip',
+									'title' => 'Message this employer directly within FitIn.',
+									'style' => 'padding-left:0.25em'
+								));
 								echo $this->Form->end(); 
 							?>
 						</div>

@@ -32,17 +32,20 @@ foreach($position['PositionSkill'] as $sKey => $position_skill) {
 
 						echo $this->Form->input('title', array(
 							'type' => 'text',
-							'value' => $position['title']));
+							'value' => $position['title'],
+							'placeholder' => 'Position Title'));
 
 						echo $this->Form->input('min_work_experience', array(
 							'type' => 'text',
 							'value' => $position['min_work_experience'],
-							'label' => 'Minimum years of experience'));
+							'label' => 'Minimum years of experience',
+							'placeholder' => 'e.g. 1'));
 
 						echo $this->Form->input('max_work_experience', array(
 							'type' => 'text',
 							'value' => $position['max_work_experience'],
-							'label' => 'Maximum years of experience'));
+							'label' => 'Maximum years of experience',
+							'placeholder' => 'e.g. 3'));
 
 						echo $this->Form->input('min_degree', array(
 							'type' => 'select',
@@ -116,12 +119,14 @@ foreach($position['PositionSkill'] as $sKey => $position_skill) {
 
 						echo $this->Form->input('responsibilities', array(
 							'type' => 'textarea',
-							'value' => $position['responsibilities']));
+							'value' => $position['responsibilities'],
+							'placeholder' => 'Position Responsibilities'));
 
 						echo $this->Form->input('PositionSkill.skill_names', array(
 							'type' => 'textarea',
 							'label' => 'Skills',
-							'value' => $skills));
+							'value' => $skills,
+							'placeholder' => 'e.g. Skill 1, Skill 2, Skill 3, ...'));
 						?>
 				</fieldset>
       </div>

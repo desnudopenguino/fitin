@@ -50,6 +50,8 @@ class PagesController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function display() {
+
+
 		$path = func_get_args();
 
 		//remove the default layout
@@ -71,6 +73,10 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
+debug($path);
+debug($page);
+debug($subpage);
+debug($title_for_layout);
 
 		try {
 			$this->render(implode('/', $path));

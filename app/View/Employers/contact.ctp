@@ -52,7 +52,7 @@
 					'label' => 'City',
 					'placeholder' => 'e.g. New York City.'));
 				echo $this->Form->input('Address.state', array(
-					'type' => 'select',
+					'type' => 'text',
 					'label' => 'State/Province/Region',
 					'placeholder' => 'e.g. New York'));
 				echo $this->Form->input('Address.zip', array(

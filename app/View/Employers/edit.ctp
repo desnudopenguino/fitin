@@ -81,7 +81,7 @@
 					'placeholder' => 'e.g. New York City.'));
 
 				echo $this->Form->input('Address.state', array(
-					'type' => 'select',
+					'type' => 'text',
 					'label' => 'State/Province/Region',
 					'value' => $employer['User']['Address']['state'],
 					'placeholder' => 'e.g. New York'));

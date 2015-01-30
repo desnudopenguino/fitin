@@ -23,8 +23,9 @@
 			<?php if(!empty($employer['User']['Address'])) {
 				echo $employer['User']['Address']['street']; ?><br>
 				<?php echo $employer['User']['Address']['city']; ?>,
-				<?php echo $employer['User']['Address']['State']['short_name']; ?>
-				<?php echo $employer['User']['Address']['zip']; 
+				<?php echo $employer['User']['Address']['state']; ?>
+				<?php echo $employer['User']['Address']['zip']; ?><br>
+				<?php echo $employer['User']['Address']['country']; 
 			}?>
 		</p>
 		<p><?php echo $employer['User']['email']; ?></p>

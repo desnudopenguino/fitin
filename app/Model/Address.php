@@ -13,11 +13,6 @@ Class Address extends AppModel {
 	);
 
 	public $validate = array(
-		'state_id' => array(
-			'rule' => array('notEmpty'),
-			'required' => true,
-			'allowEmpty' => false,
-			'message' => 'Please fill out this field'),
 		'street' => array(
 			'rule' => array('notEmpty'),
 			'required' => true,

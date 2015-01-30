@@ -28,6 +28,16 @@ Class Address extends AppModel {
 			'required' => true,
 			'allowEmpty' => false,
 			'message' => 'Please fill out this field'),
+		'state' => array(
+			'rule' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
+		'country' => array(
+			'rule' => array('notEmpty'),
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => 'Please fill out this field'),
 		'zip' => array(
 			'rule' => array('notEmpty'),
 			'required' => true,

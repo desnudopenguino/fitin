@@ -36,16 +36,15 @@ Class User extends AppModel {
 				'message' => "An account with that email already exists"
 			)
 		),
+
+		'url' => array(
+			'uniqueURL' => array(
+				'required' => false,
+				'allowEmpty' => false,
+				'rule' => array('isUnique'),
+				'message' => array('This custom URL is already in use, please enter a different one'))),
 		
 		'email_confirmation' => array(
-/*			'isEmail' => array(
-				'rule' => array('email'),
-				'message' => "Not a valid email"
-			),
-			'isUnique' => array(
-				'rule' => array('isUnique'),
-				'message' => "An account with that email already exists"
-			),*/
 			'compare_emails' => array(
 				'rule' => array('compare_emails'),
 				'message' => "Email fields must match"
@@ -60,10 +59,6 @@ Class User extends AppModel {
 		),
 		
 		'password_confirmation' => array(
-/*			'minLength' => array(
-				'rule' => array('minLength',8),
-				'message' => "Password minimum length is 8 characters"
-			),*/
 			'compare_passwords' => array(
 				'rule' => array('compare_passwords'),
 				'message' => "Password fields must match"

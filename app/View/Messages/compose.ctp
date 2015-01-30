@@ -27,9 +27,9 @@
 	echo $this->Form->submit('Send', array(
 		'div' => 'form-group',
 		'class' => 'btn btn-default'));
-	echo $this->Html->image('tooltip.png',array(
+	/*echo $this->Html->image('tooltip.png',array(
 			'class' => 'masterTooltip',
-			'title' => 'Keep track of messages on your dashboard page.'));
+			'title' => 'Keep track of messages on your dashboard page.'));*/
 	?>
 </fieldset>
 <?php echo $this->Form->end(); ?>

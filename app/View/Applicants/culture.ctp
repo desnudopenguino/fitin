@@ -4,7 +4,7 @@
 		<?php //tooltip
 			echo $this->Html->image('tooltip.png',array(
 				'class' => 'masterTooltip',
-				'title' => 'Dive into our culture matching quiz. Answer honestly to improve your matches. No-one sees your answers.'
+				'title' => 'Dive into our culture matching quiz. Answer honestly to improve your matches. No one sees your answers.'
 			));
 		?>
 		</h2>

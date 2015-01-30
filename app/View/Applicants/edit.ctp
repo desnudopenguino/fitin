@@ -84,7 +84,7 @@
 					'type' => 'text',
 					'label' => 'State/Province/Region',
 					'value' => $applicant['User']['Address']['state'],
-					'placeholder' => 'e.g. NY.'));
+					'placeholder' => 'e.g. New York.'));
 				echo $this->Form->input('Address.zip', array(
 					'type' => 'text',
 					'label' => 'Zip/Postal code',

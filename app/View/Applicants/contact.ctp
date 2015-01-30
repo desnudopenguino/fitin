@@ -59,7 +59,7 @@
 				echo $this->Form->input('Address.state', array(
 					'type' => 'text',
 					'label' => 'State/Province/Region',
-					'placeholder' => 'e.g. NY.'));
+					'placeholder' => 'e.g. New York.'));
 				echo $this->Form->input('Address.zip', array(
 					'type' => 'text',
 					'label' => 'Zip/Postal code',

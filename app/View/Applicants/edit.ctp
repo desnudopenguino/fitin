@@ -67,24 +67,32 @@
 					'value' => $applicant['User']['Address']['id']));
 				echo $this->Form->input('Address.street', array(
 					'type' => 'text',
-					'label' => 'Street',
+					'label' => 'Address',
 					'value' => $applicant['User']['Address']['street'],
 					'placeholder' => 'e.g. 123 Main Street.'));
+				echo $this->Form->input('Address.street2', array(
+					'type' => 'text',
+					'label' => 'Line 2',
+					'value' => $applicant['User']['Address']['street2'],
+					'placeholder' => 'e.g. Apartment 1.'));
 				echo $this->Form->input('Address.city', array(
 					'type' => 'text',
 					'label' => 'City',
 					'value' => $applicant['User']['Address']['city'],
 					'placeholder' => 'e.g. New York City.'));
-				echo $this->Form->input('Address.state_id', array(
+				echo $this->Form->input('Address.state', array(
 					'type' => 'select',
-					'label' => 'State',
-					'options' => $states,
-					'value' => $applicant['User']['Address']['state_id'],
+					'label' => 'State/Province/Region',
+					'value' => $applicant['User']['Address']['state'],
 					'placeholder' => 'e.g. NY.'));
 				echo $this->Form->input('Address.zip', array(
 					'type' => 'text',
+					'label' => 'Zip/Postal code',
 					'value' => $applicant['User']['Address']['zip'],
 					'placeholder' => 'e.g. 10001.'));
+				echo $this->Form->input('Address.country', array(
+					'type' => 'text',
+					'placeholder' => 'e.g. USA.'));
 			?>
 		</fieldset>
 		<?php 

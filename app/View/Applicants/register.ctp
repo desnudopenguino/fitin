@@ -81,6 +81,7 @@
 					'placeholder' => 'e.g. New York'));
 				echo $this->Form->input('Address.zip', array(
 					'type' => 'text',
+					'label' => 'Zip/Postal code',
 					'placeholder' => 'e.g. 10001.'));
 				echo $this->Form->input('Address.country', array(
 					'type' => 'text',

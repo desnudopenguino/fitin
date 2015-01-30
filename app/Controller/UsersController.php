@@ -171,15 +171,21 @@ class UsersController extends AppController {
 //login
 	public function login() {
 		if ($this->request->is('post')) {
-    		if ($this->Auth->login()) {
-            	return $this->redirect($this->Auth->redirect());
-	        }
-					$this->Session->setFlash(__('Invalid Email or Password. Please try again'),
-					'alert', array(
-						'plugin' => 'BoostCake',
-						'class' => 'alert-danger'));
-
-	    }
+   		if ($this->Auth->login()) {
+				$applicant_url = $this->Session->read('applicant_url');
+				if(!empty($applicant_url)) {
+					$this->redirect(array(
+						'controller' => 'applicants',
+						'action' => 'view', $applicant_url));
+				}
+				
+				return $this->redirect($this->Auth->redirect());
+			}
+			$this->Session->setFlash(__('Invalid Email or Password. Please try again'),
+				'alert', array(
+				'plugin' => 'BoostCake',
+				'class' => 'alert-danger'));
+		}
 	}
 
 //logout

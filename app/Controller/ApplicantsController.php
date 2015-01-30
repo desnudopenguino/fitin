@@ -185,7 +185,14 @@ class ApplicantsController extends AppController {
 		} else if($user['User']['status_id'] < 4) {
 			throw new ForbiddenException(__('Invalid User'));
 		}
-		$this->set('applicant', $this->Applicant->findProfile($user['User']['id']));
+
+		$applicant = $this->Applicant->findProfile($user['User']['id']);
+
+		if($this->referer() == '/' && !$this->Auth->loggedIn()) {
+			$this->Session->write('applicant_url', $url);
+		}
+
+		$this->set('applicant',$applicant);  
 
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 1) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($user['User']['id'],$this->Auth->user('id')));

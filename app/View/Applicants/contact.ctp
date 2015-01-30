@@ -17,14 +17,14 @@
 					'type' => 'hidden',
 					'value' => $user_id));
 				echo $this->Form->input('Applicant.first_name', array(
-					'label' => 'First Name'
-					)); 
+					'label' => 'First Name',
+					'placeholder' => 'First Name')); 
 				echo $this->Form->input('Applicant.mi', array(
-					'label' => 'Middle Initial'
-					)); 
+					'label' => 'Middle Initial',
+					'placeholder' => 'Middle Initial (if applicable)')); 
 				echo $this->Form->input('Applicant.last_name', array(
-					'label' => 'Last Name'
-					)); ?>
+					'label' => 'Last Name',
+					'placeholder' => 'Last Name')); ?>
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>
@@ -37,7 +37,8 @@
 		
 				echo $this->Form->input('PhoneNumber.phone_number', array(
 					'type' => 'text',
-					'label' => 'Phone Number'
+					'label' => 'Phone Number',
+					'placeholder' => 'Phone Number (123) 456 7890'
 					));
 			?>
 		</fieldset>

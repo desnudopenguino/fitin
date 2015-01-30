@@ -18,10 +18,12 @@
 					'value' => $user_id));
 
 				echo $this->Form->input('Organization.organization_name', array(
-					'label' => 'Company Name'));
+					'label' => 'Company Name',
+					'placeholder' => 'Company Title'));
 
 				echo $this->Form->input('Employer.department_name', array(
-					'label' => 'Department')); ?>
+					'label' => 'Department',
+					'placeholder' => 'Department Title')); ?>
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>
@@ -33,7 +35,8 @@
 		
 				echo $this->Form->input('PhoneNumber.phone_number', array(
 					'type' => 'text',
-					'label' => 'Phone Number'));
+					'label' => 'Phone Number',
+					'placeholder' => 'Phone Number (123) 456 7890'));
 			?>
 		</fieldset>
 		<fieldset>

@@ -71,7 +71,7 @@
 				echo $this->Form->input('Address.street2', array(
 					'type' => 'text',
 					'label' => 'Line 2',
-					'value' => $applicant['User']['Address']['street2'],
+					'value' => $employer['User']['Address']['street2'],
 					'placeholder' => 'e.g. Apartment 1.'));
 
 				echo $this->Form->input('Address.city', array(

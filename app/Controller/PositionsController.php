@@ -161,7 +161,7 @@ class PositionsController extends AppController {
 		$company_id = $position['Position']['Employer']['Organization']['Company']['id'];
 
 		if($this->referer() == '/') {
-			$this->Session->write('company', $companyid);
+			$this->Session->write('company', $company_id);
 		}
 
 		$this->set('position', $position);

@@ -209,7 +209,13 @@ class EmployersController extends AppController {
 		} else if($user['User']['status_id'] < 4) {
 			throw new ForbiddenException(__('Invalid User'));
 		}
-		$this->set('employer', $this->Employer->findProfile($user['User']['id']));
+
+		$employer = $this->Employer->findProfile($user['User']['id']);
+		$this->set('employer', $employer);
+debug($employer);
+		if($this->referer() == '/') {
+			//$this->Session->write('company', $id);
+		}
 		$this->set('degrees', $this->Degree->findAll());
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));

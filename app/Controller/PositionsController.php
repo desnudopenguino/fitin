@@ -157,10 +157,11 @@ class PositionsController extends AppController {
 		if($position['Position']['Employer']['User']['status_id'] != 4) {
 			throw new NotFoundException(__('Invalid Position'));
 		}
-debug($position['Position']['Employer']['Organization']['Company']['id']);
+
+		$company_id = $position['Position']['Employer']['Organization']['Company']['id'];
 
 		if($this->referer() == '/') {
-			//$this->Session->write('company', $id);
+			$this->Session->write('company', $companyid);
 		}
 
 		$this->set('position', $position);

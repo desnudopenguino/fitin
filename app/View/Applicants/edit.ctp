@@ -92,6 +92,7 @@
 					'placeholder' => 'e.g. 10001.'));
 				echo $this->Form->input('Address.country', array(
 					'type' => 'text',
+					'value' => $applicant['User']['Address']['country'],
 					'placeholder' => 'e.g. USA.'));
 			?>
 		</fieldset>

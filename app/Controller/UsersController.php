@@ -173,6 +173,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
    		if ($this->Auth->login()) {
 				$applicant_url = $this->Session->read('applicant_url');
+				$this->Session->delete('applicant_url');
 				if(!empty($applicant_url)) {
 					$this->redirect(array(
 						'controller' => 'applicants',

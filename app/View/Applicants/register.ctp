@@ -65,23 +65,26 @@
 			<?php
 				echo $this->Form->input('Address.street', array(
 					'type' => 'text',
-					'label' => 'Street',
-					'placeholder' => 'e.g. 123 Main Street.'
-					));
+					'label' => 'Address',
+					'placeholder' => 'e.g. 123 Main Street.'));
+				echo $this->Form->input('Address.street2', array(
+					'type' => 'text',
+					'label' => 'Line 2',
+					'placeholder' => 'e.g. Apartment 1.'));
 				echo $this->Form->input('Address.city', array(
 					'type' => 'text',
 					'label' => 'City',
-					'placeholder' => 'e.g. New York City.'
-					));
+					'placeholder' => 'e.g. New York City.'));
 				echo $this->Form->input('Address.state_id', array(
-					'type' => 'select',
-					'label' => 'State',
-					'options' => $states
-					));
+					'type' => 'text',
+					'label' => 'State/Province/Region',
+					'placeholder' => 'e.g. New York'));
 				echo $this->Form->input('Address.zip', array(
 					'type' => 'text',
-					'placeholder' => 'e.g. 10001.'
-					));
+					'placeholder' => 'e.g. 10001.'));
+				echo $this->Form->input('Address.country', array(
+					'type' => 'text',
+					'placeholder' => 'e.g. USA.'));
 			?>
 		</fieldset>
 		<?php 

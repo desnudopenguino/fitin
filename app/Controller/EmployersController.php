@@ -211,11 +211,12 @@ class EmployersController extends AppController {
 		}
 
 		$employer = $this->Employer->findProfile($user['User']['id']);
-		$this->set('employer', $employer);
-debug($employer);
+		$company_id = $employer['Organization']['Company']['id'];
 		if($this->referer() == '/') {
-			//$this->Session->write('company', $id);
+			$this->Session->write('company', $company_id);
 		}
+
+		$this->set('employer', $employer);
 		$this->set('degrees', $this->Degree->findAll());
 		if($this->Auth->loggedIn() && $this->Auth->user('role_id') == 2) {
 			$this->set('culture', $this->UserCultureAnswer->compareCulture($this->Auth->user('id'),$user['User']['id']));

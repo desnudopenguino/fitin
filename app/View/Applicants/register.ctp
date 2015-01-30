@@ -75,7 +75,7 @@
 					'type' => 'text',
 					'label' => 'City',
 					'placeholder' => 'e.g. New York City.'));
-				echo $this->Form->input('Address.state_id', array(
+				echo $this->Form->input('Address.state', array(
 					'type' => 'text',
 					'label' => 'State/Province/Region',
 					'placeholder' => 'e.g. New York'));

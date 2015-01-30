@@ -19,9 +19,9 @@
 			<?php if(!empty($applicant['User']['Address'])) {
 				echo $applicant['User']['Address']['street']; ?><br>
 				<?php echo $applicant['User']['Address']['city']; ?>,
-				<?php echo $employer['User']['Address']['state']; ?>
-				<?php echo $employer['User']['Address']['zip']; ?><br>
-				<?php echo $employer['User']['Address']['country']; 
+				<?php echo $applicant['User']['Address']['state']; ?>
+				<?php echo $applicant['User']['Address']['zip']; ?><br>
+				<?php echo $applicant['User']['Address']['country']; 
 			}?>
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>

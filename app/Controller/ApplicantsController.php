@@ -104,6 +104,14 @@ class ApplicantsController extends AppController {
 					'alert', array(
 						'plugin' => 'BoostCake',
 						'class' => 'alert-success'));
+
+				$company = $this->Session->read('company');
+				if(!empty($company)) {
+					$this->redirect(array(
+						'controller' => 'companies',
+						'action' => 'view', $company));
+				}
+
 				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
 			}
 		}

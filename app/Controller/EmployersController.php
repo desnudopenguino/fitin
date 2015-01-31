@@ -44,6 +44,15 @@ class EmployersController extends AppController {
 					'alert', array(
 						'plugin' => 'BoostCake',
 						'class' => 'alert-success'));
+
+				$applicant_url = $this->Session->read('applicant_url');
+				$this->Session->delete('applicant_url');
+				if(!empty($applicant_url)) {
+					$this->redirect(array(
+						'controller' => 'applicants',
+						'action' => 'view', $applicant_url));
+				}
+				
 				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
 			}
 		}

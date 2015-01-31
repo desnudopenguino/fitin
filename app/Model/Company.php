@@ -11,6 +11,9 @@ Class Company extends AppModel {
 		if(empty($this->data[$this->alias]['id'])) {
 			$this->data[$this->alias]['employer_id'] = AuthComponent::user('id');
 		}
+		if(isset($this->data[$this->alias]['organization_id'])) {
+			$this->data[$this->alias]['url'] = md5($this->data[$this->alias]['organization_id']);
+		} 
 		return true;
 	}
 

@@ -8,6 +8,13 @@ class CompaniesController extends AppController {
 	}
 
 	public function view($id = null) {
+		$company = $this->Company->find('first', array(
+			'conditions' => array(
+				'Company.id' => $id)));
+		if(empty($company)) {
+			$this->redirect(array('controller' => 'pages', 'action' => 'display','home'));
+//			throw new NotFoundException(__('Invalid User'));
+		}
 		$this->Company->id = $id;
 
 		if($this->referer() == '/') {

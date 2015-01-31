@@ -180,6 +180,13 @@ class UsersController extends AppController {
 						'action' => 'view', $applicant_url));
 				}
 				
+				$company = $this->Session->read('company');
+				if(!empty($company)) {
+					$this->redirect(array(
+						'controller' => 'companies',
+						'action' => 'view', $company));
+				}
+
 				return $this->redirect($this->Auth->redirect());
 			}
 			$this->Session->setFlash(__('Invalid Email or Password. Please try again'),

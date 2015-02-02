@@ -20,7 +20,7 @@ class EmployersController extends AppController {
 		}
 
 //if company owner account is not Enterprise Employer
-		if($company['Employer']['User']['user_level_id'] != 17) {
+		if($company['Employer']['User']['user_level_id'] != 12) {
 			throw new NotFoundException(__('Not Found'));
 		}
 

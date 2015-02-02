@@ -14,17 +14,16 @@ class EmployersController extends AppController {
 		//get the company.
 		$company = $this->Organization->Company->findByUrl($url);
 
-debug($company);
-
 		if(empty($company)) {
 			throw new NotFoundException(__('Not Found'));
 		}
-		$this->set('company_name', $company['Organization']['organization_name']);
 //get number of departments
+		$departments = $this->Organization->Company->countDepartments($company['Company']['id']);
+debug($departments);
+		$this->set('company_name', $company['Organization']['organization_name']);
 
 		//pass the company name to the form.
 
-		//the form redirects to register
 		$this->set('phone_types',
 			$this->PhoneType->findAll());
 

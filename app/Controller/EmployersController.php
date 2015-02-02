@@ -22,6 +22,7 @@ class EmployersController extends AppController {
 		if($departments >= 20) {
 			throw new ForbiddenException(__('Permission denied'));
 		}
+debug($employer);
 
 		$this->set('company_name', $company['Organization']['organization_name']);
 

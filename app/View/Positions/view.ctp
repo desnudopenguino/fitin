@@ -104,6 +104,11 @@
 		</p>
 		<h3>Company Info:</h3>
 		<p>
+			<?php echo $this->Html->link('Company Page', array(
+				'controller' => 'companies',
+				'action' => 'view', $position['Position']['Employer']['Organization']['Company']['url'])); ?>
+		</p>
+		<p>
 			<?php echo $position['Position']['Employer']['Organization']['Company']['description']; ?>
 		</p>
 	</div>

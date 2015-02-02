@@ -28,6 +28,16 @@ Class Company extends AppModel {
 		}
 	}
 
+	public function findByUrl($url = null) {
+		$company = $this->find('first', array(
+			'conditions' => array(
+				'Company.url' => $url),
+			'contain' => array(
+				'Organization')));
+
+		return $company;
+	}
+
 	public function findView($id = null) {
 		$company = $this->find('first', array(
 			'conditions' => array(

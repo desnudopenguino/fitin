@@ -18,9 +18,10 @@ Class Employer extends AppModel {
 
 	public $validate = array(
 		'department_name' => array(
-			'notEmpty' => array(
+			'rule' => array('notEmpty'),
 				'required' => true,
-				'allowEmpty' => false)));
+				'allowEmpty' => false,
+				'message' => 'This field cannot be empty'));
 
 	public function findDashboard($id = null) {
 		return $this->find('first', array(

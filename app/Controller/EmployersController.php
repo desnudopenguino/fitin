@@ -19,7 +19,7 @@ debug($company);
 		if(empty($company)) {
 			throw new NotFoundException(__('Not Found'));
 		}
-
+		$this->set('company_name', $company['Organization']['organization_name']);
 //get number of departments
 
 		//pass the company name to the form.

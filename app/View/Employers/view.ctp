@@ -26,7 +26,7 @@
 			<p>
 				<?php echo $this->Html->link('Company Page', array(
 					'controller' => 'companies',
-					'action' => 'view', $position['Position']['Employer']['Organization']['Company']['url'])); ?>
+					'action' => 'view', $employer['Employer']['Organization']['Company']['url'])); ?>
 			</p>
 		</div>
 		<?php if(isset($culture)) { ?>

@@ -33,7 +33,9 @@ Class Company extends AppModel {
 			'conditions' => array(
 				'Company.url' => $url),
 			'contain' => array(
-				'Organization')));
+				'Organization',
+				'Employer' => array(
+					'User'))));
 
 		return $company;
 	}

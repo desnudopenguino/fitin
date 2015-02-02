@@ -16,6 +16,12 @@ class EmployersController extends AppController {
 
 debug($company);
 
+		if(empty($company)) {
+			throw new NotFoundException(__('Not Found'));
+		}
+
+//get number of departments
+
 		//pass the company name to the form.
 
 		//the form redirects to register

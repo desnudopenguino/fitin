@@ -23,6 +23,11 @@
 				}?>
 			</p>
 			<p><?php echo $employer['User']['email']; ?></p>
+			<p>
+				<?php echo $this->Html->link('Company Page', array(
+					'controller' => 'companies',
+					'action' => 'view', $position['Position']['Employer']['Organization']['Company']['url'])); ?>
+			</p>
 		</div>
 		<?php if(isset($culture)) { ?>
 			<?php echo $this->element('Culture/profile'); ?>

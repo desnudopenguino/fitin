@@ -159,31 +159,30 @@ Class User extends AppModel {
 		}
 	}
 
-       public function findCustomer($user_id) {
-               $customer = $this->Customer->find('first', array(
-                       'conditions' => array(
-                               'Customer.user_id' => $user_id),
-                       'fields' => array(
-                               'Customer.id')));
-               return $customer;
-       }
+	public function findCustomer($user_id) {
+		$customer = $this->Customer->find('first', array(
+			'conditions' => array(
+				'Customer.user_id' => $user_id),
+			'fields' => array(
+				'Customer.id')));
+		return $customer;
+	}
 
-       public function findCustomerId($user_id) {
-               $customer = $this->Customer->find('first', array(
-                       'conditions' => array(
-                               'Customer.user_id' => $user_id),
-                       'fields' => array(
-                               'Customer.customer_id')));
-               return $customer['Customer']['customer_id'];
-       }
+	public function findCustomerId($user_id) {
+		$customer = $this->Customer->find('first', array(
+			'conditions' => array(
+				'Customer.user_id' => $user_id),
+			'fields' => array(
+				'Customer.customer_id')));
+		return $customer['Customer']['customer_id'];
+	}
 
-       public function findSettings($user_id) {
-               return $this->find('first', array(
-                       'conditions' => array(
-                               'User.id' => $user_id),
-                       'contain' => array(
-                               'Customer',
-                               'UserLevel')));
-       }
-}
-?>
+	public function findSettings($user_id) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'User.id' => $user_id),
+			'contain' => array(
+				'Customer',
+					'UserLevel')));
+	}
+} ?>

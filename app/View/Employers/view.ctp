@@ -24,7 +24,9 @@
 			</p>
 			<p><?php echo $employer['User']['email']; ?></p>
 			<p>
-				<?php echo $this->Html->link('Company Page', array(
+				<?php
+debug($employer);
+ echo $this->Html->link('Company Page', array(
 					'controller' => 'companies',
 					'action' => 'view', $employer['Employer']['Organization']['Company']['url'])); ?>
 			</p>

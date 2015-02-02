@@ -28,7 +28,7 @@
 debug($employer);
  echo $this->Html->link('Company Page', array(
 					'controller' => 'companies',
-					'action' => 'view', $employer['Employer']['Organization']['Company']['url'])); ?>
+					'action' => 'view', $employer['Organization']['Company']['url'])); ?>
 			</p>
 		</div>
 		<?php if(isset($culture)) { ?>

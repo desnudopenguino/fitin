@@ -103,8 +103,9 @@ Class Company extends AppModel {
 				'Organization' => array(
 					'Employer'))));
 
-		debug($departments);
+		$department_count = count($departments['Organization']['Employer']);
 
+		return $department_count;
 	}
 }
 ?>

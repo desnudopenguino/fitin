@@ -7,21 +7,20 @@ class CompaniesController extends AppController {
 		$this->Auth->allow('view');
 	}
 
-	public function view($id = null) {
+	public function view($url = null) {
 		$company = $this->Company->find('first', array(
 			'conditions' => array(
-				'Company.id' => $id)));
+				'Company.url' => $url)));
 		if(empty($company)) {
 			$this->redirect(array('controller' => 'pages', 'action' => 'display','home'));
 //			throw new NotFoundException(__('Invalid User'));
 		}
-		$this->Company->id = $id;
 
 		if($this->referer() == '/') {
-			$this->Session->write('company', $id);
+			$this->Session->write('company', $company['Company']['id']);
 		}
 
-		$this->set('company', $this->Company->findView($id));
+		$this->set('company', $this->Company->findView($company['Company']['id']));
 	}
 
 	public function index() {

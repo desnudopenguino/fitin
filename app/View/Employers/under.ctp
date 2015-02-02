@@ -29,7 +29,8 @@
 			<?php
 				echo $this->Form->Input('Organization.organization_name', array(
 					'label' => 'Company Name',
-					'placeholder' => 'Company Title'));
+					'readonly' => 'readonly',
+					'value' => $company_name,));
 
 				echo $this->Form->Input('Employer.department_name', array(
 					'label' => 'Department',

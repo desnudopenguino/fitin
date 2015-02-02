@@ -20,7 +20,9 @@ class CompaniesController extends AppController {
 			$this->Session->write('company', $company['Company']['id']);
 		}
 
-		$this->set('company', $this->Company->findView($company['Company']['id']));
+		$company_data = $this->Company->findView($company['Company']['id']);
+debug($company_data);
+		$this->set('company', $company_data);
 	}
 
 	public function index() {

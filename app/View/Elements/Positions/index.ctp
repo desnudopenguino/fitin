@@ -15,6 +15,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-5 col-md-offset-1">
+							<?php echo $this->Html->link('View Position page', '/for/'.$position['id']); ?>
 							<h3>Responsibilities</h3>
 							<p><?php echo $position['responsibilities']; ?></p>
 						</div>

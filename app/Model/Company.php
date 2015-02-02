@@ -94,5 +94,17 @@ Class Company extends AppModel {
 		}
 		return $positions_return;
 	}
+
+	public function countDepartments($id) {
+		$departments = $this->find('first', array(
+			'conditions' => array(
+				'Company.id' => $id),
+			'contain' => array(
+				'Organization' => array(
+					'Employer'))));
+
+		debug($departments);
+
+	}
 }
 ?>

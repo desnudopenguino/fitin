@@ -3,7 +3,7 @@
 		<?php foreach($companies as $company) { ?>
 		<p>
 			<?php echo $this->Html->link($company['Company']['url'], array(
-				'controller' => 'companies', 'action' => 'view', $company['Company']['url'])); ?>
+				'/at/', $company['Company']['url'])); ?>
 		</p>
 		<?php } ?>
 	</div>

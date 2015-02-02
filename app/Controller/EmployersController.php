@@ -7,7 +7,7 @@ class EmployersController extends AppController {
 	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion','Degree');
 
 	public function beforeFilter() {
-		$this->Auth->allow('view','register');
+		$this->Auth->allow('view','register','under');
 	}
 
 	public function under($url = null) {

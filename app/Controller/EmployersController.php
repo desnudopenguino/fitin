@@ -19,7 +19,10 @@ class EmployersController extends AppController {
 		}
 //get number of departments
 		$departments = $this->Organization->Company->countDepartments($company['Company']['id']);
-debug($departments);
+		if($departments >= 20) {
+			throw new ForbiddenException(__('Permission denied'));
+		}
+
 		$this->set('company_name', $company['Organization']['organization_name']);
 
 		//pass the company name to the form.

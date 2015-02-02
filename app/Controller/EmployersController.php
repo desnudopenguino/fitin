@@ -10,6 +10,16 @@ class EmployersController extends AppController {
 		$this->Auth->allow('view','register');
 	}
 
+	public function under($url = null) {
+		//get the company.
+		$company = $this->Organization->Company->findByUrl($url);
+
+debug($company);
+
+		//pass the company name to the form.
+
+		//the form redirects to register
+	}
 	public function register() {
 		$this->set('phone_types',
 			$this->PhoneType->findAll());

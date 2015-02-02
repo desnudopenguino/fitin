@@ -28,8 +28,7 @@
 			<legend>Company Info</legend>
 			<?php
 				echo $this->Form->Input('Organization.organization_name', array(
-					'label' => 'Company Name',
-					'readonly' => 'readonly',
+					'type' => 'hidden',
 					'value' => $company_name,));
 
 				echo $this->Form->Input('Employer.department_name', array(

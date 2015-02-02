@@ -19,6 +19,51 @@ debug($company);
 		//pass the company name to the form.
 
 		//the form redirects to register
+		$this->set('phone_types',
+			$this->PhoneType->findAll());
+
+		$this->set('states',
+			$this->State->findAllLongNames());
+		
+		if($this->request->is('post') || $this->request->is('put')) { 
+			$this->request->data['User']['role_id'] = 1;
+			$this->request->data['User']['status_id'] = 3;
+			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
+				$organization = $this->Organization->checkAndCreate($this->request->data,1);
+				unset($this->request->data['Organization']);
+				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
+				$employer = $this->request->data['Employer'];
+				unset($this->request->data['Employer']);
+				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
+				$employer['user_id'] = $this->Employer->User->getLastInsertID();
+				$this->Employer->save($employer);
+				$this->Auth->login();
+				$this->Employer->Company->checkAndCreate($organization);
+				$this->Employer->User->Request->create();
+				$this->Employer->User->Request->save(array('Request' => array('request_type_id' => 1)));	
+				$request_id = $this->Employer->User->Request->getInsertId();
+				$request = $this->Employer->User->Request->findById($request_id);
+				$Email = new CakeEmail();
+				$Email->to($this->Auth->user('email'));
+				$Email->subject('FitIn.Today Email Confirmation');
+				$Email->config('gmail');
+				$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+				$this->Session->setFlash(__('Welcome! Please check your email to confirm your address'),
+					'alert', array(
+						'plugin' => 'BoostCake',
+						'class' => 'alert-success'));
+
+				$applicant_url = $this->Session->read('applicant_url');
+				$this->Session->delete('applicant_url');
+				if(!empty($applicant_url)) {
+					$this->redirect(array(
+						'controller' => 'applicants',
+						'action' => 'view', $applicant_url));
+				}
+				
+				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+			}
+		}
 	}
 	public function register() {
 		$this->set('phone_types',

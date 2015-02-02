@@ -24,11 +24,7 @@
 			</p>
 			<p><?php echo $employer['User']['email']; ?></p>
 			<p>
-				<?php
-debug($employer);
- echo $this->Html->link('Company Page', array(
-					'controller' => 'companies',
-					'action' => 'view', $employer['Organization']['Company']['url'])); ?>
+				<?php echo $this->Html->link('Company Page', '/at/'. $employer['Organization']['Company']['url']); ?>
 			</p>
 		</div>
 		<?php if(isset($culture)) { ?>

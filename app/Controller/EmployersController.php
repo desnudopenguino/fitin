@@ -14,15 +14,22 @@ class EmployersController extends AppController {
 		//get the company.
 		$company = $this->Organization->Company->findByUrl($url);
 
+//if company doesn't exist
 		if(empty($company)) {
 			throw new NotFoundException(__('Not Found'));
 		}
-//get number of departments
+
+//if company owner account is not Enterprise Employer
+		if($company['Employer']['User']['user_level_id'] != 17) {
+			throw new NotFoundException(__('Not Found'));
+		}
+
+//if # of departments is >= 20
 		$departments = $this->Organization->Company->countDepartments($company['Company']['id']);
 		if($departments >= 20) {
 			throw new ForbiddenException(__('Permission denied'));
 		}
-debug($company);
+		
 
 		$this->set('company_name', $company['Organization']['organization_name']);
 

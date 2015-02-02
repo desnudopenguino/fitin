@@ -35,12 +35,12 @@
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 
 	Router::connect('/for/*',array('controller' => 'positions', 'action' => 'view'));
-	Router::connect('/at/*',array('controller' => 'companies', 'action' => 'view'));
 
 	//change the url for users to "with" so fitin.today/with/<userhash> and the userhash can be personalized for a price
 	Router::connectNamed(array('url'));
 	Router::connect('/with/:url', array('controller' => 'employers', 'action' => 'view'), array('pass' => array("url")));
 	Router::connect('/hire/:url', array('controller' => 'applicants', 'action' => 'view'), array('pass' => array("url")));
+	Router::connect('/at/:url',array('controller' => 'companies', 'action' => 'view'), array('pass' => array("url")));
 
 	Router::connect('/confirm', array('controller' => 'users', 'action' => 'confirm'));
 	Router::connect('/confirm/:url', array('controller' => 'requests', 'action' => 'confirm'), array('pass' => array("url")));

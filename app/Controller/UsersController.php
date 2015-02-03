@@ -434,6 +434,6 @@ class UsersController extends AppController {
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				$this->redirect(array("controller" => "users", "action" => "settings"));
 			}
-//		}
+		}
 //	}
 } ?>

@@ -25,12 +25,12 @@
 			}?>
 		</p>
 		<p><?php echo $applicant['User']['email']; ?></p>
-		<p><?php echo $this->Html->link("My URL",
+<?php /*		<p><?php echo $this->Html->link("My URL",
 			"/hire/".$applicant['User']['url']); 
 			echo "&nbsp";
 			echo $this->Html->image('tooltip.png',array(
 				'class' => 'masterTooltip',
-				'title' => 'See your public profile page. Share your unique link on your company\'s career page or job boards')); ?></p>
+				'title' => 'See your public profile page. Share your unique link on your company\'s career page or job boards')); ?></p> */ ?>
 			<script language="JavaScript">
 			  function selectText(textField) 
 			  {

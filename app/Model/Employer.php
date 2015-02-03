@@ -82,6 +82,13 @@ Class Employer extends AppModel {
 									'User.user_level_id' => 17))))))));
 
 		$return_departments = $departments['Company']['Organization']['Employer'];
+
+		foreach($return_departments as $dKey $dept) {
+			if(empty($dept['User'])) {
+				unset($return_departments[$dKey]);
+			}
+		}
+
 		return $return_departments;
 	}
 }

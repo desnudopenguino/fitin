@@ -4,9 +4,9 @@
 			echo $this->element('Settings/confirm_email');
 		}
 //		if(empty($customer)) {
-			echo $this->element('Settings/checkout');
+//			echo $this->element('Settings/checkout');
 //		} else {
-//			echo $this->element('Settings/subscription');
+			echo $this->element('Settings/subscription');
 //		}
 		 ?>
 	<div class="col-md-4 col-md-offset-4">

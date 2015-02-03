@@ -24,13 +24,16 @@
 				echo $this->Form->input('User.id', array(
 					'type' => 'hidden',
 					'value' => $employer['Employer']['user_id']));
-				if($employer['User']['user_level_id'] != 17) {
+				if($employer['User']['user_level_id'] == 17) {
+					echo $this->Form->input('Organization.organization_name', array(
+						'type' => 'hidden',
+						'value' => $employer['Organization']['organization_name']));  
+				} else {
 					echo $this->Form->input('Organization.organization_name', array(
 						'label' => 'Company Name',
 						'value' => $employer['Organization']['organization_name'],
 						'placeholder' => 'Company Title'));  
 				}
-
 				echo $this->Form->input('Employer.department_name', array(
 					'label' => 'Department',
 					'value' => $employer['Employer']['department_name'],

@@ -418,11 +418,11 @@ class UsersController extends AppController {
 					//get all of my company's 
 					$departments = $this->User->Employer->findCompanyDepartments($this->Auth->user('id'));
 debug($departments);
-exit(0);
 					foreach($departments as $department) {
 
 					}
 				}
+exit(0);
 			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
 			$subscription_id = $customer->subscriptions->data[0]->id;
 			$subscription = $customer->subscriptions->retrieve($subscription_id);

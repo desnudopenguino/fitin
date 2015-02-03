@@ -39,6 +39,7 @@
 			  }
 			</script>
 			<?php echo $this->Form->input('My URL', array(
+				'label' => 'My URL',
 				'type' => 'text',
 				'size' => '30',
 				'onClick' => 'selectText(this)',

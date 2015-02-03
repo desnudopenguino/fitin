@@ -29,7 +29,7 @@
 			}?>
 		</p>
 		<p><?php echo $employer['User']['email']; ?></p>
-		<p><?php
+<?php /*		<p><?php
 			echo $this->Html->link("My URL","/with/".$employer['User']['url']); 
 			//tooltip
 			echo "&nbsp";
@@ -38,7 +38,22 @@
 				'title' => 'See your public profile page. Share your unique link on your company\'s career page or job boards'
 			));
 			?>
-			</p>
+			</p> */ ?>
+			<script language="JavaScript">
+			  function selectText(textField) 
+			  {
+			    textField.focus();
+			    textField.select();
+			  }
+			</script>
+			<?php echo $this->Form->input('My URL', array(
+				'label' => 'My URL '.$this->Html->image('tooltip.png',array(
+					'class' => 'masterTooltip',
+					'title' => 'Click in the textbox below and copy your url to share with others')),
+				'type' => 'text',
+				'size' => '30',
+				'onClick' => 'selectText(this)',
+				'value' => Router::fullbaseUrl() ."/with/". $employer['User']['url'])); ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php echo $this->element('Positions/owner_index'); ?>

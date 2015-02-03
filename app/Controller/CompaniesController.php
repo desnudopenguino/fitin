@@ -21,7 +21,6 @@ class CompaniesController extends AppController {
 		}
 
 		$company_data = $this->Company->findView($company['Company']['id']);
-debug($company_data);
 		$this->set('company', $company_data);
 	}
 

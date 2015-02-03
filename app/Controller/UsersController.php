@@ -354,6 +354,7 @@ class UsersController extends AppController {
 		}
 	}
 
+// join action is a user referral action.
 	public function join($url = null) {
 		$user = $this->User->findIdByUrl($url);
 		if(!empty($user)) {
@@ -413,11 +414,21 @@ class UsersController extends AppController {
 			$this->render(false);
 			$new_plan = $this->request->data['User']['stripe_plan'];
 			$user_id = $this->Auth->user('id');
+				if($this->Auth->user('user_level_id') == 12) {
+					//get all of my company's 
+					$departments = $this->User->Employer->findCompanyDepartments($this->Auth->user('id'));
+debug($departments);
+exit(0);
+					foreach($departments as $department) {
+
+					}
+				}
 			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
 			$subscription_id = $customer->subscriptions->data[0]->id;
 			$subscription = $customer->subscriptions->retrieve($subscription_id);
 			$subscription->plan = $new_plan;
 			if($subscription->save()) {
+//if i am an enterprise user, find all my departments and downgrade them to free accounts
 				$this->User->updateUserLevel($user_id, $new_plan);
 				$login = $this->User->read(null,$user_id);
 				$this->Auth->login($login['User']);

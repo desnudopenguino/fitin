@@ -100,6 +100,9 @@
 		</div>	
 		<h3>Department Info:</h3>
 		<p>
+			<?php echo $this->Html->link('Company Page', '/with/'. $position['Position']['Employer']['url']); ?>
+		</p>
+		<p>
 			<?php echo $position['Position']['Employer']['department_description']; ?>
 		</p>
 		<h3>Company Info:</h3>

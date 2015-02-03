@@ -188,25 +188,17 @@ class EmployersController extends AppController {
 		$employer = $this->Employer->findEdit($id);
 		$this->set('employer', $employer);
 
-		if($employer['User']['user_level_id'] == 17) {
-			$this->Organization->validator()->remove('organization_name');
-		}
-
 		if($this->request->is('post') || $this->request->is('put')) { 
 			if($this->Employer->User->saveAll($this->request->data, array('validation' => 'only'))) {
-				if(!empty($this->request->data['Organization'])) {
-					$organization = $this->Organization->checkAndCreate($this->request->data,1);
-					$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
-					unset($this->request->data['Organization']);
-				}
+				$organization = $this->Organization->checkAndCreate($this->request->data,1);
+				$this->request->data['Employer']['organization_id'] = $organization['Organization']['id'];
+				unset($this->request->data['Organization']);
 				$employer = $this->request->data['Employer'];
 				unset($this->request->data['Employer']);
 				$this->Employer->User->saveAll($this->request->data, array('validation' => false));
 				$employer['user_id'] = $id;
 				$this->Employer->save($employer);
-				if(!isset($organization)) {
-					$this->Employer->Company->checkAndCreate($organization);
-				}
+				$this->Employer->Company->checkAndCreate($organization);
 				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
 			} else {
 				$this->Session->setFlash(__('The Employer Information has not been saved'),

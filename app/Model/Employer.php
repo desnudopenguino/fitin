@@ -84,7 +84,7 @@ Class Employer extends AppModel {
 		$return_departments = $departments['Company']['Organization']['Employer'];
 
 		foreach($return_departments as $dKey => $dept) {
-			if(empty($dept['User'])) {
+			if(empty($dept['User']) || $dept['User']['id'] == $id) {
 				unset($return_departments[$dKey]);
 			}
 		}

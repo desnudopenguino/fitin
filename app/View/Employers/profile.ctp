@@ -47,7 +47,9 @@
 			  }
 			</script>
 			<?php echo $this->Form->input('My URL', array(
-				'label' => 'My URL',
+				'label' => 'My URL '.$this->Html->image('tooltip.png',array(
+					'class' => 'masterTooltip',
+					'title' => 'Click in the textbox below and copy your url to share with others')),
 				'type' => 'text',
 				'size' => '30',
 				'onClick' => 'selectText(this)',

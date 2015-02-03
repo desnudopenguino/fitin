@@ -414,11 +414,11 @@ class UsersController extends AppController {
 			$this->render(false);
 			$new_plan = $this->request->data['User']['stripe_plan'];
 			$user_id = $this->Auth->user('id');
-			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
-			$subscription_id = $customer->subscriptions->data[0]->id;
-			$subscription = $customer->subscriptions->retrieve($subscription_id);
-			$subscription->plan = $new_plan;
-			if($subscription->save()) {
+//			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
+//			$subscription_id = $customer->subscriptions->data[0]->id;
+//			$subscription = $customer->subscriptions->retrieve($subscription_id);
+//			$subscription->plan = $new_plan;
+//			if($subscription->save()) {
 //if i am an enterprise user, find all my departments and downgrade them to free accounts
 				if($this->Auth->user('user_level_id') == 12) {
 					//get all of my company's 
@@ -434,7 +434,6 @@ class UsersController extends AppController {
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				$this->redirect(array("controller" => "users", "action" => "settings"));
 			}
-		}
-	}
-}
-?>
+//		}
+//	}
+} ?>

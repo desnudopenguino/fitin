@@ -46,7 +46,7 @@
 			    textField.select();
 			  }
 			</script>
-			<?php echo $this->Form->input('My Url', array(
+			<?php echo $this->Form->input('My URL', array(
 				'type' => 'text',
 				'size' => '30',
 				'onClick' => 'selectText(this)',

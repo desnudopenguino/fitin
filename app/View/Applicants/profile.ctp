@@ -31,6 +31,18 @@
 			echo $this->Html->image('tooltip.png',array(
 				'class' => 'masterTooltip',
 				'title' => 'See your public profile page. Share your unique link on your company\'s career page or job boards')); ?></p>
+			<script language="JavaScript">
+			  function selectText(textField) 
+			  {
+			    textField.focus();
+			    textField.select();
+			  }
+			</script>
+			<?php echo $this->Form->input('My URL', array(
+				'type' => 'text',
+				'size' => '30',
+				'onClick' => 'selectText(this)',
+				'value' => Router::fullbaseUrl() ."/hire/". $applicant['User']['url'])); ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php echo $this->element('Projects/owner_index'); ?>	

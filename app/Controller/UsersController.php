@@ -410,8 +410,8 @@ class UsersController extends AppController {
 
 	public function updateSubscription() {
 
+		$this->render(false);
 		if($this->request->is('post')) {
-			$this->render(false);
 			$new_plan = $this->request->data['User']['stripe_plan'];
 			$user_id = $this->Auth->user('id');
 				if($this->Auth->user('user_level_id') == 12) {

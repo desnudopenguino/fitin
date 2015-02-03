@@ -410,17 +410,8 @@ class UsersController extends AppController {
 
 	public function updateSubscription() {
 
-		$this->render(false);
-				if($this->Auth->user('user_level_id') == 12) {
-					//get all of my company's 
-					$departments = $this->User->Employer->findCompanyDepartments($this->Auth->user('id'));
-debug($departments);
-					foreach($departments as $department) {
-
-					}
-				}
-exit(0);
 		if($this->request->is('post')) {
+			$this->render(false);
 			$new_plan = $this->request->data['User']['stripe_plan'];
 			$user_id = $this->Auth->user('id');
 			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
@@ -429,6 +420,13 @@ exit(0);
 			$subscription->plan = $new_plan;
 			if($subscription->save()) {
 //if i am an enterprise user, find all my departments and downgrade them to free accounts
+				if($this->Auth->user('user_level_id') == 12) {
+					//get all of my company's 
+					$departments = $this->User->Employer->findCompanyDepartments($this->Auth->user('id'));
+					foreach($departments as $department) {
+						$this->User->updateUserLevel($department['User']['id'], 'EmpPass');
+					}
+				}
 				$this->User->updateUserLevel($user_id, $new_plan);
 				$login = $this->User->read(null,$user_id);
 				$this->Auth->login($login['User']);

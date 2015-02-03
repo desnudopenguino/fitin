@@ -354,6 +354,7 @@ class UsersController extends AppController {
 		}
 	}
 
+// join action is a user referral action.
 	public function join($url = null) {
 		$user = $this->User->findIdByUrl($url);
 		if(!empty($user)) {
@@ -418,6 +419,15 @@ class UsersController extends AppController {
 			$subscription = $customer->subscriptions->retrieve($subscription_id);
 			$subscription->plan = $new_plan;
 			if($subscription->save()) {
+//if i am an enterprise user, find all my departments and downgrade them to free accounts
+				if($this->Auth->user('user_level_id') == 12) {
+					//get all of my company's departments
+					$departments = $this->User->Employer->findCompanyDepartments($this->Auth->user('id'));
+					foreach($departments as $department) {
+						//downgrade departments to passive employer accounts
+						$this->User->updateUserLevel($department['User']['id'], 'EmpPass');
+					}
+				}
 				$this->User->updateUserLevel($user_id, $new_plan);
 				$login = $this->User->read(null,$user_id);
 				$this->Auth->login($login['User']);
@@ -427,5 +437,4 @@ class UsersController extends AppController {
 			}
 		}
 	}
-}
-?>
+} ?>

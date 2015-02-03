@@ -68,5 +68,28 @@ Class Employer extends AppModel {
 					'Address' => array(
 						'State')))));
 	}
+
+	public function findCompanyDepartments($id = null) {
+		$departments = $this->find('first', array(
+			'conditions' => array(
+				'Employer.user_id' => $id),
+			'contain' => array(
+				'Company' => array(
+					'Organization' => array(
+						'Employer' => array(
+							'User' => array(
+								'conditions' => array(
+									'User.user_level_id' => 17))))))));
+
+		$return_departments = $departments['Company']['Organization']['Employer'];
+
+		foreach($return_departments as $dKey => $dept) {
+			if(empty($dept['User'])) {
+				unset($return_departments[$dKey]);
+			}
+		}
+
+		return $return_departments;
+	}
 }
 ?>

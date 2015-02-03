@@ -41,6 +41,7 @@
 			</p>
 			<?php echo $this->Form->input('My Url', array(
 				'type' => 'text',
+				'size' => '30',
 				'value' => Router::fullbaseUrl() ."/with/". $employer['User']['url'])); ?>
 	</div>
 	<div class="col-md-6 col-md-offset-1">

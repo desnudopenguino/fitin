@@ -81,7 +81,8 @@ Class Employer extends AppModel {
 								'conditions' => array(
 									'User.user_level_id' => 17))))))));
 
-		return $departments;
+		$return_departments = $departments['Company']['Organization']['Employer'];
+		return $return_departments;
 	}
 }
 ?>

@@ -28,6 +28,7 @@
 			</p>
 			<h3>Description: </h3>
 			<p>
+				<?php echo $employer['Employer']['department_description']; ?>
 			</p>
 		</div>
 		<?php if(isset($culture)) { ?>

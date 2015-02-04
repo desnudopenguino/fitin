@@ -113,9 +113,11 @@ class EmployersController extends AppController {
 				$request = $this->Employer->User->Request->findById($request_id);
 				$Email = new CakeEmail();
 				$Email->to($this->Auth->user('email'));
-				$Email->subject('FitIn.Today Email Confirmation');
-				$Email->config('gmail');
-				$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
+				$Email->template('welcome','welcome');
+				$Email->emailFormat('html');
+				$confirm_url = Router::fullbaseUrl() ."/confirm/". $request['Request']['url'];
+				$Email->viewVars(array('confirm_email' => $confirm_url));
+				$Email->send();
 				$this->Session->setFlash(__('Welcome! Please check your email to confirm your address'),
 					'alert', array(
 						'plugin' => 'BoostCake',

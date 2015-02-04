@@ -1,4 +1,5 @@
 <?php
+	debug($employer);
 	$this->set('positions', $employer['Position']);
 ?>
 <div class="row">

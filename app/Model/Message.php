@@ -4,11 +4,11 @@ App::uses('AppModel', 'Model');
 Class Message extends AppModel {
 
 	public $belongsTo = array(
-		'User' => array(
+		'Sender' => array(
 			'className' => 'User',
 			'foreignKey' => 'sender_id'
 		),
-		'User' => array(
+		'Receiver' => array(
 			'className' => 'User',
 			'foreignKey' => 'receiver_id'
 		)

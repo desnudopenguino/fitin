@@ -185,7 +185,9 @@ class ApplicantsController extends AppController {
 // View - public view of applicant data
 	public function view($url = null) {
 		$user = $this->Applicant->User->findByUrl($url);
-		if(empty($user)) {
+		if(empty($user) && $this->Auth->loggedIn()) {
+			throw new NotFoundException(__('Not Found'));
+		} else if(empty($user)) {
 			$this->set('url',$url);
 			echo $this->render('/Elements/redirect');
 			exit;

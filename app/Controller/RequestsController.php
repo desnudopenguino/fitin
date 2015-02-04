@@ -35,6 +35,12 @@ class RequestsController extends AppController {
 			$this->Request->User->save($request);
 			$this->Request->User->read(null, $request['User']['id']);
 			$this->Auth->login($this->Request->User->data['User']);
+
+			$this->Session->setFlash(__('<strong>Success:</strong> Your email has been confirmed'), 'alert', array(
+				'plugin' => 'BoostCake',
+				'class' => 'alert-success'
+			));
+			$this->redirect(array('controller' => 'users', 'action' => 'profile'));
 		}
 	}
 

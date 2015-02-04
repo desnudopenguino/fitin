@@ -37,7 +37,12 @@
 				echo $this->Form->input('Employer.department_name', array(
 					'label' => 'Department',
 					'value' => $employer['Employer']['department_name'],
-					'placeholder' => 'Department Title')); ?> 
+					'placeholder' => 'Department Title'));  
+				echo $this->Form->input('Employer.department_description', array(
+					'type' => 'textarea',
+					'label' => 'Description',
+					'value' => $employer['Employer']['department_description'],
+					'placeholder' => 'Department Description')); ?> 
 		</fieldset>
 		<fieldset>
 			<legend>Phone Number</legend>

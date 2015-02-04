@@ -30,6 +30,11 @@
 		<?php if(isset($culture)) { ?>
 			<?php echo $this->element('Culture/profile'); ?>
 		<?php } ?>
+		<div class="well">
+			<h2>Description:</h2>
+			<p><?php echo $employer['Employer']['description']; ?>
+			</p>
+		</div>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<div class="panel-group" id="resume" role="tablist" aria-multiselectable="true">

@@ -34,7 +34,9 @@ Class Message extends AppModel {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Message.created >= DATE_SUB(curdate(), INTERVAL 3 WEEK)',
-				'Message.sender_id' => $user_id)));
+				'Message.sender_id' => $user_id),
+			'contain' => array(
+				'Receiver')));
 	}
 
 	public function findArchived($user_id) {
@@ -43,7 +45,10 @@ Class Message extends AppModel {
 				'Message.created BETWEEN DATE_SUB(curdate(), INTERVAL 180 DAY) AND DATE_SUB(curdate(), INTERVAL 3 WEEK)',
 				'OR' => array(
 					'Message.receiver_id' => $user_id,
-					'Message.sender_id' => $user_id))));
+					'Message.sender_id' => $user_id)),
+			'contain' => array(
+				'Sender',
+				'Receiver')));
 	}
 
 }

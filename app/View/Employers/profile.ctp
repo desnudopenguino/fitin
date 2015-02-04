@@ -48,6 +48,7 @@
 				'value' => Router::fullbaseUrl() ."/with/". $employer['User']['url'])); ?>
 			<h3>Description: </h3>
 			<p>
+				<?php echo $employer['Employer']['department_description']; ?>
 			</p>
 		</div>
 	</div>

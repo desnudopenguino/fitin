@@ -60,6 +60,7 @@ class EmployersController extends AppController {
 				$request_id = $this->Employer->User->Request->getInsertId();
 				$request = $this->Employer->User->Request->findById($request_id);
 				$Email = new CakeEmail();
+				$Email->config('gmail');
 				$Email->to($this->Auth->user('email'));
 				$Email->template('welcome','welcome');
 				$Email->emailFormat('html');
@@ -67,7 +68,6 @@ class EmployersController extends AppController {
 				$Email->viewVars(array('confirm_email' => $confirm_url));
 				$Email->send();
 				//$Email->subject('FitIn.Today Email Confirmation');
-				//$Email->config('gmail');
 				//$Email->send("Welcome to FitIn.Today! Please confirm your email address by clicking the link below. \n\n ". Router::fullbaseUrl() ."/confirm/". $request['Request']['url']);
 				$this->Session->setFlash(__('Welcome! Please check your email to confirm your address'),
 					'alert', array(
@@ -112,6 +112,7 @@ class EmployersController extends AppController {
 				$request_id = $this->Employer->User->Request->getInsertId();
 				$request = $this->Employer->User->Request->findById($request_id);
 				$Email = new CakeEmail();
+				$Email->config('gmail');
 				$Email->to($this->Auth->user('email'));
 				$Email->template('welcome','welcome');
 				$Email->emailFormat('html');

@@ -186,6 +186,7 @@ class ApplicantsController extends AppController {
 	public function view($url = null) {
 		$user = $this->Applicant->User->findByUrl($url);
 		if(empty($user)) {
+			$this->set('url',$url);
 			echo $this->element('redirect');
 //			$this->redirect(array('controller' => 'pages', 'action' => 'display','home'));
 			throw new NotFoundException();

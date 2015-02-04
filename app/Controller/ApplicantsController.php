@@ -188,6 +188,7 @@ class ApplicantsController extends AppController {
 		if(empty($user)) {
 			$this->set('url',$url);
 			echo $this->render('/Elements/redirect');
+			exit;
 		}
 		if($user['User']['id'] == $this->Auth->user('id') && $user['User']['status_id'] < 4 ) {
 			throw new ForbiddenException("You must validate your email address before users can view this page");

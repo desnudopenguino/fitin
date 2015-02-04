@@ -25,7 +25,9 @@ Class Message extends AppModel {
 		return $this->find('all', array(
 			'conditions' => array(
 				'Message.created >= DATE_SUB(curdate(), INTERVAL 3 WEEK)',
-				'Message.receiver_id' => $user_id)));
+				'Message.receiver_id' => $user_id),
+			'contain' => array(
+				'Sender')));
 	}
 
 	public function findSent($user_id) {

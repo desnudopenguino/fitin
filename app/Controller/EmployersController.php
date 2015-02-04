@@ -280,9 +280,12 @@ class EmployersController extends AppController {
 // View - public view of employer data
 	public function view($url = null) {
 		$user = $this->Employer->User->findByUrl($url);
-		if(empty($user)) {
-			$this->redirect(array('controller' => 'pages', 'action' => 'display','home'));
-//			throw new NotFoundException(__('Invalid User'));
+		if(empty($user) && $this->Auth->loggedIn()) {
+			throw new NotFoundException(__('Not Found'));
+		} else if(empty($user)) {
+			$this->set('url',$url);
+			echo $this->render('/Elements/redirect');
+			exit;
 		}
 		if($user['User']['id'] == $this->Auth->user('id') && $user['User']['status_id'] < 4 ) {
 			throw new ForbiddenException("You must validate your email address before users can view this page");

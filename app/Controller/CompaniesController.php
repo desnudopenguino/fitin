@@ -11,11 +11,13 @@ class CompaniesController extends AppController {
 		$company = $this->Company->find('first', array(
 			'conditions' => array(
 				'Company.url' => $url)));
-		if(empty($company)) {
-			$this->redirect(array('controller' => 'pages', 'action' => 'display','home'));
-//			throw new NotFoundException(__('Invalid User'));
+		if(empty($company) && $this->Auth->loggedIn()) {
+			throw new NotFoundException(__('Not Found'));
+		} else if(empty($company)) {
+			$this->set('url',$url);
+			echo $this->render('/Elements/redirect');
+			exit;
 		}
-
 		if($this->referer() == '/') {
 			$this->Session->write('company', $company['Company']['id']);
 		}

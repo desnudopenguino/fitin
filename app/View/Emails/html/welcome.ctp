@@ -644,7 +644,7 @@
 <h3 class="null">Getting started.</h3>
 
 <ol>
-	<li>Look for your email confirmation link and start building your account.</li>
+	<li><a href="<?php echo $confirm_email; ?>">Confirm your email address by clicking here</a></li>
 	<li>Update your profile</li>
 	<li>Answer your culture questions</li>
 	<li>Search for your best matches</li>

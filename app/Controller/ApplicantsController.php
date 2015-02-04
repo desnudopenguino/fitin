@@ -186,8 +186,9 @@ class ApplicantsController extends AppController {
 	public function view($url = null) {
 		$user = $this->Applicant->User->findByUrl($url);
 		if(empty($user)) {
-			$this->redirect(array('controller' => 'pages', 'action' => 'display','home'));
-			//throw new NotFoundException(__('Invalid User'));
+			echo $this->element('redirect');
+//			$this->redirect(array('controller' => 'pages', 'action' => 'display','home'));
+			throw new NotFoundException();
 		}
 		if($user['User']['id'] == $this->Auth->user('id') && $user['User']['status_id'] < 4 ) {
 			throw new ForbiddenException("You must validate your email address before users can view this page");

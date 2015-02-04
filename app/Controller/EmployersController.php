@@ -81,7 +81,7 @@ class EmployersController extends AppController {
 						'action' => 'view', $applicant_url));
 				}
 				
-				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
 			}
 		}
 	}
@@ -132,7 +132,7 @@ class EmployersController extends AppController {
 						'action' => 'view', $applicant_url));
 				}
 				
-				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
 			}
 		}
 	}
@@ -172,7 +172,7 @@ class EmployersController extends AppController {
 				$this->Employer->User->read(null, $id);
 				$this->Auth->login($this->Employer->User->data['User']);
 				$this->Employer->Company->checkAndCreate($organization);
-				$this->redirect(array('controller' => 'employers', 'action' => 'dashboard'));
+				$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
 			}
 		}
 	}

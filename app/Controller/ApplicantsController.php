@@ -116,7 +116,7 @@ class ApplicantsController extends AppController {
 						'action' => 'view', $company));
 				}
 
-				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 			}
 		}
 	}
@@ -147,7 +147,7 @@ class ApplicantsController extends AppController {
 				$this->Applicant->User->saveAll($this->request->data, array('validate' => false));
 				$this->Applicant->User->read(null,$id);
 				$this->Auth->login($this->Applicant->User->data['User']);
-				$this->redirect(array('controller' => 'applicants', 'action' => 'dashboard'));
+				$this->redirect(array('controller' => 'applicants', 'action' => 'profile'));
 			}
 		}
 	}

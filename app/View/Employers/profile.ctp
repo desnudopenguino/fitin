@@ -45,10 +45,8 @@
 				'size' => '30',
 				'onClick' => 'selectText(this)',
 				'value' => Router::fullbaseUrl() ."/with/". $employer['User']['url'])); ?>
-		</div>
-		<div class="well">
-			<h2>Description:</h2>
-			<p><?php echo $employer['Employer']['description']; ?>
+			<h3>Description: </h3>
+			<p>
 			</p>
 		</div>
 	</div>

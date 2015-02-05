@@ -40,6 +40,18 @@ Class Company extends AppModel {
 		return $company;
 	}
 
+	public function findById($id = null) {
+		$company = $this->find('first', array(
+			'conditions' => array(
+				'Company.id' => $id),
+			'contain' => array(
+				'Organization',
+				'Employer' => array(
+					'User'))));
+
+		return $company;
+	}
+
 	public function findView($id = null) {
 		$company = $this->find('first', array(
 			'conditions' => array(

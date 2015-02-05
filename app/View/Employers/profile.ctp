@@ -49,7 +49,6 @@
 			</p>
 		</div>
 		<div class="well">
-<?php debug($employer); ?>
 			<?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>Edit Company', array(
 				'controller' => 'companies', 'action' => 'edit', $employer['Organization']['Company']['id']),
 				array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>

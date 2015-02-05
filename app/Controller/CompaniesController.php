@@ -36,9 +36,12 @@ class CompaniesController extends AppController {
 		if(empty($company)) {
 
 		}
-		//if i don't have access to company, not allowed
-		$this->set('company', $company);
 debug($company);
+		//if not have access to company, not allowed
+		$this->set('company', $company);
+		if($this->request->is('post')) {
+			$this->Company->save($this->request->data);
+		}
 	}
 }
 ?>

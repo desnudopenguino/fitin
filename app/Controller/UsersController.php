@@ -298,7 +298,7 @@ class UsersController extends AppController {
 		if(empty($this->Auth->user())) {
 			throw new ForbiddenException('Please Login to access this page');
 		}
-		if($this->request->is('ajax') {
+		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}
 		$user_id = $this->Auth->user('id');

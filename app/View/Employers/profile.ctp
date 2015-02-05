@@ -14,7 +14,7 @@
 						'controller' => 'employers', 'action' => 'edit', $employer['User']['id']),
 						array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
 			<br>
-			<span style="font-size:x-small; color:gray;"> @ <?php echo $employer['Organization']['organization_name']; ?></span>
+			<span style="font-size:small; color:gray;"> @ <?php echo $employer['Organization']['organization_name']; ?></span>
 			</h2>
 			<p>Phone:
 				<?php if(!empty($employer['User']['PhoneNumber'])) {

@@ -24,5 +24,8 @@
 					'value' => $company['Company']['description']));
 				echo $this->Form->end('Save');
 			?>
+		<hr>
+		<h3>Manage Departments</h3>
+<?php debug($company); ?>
 	</div>
 </div>

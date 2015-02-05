@@ -567,17 +567,6 @@
                         </td>
                     </tr>
                 </tbody></table>
-               <?php /* 
-                <table align="right" border="0" cellpadding="0" cellspacing="0" width="197" class="mcnTextContentContainer">
-                    <tbody><tr>
-                        
-                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right:18px; padding-bottom:9px; padding-left:0;">
-                        
-                            <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
-                        </td>
-                    </tr>
-                </tbody></table>
-                */ ?>
             </td>
         </tr>
     </tbody>
@@ -697,8 +686,6 @@
                         
                             <em>Copyright © 2015 FitIn PBC, All rights reserved.</em><br>
 <br>
-<?php /*<a class="utilityLink" href="*|UNSUB|*">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp; <a class="utilityLink" href="*|UPDATE_PROFILE|*">update subscription preferences</a>&nbsp;<br>
-&nbsp; */ ?>
                         </td>
                     </tr>
                 </tbody></table>

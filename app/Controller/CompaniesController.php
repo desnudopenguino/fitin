@@ -29,5 +29,16 @@ class CompaniesController extends AppController {
 	public function index() {
 		$this->set('companies', $this->Company->find('all'));	
 	}
+
+	public function edit($id = null) {
+		//if id is null not found and if company doesn't exist not found
+		$company = $this->Company->findById($id);
+		if(empty($company)) {
+
+		}
+		//if i don't have access to company, not allowed
+
+debug($company);
+	}
 }
 ?>

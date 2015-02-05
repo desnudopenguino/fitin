@@ -1,5 +1,4 @@
 <div class="row">
-	<div class="col-md-10 col-md-offset-1">
 		<h2>Subscription Info:</h2>
 		<p>Here will go your subscription data</p>
 		<table class="table">
@@ -19,5 +18,4 @@
 				</td>
 			</tr>
 		</table>
-	</div>
 </div>

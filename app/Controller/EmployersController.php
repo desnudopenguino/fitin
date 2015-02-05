@@ -298,6 +298,7 @@ class EmployersController extends AppController {
 		if($user['User']['id'] == $this->Auth->user('id') && $user['User']['status_id'] < 4 ) {
 			throw new ForbiddenException("You must validate your email address before users can view this page");
 		} else if($user['User']['status_id'] < 4) {
+debug($user);
 			throw new ForbiddenException(__('Invalid User'));
 		}
 

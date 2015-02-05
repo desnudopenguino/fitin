@@ -1,6 +1,5 @@
 <?php $this->set('positions', $employer['Position']); ?>
 <div class="row">
-<?php debug($employer); ?>
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">
 			<h2><?php

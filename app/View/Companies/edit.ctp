@@ -26,7 +26,6 @@
 			?>
 		<hr>
 		<h3>Departments</h3>
-<?php debug($company); ?>
 		<ul>
 		<?php foreach($company['Organization']['Employer'] as $department) {
 			?><li><?php

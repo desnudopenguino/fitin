@@ -47,10 +47,12 @@
 			<p>
 				<?php echo $employer['Employer']['department_description']; ?>
 			</p>
-			<?php debug($employer);
- 				echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>Edit Company', array(
-					'controller' => 'companies', 'action' => 'edit', $employer['Organization']['Company']['id']),
-					array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
+			<?php  
+				if($employer['Company']['id'] != null) {
+ 					echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>Edit Company', array(
+						'controller' => 'companies', 'action' => 'edit', $employer['Organization']['Company']['id']),
+						array('class' => 'btn btn-primary pull-right', 'escape' => false)); 
+				} ?>
 		</div>
 	</div>
 	<div class="col-md-6 col-md-offset-1">

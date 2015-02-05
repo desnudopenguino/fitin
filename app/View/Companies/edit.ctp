@@ -20,7 +20,8 @@
 				}
 				
 				echo $this->Form->input('Company.description', array(
-					'type' => 'textarea'));
+					'type' => 'textarea',
+					'value' => $company['Company']['description']));
 				echo $this->Form->end('Save');
 			?>
 	</div>

@@ -25,7 +25,7 @@
 				echo $this->Form->end('Save');
 			?>
 		<hr>
-		<h3>Manage Departments</h3>
+		<h3>Departments</h3>
 <?php debug($company); ?>
 		<ul>
 		<?php foreach($company['Organization']['Employer'] as $department) {

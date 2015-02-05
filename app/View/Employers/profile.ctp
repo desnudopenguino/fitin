@@ -49,7 +49,7 @@
 			</p>
 			<?php  
 				if($employer['Company']['id'] != null) {
-					?><p><?php
+					?><hr><p><?php
  					echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i> Edit Company', array(
 						'controller' => 'companies', 'action' => 'edit', $employer['Organization']['Company']['id']),
 						array('class' => 'btn btn-primary', 'escape' => false)); 

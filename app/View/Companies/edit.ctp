@@ -9,6 +9,9 @@
 				),
 				'class' => 'well form-horizontal'
 			));
+				echo $this->Form->input('Company.id', array(
+					'type' => 'hidden',
+					'value' => $company['Company']['id']));
 			
 				if($company['Employer']['User']['user_level_id'] > 10) {
 					echo $this->Form->input('Company.url', array(

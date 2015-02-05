@@ -30,7 +30,7 @@
 		<?php foreach($company['Organization']['Employer'] as $department) {
 			?><li><?php
 			echo $this->Html->link($department['department_name'], array(
-				'controller' => 'employer', 'action' => 'view', $department['User']['url']));
+				'controller' => 'employers', 'action' => 'view', $department['User']['url']));
 			?></li><?php
 		}?></ul>
 	</div>

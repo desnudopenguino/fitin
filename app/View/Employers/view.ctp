@@ -3,12 +3,16 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">
-			<h2><?php
-				if(!empty($employer['Organization'])) {
-					echo $employer['Organization']['organization_name']; 
-				} else {
-					echo $employer['User']['email'];
-				} ?></h2>
+			<h2>
+				<?php
+					if(!empty($employer['Employer'])) {
+						echo $employer['Employer']['department_name']; 
+					} else {
+						echo $employer['User']['email'];
+					} ?>
+				<br>
+				<span style="font-size:small; color:gray;"> @ <?php echo $employer['Organization']['organization_name']; ?></span>
+			</h2>
 			<p>Phone:
 				<?php if(!empty($employer['User']['PhoneNumber'])) {
 					echo $employer['User']['PhoneNumber']['phone_number']; 

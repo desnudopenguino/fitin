@@ -45,7 +45,9 @@ Class Company extends AppModel {
 			'conditions' => array(
 				'Company.id' => $id),
 			'contain' => array(
-				'Organization',
+				'Organization' => array(
+					'Employer' => array(
+						'User')),
 				'Employer' => array(
 					'User'))));
 

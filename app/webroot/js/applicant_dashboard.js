@@ -28,3 +28,16 @@ $(document).on('click',"#applications-btn", function() {
 		}});
 });
 
+//load settings stuff
+$(document.on('click','#settings-btn', function() {
+	$.ajax({
+		url: '../settings',
+		type: 'GET',
+		async: true,
+		success: function(result) {
+			$('#dashboardContent').html(result);
+			clearActive();
+			$('#applications-btn').parent().addClass('active');
+		}});
+}));
+

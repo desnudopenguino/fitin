@@ -299,7 +299,7 @@ class EmployersController extends AppController {
 			throw new ForbiddenException("You must validate your email address before users can view this page");
 		} else if($user['User']['status_id'] < 4) {
 debug($user);
-			throw new ForbiddenException(__('Invalid User'));
+			//throw new ForbiddenException(__('Invalid User'));
 		}
 
 		$employer = $this->Employer->findProfile($user['User']['id']);

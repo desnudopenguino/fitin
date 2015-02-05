@@ -11,7 +11,9 @@
 						echo $employer['User']['email'];
 					} ?>
 				<br>
-				<span style="font-size:small; color:gray;"> @ <?php echo $employer['Organization']['organization_name']; ?></span>
+				<span style="font-size:small;">
+					<?php echo $this->Html->link('@ '. $employer['Organization']['organization_name'], '/at/'. $employer['Organization']['Company']['url']); ?>
+				</span>
 			</h2>
 			<p>Phone:
 				<?php if(!empty($employer['User']['PhoneNumber'])) {
@@ -27,9 +29,6 @@
 				}?>
 			</p>
 			<p><?php echo $employer['User']['email']; ?></p>
-			<p>
-				<?php echo $this->Html->link('Company Page', '/at/'. $employer['Organization']['Company']['url']); ?>
-			</p>
 			<h3>Description: </h3>
 			<p>
 				<?php echo $employer['Employer']['department_description']; ?>

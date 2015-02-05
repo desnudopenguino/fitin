@@ -36,6 +36,9 @@ class CompaniesController extends AppController {
 		if(empty($company)) {
 			throw new NotFoundException(__('Not Found'));
 		}
+		if($company['Company']['employer_id'] != $this->Auth->user('id')) {
+			throw new NotFoundException(__('Not Found'));
+		}
 		//if not have access to company, not allowed
 		$this->set('company', $company);
 		if($this->request->is('post')) {

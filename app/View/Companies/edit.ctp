@@ -27,9 +27,12 @@
 		<hr>
 		<h3>Manage Departments</h3>
 <?php debug($company); ?>
+		<ul>
 		<?php foreach($company['Organization']['Employer'] as $department) {
+			?><li><?php
 			echo $this->Html->link($department['department_name'], array(
 				'controller' => 'employer', 'action' => 'view', $department['User']['url']));
-		}?>
+			?></li><?php
+		}?></ul>
 	</div>
 </div>

@@ -34,9 +34,8 @@ class CompaniesController extends AppController {
 		//if id is null not found and if company doesn't exist not found
 		$company = $this->Company->findById($id);
 		if(empty($company)) {
-
+			throw new NotFoundException(__('Not Found'));
 		}
-debug($company);
 		//if not have access to company, not allowed
 		$this->set('company', $company);
 		if($this->request->is('post')) {

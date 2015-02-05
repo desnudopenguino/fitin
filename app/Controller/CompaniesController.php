@@ -37,7 +37,7 @@ class CompaniesController extends AppController {
 
 		}
 		//if i don't have access to company, not allowed
-
+		$this->set('company', $company);
 debug($company);
 	}
 }

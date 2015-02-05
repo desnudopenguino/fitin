@@ -29,7 +29,7 @@ $(document).on('click',"#applications-btn", function() {
 });
 
 //load settings stuff
-$(document).on('click','#settings-btn', function() {
+$(document).on('click',"#settings-btn", function() {
 	$.ajax({
 		url: '../settings',
 		type: 'GET',
@@ -37,7 +37,6 @@ $(document).on('click','#settings-btn', function() {
 		success: function(result) {
 			$('#dashboardContent').html(result);
 			clearActive();
-			$('#applications-btn').parent().addClass('active');
+			$('#settings-btn').parent().addClass('active');
 		}});
-}));
-
+});

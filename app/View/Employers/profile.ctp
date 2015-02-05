@@ -4,15 +4,16 @@
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">
 			<h2><?php
-					if(!empty($employer['Organization'])) {
-						echo $employer['Organization']['organization_name']; 
+					if(!empty($employer['Employer'])) {
+						echo $employer['Employer']['department_name']; 
 					} else {
-						echo $employer['User']['email'];
+						echo stristr($employer['User']['email'], "@",true);
 					} ?>
 				
 					<?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', array(
 						'controller' => 'employers', 'action' => 'edit', $employer['User']['id']),
 						array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
+			<span style="font-size:smaller; color:gray;"> @ <?php echo $employer['Organization']['organization_name']; ?></span>
 			</h2>
 			<p>Phone:
 				<?php if(!empty($employer['User']['PhoneNumber'])) {

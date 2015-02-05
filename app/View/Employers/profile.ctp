@@ -45,7 +45,11 @@
 				'value' => Router::fullbaseUrl() ."/with/". $employer['User']['url'])); ?>
 			<h3>Description: </h3>
 			<p>
-				<?php echo $employer['Employer']['department_description']; ?>
+				<?php
+					if(empty($employer['Employer']['department_description'])) {
+						$employer['Employer']['department_description'] = "Edit your profile to add a description";
+					}
+					echo $employer['Employer']['department_description']; ?>
 			</p>
 			<?php  
 				if($employer['Company']['id'] != null) {

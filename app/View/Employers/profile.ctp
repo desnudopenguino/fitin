@@ -48,6 +48,12 @@
 				<?php echo $employer['Employer']['department_description']; ?>
 			</p>
 		</div>
+		<div class="well">
+<?php debug($employer); ?>
+			<?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>Edit Company', array(
+				'controller' => 'companies', 'action' => 'edit', $employer['User']['id']),
+				array('class' => 'btn btn-primary pull-right', 'escape' => false)); ?>
+		</div>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php echo $this->element('Positions/owner_index'); ?>

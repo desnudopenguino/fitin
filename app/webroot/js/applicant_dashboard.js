@@ -44,7 +44,7 @@ $(document).on('click',"#settings-btn", function() {
 //load settings stuff
 $(document).on('click',"#services-btn", function() {
 	$.ajax({
-		url: '../users/checkout',
+		url: '../applicants/checkout',
 		type: 'GET',
 		async: true,
 		success: function(result) {

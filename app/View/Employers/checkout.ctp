@@ -56,7 +56,7 @@
 		</script>
 		<?php echo $this->Form->end(); ?>
 	</div>
-	<div class="col-md-4 well">
+	<div class="col-md-4 col-md-offset-1 well">
 		<h2 class="muted">Enterprise</h2>
 		<p><span class="label">Best Deal</span></p>
 		<ul>

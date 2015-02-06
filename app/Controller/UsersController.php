@@ -373,17 +373,7 @@ class UsersController extends AppController {
 			throw new ForbiddenException("You already have a subscription with Fitin.today, Go to your settings to change it");
 		}
 		$User = $this->Auth->user();
-		if($this->request->is('ajax')) {
-			switch($User['role_id']) {
-				case 1: //Employer
-					$this->redirect(array("controller" => "employers", "action" => "checkout"));
-					break;
-
-				case 2: //Applicant
-					$this->redirect(array("controller" => "applicants", "action" => "checkout"));
-					break;
-			}
-		} else if($this->request->is('post') && $user_id) {
+		if($this->request->is('post') && $user_id) {
 			$stripe_customer_data = array(
 				'stripeToken' => $this->request->data['stripeToken'],
 				'email' => $this->Auth->user('email'),

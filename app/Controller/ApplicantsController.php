@@ -222,7 +222,7 @@ class ApplicantsController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 
-		if($this->request->is('ajax') {
+		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}
 		$this->set('email', $this->Auth->user('email'));

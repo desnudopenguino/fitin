@@ -26,7 +26,3 @@ div.required label:after {
 	opacity: 1;
 }
 
-/* custom leading text for urls */
-input#CompanyUrl::before {
-	content: "https://fitin.today/at/";
-}

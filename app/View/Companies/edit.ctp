@@ -16,8 +16,7 @@
 				if($company['Employer']['User']['user_level_id'] > 10) {
 					echo $this->Form->input('Company.url', array(
 						'title' => 'URL',
-						'value' => $company['Company']['url'],
-						'div' => array('id' => 'CompanyUrlDiv')));
+						'value' => $company['Company']['url']));
 				}
 				
 				echo $this->Form->input('Company.description', array(

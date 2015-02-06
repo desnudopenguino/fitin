@@ -20,9 +20,6 @@
 				<li>
 					<a class="dashboard-nav" href="#" id="services-btn">Premium Services</a>
 				</li>
-				<li><?php echo $this->Html->link('Premium Services', array(
-	        'controller' => 'users', 'action' => 'checkout'), array(
-	        'class' => 'dashboard-nav')); ?></li>
 			</ul>
 		</div>
 	</div>

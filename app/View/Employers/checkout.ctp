@@ -17,6 +17,7 @@
 		<p><span class="label">Best Deal</span></p>
 		<ul>
 			<li>Free Premium access to all Employer listings</li>
+			<li>Requires documentation</li>
 		</ul>
 		<p>Nonprofit</p>
 		<hr>

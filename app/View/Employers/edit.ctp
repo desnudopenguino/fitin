@@ -11,7 +11,7 @@
 			));
 debug($employer);
 			if(($employer['User']['user_level_id'] == 17) && 
-				($employer['User']['url'] == md5($employer['User']['email']) && )) { ?>
+				($employer['User']['url'] == md5($employer['User']['email']))) { ?>
 		<fieldset>
 			<legend>Custom URL</legend>
 				<?php

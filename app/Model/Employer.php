@@ -63,8 +63,8 @@ Class Employer extends AppModel {
 			'conditions' => array(
 				'Employer.user_id' => $id),
 			'contain' => array(
-				'Organization',
-				'Company',
+				'Organization' => array(
+					'Company'),
 				'User' => array(
 					'PhoneNumber',
 					'Address' => array(

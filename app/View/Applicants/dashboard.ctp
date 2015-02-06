@@ -17,6 +17,9 @@
 				<li>
 					<a class="dashboard-nav" href="#" id="settings-btn">Settings</a>
 				</li>
+				<li>
+					<a class="dashboard-nav" href="#" id="sercives-btn">Premium Services</a>
+				</li>
 				<li><?php echo $this->Html->link('Premium Services', array(
 	        'controller' => 'users', 'action' => 'checkout'), array(
 	        'class' => 'dashboard-nav')); ?></li>

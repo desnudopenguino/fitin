@@ -8,7 +8,7 @@
 			));
 		?>
 		</h2>
-		<button type="button" class="btn btn-primary" id="cultureQuestions">Answer Culture Questions</button>
+<?php /*		<button type="button" class="btn btn-primary" id="cultureQuestions">Answer Culture Questions</button> */ ?>
 		<p><span id="match"><?php echo $match; ?></span> of <span id="total"><?php echo $total; ?></span> Questions Answered (<span id="percent"><?php echo round($match / $total, 2) * 100; ?></span>% complete)</p>
 <?php /*
 		<h2>Personality</h2>
@@ -18,7 +18,9 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<div id="cultureContent">
-		<p>Choose a set of questions to answer on the left</p>
+		<?php /*<p>Choose a set of questions to answer on the left</p> */ ?>
+		<?php $this->set('question', $question);
+			$this->element('Culture/question'); ?>
 		</div>
 		<p><strong>Disclaimer:</strong> There are no right or wrong answers. No one will see your answers. Be honest, choose the answer closest to your feelings.</p>
 	</div>

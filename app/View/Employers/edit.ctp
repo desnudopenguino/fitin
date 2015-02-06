@@ -9,8 +9,9 @@
 				),
 				'class' => 'well form-horizontal'
 			));
-
-			if(($employer['User']['user_level_id'] > 10) && ($employer['User']['url'] == md5($employer['User']['email']))) { ?>
+debug($employer);
+			if(($employer['User']['user_level_id'] == 17) && 
+				($employer['User']['url'] == md5($employer['User']['email']) && )) { ?>
 		<fieldset>
 			<legend>Custom URL</legend>
 				<?php
@@ -18,7 +19,14 @@
 						'label' => "URL (https://fitin.today/with/...)",
 						'value' => $employer['User']['url'])); ?>
 		</fieldset>
-		<?php } ?>
+		<?php } else if(($employer['User']['user_level_id'] > 10) && ($employer['User']['url'] == md5($employer['User']['email']))) { ?>
+		<fieldset>
+			<legend>Custom URL</legend>
+				<?php
+					echo $this->Form->input('User.url', array(
+						'label' => "URL (https://fitin.today/with/...)",
+						'value' => $employer['User']['url'])); ?>
+		</fieldset>
 		<fieldset>
 			<legend>Company Info</legend>
 			<?php 

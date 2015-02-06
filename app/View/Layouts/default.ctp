@@ -52,7 +52,7 @@
 	    </div>
 	  </div>
 	</nav>
-		<div id="container">
+		<div id="container-fluid">
 				<?php echo $this->Session->flash(); ?>
 	
 				<?php echo $this->fetch('content'); ?>

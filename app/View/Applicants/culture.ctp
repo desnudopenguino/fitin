@@ -12,8 +12,8 @@
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<div id="cultureContent">
-		<?php $this->set('question', $question);
-			echo $this->element('Culture/question'); ?>
+			<?php $this->set('question', $question);
+				echo $this->element('Culture/question'); ?>
 		</div>
 		<p><strong>Disclaimer:</strong> There are no right or wrong answers. No one will see your answers. Be honest, choose the answer closest to your feelings.</p>
 	</div>

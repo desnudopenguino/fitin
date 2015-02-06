@@ -248,6 +248,8 @@ class EmployersController extends AppController {
 		}
 		$this->set('match', sizeof($this->UserCultureAnswer->findUserAnswers($this->Auth->user('id'))));
 		$this->set('total', sizeof($this->CultureQuestion->findAll()));
+
+		$this->set('question', $this->CultureQuestion->findNext($this->Auth->user('id'))); 
 	}
 
 	function search() {

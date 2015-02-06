@@ -399,18 +399,9 @@ class UsersController extends AppController {
 					$this->redirect(array('controller' => 'users', 'action' => 'dashboard')); 
 				}
 			}
-		} 
-/*			else {
-			switch($User['role_id']) {
-				case 1: //Employer
-					$this->redirect(array("controller" => "employers", "action" => "checkout"));
-					break;
-
-				case 2: //Applicant
-					$this->redirect(array("controller" => "applicants", "action" => "checkout"));
-					break;
-			}
-		}*/
+		} else {
+			throw new NotFoundException('Not Found');
+		}
 	}
 
 	public function updateSubscription() {

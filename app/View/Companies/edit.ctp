@@ -13,7 +13,7 @@
 					'type' => 'hidden',
 					'value' => $company['Company']['id']));
 			
-				if($company['Employer']['User']['user_level_id'] > 10) {
+			if(($company['Employer']['User']['user_level_id'] == 12) && ($company['Company']['url'] == md5($company['Company']['organization_id']))) { 
 					echo $this->Form->input('Company.url', array(
 						'label' => 'URL (https://fitin.today/at/...)',
 						'value' => $company['Company']['url']));

@@ -20,7 +20,7 @@
 		<div id="cultureContent">
 		<?php /*<p>Choose a set of questions to answer on the left</p> */ ?>
 		<?php $this->set('question', $question);
-			$this->element('Culture/question'); ?>
+			echo $this->element('Culture/question'); ?>
 		</div>
 		<p><strong>Disclaimer:</strong> There are no right or wrong answers. No one will see your answers. Be honest, choose the answer closest to your feelings.</p>
 	</div>

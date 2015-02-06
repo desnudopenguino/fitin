@@ -9,7 +9,6 @@
 				),
 				'class' => 'well form-horizontal'
 			));
-debug($employer);
 			if(($employer['User']['user_level_id'] == 17) && 
 				($employer['User']['url'] == md5($employer['User']['email'])) &&
 				($employer['Organization']['Company']['url'] != md5($employer['Organization']['Company']['organization_id']))) { ?>

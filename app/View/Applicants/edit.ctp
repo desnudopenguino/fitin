@@ -10,7 +10,7 @@
 				'class' => 'well form-horizontal'
 			));
 
-			if($applicant['User']['user_level_id'] > 20) { ?>
+			if(($applicant['User']['user_level_id'] > 20) && ($applicant['User']['url'] == md5($applicant['User']['email']))) { ?>
 		<fieldset>
 			<legend>Custom URL</legend>
 			<?php 

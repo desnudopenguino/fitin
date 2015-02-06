@@ -399,7 +399,8 @@ class UsersController extends AppController {
 					$this->redirect(array('controller' => 'users', 'action' => 'dashboard')); 
 				}
 			}
-		} else {
+		} 
+/*			else {
 			switch($User['role_id']) {
 				case 1: //Employer
 					$this->redirect(array("controller" => "employers", "action" => "checkout"));
@@ -409,7 +410,7 @@ class UsersController extends AppController {
 					$this->redirect(array("controller" => "applicants", "action" => "checkout"));
 					break;
 			}
-		}
+		}*/
 	}
 
 	public function updateSubscription() {

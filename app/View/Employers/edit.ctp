@@ -12,16 +12,16 @@
 debug($employer);
 			if(($employer['User']['user_level_id'] == 17) && 
 				($employer['User']['url'] == md5($employer['User']['email'])) &&
-				($employer['Company']['url'] != md5($employer['Company']['organization_id']))) { ?>
+				($employer['Organization']['Company']['url'] != md5($employer['Organization']['Company']['organization_id']))) { ?>
 		<fieldset>
 			<legend>Custom URL</legend>
 				<?php
 					echo $this->Form->input('User.pre_url', array(
 						'type' => 'hidden',
-						'value' => $employer['Company']['url'] . '-'));
+						'value' => $employer['Organization']['Company']['url'] . '-'));
 
 					echo $this->Form->input('User.url', array(
-						'label' => "URL (https://fitin.today/with/". $employer['Company']['url']."-...)",
+						'label' => "URL (https://fitin.today/with/". $employer['Organization']['Company']['url']."-...)",
 						'value' => $employer['User']['url'])); ?>
 		</fieldset>
 		<?php } else if(($employer['User']['user_level_id'] > 10) && ($employer['User']['url'] == md5($employer['User']['email']))) { ?>

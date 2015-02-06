@@ -15,6 +15,7 @@
 			<legend>Custom URL</legend>
 				<?php
 					echo $this->Form->input('User.url', array(
+						'label' => "URL (https://fitin.today/with/...)",
 						'value' => $employer['User']['url'])); ?>
 		</fieldset>
 		<?php } ?>

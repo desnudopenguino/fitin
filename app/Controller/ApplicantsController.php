@@ -38,6 +38,8 @@ class ApplicantsController extends AppController {
 		}
 		$this->set('match', sizeof($this->UserCultureAnswer->findUserAnswers($this->Auth->user('id'))));
 		$this->set('total', sizeof($this->CultureQuestion->findAll()));
+
+		$this->set('question', $this->CultureQuestion->findNext($this->Auth->user('id'))); 
 	}
 
 // Search - search page, applicant gets matched up with open positions based on skills & culture match

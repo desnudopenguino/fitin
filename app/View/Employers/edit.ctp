@@ -27,6 +27,7 @@ debug($employer);
 						'label' => "URL (https://fitin.today/with/...)",
 						'value' => $employer['User']['url'])); ?>
 		</fieldset>
+		<?php } ?>
 		<fieldset>
 			<legend>Company Info</legend>
 			<?php 

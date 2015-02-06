@@ -12,7 +12,7 @@
 		<hr>
 		<p><button type="button" class="btn btn-primary" disabled="disabled">Free</button></p>
 	</div>
-	<div class="col-md-2 col-md-offset-1 well">
+	<div class="col-md-2 well">
 		<h2 class="muted">Premium</h2>
 		<p><span class="label">Budget</span></p>
 		<ul>
@@ -42,7 +42,7 @@
 		</script>
 		<?php echo $this->Form->end(); ?>
 	</div>
-	<div class="col-md-2 col-md-offset-1 well">
+	<div class="col-md-2 well">
 		<h2 class="muted">Enterprise</h2>
 		<p><span class="label">Best Deal</span></p>
 		<ul>
@@ -72,7 +72,7 @@
 		</script>
 		<?php echo $this->Form->end(); ?>
 	</div>
-	<div class="col-md-2 col-md-offset-1 well">
+	<div class="col-md-2 well">
 		<h2 class="muted">Nonprofit</h2>
 		<p><span class="label">Best Deal</span></p>
 		<ul>

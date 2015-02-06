@@ -17,12 +17,12 @@
 					'class' => 'masterTooltip',
 					'title' => 'Keep track of applications on your dashboard page. Close applications if you\'re not interested.')); ?>
 			</a></li>
+			<li>
+				<a class="dashboard-nav" href="#" id="settings-btn">Settings</a>
+			</li>
 			<li><?php echo $this->Html->link('Premium Services', array(
         'controller' => 'users', 'action' => 'checkout'), array(
         'class' => 'dashboard-nav')); ?></li>
-			<li><?php echo $this->Html->link('Settings', array(
-				'controller' => 'users', 'action' => 'settings'), array(
-				'class' => 'dashboard-nav')); ?></li>
 		</ul>
 	</div>
 	<div class="col-md-6 col-md-offset-1" id="dashboardContent">

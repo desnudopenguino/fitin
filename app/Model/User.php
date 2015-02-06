@@ -97,6 +97,11 @@ Class User extends AppModel {
 			$this->data[$this->alias]['user_level_id'] == 20)) {
 				$this->data[$this->alias]['url'] = md5(AuthComponent::user('email'));
 		} 
+
+//check if user has pre-url, prepend pre-url to url 
+		if(isset($this->data[$this->alias]['pre_url'])) {
+			$this->data[$this->alias]['url'] = $this->data[$this->alias]['pre_url']."".$this->data[$this->alias]['url'];
+		}
 // check/set referral for user
 		App::uses('CakeSession', 'Model/Datasource');
 		$referral_id = CakeSession::read('referral');
@@ -104,6 +109,7 @@ Class User extends AppModel {
 			$this->data[$this->alias]['referral_id'] = $referral_id;
 			CakeSession::delete('referral');
 		}
+
     return true;
 	}
 

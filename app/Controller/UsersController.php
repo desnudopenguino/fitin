@@ -406,7 +406,7 @@ class UsersController extends AppController {
 					$this->Auth->login($login['User']);
 					$this->Session->setFlash(__('Your Payment has been received, and your account upgraded. Thank you'),
 						'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
-					$this->redirect(array('controller' => 'users', 'action' => 'dashboard'); 
+					$this->redirect(array('controller' => 'users', 'action' => 'dashboard')); 
 				}
 			}
 		} else {

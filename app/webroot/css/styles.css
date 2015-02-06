@@ -25,3 +25,8 @@ div.required label:after {
 	font-size:12px Arial;
 	opacity: 1;
 }
+
+/* custom leading text for urls */
+input#CompanyUrl {
+	content: "https://fitin.today/at/";
+}

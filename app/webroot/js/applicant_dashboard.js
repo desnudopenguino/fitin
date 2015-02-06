@@ -40,3 +40,16 @@ $(document).on('click',"#settings-btn", function() {
 			$('#settings-btn').parent().addClass('active');
 		}});
 });
+
+//load settings stuff
+$(document).on('click',"#services-btn", function() {
+	$.ajax({
+		url: '../users/checkout',
+		type: 'GET',
+		async: true,
+		success: function(result) {
+			$('#dashboardContent').html(result);
+			clearActive();
+			$('#services-btn').parent().addClass('active');
+		}});
+});

@@ -2,6 +2,10 @@
  App::uses('AppController', 'Controller');
 
 class AddressesController extends AppController {
+
+	public $components = array(
+		'Geocoder.Geocoder'
+	);
 //remove actions, not needed
 	public function add() {
 		$this->set('states',$this->Address->State->find('list', array('fields' => array('State.id','State.short_name'))));

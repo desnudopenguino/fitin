@@ -52,10 +52,6 @@ Class Address extends AppModel {
 
 	public function beforeSave($options = array()) {
 //find the lat and long and set them!
-		$address = $this->data[$this->alias];
-$geoResult = $this->geocode($address['street'] ." ". $address['street2'] ." ".$address['city'] ." ". $address['state'] ." ". $address['zip'] ." ". $address['country']);
-		$this->data[$this->alias]['latitude'] = floatval($geoResult[0]->geometry->location->lat);
-		$this->data[$this->alias]['longitude'] = floatval($geoResult[0]->geometry->location->lng);
 		return true;
 	}
 }

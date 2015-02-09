@@ -28,7 +28,8 @@ class ApplicantsController extends AppController {
 debug($applicant);
 $address = $applicant['User']['Address'];
 $location = $address['street'] ." ". $address['street2'] ." ".$address['city'] ." ". $address['state'] ." ". $address['zip'] ." ". $address['country']; 
-$geoResult = $this->Applicant->User->Address->Geocoder->geocode($location);
+//$geoResult = $this->Applicant->User->Address->Geocoder->geocode($location);
+$geoResult = $this->Applicant->User->Geocoder->geocode($location);
 debug($geoResult);
 //use this spot to try to load the geolocation stuff?
 		$this->set('degrees', $this->Degree->findAll());

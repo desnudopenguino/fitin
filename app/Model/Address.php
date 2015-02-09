@@ -51,6 +51,8 @@ Class Address extends AppModel {
 			);
 
 	public function beforeSave($options = array()) {
+//find the lat and long and set them!
+		
 		return true;
 	}
 }

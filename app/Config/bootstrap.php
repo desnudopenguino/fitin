@@ -88,7 +88,7 @@ Configure::write('Stripe.fields', array(
 ));
 
 //Geocoder plugin
-CakePlugin::load('Geocoding');
+CakePlugin::load('Geocoder');
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:

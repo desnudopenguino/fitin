@@ -70,11 +70,14 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
+//loading all plugins
+CakePlugin::loadAll();
+
 //BoostCake Bootstrap plugin
-CakePlugin::load('BoostCake');
+//CakePlugin::load('BoostCake');
 
 //Stripe payment plugin
-CakePlugin::load('Stripe');
+//CakePlugin::load('Stripe');
 Configure::write('Stripe.LiveSecret', 'sk_test_8AzqUrKRSP4sZs7bH0xfRPCC');
 Configure::write('Stripe.TestSecret', 'sk_live_ucgqXgv5mlANB5QnMrjSHK8J');
 Configure::write('Stripe.mode', 'Live');
@@ -88,7 +91,7 @@ Configure::write('Stripe.fields', array(
 ));
 
 //Geocoder plugin
-CakePlugin::load('Geocoder');
+//CakePlugin::load('Geocoder');
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:

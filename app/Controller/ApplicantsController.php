@@ -24,6 +24,7 @@ class ApplicantsController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 		$this->set('applicant', $this->Applicant->findProfile($this->Auth->user('id')));
+debug($this->Applicant->findProfile($this->Auth->user('id')));
 		$this->set('degrees', $this->Degree->findAll());
 		$this->set('concentrations', $this->Industry->findAll());
 		$this->set('industries', $this->Industry->findAll());

@@ -24,7 +24,13 @@ class ApplicantsController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 		$this->set('applicant', $this->Applicant->findProfile($this->Auth->user('id')));
-debug($this->Applicant->findProfile($this->Auth->user('id')));
+ $applicant = $this->Applicant->findProfile($this->Auth->user('id'));
+debug($applicant);
+$address = $applicant['User']['Address'];
+$location = $address['street'] ." ". $address['street2'] ." ".$address['city'] ." ". $address['state'] ." ". $address['zip'] ." ". $address['country']; 
+$geoResult = $this->Applicant->User->Address->Geocoder->geocode($location);
+debug($geoResult);
+//use this spot to try to load the geolocation stuff?
 		$this->set('degrees', $this->Degree->findAll());
 		$this->set('concentrations', $this->Industry->findAll());
 		$this->set('industries', $this->Industry->findAll());

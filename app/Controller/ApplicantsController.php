@@ -6,6 +6,9 @@ class ApplicantsController extends AppController {
 
 	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion');
 
+	public $components = array(
+		'Geocoder.Geocoder');
+
 	public function beforeFilter() {
 		$this->Auth->allow('view','register');
 	}
@@ -29,7 +32,7 @@ debug($applicant);
 $address = $applicant['User']['Address'];
 $location = $address['street'] ." ". $address['street2'] ." ".$address['city'] ." ". $address['state'] ." ". $address['zip'] ." ". $address['country']; 
 //$geoResult = $this->Applicant->User->Address->Geocoder->geocode($location);
-$geoResult = $this->Applicant->User->Geocoder->geocode($location);
+$geoResult = $this->Geocoder->geocode($location);
 debug($geoResult);
 //use this spot to try to load the geolocation stuff?
 		$this->set('degrees', $this->Degree->findAll());

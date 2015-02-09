@@ -3,6 +3,16 @@ App::uses('AppModel', 'Model');
 
 Class Address extends AppModel {
 
+	public $actsAs = array(
+		'Geocoder.Geocodable' => array(
+			'addressColumn' => array(
+				'street',
+				'street2',
+				'city',
+				'state',
+				'zip',
+				'country')));
+
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User'

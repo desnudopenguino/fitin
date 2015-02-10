@@ -6,7 +6,6 @@
 			<li>Free access</li>
 			<li>Access to paid Employer listings</li>
 		</ul>
-		<p>Passive Applicant</p>
 		<hr>
 		<h3>Free Forever</h3>
 		<hr>
@@ -19,7 +18,6 @@
 			<li>Free Premium access to all Employer listings</li>
 			<li>Requires documentation</li>
 		</ul>
-		<p>Nonprofit</p>
 		<hr>
 		<h3>Free</h3>
 		<hr>
@@ -34,7 +32,6 @@
 			<li>Full, Premium access to all Employer listings</li>
 			<li>Custom URL for your account and job postings</li>
 		</ul>
-		<p>Premium Employer</p>
 		<hr>
 		<h3>$3,000/Year</h3>
 		<hr>
@@ -64,7 +61,6 @@
 			<li>Full, Premium access to all Employer listings</li>
 			<li>Up to 20 department accounts included</li>
 		</ul>
-		<p>Enterprise Employer</p>
 		<hr>
 		<h3>$10,000/Year</h3>
 		<hr>

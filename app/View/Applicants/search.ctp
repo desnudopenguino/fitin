@@ -14,22 +14,23 @@
 			<fieldset>
 				<?php echo $this->Form->input('Search.distance', array(
 						'type' => 'number',
-						'value' => 25,
+						'value' => $search['distance'],
 						'label' => 'Search Distance'));
 
 					echo $this->Form->input('Search.scale', array(
 						'type' => 'select',
 						'label' => 'Scale',
+						'value' => $search['scale'],
 						'options' => array('3959' => 'Miles', '6371' => 'Kilometers')));
 					
 					echo $this->Form->input('Search.job', array(
 						'type' => 'number',
-						'value' => 50,
+						'value' => $search['job'],
 						'label' => 'Job Match %'));
 
 					echo $this->Form->input('Search.culture', array(
 						'type' => 'number',
-						'value' => 20,
+						'value' => $search['culture'],
 						'label' => 'Culture Match %'));
 				?>
 

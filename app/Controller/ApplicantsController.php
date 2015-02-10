@@ -84,6 +84,7 @@ class ApplicantsController extends AppController {
 			}
 		}	
 		$positionCards = $this->DataCard->sortByJobMatch($positionCards);
+		$this->set('search', $search');
 		$this->set('applicant_card', $applicantCard);
 		$this->set('position_cards', $positionCards);
 		if($this->request->is('ajax')) {

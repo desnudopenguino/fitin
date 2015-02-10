@@ -111,13 +111,15 @@ class PositionsController extends AppController {
 			$this->Session->write('position_id',$position_id);
 
 			$positionCard = $this->Position->loadDataCard($position_id);
-		
+
+			$search= $this->request->data['Search'];	
+debug($search);
+
 			if($this->Auth->user('user_level_id') == 10) {
-        $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => 25, 'scale' => 3959));
+        $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 			} else {
-        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => 25, 'scale' => 3959));
+        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 			}
-debug($this->request->data['Search']);
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
 				$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);

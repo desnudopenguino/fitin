@@ -273,7 +273,7 @@ class EmployersController extends AppController {
 			if($this->Auth->user('user_level_id') == 10) {
         $applicants = $this->Applicant->findAllPremiumIds();
 			} else {
-        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => 25, 'scale' => 3959));
+        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => 2500, 'scale' => 3959));
 			}
 
 			$applicantCards = array();

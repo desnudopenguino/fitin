@@ -59,7 +59,7 @@ class ApplicantsController extends AppController {
 		} else if($this->Auth->user('user_level_id') == 20) {
 			$positions = $this->Position->findAllPremiumIds();
 		} else {
-			$positions = $this->Position->findAllIds($auth_id, array('distance' => 2500, 'scale' => 3959));
+			$positions = $this->Position->findAllIds($auth_id, array('distance' => 25, 'scale' => 3959));
 		}
 		$positionCards = array();
 		foreach($positions as $position) {

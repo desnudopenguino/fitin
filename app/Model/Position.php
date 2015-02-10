@@ -126,7 +126,7 @@ Class Position extends AppModel {
 		return $this->cleanPositionIds($ids);
 */
 		$ps_sql = "CALL findPositionsByLocation(".$myId.",".$searchArray['distance'].",".$searchArray['scale'].");";
-		$result = $this->query->($ps_sql);
+		$result = $this->query($ps_sql);
 		debug($result);
 		
 		return $result;

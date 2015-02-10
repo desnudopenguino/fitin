@@ -9,7 +9,7 @@
 					'wrapInput' => false,
 					'class' => 'form-control'
 				),
-				'id' => 'searchPositionForm'
+				'id' => 'searchApplicantForm'
 				)); ?>
 			<fieldset>
 				<?php echo $this->Form->input('Search.distance', array(
@@ -44,7 +44,7 @@
 			<?php echo $this->element('Applicants/dataCard'); ?>
 		</div>
 	</div>
-	<div class="col-md-6 col-md-offset-1">
+	<div id="results" class="col-md-6 col-md-offset-1">
 		<?php 
 			foreach($position_cards as $position_card) {
 				$this->set('position_card', $position_card);

@@ -105,6 +105,7 @@ class PositionsController extends AppController {
 			throw new NotFoundException(__('Invalid Position'));
 		}
 		if($this->request->is('post')) {
+			$user_id = $this->Auth->user('id');
 			$position_id = $this->request->data['Position']['id'];
 	
 			$this->Session->write('position_id',$position_id);
@@ -112,9 +113,9 @@ class PositionsController extends AppController {
 			$positionCard = $this->Position->loadDataCard($position_id);
 		
 			if($this->Auth->user('user_level_id') == 10) {
-        $applicants = $this->Applicant->findAllPremiumIds();
+        $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => 25, 'scale' => 3959));
 			} else {
-        $applicants = $this->Applicant->findAllIds();
+        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => 25, 'scale' => 3959));
 			}
 
 			$applicantCards = array();

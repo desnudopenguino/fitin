@@ -54,7 +54,7 @@ class ApplicantsController extends AppController {
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
 		$company_id = $this->Session->read('company');
-		if($this->request->is('post') {
+		if($this->request->is('post')) {
 			$search = $this->request->data['Search'];
 		} else {
 			$search = array('distance' => 25,

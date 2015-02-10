@@ -65,7 +65,9 @@
 					$this->set('applicant_card', $applicant_card);
 					echo $this->element('Applicants/search');
 				}
-		} ?>
+		} else {
+			?><h2>Please select a position to search</h2><?php
+		}?>
 	</div>
 </div>
 <?php echo $this->Html->script('employer_search'); ?>

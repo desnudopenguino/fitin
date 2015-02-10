@@ -259,6 +259,8 @@ class EmployersController extends AppController {
 		if($this->Auth->user('status_id') < 4) {
 			throw new ForbiddenException('Please confirm your email to access this page.');
 		}
+		
+		$user_id = $this->Auth->user('id');
 		$this->set('positions', $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),
@@ -271,7 +273,7 @@ class EmployersController extends AppController {
 			if($this->Auth->user('user_level_id') == 10) {
         $applicants = $this->Applicant->findAllPremiumIds();
 			} else {
-        $applicants = $this->Applicant->findAllIds();
+        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => 25, 'scale' => 3959));
 			}
 
 			$applicantCards = array();

@@ -45,11 +45,7 @@
 		</div>
 	</div>
 	<div id="results" class="col-md-6 col-md-offset-1">
-		<?php 
-			foreach($position_cards as $position_card) {
-				$this->set('position_card', $position_card);
-				echo $this->element('Positions/search');
-			} ?>
+		<?php echo $this->element('Positions/search_list'); ?>
 	</div>
 </div>
 <?php echo $this->Html->script('applicant_search'); ?>

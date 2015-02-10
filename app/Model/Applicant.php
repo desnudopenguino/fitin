@@ -234,35 +234,15 @@ Class Applicant extends AppModel {
 	}
 
 	public function findAllIds($myId, $search = array()) {
-
 		$ps_sql = "CALL findApplicantsByLocation(".$myId.",".$search['distance'].",".$search['scale'].");";
 		$results = $this->query($ps_sql);
-debug($results);
 		return $results;
-/*
-		return $this->find('all', array(
-			'fields' => array(
-				'Applicant.user_id',
-				'User.email'),
-			'contain' => array(
-				'User'),
-			'conditions' => array(
-				'User.status_id' => 4)));
-*/
 	}
 	
-	public function findAllPremiumIds() {
-		return $this->find('all', array(
-			'fields' => array(
-				'Applicant.user_id',
-				'User.email'),
-			'contain' => array(
-				'User' => array(
-					'fields' => array(
-						'User.email'))),
-			'conditions' => array(
-				'User.user_level_id > ' => 20,
-				'User.status_id' => 4)));
+	public function findPremiumIds($myId, $search = array()) {
+		$ps_sql = "CALL findPremiumApplicantsByLocation(".$myId.",".$search['distance'].",".$search['scale'].");";
+		$results = $this->query($ps_sql);
+		return $results;
 	}
 }
 ?>

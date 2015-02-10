@@ -267,7 +267,7 @@ class EmployersController extends AppController {
 			'fields' => array(
 				'Position.id','Position.title')));
 			if(empty($positions)) {
-				throw new ForbiddenException('You must create a position to be able to search applicants');
+				throw new ForbiddenException('You must create a position (on your Profile page) to be able to search applicants.');
 			}
 			$this->set('positions', $positions);
 		

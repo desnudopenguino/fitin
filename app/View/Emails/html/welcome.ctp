@@ -624,11 +624,11 @@
 
 <h3>Love where you work and work where you Fit In.</h3>
 
-<p>We are a group Silicon Valley startup founders&nbsp;with the technology to match job seekers and employers based on sociology. Waste less time, spend fewer resources, and make each match a lasting one.</p>
+<p>We are a Silicon Valley startup with the technology to match job seekers and employers based on sociology. Waste less time, spend fewer resources, and make each match a lasting one.</p>
 
 <h3 class="null">How do we do it?</h3>
 
-<p>FitIn measures work compatibility with a series of sociological questions.&nbsp;FitIn understands that different personalities are necessary to make great things happen on a talented team. What unifies these personalities and talents is the way we work...and we quantify it.&nbsp;FitIn provides job percentage matches and culture percentage matches for everyone looking and hiring. We give you the data to make the best decisions for your career and company.</p>
+<p>FitIn measures work compatibility with a series of sociological questions. FitIn understands that different personalities are necessary to make great things happen on a talented team. What unifies these personalities and talents is the way we work...and we quantify it. FitIn provides job percentage matches and culture percentage matches for everyone looking and hiring. We give you the data to make the best decisions for your career and company.</p>
 
 <h3 class="null">Getting started.</h3>
 

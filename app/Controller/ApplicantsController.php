@@ -54,26 +54,41 @@ class ApplicantsController extends AppController {
 		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
 		$applicantCard = $this->Applicant->loadDataCard($auth_id);
 		$company_id = $this->Session->read('company');
+		if($this->request->is('post') {
+			$search = $this->request->data['Search'];
+		} else {
+			$search = array('distance' => 25,
+				'scale' => 3959,
+				'job' => 50,
+				'culture' => 20);
+		}
 		if($company_id != null) {
 			$positions = $this->Position->findCompanyIds($company_id);
 		} else if($this->Auth->user('user_level_id') == 20) {
-			$positions = $this->Position->findPremiumIds($auth_id, array('distance' => 25, 'scale' => 3959));
+			$positions = $this->Position->findPremiumIds($auth_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 		} else {
-			$positions = $this->Position->findAllIds($auth_id, array('distance' => 25, 'scale' => 3959));
+			$positions = $this->Position->findAllIds($auth_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 		}
 		$positionCards = array();
 		foreach($positions as $position) {
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
 			$positionCard['Results'] = $this->DataCard->compare($applicantCard, $positionCard);
-			$positionCard['Culture'] = $this->Applicant->User->UserCultureAnswer->compareCulture($auth_id,$position['Position']['employer_id']);
-			if(in_array($position['Position']['id'], $applications)) {
-				$positionCard['Applied'] = true;
+			if($positionCard['Results']['percent'] >= $search['job']) {
+				$positionCard['Culture'] = $this->Applicant->User->UserCultureAnswer->compareCulture($auth_id,$position['Position']['employer_id']);
+				if($positionCard['Culture']['Total']['percent'] >= $search['culture']) {
+					if(in_array($position['Position']['id'], $applications)) {
+						$positionCard['Applied'] = true;
+					}
+					$positionCards[] = $positionCard;
+				}
 			}
-			$positionCards[] = $positionCard;
-		}
+		}	
 		$positionCards = $this->DataCard->sortByJobMatch($positionCards);
 		$this->set('applicant_card', $applicantCard);
 		$this->set('position_cards', $positionCards);
+		if($this->request->is('ajax') {
+			$this->layout = false;
+		}
 	}
 
 

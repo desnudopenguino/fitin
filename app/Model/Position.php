@@ -130,16 +130,9 @@ debug($ids);
 		$ps_sql = "CALL findPositionsByLocation(".$myId.",".$searchArray['distance'].",".$searchArray['scale'].");";
 		$results = $this->query($ps_sql);
 
-		$return = array();
-		foreach($results as $result) {
-			$return[] = array('Position' => array(
-				'id' => $result['id'],
-				'employer_id' => $result['employer_id']));
-		}
 		debug($results);
-		debug($return);
 		
-		return $return;
+		return $results;
 	}
 
 	public function findAllPremiumIds() {

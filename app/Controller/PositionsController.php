@@ -117,7 +117,7 @@ class PositionsController extends AppController {
 			} else {
         $applicants = $this->Applicant->findAllIds($user_id, array('distance' => 25, 'scale' => 3959));
 			}
-
+debug($this->request->data['Search']);
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
 				$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);

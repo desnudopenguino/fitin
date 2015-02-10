@@ -6,9 +6,6 @@ class ApplicantsController extends AppController {
 
 	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion');
 
-	public $components = array(
-		'Geocoder.Geocoder');
-
 	public function beforeFilter() {
 		$this->Auth->allow('view','register');
 	}
@@ -62,7 +59,7 @@ class ApplicantsController extends AppController {
 		} else if($this->Auth->user('user_level_id') == 20) {
 			$positions = $this->Position->findAllPremiumIds();
 		} else {
-			$positions = $this->Position->findAllIds();
+			$positions = $this->Position->findAllIds($auth_id, array('distance' => 25, 'scale' => 3959));
 		}
 		$positionCards = array();
 		foreach($positions as $position) {

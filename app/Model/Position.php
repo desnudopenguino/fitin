@@ -113,15 +113,15 @@ Class Position extends AppModel {
 		return $this->cleanPositionIds($ids);
 	}
 
-	public function findAllIds($myId, $searchArray = array()) {
-		$ps_sql = "CALL findPositionsByLocation(".$myId.",".$searchArray['distance'].",".$searchArray['scale'].");";
+	public function findAllIds($myId, $search = array()) {
+		$ps_sql = "CALL findPositionsByLocation(".$myId.",".$search['distance'].",".$search['scale'].");";
 		$results = $this->query($ps_sql);
 
 		return $results;
 	}
 
-	public function findPremiumIds() {
-		$ps_sql = "CALL findPremiumPositionsByLocation(".$myId.",".$searchArray['distance'].",".$searchArray['scale'].");";
+	public function findPremiumIds($myId, $search = array()) {
+		$ps_sql = "CALL findPremiumPositionsByLocation(".$myId.",".$search['distance'].",".$search['scale'].");";
 		$results = $this->query($ps_sql);
 
 		return $results;

@@ -1,6 +1,47 @@
 <div class="row">
-	<div class="col-md-3 col-md-offset-1 well">
-		<?php echo $this->element('Applicants/dataCard'); ?>
+	<div class="col-md-3 col-md-offset-1">
+		<div class="well">
+			<?php echo $this->Form->create('Search', array(
+				'action' => 'search',
+				'method' => 'post',
+				'inputDefaults' => array(
+					'div' => 'form-group',
+					'wrapInput' => false,
+					'class' => 'form-control'
+				),
+				'id' => 'searchPositionForm'
+				)); ?>
+			<fieldset>
+				<?php echo $this->Form->input('Search.distance', array(
+						'type' => 'number',
+						'value' => 25,
+						'label' => 'Search Distance'));
+
+					echo $this->Form->input('Search.scale', array(
+						'type' => 'select',
+						'label' => 'Scale',
+						'options' => array('3959' => 'Miles', '6371' => 'Kilometers')));
+					
+					echo $this->Form->input('Search.job', array(
+						'type' => 'number',
+						'value' => 50,
+						'label' => 'Job Match %'));
+
+					echo $this->Form->input('Search.culture', array(
+						'type' => 'number',
+						'value' => 20,
+						'label' => 'Culture Match %'));
+				?>
+
+			</fieldset>	
+			<?php echo $this->Form->submit('submit', array(
+				'div' => 'form-group',
+				'class' => 'btn btn-primary')); ?>
+			<?php echo $this->Form->end(); ?>
+		</div>
+		<div class="well">
+			<?php echo $this->element('Applicants/dataCard'); ?>
+		</div>
 	</div>
 	<div class="col-md-6 col-md-offset-1">
 		<?php 

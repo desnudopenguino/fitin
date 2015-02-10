@@ -124,7 +124,7 @@ Class Position extends AppModel {
 							'User.status_id' => 4))))));
 
 		$ids = $this->cleanPositionIds($ids);
-debug($ids)
+debug($ids);
 		return $ids;
 
 /*		$ps_sql = "CALL findPositionsByLocation(".$myId.",".$searchArray['distance'].",".$searchArray['scale'].");";

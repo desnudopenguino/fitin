@@ -89,6 +89,7 @@ class ApplicantsController extends AppController {
 		$this->set('position_cards', $positionCards);
 		if($this->request->is('ajax')) {
 			$this->layout = false;
+			$this->render('Elements/Positions/search_list');
 		}
 	}
 

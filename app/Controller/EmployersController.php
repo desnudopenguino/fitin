@@ -259,6 +259,8 @@ class EmployersController extends AppController {
 		if($this->Auth->user('status_id') < 4) {
 			throw new ForbiddenException('Please confirm your email to access this page.');
 		}
+		
+		$user_id = $this->Auth->user('id');
 		$this->set('positions', $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),
@@ -268,18 +270,28 @@ class EmployersController extends AppController {
 		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
-			if($this->Auth->user('user_level_id') == 10) {
-        $applicants = $this->Applicant->findAllPremiumIds();
-			} else {
-        $applicants = $this->Applicant->findAllIds();
-			}
 
+			$search = array('distance' => 25,
+				'scale' => 3959,
+				'job' => 50,
+				'culture' => 20);
+
+			if($this->Auth->user('user_level_id') == 10) {
+        $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
+			} else {
+        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
+			}
+		
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
 				$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
 				$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
-				$applicantCard['Culture'] = $this->Employer->User->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
-				$applicantCards[] = $applicantCard;
+				if($applicantCard['Results']['percent'] >= $search['job']) {
+					$applicantCard['Culture'] = $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
+					if($applicantCard['Culture']['Total']['percent'] >= $search['culture']) {
+						$applicantCards[] = $applicantCard;
+					}
+				}
 			}
 			$applicantCards = $this->DataCard->sortByJobMatch($applicantCards);	
 			$this->set('position_card', $positionCard);

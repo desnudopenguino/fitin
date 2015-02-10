@@ -261,11 +261,16 @@ class EmployersController extends AppController {
 		}
 		
 		$user_id = $this->Auth->user('id');
-		$this->set('positions', $this->Employer->Position->find('list', array(
+		$positions = $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),
 			'fields' => array(
-				'Position.id','Position.title'))));
+				'Position.id','Position.title')));
+			if(empty($positions)) {
+				throw new ForbiddenException('You must create a position to be able to search applicants');
+			}
+			$this->set('positions', $positions);
+		
 		$position_id = $this->Session->read('position_id');
 		if(!empty($position_id)) {
 

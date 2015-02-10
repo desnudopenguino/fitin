@@ -114,49 +114,17 @@ Class Position extends AppModel {
 	}
 
 	public function findAllIds($myId, $searchArray = array()) {
-/*i		$ids = $this->find('all', array(
-			'fields' => array(
-				'Position.id', 'Position.employer_id'),
-			'contain' => array(
-				'Employer' => array(
-					'User' => array(
-						'conditions' => array(
-							'User.status_id' => 4))))));
-
-		$ids = $this->cleanPositionIds($ids);
-debug($ids);
-		return $ids;
-*/
 		$ps_sql = "CALL findPositionsByLocation(".$myId.",".$searchArray['distance'].",".$searchArray['scale'].");";
 		$results = $this->query($ps_sql);
 
-		debug($results);
-		
 		return $results;
 	}
 
-	public function findAllPremiumIds() {
-		App::uses('CakeSession', 'Model/Datasource');
-		$company_id = CakeSession::read('company');
-		if(!empty($company_id)) {
-			$ids = $this->Employer->Organization->Company->findPositions($company_id);
-		} else {
-			$ids = $this->find('all', array(
-				'fields' => array(
-					'Position.id','Position.employer_id'),
-				'contain' => array(
-					'Employer' => array(
-						'User' => array(
-							'conditions' => array(
-								'User.user_level_id > ' => 10,
-								'User.status_id' => 4
-							)
-						)
-					)
-				)
-			));
-		}
-		return $this->cleanPositionIds($ids);
+	public function findPremiumIds() {
+		$ps_sql = "CALL findPremiumPositionsByLocation(".$myId.",".$searchArray['distance'].",".$searchArray['scale'].");";
+		$results = $this->query($ps_sql);
+
+		return $results;
 	}
 
 	public function cleanPositionIds($ids) {

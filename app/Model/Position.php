@@ -113,8 +113,8 @@ Class Position extends AppModel {
 		return $this->cleanPositionIds($ids);
 	}
 
-	public function findAllIds() {
-		$ids = $this->find('all', array(
+	public function findAllIds($myId, $searchArray = array()) {
+/*		$ids = $this->find('all', array(
 			'fields' => array(
 				'Position.id', 'Position.employer_id'),
 			'contain' => array(
@@ -124,6 +124,11 @@ Class Position extends AppModel {
 							'User.status_id' => 4))))));
 
 		return $this->cleanPositionIds($ids);
+*/
+		$result = $this->query->("CALL findPositionsByLocation($myId, $searchArray['distance'],$searchArray['scale']);");
+		debug($result);
+		
+		return $result;
 	}
 
 	public function findAllPremiumIds() {

@@ -125,6 +125,7 @@ debug($search);
 				$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
 				$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
 				$applicantCard['Culture'] = $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
+debug($applicantCard);
 				$applicantCards[] = $applicantCard;
 			}
 		

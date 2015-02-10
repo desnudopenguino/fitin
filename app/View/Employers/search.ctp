@@ -27,6 +27,7 @@
 
 					echo $this->Form->input('Search.distance', array(
 						'type' => 'number',
+						'value' => 25,
 						'label' => 'Search Distance'));
 
 					echo $this->Form->input('Search.scale', array(
@@ -36,10 +37,12 @@
 					
 					echo $this->Form->input('Search.job', array(
 						'type' => 'number',
+						'value' => 50,
 						'label' => 'Job Match %'));
 
 					echo $this->Form->input('Search.culture', array(
 						'type' => 'number',
+						'value' => 20,
 						'label' => 'Culture Match %'));
 				?>
 

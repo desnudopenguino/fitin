@@ -306,7 +306,8 @@ class UsersController extends AppController {
 		$settings = $this->User->findSettings($user_id);
 		$this->set('settings', $settings);
 		$this->set('plans', $this->User->UserLevel->findPlans($user_role));
-		$this->set('user', $this->User->findStatusId($user_id));
+		//$this->set('user', $this->User->findStatusId($user_id));
+		$this->set('user', $this->User->findSettings($user_id));
 		$this->set('customer', $this->User->findCustomer($user_id));
 	}
 

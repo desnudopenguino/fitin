@@ -1,5 +1,5 @@
 			<?php echo $this->Form->create('Setting', array(
-				'action' => 'save',
+				'action' => 'update',
 				'method' => 'post',
 				'inputDefaults' => array(
 					'div' => 'form-group',
@@ -9,30 +9,28 @@
 				'id' => 'searchApplicantForm'
 				)); ?>
 			<fieldset>
-				<h2>Search filter</h2>
-				<p>Change the settings here to save your search result filter</p>
-				<?php 
+				<?php
 					echo $this->Form->input('user_id', array(
 						'type' => 'hidden',
 						'value' => $user_id));
 
-					echo $this->Form->input('distance', array(
+					echo $this->Form->input('search_distance', array(
 						'type' => 'number',
 						'value' => $search['distance'],
 						'label' => 'Search Distance'));
 
-					echo $this->Form->input('scale', array(
+					echo $this->Form->input('search_scale', array(
 						'type' => 'select',
 						'label' => 'Scale',
 						'value' => $search['scale'],
 						'options' => array('3959' => 'Miles', '6371' => 'Kilometers')));
 					
-					echo $this->Form->input('job', array(
+					echo $this->Form->input('search_job', array(
 						'type' => 'number',
 						'value' => $search['job'],
 						'label' => 'Job Match %'));
 
-					echo $this->Form->input('culture', array(
+					echo $this->Form->input('search_culture', array(
 						'type' => 'number',
 						'value' => $search['culture'],
 						'label' => 'Culture Match %'));

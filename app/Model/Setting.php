@@ -16,7 +16,6 @@ Class Setting extends AppModel {
 	}
 
 	public function afterFind($results, $primary = false) {
-debug($results);
 		if(empty($results)) {
 			$results = $this->buildDefault();
 		}
@@ -44,7 +43,6 @@ debug($results);
 			'conditions' => array(
 				'Setting.user_id' => $user_id)
 		));
-debug($result);
 		return $result;
 	}
 

@@ -14,8 +14,8 @@ class SettingsController extends AppController {
 			}
 		}
 		
-		$this->render(false);
 		$this->layout = false;
+		$this->autorender = false;
 
 		$this->Session->setFlash(__('<strong>Success:</strong> Your settings have been updated!'),
 			'alert', array(

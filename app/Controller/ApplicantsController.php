@@ -4,7 +4,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion','Setting');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion','Setting','Address');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view','register');
@@ -51,7 +51,7 @@ class ApplicantsController extends AppController {
 			throw new ForbiddenException(__('Please confirm your email to access this page'));
 		}
 		$user_id = $this->Auth->user('id');
-		if(!$this->Applicant->User->Address->checkGPS($user_id)) {
+		if(!$this->Address->checkGPS($user_id)) {
 			throw new ForbiddenException('Please update your mailing address to access this page.');
 		}
 

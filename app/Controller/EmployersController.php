@@ -4,7 +4,7 @@
 
 class EmployersController extends AppController {
 
-	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion','Degree');
+	public $uses = array('Employer','State','PhoneType','Industry','WorkFunction','UserCultureAnswer','Applicant','DataCard','Organization','CultureQuestion','Degree','Setting');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view','register','under');
@@ -276,10 +276,7 @@ class EmployersController extends AppController {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
 
-			$search = array('distance' => 25,
-				'scale' => 3959,
-				'job' => 50,
-				'culture' => 20);
+			$search = $this->Setting->findSearch($user_id);
 
 			if($this->Auth->user('user_level_id') == 10) {
         $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));

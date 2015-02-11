@@ -55,7 +55,7 @@ Class Address extends AppModel {
 		return true;
 	}
 
-	function checkGPS($user_id) {
+	public function checkGPS($user_id) {
 		$result = $this->find('first', array(
 			'conditions' => array(
 				'Address.user_id' => $user_id),

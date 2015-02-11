@@ -21,11 +21,11 @@
 				<li>
 					<a class="dashboard-nav" href="#" id="settings-btn">Settings</a>
 				</li>
-				<?php ?>
+				<?php if(empty($employer['User']['Customer'])) { ?>
 				<li>
 					<a class="dashboard-nav" href="#" id="services-btn">Premium Services</a>
 				</li>
-				<?php ?>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>

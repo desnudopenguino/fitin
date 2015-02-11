@@ -7,7 +7,8 @@
 					'class' => 'form-control'
 				),
 				'id' => 'searchApplicantForm'
-				)); ?>
+				)); 
+debug($user);?>
 			<fieldset>
 				<?php
 					echo $this->Form->input('user_id', array(

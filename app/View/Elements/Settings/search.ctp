@@ -40,7 +40,7 @@
 				?>
 
 			</fieldset>	
-			<?php echo $this->Form->submit('submit', array(
+			<?php echo $this->Form->submit('Update Search Filters', array(
 				'div' => 'form-group',
 				'class' => 'btn btn-primary')); ?>
 			<?php echo $this->Form->end(); ?>

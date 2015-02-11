@@ -71,7 +71,7 @@ class ApplicantsController extends AppController {
 			$positionCard = $this->Position->loadDataCard($position['Position']['id']);
 			$positionCard['Results'] = $this->DataCard->compare($applicantCard, $positionCard);
 			if($positionCard['Results']['percent'] >= $search['job']) {
-				$positionCard['Culture'] = $this->Applicant->User->UserCultureAnswer->compareCulture($auth_id,$position['Position']['employer_id']);
+				$positionCard['Culture'] = $this->Applicant->User->UserCultureAnswer->compareCulture($user_id,$position['Position']['employer_id']);
 				if($positionCard['Culture']['Total']['percent'] >= $search['culture']) {
 					if(in_array($position['Position']['id'], $applications)) {
 						$positionCard['Applied'] = true;

@@ -57,6 +57,10 @@ class ApplicationsController extends AppController {
 		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}
+
+		if(empty($applications)) {
+			$this->render('../Elements/Applications/empty');
+		}
 	}
 	public function employer() {
 		if($this->Auth->user('role_id') != 1) {

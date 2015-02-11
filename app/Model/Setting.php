@@ -8,6 +8,8 @@ Class Setting extends AppModel {
 			'className' => 'User'
 		));
 
+	public $primaryKey = 'user_id';
+
 
 	public function beforeSave($options = array()) {
 		return true;

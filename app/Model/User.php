@@ -9,6 +9,7 @@ Class User extends AppModel {
 		'UserLevel');
 
 	public $hasOne = array( 
+		'Setting',
 		'Customer',
 		'Applicant',
 		'Employer',

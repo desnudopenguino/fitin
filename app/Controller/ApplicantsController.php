@@ -58,6 +58,7 @@ class ApplicantsController extends AppController {
 			$search = $this->request->data['Search'];
 		} else {
 			$search = $this->Setting->findSearch($user_id);
+debug($search);
 			$search = $this->Setting->trimForSearch($search);
 		}
 		if($company_id != null) {

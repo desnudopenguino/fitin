@@ -277,7 +277,7 @@ class EmployersController extends AppController {
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
 
 			$search = $this->Setting->findSearch($user_id);
-			$searh = $searh['Setting'];
+			$search = $search['Setting'];
 
 			if($this->Auth->user('user_level_id') == 10) {
         $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => $search['search_distance'], 'scale' => $search['search_scale']));

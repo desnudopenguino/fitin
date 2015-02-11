@@ -60,6 +60,7 @@ $(document).on('submit',"#searchApplicantForm", function() {
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),
 		async: true,
+		data: $(this).serialize(),
 		success: function(result) {
 //			$('#settings-search').html(result);
 console.log('Search settings updated');

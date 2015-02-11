@@ -29,6 +29,7 @@ Class Employer extends AppModel {
 				'Employer.user_id' => $id),
 			'contain' => array(
 				'User' => array(
+					'Customer',
 					'UserLevel',
 					'Message' => array(
 						'conditions' => array(

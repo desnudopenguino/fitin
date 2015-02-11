@@ -3,7 +3,6 @@
 		<div class="well">
 			<h2>Search
 			<?php //tooltip
-debug($settings);
 				echo $this->Html->image('tooltip.png',array(
 					'class' => 'masterTooltip',
 					'title' => 'Matches are shown based on your different job listings. Select your position and search for your best matches. Matches are based off of job listings and culture preferences.'

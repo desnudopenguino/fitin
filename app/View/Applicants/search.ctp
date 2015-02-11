@@ -1,6 +1,14 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">
+			<h2>Search
+			<?php //tooltip
+				echo $this->Html->image('tooltip.png',array(
+					'class' => 'masterTooltip',
+					'title' => 'Matches are shown based on your Resume/Profile. Matches are based off of job listings and culture preferences.'
+				));
+			?>
+			</h2>
 			<?php echo $this->Form->create('Applicant', array(
 				'action' => 'search',
 				'method' => 'post',

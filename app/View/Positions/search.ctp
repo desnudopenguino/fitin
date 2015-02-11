@@ -1,6 +1,6 @@
 <?php
 	if(empty($applicant_cards)) {
-		echo "<h2>Sorry, no applicants fitting your requirements yet! Check back soon.</h2>";
+		echo "<h2>Sorry, no applicants fitting your requirements yet! Try changing your filters or check back soon.</h2>";
 	} else {
 		foreach($applicant_cards as $applicant_card) {
 			$this->set('applicant_card', $applicant_card);

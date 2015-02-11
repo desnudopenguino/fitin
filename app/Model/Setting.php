@@ -39,14 +39,19 @@ Class Setting extends AppModel {
 				'Setting.user_id' => $user_id)
 		));
 
+		return $return;
+	}
+
+	public function trimForSearch($search) {
 		$return = array();
-		$return['distance'] = $result['Setting']['search_distance'];
-		$return['scale'] = $result['Setting']['search_scale'];
-		$return['job'] = $result['Setting']['search_job'];
-		$return['culture'] = $result['Setting']['search_culture'];
-		unset($result);
+		$return['distance'] = $search['Setting']['search_distance'];
+		$return['scale'] = $search['Setting']['search_scale'];
+		$return['job'] = $search['Setting']['search_job'];
+		$return['culture'] = $search['Setting']['search_culture'];
 
 		return $return;
+	}
+		
 	}
 }
 ?>

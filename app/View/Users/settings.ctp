@@ -10,5 +10,7 @@
 		} else {
 			echo $this->element('Settings/subscription');
 		}
+
+		echo $this->element('Settings/search');
 		 ?>
 </div>

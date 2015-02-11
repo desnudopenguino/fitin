@@ -14,6 +14,7 @@ Class Setting extends AppModel {
 	}
 
 	public function afterFind($results, $primary = false) {
+debug($results);
 		foreach($results as $rKey => $result) {
 			if(empty($results[$rKey]['Setting']['user_id'])) {
 				$results[$rKey]['Setting']['search_distance'] = 25;

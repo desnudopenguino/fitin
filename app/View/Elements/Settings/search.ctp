@@ -12,7 +12,7 @@
 				<?php
 					echo $this->Form->input('user_id', array(
 						'type' => 'hidden',
-						'value' => $user_id));
+						'value' => $user['User']['id']));
 
 					echo $this->Form->input('search_distance', array(
 						'type' => 'number',

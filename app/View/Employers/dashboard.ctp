@@ -1,4 +1,4 @@
-<?php $this->set('messages', $employer['User']['Message']); ?>
+<?php $this->set('messages', $employer['User']['Message']); debug($employer);?>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">
@@ -21,9 +21,11 @@
 				<li>
 					<a class="dashboard-nav" href="#" id="settings-btn">Settings</a>
 				</li>
+				<?php ?>
 				<li>
 					<a class="dashboard-nav" href="#" id="services-btn">Premium Services</a>
 				</li>
+				<?php ?>
 			</ul>
 		</div>
 	</div>

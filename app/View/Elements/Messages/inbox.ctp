@@ -11,7 +11,7 @@
 	<div id="mail_content">
 		<?php
 			if(empty($messages)) {
-				echo $this->elements('../Elements/Messages/empty.ctp');
+				echo $this->element('../Elements/Messages/empty.ctp');
 			} else{
 				foreach($messages as $message) {
 					$this->set('message', $message);

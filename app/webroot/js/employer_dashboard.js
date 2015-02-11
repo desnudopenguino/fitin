@@ -54,7 +54,7 @@ $(document).on('click',"#services-btn", function() {
 		}});
 });
 
-$(document).on('submit',"#searchApplicantForm", function() {
+$(document).on('submit',"#searchSettingsForm", function() {
 	$.ajax({
 		url: $(this).attr('action'),
 		type: $(this).attr('method'),

@@ -9,7 +9,7 @@
 					'wrapInput' => false,
 					'class' => 'form-control'
 				),
-				'id' => 'searchApplicantForm'
+				'id' => 'searchSettingsForm'
 				)); ?>
 			<fieldset>
 				<?php

@@ -62,7 +62,7 @@ $(document).on('submit',"#searchApplicantForm", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-			$('#settings-search').prepend(result);
+			$('#settings-search').prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Success!</strong> Your Search Settings have been saved.</div>');
 		}});
 	return false;
 });

@@ -30,6 +30,7 @@ debug($results);
 	public function findSearch($user_id = null) {
 		$result = $this->find('first', array(
 			'fields' => array(
+				'user_id',
 				'search_distance',
 				'search_scale',
 				'search_job',

@@ -260,7 +260,6 @@ class EmployersController extends AppController {
 			throw new ForbiddenException('Please confirm your email to access this page.');
 		}
 		$user_id = $this->Auth->user('id');
-		debug($this->Address->checkGPS($user_id));
 		if(!$this->Address->checkGPS($user_id)) {
 			throw new ForbiddenException('Please update your mailing address to access this page.');
 		}

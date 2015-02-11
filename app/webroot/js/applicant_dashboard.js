@@ -62,8 +62,7 @@ $(document).on('submit',"#searchApplicantForm", function() {
 		async: true,
 		data: $(this).serialize(),
 		success: function(result) {
-//			$('#settings-search').html(result);
-console.log('Search settings updated');
+			$('#settings-search').prepend(result);
 		}});
 	return false;
 });

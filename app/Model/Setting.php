@@ -52,6 +52,5 @@ Class Setting extends AppModel {
 		return $return;
 	}
 		
-	}
 }
 ?>

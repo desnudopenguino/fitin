@@ -64,7 +64,7 @@ Class Address extends AppModel {
 			'Address.longitude')));
 
 debug($result);
-		if(empty($result['Address']['latitude']) || empty($result['Address']['longitude'])) {
+		if(empty($result['latitude']) || empty($result['longitude'])) {
 			return false;
 		}
 		return true;

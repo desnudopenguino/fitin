@@ -186,6 +186,7 @@ Class Applicant extends AppModel {
 				'Applicant.user_id' => $id),
 			'contain' => array(
 				'User' => array(
+					'Customer',
 					'UserLevel'))));
 		return $dashboard_data;
 	}

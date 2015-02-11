@@ -17,9 +17,11 @@
 				<li>
 					<a class="dashboard-nav" href="#" id="settings-btn">Settings</a>
 				</li>
+				<?php if(empty($applicant['User']['Customer'])) { ?>
 				<li>
 					<a class="dashboard-nav" href="#" id="services-btn">Premium Services</a>
 				</li>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>

@@ -259,8 +259,11 @@ class EmployersController extends AppController {
 		if($this->Auth->user('status_id') < 4) {
 			throw new ForbiddenException('Please confirm your email to access this page.');
 		}
-		
 		$user_id = $this->Auth->user('id');
+		if(!$this->Employer->User->Address->checkGPS($user_id)) {
+			throw new ForbiddenException('Please update your mailing address to access this page.');
+		}
+		
 		$positions = $this->Employer->Position->find('list', array(
 			'conditions' => array(
 				'Position.employer_id' => $this->Auth->user('id')),

@@ -54,5 +54,19 @@ Class Address extends AppModel {
 //find the lat and long and set them!
 		return true;
 	}
+
+	function checkGPS($user_id) {
+		$result = $this->find('first', array(
+			'conditions' => array(
+				'Address.user_id' => $user_id),
+			'fields' => array(
+			'Address.latitude',
+			'Address.longitude')));
+
+		if(empty($result['Address']['latitude']) || empty($result['Address']['longitude'])) {
+			return false;
+		}
+		return true;
+	}
 }
 ?>

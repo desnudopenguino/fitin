@@ -51,6 +51,10 @@ class ApplicantsController extends AppController {
 			throw new ForbiddenException(__('Please confirm your email to access this page'));
 		}
 		$user_id = $this->Auth->user('id');
+		if(!$this->Applicant->User->Address->checkGPS($user_id)) {
+			throw new ForbiddenException('Please update your mailing address to access this page.');
+		}
+
 		$applications = $this->Applicant->Application->findApplicantIds($user_id);
 		$applicantCard = $this->Applicant->loadDataCard($user_id);
 		$company_id = $this->Session->read('company');

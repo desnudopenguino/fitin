@@ -1,4 +1,4 @@
-<div class="row">
+<div id="settings-search" class="row">
 	<h2>Search Filters</h2>
 	<p>These settings are to filter your search results based on distance, job match &#37;, and culture match &#37;</p>
 			<?php echo $this->Form->create('Setting', array(

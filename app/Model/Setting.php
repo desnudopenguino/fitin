@@ -22,6 +22,7 @@ Class Setting extends AppModel {
 				$results[$rKey]['Setting']['search_culture'] = 20;
 			}
 		}
+debug($results);
 		return $results;
 	}
 

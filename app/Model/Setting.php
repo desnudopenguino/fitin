@@ -39,7 +39,7 @@ Class Setting extends AppModel {
 				'Setting.user_id' => $user_id)
 		));
 
-		return $return;
+		return $result;
 	}
 
 	public function trimForSearch($search) {

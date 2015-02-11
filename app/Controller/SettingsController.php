@@ -11,9 +11,9 @@ class SettingsController extends AppController {
 		if($this->request->is('post')) {
 			$this->Setting->create();
 			if($this->Setting->save($this->request->data)) {
-debug($this->request->data);
 			}
 		}
 		
+		$this->render(false);
 	}
 } ?>

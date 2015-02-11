@@ -50,9 +50,9 @@ class ApplicantsController extends AppController {
 		if($this->Auth->user('status_id') < 4) {
 			throw new ForbiddenException(__('Please confirm your email to access this page'));
 		}
-		$auth_id = $this->Auth->user('id');
-		$applications = $this->Applicant->Application->findApplicantIds($auth_id);
-		$applicantCard = $this->Applicant->loadDataCard($auth_id);
+		$user_id = $this->Auth->user('id');
+		$applications = $this->Applicant->Application->findApplicantIds($user_id);
+		$applicantCard = $this->Applicant->loadDataCard($user_id);
 		$company_id = $this->Session->read('company');
 		if($this->request->is('post')) {
 			$search = $this->request->data['Search'];
@@ -62,9 +62,9 @@ class ApplicantsController extends AppController {
 		if($company_id != null) {
 			$positions = $this->Position->findCompanyIds($company_id);
 		} else if($this->Auth->user('user_level_id') == 20) {
-			$positions = $this->Position->findPremiumIds($auth_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
+			$positions = $this->Position->findPremiumIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 		} else {
-			$positions = $this->Position->findAllIds($auth_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
+			$positions = $this->Position->findAllIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 		}
 		$positionCards = array();
 		foreach($positions as $position) {

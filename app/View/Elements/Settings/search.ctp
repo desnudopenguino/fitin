@@ -17,23 +17,23 @@ debug($user);?>
 
 					echo $this->Form->input('search_distance', array(
 						'type' => 'number',
-						'value' => $search['distance'],
+						'value' => $user['Setting']['search_distance'],
 						'label' => 'Search Distance'));
 
 					echo $this->Form->input('search_scale', array(
 						'type' => 'select',
 						'label' => 'Scale',
-						'value' => $search['scale'],
+						'value' => $user['Setting']['search_scale'],
 						'options' => array('3959' => 'Miles', '6371' => 'Kilometers')));
 					
 					echo $this->Form->input('search_job', array(
 						'type' => 'number',
-						'value' => $search['job'],
+						'value' => $user['Setting']['search_job'],
 						'label' => 'Job Match %'));
 
 					echo $this->Form->input('search_culture', array(
 						'type' => 'number',
-						'value' => $search['culture'],
+						'value' => $user['Setting']['search_culture'],
 						'label' => 'Culture Match %'));
 				?>
 

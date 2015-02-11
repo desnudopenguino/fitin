@@ -9,9 +9,14 @@
 </div>
 <div class="tab-content">
 	<div id="mail_content">
-		<?php foreach($messages as $message) {
-			$this->set('message', $message);
-			echo $this->element('Messages/message');
-		} ?>
+		<?php
+			if(empty($messages)) {
+				echo "<h3>No New Messages</h3>";
+			} else{
+				foreach($messages as $message) {
+					$this->set('message', $message);
+					echo $this->element('Messages/message');
+				}
+			} ?>
 	</div>
 </div>

@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
 		<div class="well">
-			<h2>Welcome, <?php echo $employer['User']['email']; ?></h2>
+			<h2>Welcome, <?php echo stristr($employer['User']['email'], "@", true); ?></h2>
 			<span class="label label-primary"><?php echo $employer['User']['UserLevel']['description']; ?></span>
 			<ul class="nav nav-pills nav-stacked">
 				<li><a class="dashboard-nav" href="#" id="inbox-btn">Messages

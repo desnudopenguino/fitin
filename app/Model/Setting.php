@@ -13,6 +13,12 @@ Class Setting extends AppModel {
 		return true;
 	}
 
+	public function afterFind($results, $primary = false) {
+		if(empty($results)) {
+		}
+debug($results);
+	}
+
 	public function findSearch($user_id = null) {
 		$result = $this->find('first', array(
 			'fields' => array(

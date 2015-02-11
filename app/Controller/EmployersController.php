@@ -277,21 +277,20 @@ class EmployersController extends AppController {
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
 
 			$search = $this->Setting->findSearch($user_id);
-			$search = $search['Setting'];
 
 			if($this->Auth->user('user_level_id') == 10) {
-        $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => $search['search_distance'], 'scale' => $search['search_scale']));
+        $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 			} else {
-        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => $search['search_distance'], 'scale' => $search['search_scale']));
+        $applicants = $this->Applicant->findAllIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
 			}
 		
 			$applicantCards = array();
 			foreach($applicants as $applicant) {
 				$applicantCard = $this->Applicant->loadDataCard($applicant['Applicant']['user_id']);
 				$applicantCard['Results'] = $this->DataCard->compare($applicantCard,$positionCard);
-				if($applicantCard['Results']['percent'] >= $search['search_job']) {
+				if($applicantCard['Results']['percent'] >= $search['job']) {
 					$applicantCard['Culture'] = $this->UserCultureAnswer->compareCulture($applicant['Applicant']['user_id'],$this->Auth->user('id'));
-					if($applicantCard['Culture']['Total']['percent'] >= $search['search_culture']) {
+					if($applicantCard['Culture']['Total']['percent'] >= $search['culture']) {
 						$applicantCards[] = $applicantCard;
 					}
 				}

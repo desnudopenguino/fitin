@@ -37,7 +37,14 @@ Class Setting extends AppModel {
 				'Setting.user_id' => $user_id)
 		));
 
-		return $result;
+		$return = array();
+		$return['distance'] = $result['Setting']['search_distance'];
+		$return['scale'] = $result['Setting']['search_scale'];
+		$return['job'] = $result['Setting']['search_job'];
+		$return['culture'] = $result['Setting']['search_culture'];
+		unset($result);
+
+		return $return;
 	}
 }
 ?>

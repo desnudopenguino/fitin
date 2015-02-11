@@ -4,7 +4,7 @@
 
 class ApplicantsController extends AppController {
 
-	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion');
+	public $uses = array('Applicant', 'State', 'PhoneType','Degree','Industry','WorkFunction','Skill','UserCultureAnswer','DataCard','Position','CultureQuestion','Setting');
 
 	public function beforeFilter() {
 		$this->Auth->allow('view','register');
@@ -57,10 +57,7 @@ class ApplicantsController extends AppController {
 		if($this->request->is('post')) {
 			$search = $this->request->data['Search'];
 		} else {
-			$search = array('distance' => 25,
-				'scale' => 3959,
-				'job' => 50,
-				'culture' => 20);
+			$search = $this->Setting->findSearch($user_id);
 		}
 		if($company_id != null) {
 			$positions = $this->Position->findCompanyIds($company_id);

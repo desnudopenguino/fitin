@@ -10,13 +10,9 @@
 <div class="tab-content">
 	<div id="mail_content">
 		<?php
-			if(empty($messages)) {
-				echo $this->element('Messages/empty.ctp');
-			} else{
 				foreach($messages as $message) {
 					$this->set('message', $message);
 					echo $this->element('Messages/message');
-				}
 			} ?>
 	</div>
 </div>

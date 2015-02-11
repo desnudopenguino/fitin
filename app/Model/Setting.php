@@ -14,9 +14,15 @@ Class Setting extends AppModel {
 	}
 
 	public function afterFind($results, $primary = false) {
-		if(empty($results)) {
+		foreach($results as $rKey => $result) {
+			if(empty($results[$rKey]['Setting']['user_id'])) {
+				$results[$rKey]['Setting']['search_distance'] = 25;
+				$results[$rKey]['Setting']['search_scale'] = 3959;
+				$results[$rKey]['Setting']['search_job'] = 50;
+				$results[$rKey]['Setting']['search_culture'] = 20;
+			}
 		}
-debug($results);
+		return $results;
 	}
 
 	public function findSearch($user_id = null) {

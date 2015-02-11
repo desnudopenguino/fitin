@@ -79,6 +79,10 @@ class ApplicationsController extends AppController {
 		if($this->request->is('ajax')) {
 			$this->layout = false;
 		}
+
+		if(empty($applications)) {
+			$this->render('../Elements/Applications/empty');
+		}
 	}
  }
 ?>

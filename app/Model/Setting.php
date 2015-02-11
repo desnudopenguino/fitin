@@ -38,7 +38,7 @@ Class Setting extends AppModel {
 			'conditions' => array(
 				'Setting.user_id' => $user_id)
 		));
-
+debug($result);
 		return $result;
 	}
 

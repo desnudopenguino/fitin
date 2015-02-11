@@ -189,7 +189,7 @@ Class User extends AppModel {
 			'conditions' => array(
 				'User.id' => $user_id),
 			'contain' => array(
-				'Settings',
+				'Setting',
 				'Customer',
 					'UserLevel')));
 	}

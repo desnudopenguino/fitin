@@ -53,3 +53,16 @@ $(document).on('click',"#services-btn", function() {
 			$('#services-btn').parent().addClass('active');
 		}});
 });
+
+$(document).on('submit',"#searchApplicantForm", function() {
+	$.ajax({
+		url: $(this).attr('action'),
+		type: $(this).attr('method'),
+		async: true,
+		success: function(result) {
+//			$('#settings-search').html(result);
+console.log('Search settings updated');
+		}});
+	return false;
+});
+

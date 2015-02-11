@@ -61,7 +61,7 @@ $(document).on('submit',"#searchApplicantForm", function() {
 		type: $(this).attr('method'),
 		async: true,
 		success: function(result) {
-			$('#settings-search').html(result);
+//			$('#settings-search').html(result);
 console.log('Search settings updated');
 		}});
 	return false;

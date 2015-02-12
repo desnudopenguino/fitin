@@ -47,6 +47,9 @@ class CompaniesController extends AppController {
 	}
 
 	public function addDepartment($dept_id = null) {
+		if($this->Auth->user('user_level_id') != 12) {
+			throw new ForbiddenException(__('Not Allowed'));
+		}
 		$user = $this->Company->Employer->User->findId($dept_id);
 		if(empty($user)) {
 			throw new NotFoundException(__('Not Found'));

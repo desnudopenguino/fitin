@@ -94,5 +94,17 @@ Class Employer extends AppModel {
 
 		return $return_departments;
 	}
+
+	public function checkCompanyOwner($owner_id, $id) {
+		$return = $this->find('first', array(
+			'conditions' => array(
+				'Employer.user_id' => $id),
+			'contain' => array(
+				'Organization' => array(
+					'Company' => array(
+						'conditions' => array (
+							'Company.employer_id' => $owner_id))))));
+		return $return;
+	}
 }
 ?>

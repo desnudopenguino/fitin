@@ -24,6 +24,7 @@ class CompaniesController extends AppController {
 
 		$company_data = $this->Company->findView($company['Company']['id']);
 		$this->set('company', $company_data);
+debug($company_data);
 	}
 
 	public function index() {
@@ -60,15 +61,13 @@ class CompaniesController extends AppController {
 
 		$company_check = $this->Company->Employer->checkCompanyOwner($this->Auth->user('id'), $dept_id);
 
-debug($user);
-debug($company_check);
 		$this->Company->Employer->User->save(array('User' => array(
 			'id' => $dept_id,
 			'user_level_id' => 17)));	
 		
 		$this->layout = false;
 		$this->render(false);
-		//$this->autorender = false;
+		$this->autorender = false;
 	}
 }
 ?>

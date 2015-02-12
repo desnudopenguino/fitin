@@ -59,7 +59,7 @@ class CompaniesController extends AppController {
 
 debug($user);
 debug($company_check);
-		$this->Company->User->save(array('User' => array(
+		$this->Company->Employer->User->save(array('User' => array(
 			'id' => $dept_id,
 			'user_level_id' => 17)));	
 		

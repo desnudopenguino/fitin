@@ -32,7 +32,10 @@
 				'controller' => 'employers', 'action' => 'view', $department['User']['url']));
 			if($company['Employer']['user_id'] == $department['user_id']) { ?> (me) <?php }
 			if($department['User']['user_level_id'] == 10) {
-				echo $this->Html->link('Add Enterprise Department');
+				echo $this->Html->link('Add Enterprise Department', array(
+					'controller' => 'companies',
+					'action' => 'addDepartment', $department['User']['id']), array(
+					'class' => 'btn btn-primary addDepartment'));
 			}
 			?></li><?php
 		}?></ul>

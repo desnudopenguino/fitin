@@ -64,7 +64,6 @@ class CompaniesController extends AppController {
 			throw new ForbiddenException(__('Not Allowed'));
 		}
 
-debug($company_check);
 		if($this->Company->Employer->User->save(array('User' => array(
 			'id' => $dept_id,
 			'user_level_id' => 17)))) {	
@@ -76,7 +75,7 @@ debug($company_check);
 				'plugin' => 'BoostCake',
 				'class' => 'alert-success'
 			));
-//			$this->redirect(array('controller' => 'companies', 'action' => 'edit', $company_check['Organization']['Company']['id']));
+			$this->redirect(array('controller' => 'companies', 'action' => 'edit', $company_check['Organization']['Company']['id']));
 		}
 		
 	}

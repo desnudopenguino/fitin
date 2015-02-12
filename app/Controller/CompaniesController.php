@@ -24,7 +24,6 @@ class CompaniesController extends AppController {
 
 		$company_data = $this->Company->findView($company['Company']['id']);
 		$this->set('company', $company_data);
-debug($company_data);
 	}
 
 	public function index() {
@@ -45,6 +44,7 @@ debug($company_data);
 		if($this->request->is('post')) {
 			$this->Company->save($this->request->data);
 		}
+debug($company);
 	}
 
 	public function addDepartment($dept_id = null) {

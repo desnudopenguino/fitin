@@ -72,7 +72,7 @@ debug($company_check);
 			$this->layout = false;
 			$this->render(false);
 			$this->autorender = false;
-			$this->Session->setFlash(__('<strong>Success:</strong> You have added  '), 'alert', array(
+			$this->Session->setFlash(__('<strong>Success:</strong> You have added '. $company_check['Employer']['department_name'].' to your enterprise departments '), 'alert', array(
 				'plugin' => 'BoostCake',
 				'class' => 'alert-success'
 			));

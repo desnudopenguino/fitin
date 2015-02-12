@@ -193,4 +193,13 @@ Class User extends AppModel {
 				'Customer',
 					'UserLevel')));
 	}
+
+	public function findId($user_id) {
+		return $this->find('first', array(
+			'conditions' => array(
+				'User.id' => $user_id),
+			'fields' => array(
+				'User.id',
+				'User.user_level_id')));
+	}
 } ?>

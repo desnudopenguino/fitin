@@ -30,6 +30,7 @@
 			?><li><?php
 			echo $this->Html->link($department['department_name'], array(
 				'controller' => 'employers', 'action' => 'view', $department['User']['url']));
+			if($company['Employer']['user_id'] == $department['user_id']) { ?> (me) <?php }
 			?></li><?php
 		}?></ul>
 	</div>

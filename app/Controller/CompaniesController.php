@@ -59,16 +59,20 @@ class CompaniesController extends AppController {
 		}			
 
 		$company_check = $this->Company->Employer->checkCompanyOwner($this->Auth->user('id'), $dept_id);
-debug($company_check);
-		$this->Company->Employer->User->save(array('User' => array(
+
+		if($company_check['Organization']['Company']['employer_id'] != $this->Auth->user('id')) {
+			throw new ForbiddenException(__('Not Allowed'));
+		}
+		if($this->Company->Employer->User->save(array('User' => array(
 			'id' => $dept_id,
-			'user_level_id' => 17)));	
+			'user_level_id' => 17)))) {	
 		
-		$this->layout = false;
-		$this->render(false);
-		$this->autorender = false;
+			$this->layout = false;
+			$this->render(false);
+			$this->autorender = false;
+			$this->redirect(array('controller' => 'companies', 'action' => 'edit', $company_check['Organization']['Company']['id']));
+		}
 		
-//		$this->redirect(array('controller' => 'companies', 'action' => 'edit',
 	}
 }
 ?>

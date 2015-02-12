@@ -65,7 +65,7 @@ debug($company_check);
 		
 		$this->layout = false;
 		$this->render(false);
-		$this->autorender = false;
+		//$this->autorender = false;
 	}
 }
 ?>

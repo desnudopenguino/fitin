@@ -56,7 +56,7 @@
 					echo $employer['Employer']['department_description']; ?>
 			</p>
 			<?php  
-				if($employer['Company']['id'] != null) {
+				if($employer['Employer']['id'] == $employer['Organization']['Company']['employer_id']) {
 					?><hr><p><?php
  					echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i> Edit Company', array(
 						'controller' => 'companies', 'action' => 'edit', $employer['Organization']['Company']['id']),

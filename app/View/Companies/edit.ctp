@@ -35,7 +35,7 @@
 				echo $this->Html->link('Add Enterprise Department', array(
 					'controller' => 'companies',
 					'action' => 'addDepartment', $department['User']['id']), array(
-					'class' => 'btn btn-primary addDepartment'));
+					'class' => 'btn btn-small btn-primary addDepartment'));
 			}
 			?></li><?php
 		}?></ul>

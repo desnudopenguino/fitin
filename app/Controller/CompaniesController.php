@@ -63,6 +63,8 @@ class CompaniesController extends AppController {
 		if($company_check['Organization']['Company']['employer_id'] != $this->Auth->user('id')) {
 			throw new ForbiddenException(__('Not Allowed'));
 		}
+
+debug($company_check);
 		if($this->Company->Employer->User->save(array('User' => array(
 			'id' => $dept_id,
 			'user_level_id' => 17)))) {	
@@ -70,7 +72,11 @@ class CompaniesController extends AppController {
 			$this->layout = false;
 			$this->render(false);
 			$this->autorender = false;
-			$this->redirect(array('controller' => 'companies', 'action' => 'edit', $company_check['Organization']['Company']['id']));
+			$this->Session->setFlash(__('<strong>Success:</strong> You have added  '), 'alert', array(
+				'plugin' => 'BoostCake',
+				'class' => 'alert-success'
+			));
+//			$this->redirect(array('controller' => 'companies', 'action' => 'edit', $company_check['Organization']['Company']['id']));
 		}
 		
 	}

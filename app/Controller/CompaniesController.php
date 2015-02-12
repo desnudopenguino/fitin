@@ -47,7 +47,7 @@ class CompaniesController extends AppController {
 	}
 
 	public function addDepartment($dept_id = null) {
-		$user = $this->User->findId($dept_id);
+		$user = $this->Company->Empleyer->User->findId($dept_id);
 		if(empty($user)) {
 			throw new NotFoundException(__('Not Found'));
 		}			

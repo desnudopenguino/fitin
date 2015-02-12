@@ -44,7 +44,6 @@ class CompaniesController extends AppController {
 		if($this->request->is('post')) {
 			$this->Company->save($this->request->data);
 		}
-debug($company);
 	}
 
 	public function addDepartment($dept_id = null) {
@@ -60,7 +59,7 @@ debug($company);
 		}			
 
 		$company_check = $this->Company->Employer->checkCompanyOwner($this->Auth->user('id'), $dept_id);
-
+debug($company_check);
 		$this->Company->Employer->User->save(array('User' => array(
 			'id' => $dept_id,
 			'user_level_id' => 17)));	
@@ -68,6 +67,8 @@ debug($company);
 		$this->layout = false;
 		$this->render(false);
 		$this->autorender = false;
+		
+//		$this->redirect(array('controller' => 'companies', 'action' => 'edit',
 	}
 }
 ?>

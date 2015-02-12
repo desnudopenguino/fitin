@@ -45,5 +45,27 @@ class CompaniesController extends AppController {
 			$this->Company->save($this->request->data);
 		}
 	}
+
+	public function addDepartment($dept_id = null) {
+		$user = $this->User->findId($dept_id);
+		if(empty($user)) {
+			throw new NotFoundException(__('Not Found'));
+		}			
+		if($user['User']['user_level_id'] != 10) {
+			throw new ForbiddenException(__('Not Allowed'));
+		}			
+
+		$company_check = $this->Company->Employer->checkCompanyOwner($this->Auth->user('id'), $dept_id);
+
+debug($user);
+debug($company_check);
+		$this->Company->User->save(array('User' => array(
+			'id' => $dept_id,
+			'user_level_id' => 17)));	
+		
+		$this->layout = false;
+		$this->render(false);
+		$this->autorender = false;
+	}
 }
 ?>

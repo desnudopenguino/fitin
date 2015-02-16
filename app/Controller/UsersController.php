@@ -410,6 +410,7 @@ class UsersController extends AppController {
 			$this->render(false);
 			$new_plan = $this->request->data['User']['stripe_plan'];
 			$user_id = $this->Auth->user('id');
+			$user_role = $this->Auth->user('user_role');
 			$customer = $this->Stripe->customerRetrieve($this->User->findCustomerId($user_id));
 			$subscription_id = $customer->subscriptions->data[0]->id;
 			$subscription = $customer->subscriptions->retrieve($subscription_id);

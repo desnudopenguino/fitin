@@ -1,4 +1,4 @@
-<div class="row">
+<div id="settings-email" class="row">
 	<h2>Confirm Email</h2>
 	<p>Click the button below to send an email confirmation message to your inbox. You need your email confirmed to access
 		parts of the site</p>

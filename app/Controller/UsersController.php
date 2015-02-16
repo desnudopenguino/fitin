@@ -431,6 +431,7 @@ class UsersController extends AppController {
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
 				$settings = $this->User->findSettings($user_id);
 				$this->set('settings', $settings);
+				$this->set('plans', $this->User->UserLevel->findPlans($user_role));
 				$this->layout = false;
 				$this->render('../Elements/Settings/subscription');
 			}

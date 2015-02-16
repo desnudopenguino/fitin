@@ -3,13 +3,14 @@
 	<p>Click the button below to send an email confirmation message to your inbox. You need your email confirmed to access
 		parts of the site</p>
 	<?php
-		echo $this->Form->create('ConfirmEmail',
+		echo $this->Form->create('Confirm',
 			array('method' => 'post',
 				'novalidate' => true,
 				'inputDefaults' => array(
 				'div' => 'form-group',
 				'wrapInput' => false,
-				'class' => 'form-control'
+				'class' => 'form-control',
+				'id' => 'ConfirmEmailSettingsForm'
 			))); ?>
 		<fieldset>
 			<?php 

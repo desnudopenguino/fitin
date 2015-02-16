@@ -302,6 +302,7 @@ class EmployersController extends AppController {
 			$applicantCards = $this->DataCard->sortByJobMatch($applicantCards);	
 			$this->set('position_card', $positionCard);
 			$this->set('applicant_cards', $applicantCards);
+debug($search);
 			$this->set('settings', $search);
 		}
 	}

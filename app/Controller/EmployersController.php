@@ -275,12 +275,12 @@ class EmployersController extends AppController {
 			$this->set('positions', $positions);
 		
 		$position_id = $this->Session->read('position_id');
+		$search = $this->Setting->findSearch($user_id);
+		$search = $this->Setting->trimForSearch($search);
+
 		if(!empty($position_id)) {
 
 			$positionCard = $this->Employer->Position->loadDataCard($position_id);
-
-			$search = $this->Setting->findSearch($user_id);
-			$search = $this->Setting->trimForSearch($search);
 
 			if($this->Auth->user('user_level_id') == 10) {
         $applicants = $this->Applicant->findPremiumIds($user_id, array('distance' => $search['distance'], 'scale' => $search['scale']));
@@ -302,9 +302,8 @@ class EmployersController extends AppController {
 			$applicantCards = $this->DataCard->sortByJobMatch($applicantCards);	
 			$this->set('position_card', $positionCard);
 			$this->set('applicant_cards', $applicantCards);
-debug($search);
-			$this->set('settings', $search);
 		}
+		$this->set('settings', $search);
 	}
 
 // View - public view of employer data

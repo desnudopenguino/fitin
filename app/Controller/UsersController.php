@@ -417,7 +417,7 @@ class UsersController extends AppController {
 			$subscription->plan = $new_plan;
 			if($subscription->save()) {
 //if i am an enterprise user, find all my departments and downgrade them to free accounts
-				if($this->Auth->user('user_level_id') == 12) {
+				if($this->Auth->user('user_level_id') == 12 && $new_plan != 'EmpEnt') {
 					//get all of my company's departments
 					$departments = $this->User->Employer->findCompanyDepartments($this->Auth->user('id'));
 					foreach($departments as $department) {

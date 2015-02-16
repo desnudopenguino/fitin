@@ -429,7 +429,7 @@ class UsersController extends AppController {
 				$this->Auth->login($login['User']);
 				$this->Session->setFlash(__('Your account has been upgraded. Thank you'),
 					'alert', array( 'plugin' => 'BoostCake', 'class' => 'alert-success'));
-				$this->render('Elements/Settings/subscription');
+				$this->render('../Elements/Settings/subscription');
 			}
 		}
 	}

@@ -88,6 +88,7 @@ $(document).on('submit','#updateCustomerForm', function() {
 		data: $(this).serialize(),
 		success: function(result) {
 			$('#updateCustomerModal').modal('hide');
+			$('#settings-subscription').replaceWith(result);
 			$('#settings-subscription').prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Success!</strong> You have successfully changed your membership subscription.</div>');
 		}	
 	});

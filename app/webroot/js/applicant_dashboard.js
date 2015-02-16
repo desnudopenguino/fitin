@@ -67,3 +67,15 @@ $(document).on('submit',"#searchSettingsForm", function() {
 	return false;
 });
 
+$(document).on('submit',"#confirmEmailSettingsForm", function() {
+	$.ajax({
+		url: $(this).attr('action'),
+		type: $(this).attr('method'),
+		async: true,
+		data: $(this).serialize(),
+		success: function(result) {
+			$('#settings-email').prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Success!</strong> An email has been sent. You should receive it shortly. If you don\'t see it in your email inbox, check your spam folder. Sometimes it takes a few minutes for the email to arrive.</div>');
+		}});
+	return false;
+});
+

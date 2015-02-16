@@ -10,8 +10,10 @@
 				'div' => 'form-group',
 				'wrapInput' => false,
 				'class' => 'form-control',
-				'id' => 'ConfirmEmailSettingsForm',
-				'action' => 'confirm'
+				'id' => 'ConfirmEmailSettingsForm', array(
+					'url' => array(
+						'controller' => 'users',	
+						'action' => 'confirm'))
 			))); ?>
 		<fieldset>
 			<?php 

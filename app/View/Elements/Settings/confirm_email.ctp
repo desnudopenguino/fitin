@@ -7,7 +7,7 @@
 				'action' => 'confirm',
 				'method' => 'post',
 				'novalidate' => true,
-				'id' => 'ConfirmEmailSettingsForm',
+				'id' => 'confirmEmailSettingsForm',
 				'inputDefaults' => array(
 					'div' => 'form-group',
 					'wrapInput' => false,

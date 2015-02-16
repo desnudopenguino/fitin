@@ -79,3 +79,18 @@ $(document).on('submit',"#confirmEmailSettingsForm", function() {
 	return false;
 });
 
+$('#updateCustomerForm').submit(function() {
+	$.ajax({
+		url: $(this).attr('action'),
+		type: 'POST',
+		async: true,
+		dataType: 'html',
+		data: $(this).serialize(),
+		success: function(result) {
+			$('#updateCustomerModal').modal('hide');
+			$('#settings-subscription').prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>Success!</strong> You have successfully changed your membership subscription.</div>');
+		}	
+	});
+	return false;
+});
+

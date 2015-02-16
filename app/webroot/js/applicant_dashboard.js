@@ -79,7 +79,7 @@ $(document).on('submit',"#confirmEmailSettingsForm", function() {
 	return false;
 });
 
-$('#updateCustomerForm').submit(function() {
+$(document.on('submit','#updateCustomerForm', function() {
 	$.ajax({
 		url: $(this).attr('action'),
 		type: 'POST',

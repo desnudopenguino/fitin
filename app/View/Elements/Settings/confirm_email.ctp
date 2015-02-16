@@ -7,11 +7,11 @@
 				'action' => 'confirm',
 				'method' => 'post',
 				'novalidate' => true,
-				'inputDefaults' => array(
-				'div' => 'form-group',
-				'wrapInput' => false,
-				'class' => 'form-control',
 				'id' => 'ConfirmEmailSettingsForm',
+				'inputDefaults' => array(
+					'div' => 'form-group',
+					'wrapInput' => false,
+					'class' => 'form-control'
 			))); ?>
 		<fieldset>
 			<?php 

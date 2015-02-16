@@ -3,7 +3,7 @@
 	<p>Click the button below to send an email confirmation message to your inbox. You need your email confirmed to access
 		parts of the site</p>
 	<?php
-		echo $this->Form->create('Confirm',
+		echo $this->Form->create('ConfirmEmail',
 			array('method' => 'post',
 				'novalidate' => true,
 				'inputDefaults' => array(

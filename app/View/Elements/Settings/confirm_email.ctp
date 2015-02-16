@@ -16,7 +16,7 @@
 				echo $this->Form->button('Send Email Confirmation', array(
 					'div' => 'form-group',
 					'type' => 'submit',
-					'class' => 'btn btn-lg btn-primary'));
+					'class' => 'btn btn-primary'));
 				?>
 		</fieldset>
 		<?php echo $this->Form->end(); ?>

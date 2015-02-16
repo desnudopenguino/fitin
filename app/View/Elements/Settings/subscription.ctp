@@ -1,4 +1,4 @@
-<div class="row">
+<div id="settings-subscription" class="row">
 		<h2>Subscription Info:</h2>
 		<p>Here will go your subscription data</p>
 		<table class="table">

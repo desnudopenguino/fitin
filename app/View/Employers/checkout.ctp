@@ -15,11 +15,15 @@
 	</div>
 	<div class="col-md-4 col-md-offset-1 well">
 		<h2 class="muted">Nonprofit</h2>
-		<p><span class="label">Best Deal</span></p>
+		<p>Nonprofits can request a donation of services equivalent to a Premium level subscription:</p>
 		<ul>
-			<li>Free Premium access to all Employer listings</li>
-			<li>Requires documentation</li>
+			<li>Everything from the Passive Subscription</li>
+			<li>Search all Applicants on FitIn.Today</li>
+			<li>Custom URL for your listings and profile</li>
+			<li>Use FitIn.Today as your Careers page</li>
+			<li>Gain job visibility from all Applicants</li>
 		</ul>
+		<p>Please send us an email to Info@FitIn.Today and we will process your request.</p>
 		<hr>
 		<h3>Free</h3>
 		<hr>
@@ -29,7 +33,6 @@
 <div class="row">
 	<div class="col-md-4 well">
 		<h2 class="muted">Premium</h2>
-		<p><span class="label">Budget</span></p>
 		<ul>
 			<li>Full, Premium access to all Employer listings</li>
 			<li>Custom URL for your account and job postings</li>

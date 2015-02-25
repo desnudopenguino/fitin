@@ -34,18 +34,10 @@ Class UserCultureAnswer extends AppModel {
 			$culture[$cultureType['CultureQuestionType']['id']]['match'] = 0.0;
 			$culture[$cultureType['CultureQuestionType']['id']]['percent'] = 0.0;
 		}
-debug($employerCulture);
-debug($applicantCulture);
 
 		foreach($employerCulture as $qKey => $question) {
 			$question_type = $question['CultureQuestion']['culture_question_type_id'];
-debug($question_type);
 			$culture[$question_type]['total'] = $culture[$question_type]['total'] + 1;
-//			foreach($culture as $cKey => $cval) {
-//				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
-//					$culture[$cKey]['total'] = $culture[$cKey]['total'] + 1;
-//				}
-//			}
 
 			$count++;
 			if(!empty($applicantCulture[$qKey]) &&
@@ -72,7 +64,6 @@ debug($question_type);
 		$culture['Total']['total'] = $total;
 		$culture['Total']['match'] = $match;
 		$culture['Total']['percent'] = $percent;
-debug($culture);
 		return $culture;
 	}
 

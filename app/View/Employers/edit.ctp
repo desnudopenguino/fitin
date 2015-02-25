@@ -54,7 +54,7 @@
 					'placeholder' => 'Department Title'));  
 				echo $this->Form->input('Employer.department_description', array(
 					'type' => 'textarea',
-					'label' => 'Description',
+					'label' => 'Department Description',
 					'value' => $employer['Employer']['department_description'],
 					'placeholder' => 'Department Description')); ?> 
 		</fieldset>

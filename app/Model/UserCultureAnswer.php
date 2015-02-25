@@ -34,7 +34,6 @@ Class UserCultureAnswer extends AppModel {
 			$culture[$cultureType['CultureQuestionType']['id']]['match'] = 0.0;
 			$culture[$cultureType['CultureQuestionType']['id']]['percent'] = 0.0;
 		}
-debug($culture);
 debug($employerCulture);
 debug($applicantCulture);
 
@@ -51,7 +50,7 @@ debug($question_type);
 			$count++;
 			if(!empty($applicantCulture[$qKey]) &&
 				$question['UserCultureAnswer']['culture_question_answer_id'] == $applicantCulture[$qKey]['UserCultureAnswer']['culture_question_answer_id']) {
-					$culture[$cKey]['match'] = $culture[$cKey]['match'] + 1;
+					$culture[$question_type]['match'] = $culture[$question_type]['match'] + 1;
 			}
 		}
 		

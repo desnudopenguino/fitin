@@ -39,11 +39,12 @@ debug($employerCulture);
 debug($applicantCulture);
 
 		foreach($employerCulture as $qKey => $question) {
-			foreach($culture as $cKey => $cval) {
-				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
-					$culture[$cKey]['total'] = $culture[$cKey]['total'] + 1;
-				}
-			}
+			$culture[$question['CultureQuestion']['culture_question_type_id']]['total'] = $culture[$question['CultureQuestion']['culture_question_type_id']]['total'] +1;
+//			foreach($culture as $cKey => $cval) {
+//				if($cKey == $question['CultureQuestion']['culture_question_type_id']) {
+//					$culture[$cKey]['total'] = $culture[$cKey]['total'] + 1;
+//				}
+//			}
 
 			$count++;
 			if(!empty($applicantCulture[$qKey]) &&

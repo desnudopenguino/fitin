@@ -1,12 +1,14 @@
 <div class="row">
 	<div class="col-md-3 well">
 		<h2 class="muted">Passive</h2>
-		<p><span class="label">Free</span></p>
+		<p>All users start as Passive applicants, and are granted the following tools and freedoms:</p>
 		<ul>
-			<li>Free access</li>
-			<li>Access to paid Employer listings</li>
+			<li>Culture match tool</li>
+			<li>Free, live resume</li>
+			<li>One-click applications</li>
+			<li>Resume-based job search</li>
 		</ul>
-		<p>Text About Passive Applicant</p>
+		<p>This subscription level is for users looking to passively find a place they Fit In.</p>
 		<hr>
 		<h3>Free Forever</h3>
 		<hr>
@@ -14,11 +16,13 @@
 	</div>
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2 class="muted">Monthly Premium</h2>
-		<p><span class="label">Budget</span></p>
+		<p>Applicants actively seeking to find a new position tend to start here:</p>
 		<ul>
-			<li>Full, Premium access to all Employer listings</li>
+			<li>Custom URL for linking</li>
+			<li>Search all Employer jobs</li>
+			<li>Earn referral bonuses And more!</li>
 		</ul>
-		<p>Text about Monthly Premium</p>
+		<p>This subscription level is for anyone looking to find a career they will love. </p>
 		<hr>
 		<h3>$5/Month</h3>
 		<hr>
@@ -43,11 +47,12 @@
 	</div>
 	<div class="col-md-3 col-md-offset-1 well">
 		<h2 class="muted">Annual Premium</h2>
-		<p><span class="label">Best Deal</span></p>
+		<p>Applicants serious about their career search opt for Annual:</p>
 		<ul>
-			<li>Full, Premium access to all Employer listings</li>
+			<li>All perks from the Monthly Premium sub.</li>
+			<li>Save 17% over Monthly.</li>
 		</ul>
-		<p>Text about Annual Premium</p>
+		<p>This subscription level is for anyone serious about finding a career they will love.</p>
 		<hr>
 		<h3>$50/Year</h3>
 		<hr>

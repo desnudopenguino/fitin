@@ -39,7 +39,7 @@ debug($employerCulture);
 debug($applicantCulture);
 
 		foreach($employerCulture as $qKey => $question) {
-			$question_type = $quesiton['CultureQuestion']['culture_question_type_id'];
+			$question_type = $question['CultureQuestion']['culture_question_type_id'];
 debug($question_type);
 			$culture[$question_type]['total'] = $culture[$question_type]['total'] + 1;
 //			foreach($culture as $cKey => $cval) {

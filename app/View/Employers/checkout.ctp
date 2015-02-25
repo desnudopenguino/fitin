@@ -33,10 +33,15 @@
 <div class="row">
 	<div class="col-md-4 well">
 		<h2 class="muted">Premium</h2>
+		<p>As a Premium Employer you'll also gain access to:</p>
 		<ul>
-			<li>Full, Premium access to all Employer listings</li>
-			<li>Custom URL for your account and job postings</li>
+			<li>Everything from the Passive Subscription</li>
+			<li>Search all Applicants on FitIn.Today</li>
+			<li>Custom URL for your listings and profile</li>
+			<li>Use FitIn.Today as your Careers page</li>
+			<li>Gain job visibility from all Applicants</li>
 		</ul>
+		<p>This level is good for companies with a single geographic location and a cohesive company culture.</p>
 		<hr>
 		<h3>$3,000/Year</h3>
 		<hr>
@@ -61,11 +66,12 @@
 	</div>
 	<div class="col-md-4 col-md-offset-1 well">
 		<h2 class="muted">Enterprise</h2>
-		<p><span class="label">Best Deal</span></p>
+		<p>Enterprise Employers gain additional access to:</p>
 		<ul>
-			<li>Full, Premium access to all Employer listings</li>
-			<li>Up to 20 department accounts included</li>
+			<li>Everything from all other Sub levels</li>
+			<li>Enable the creation of 20 Premium ‘department’ accounts</li>
 		</ul>
+		<p>This level is good for enterprise agencies with a multiple geographic locations or disparate corporate culture between departments or locations.</p>
 		<hr>
 		<h3>$10,000/Year</h3>
 		<hr>

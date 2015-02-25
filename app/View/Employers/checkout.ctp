@@ -69,7 +69,7 @@
 		<p>Enterprise Employers gain additional access to:</p>
 		<ul>
 			<li>Everything from all other Sub levels</li>
-			<li>Enable the creation of 20 Premium ‘department’ accounts</li>
+			<li>Enable the creation of 20 Premium 'department' accounts</li>
 		</ul>
 		<p>This level is good for enterprise agencies with a multiple geographic locations or disparate corporate culture between departments or locations.</p>
 		<hr>

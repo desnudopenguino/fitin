@@ -1,11 +1,13 @@
 <div class="row">
 	<div class="col-md-4 well">
 		<h2 class="muted">Passive</h2>
-		<p><span class="label">Free</span></p>
+		<p>As a Passive Employer you'll gain access to the following:</p>
 		<ul>
-			<li>Free access</li>
-			<li>Access to paid Employer listings</li>
+			<li>Culture match app vetting tool</li>
+			<li>Free App Tracking System</li>
+			<li>Search our pool of Premium Applicants</li>
 		</ul>
+		<p>This subscription level is popular among start-ups and small businesses.</p>
 		<hr>
 		<h3>Free Forever</h3>
 		<hr>

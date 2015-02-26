@@ -43,6 +43,7 @@ class CompaniesController extends AppController {
 		$this->set('company', $company);
 		if($this->request->is('post')) {
 			$this->Company->save($this->request->data);
+			$this->redirect(array('controller' => 'employers', 'action' => 'profile'));
 		}
 	}
 

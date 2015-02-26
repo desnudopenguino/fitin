@@ -48,7 +48,7 @@ class ApplicantsController extends AppController {
 			throw new ForbiddenException("Not Allowed");
 		}
 		if($this->Auth->user('status_id') < 4) {
-			throw new ForbiddenException(__('Please confirm your email to access this page'));
+			throw new ForbiddenException(__('Please confirm your email address (Dashboard page, settings) to access this page'));
 		}
 		$user_id = $this->Auth->user('id');
 		if(!$this->Address->checkGPS($user_id)) {
